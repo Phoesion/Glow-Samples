@@ -1,0 +1,243 @@
+{
+  "runtimeTarget": {
+    "name": ".NETCoreApp,Version=v3.0",
+    "signature": ""
+  },
+  "compilationOptions": {},
+  "targets": {
+    ".NETCoreApp,Version=v3.0": {
+      "Phoesion.Glow.ServiceGallery.Sessions.Basic.Service/0.0.94-gbd34219de6": {
+        "dependencies": {
+          "Nerdbank.GitVersioning": "3.0.26",
+          "Phoesion.Glow.SDK.Core": "1.0.0",
+          "Phoesion.Glow.SDK.Firefly.Components": "1.0.0",
+          "Phoesion.Glow.SDK.Firefly.Sessions.API": "1.0.0",
+          "Phoesion.Json": "1.0.1",
+          "Phoesion.MsgPack": "1.1.1"
+        },
+        "runtime": {
+          "Phoesion.Glow.ServiceGallery.Sessions.Basic.Service.dll": {}
+        }
+      },
+      "K4os.Compression.LZ4/1.1.11": {
+        "dependencies": {
+          "System.Memory": "4.5.3"
+        },
+        "runtime": {
+          "lib/netstandard2.0/K4os.Compression.LZ4.dll": {
+            "assemblyVersion": "1.1.11.0",
+            "fileVersion": "1.1.11.0"
+          }
+        }
+      },
+      "Nerdbank.GitVersioning/3.0.26": {},
+      "Phoesion.Json/1.0.1": {
+        "runtime": {
+          "lib/netstandard2.0/Phoesion.Json.dll": {
+            "assemblyVersion": "1.0.1.0",
+            "fileVersion": "1.0.1.0"
+          }
+        }
+      },
+      "Phoesion.MsgPack/1.1.1": {
+        "dependencies": {
+          "System.Reflection.Emit": "4.6.0",
+          "System.Reflection.Emit.Lightweight": "4.6.0"
+        },
+        "runtime": {
+          "lib/netstandard2.0/Phoesion.MsgPack.dll": {
+            "assemblyVersion": "1.1.1.0",
+            "fileVersion": "1.1.1.0"
+          }
+        }
+      },
+      "System.Memory/4.5.3": {},
+      "System.Reflection.Emit/4.6.0": {},
+      "System.Reflection.Emit.Lightweight/4.6.0": {},
+      "System.Threading.Tasks.Extensions/4.5.3": {},
+      "Phoesion.Glow.Fiber/1.0.0": {
+        "dependencies": {
+          "Phoesion.Glow.SDK.Core": "1.0.0",
+          "Phoesion.Json": "1.0.1",
+          "Phoesion.MsgPack": "1.1.1",
+          "Phoesion.SPChannel": "1.0.0",
+          "Phoesion.VFSharp": "1.0.0"
+        },
+        "runtime": {
+          "Phoesion.Glow.Fiber.dll": {}
+        }
+      },
+      "Phoesion.Glow.SDK.Core/1.0.0": {
+        "runtime": {
+          "Phoesion.Glow.SDK.Core.dll": {}
+        }
+      },
+      "Phoesion.Glow.SDK.Firefly/1.0.0": {
+        "dependencies": {
+          "Phoesion.Glow.SDK.Core": "1.0.0",
+          "Phoesion.Glow.SDK.Photons": "1.0.0",
+          "Phoesion.Json": "1.0.1",
+          "Phoesion.MsgPack": "1.1.1"
+        },
+        "runtime": {
+          "Phoesion.Glow.SDK.Firefly.dll": {}
+        }
+      },
+      "Phoesion.Glow.SDK.Firefly.Components/1.0.0": {
+        "dependencies": {
+          "Phoesion.Glow.Fiber": "1.0.0",
+          "Phoesion.Glow.SDK.Core": "1.0.0",
+          "Phoesion.Glow.SDK.Firefly": "1.0.0",
+          "Phoesion.Json": "1.0.1",
+          "Phoesion.MsgPack": "1.1.1"
+        },
+        "runtime": {
+          "Phoesion.Glow.SDK.Firefly.Components.dll": {}
+        }
+      },
+      "Phoesion.Glow.SDK.Firefly.Sessions.API/1.0.0": {
+        "dependencies": {
+          "Phoesion.Glow.SDK.Core": "1.0.0",
+          "Phoesion.Glow.SDK.Firefly": "1.0.0"
+        },
+        "runtime": {
+          "Phoesion.Glow.SDK.Firefly.Sessions.API.dll": {}
+        }
+      },
+      "Phoesion.Glow.SDK.Photons/1.0.0": {
+        "dependencies": {
+          "Phoesion.Glow.SDK.Core": "1.0.0",
+          "Phoesion.Json": "1.0.1",
+          "Phoesion.MsgPack": "1.1.1"
+        },
+        "runtime": {
+          "Phoesion.Glow.SDK.Photons.dll": {}
+        }
+      },
+      "Phoesion.SPChannel/1.0.0": {
+        "dependencies": {
+          "K4os.Compression.LZ4": "1.1.11",
+          "Phoesion.Json": "1.0.1",
+          "Phoesion.MsgPack": "1.1.1",
+          "Phoesion.VFSharp": "1.0.0"
+        },
+        "runtime": {
+          "Phoesion.SPChannel.dll": {}
+        }
+      },
+      "Phoesion.VFSharp/1.0.0": {
+        "dependencies": {
+          "Phoesion.Json": "1.0.1",
+          "Phoesion.MsgPack": "1.1.1",
+          "System.Threading.Tasks.Extensions": "4.5.3"
+        },
+        "runtime": {
+          "Phoesion.VFSharp.dll": {}
+        }
+      }
+    }
+  },
+  "libraries": {
+    "Phoesion.Glow.ServiceGallery.Sessions.Basic.Service/0.0.94-gbd34219de6": {
+      "type": "project",
+      "serviceable": false,
+      "sha512": ""
+    },
+    "K4os.Compression.LZ4/1.1.11": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-RNvJw0UGkedPhCqVBNIogtfQebY+bQt0PN7xDbVe5LWLra0ZEqPfjPSl7iStj3rgDnkqkkTTpm+vCX3hU1qKmA==",
+      "path": "k4os.compression.lz4/1.1.11",
+      "hashPath": "k4os.compression.lz4.1.1.11.nupkg.sha512"
+    },
+    "Nerdbank.GitVersioning/3.0.26": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-xuJaM60E2gvgCawrDFAQCv3EqNypwKUAOTXwwIZBdGelwdU2E979PirxXo65Vm0y52xVZQHhnUh6saXQYc3bpw==",
+      "path": "nerdbank.gitversioning/3.0.26",
+      "hashPath": "nerdbank.gitversioning.3.0.26.nupkg.sha512"
+    },
+    "Phoesion.Json/1.0.1": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-U5whd1XjViWPBMZvfO5FLnRsK4Dw8kC3SnSo9qzj+EDJtnb3/CNV+6qvMIVmSn1WeFDXtEuhLO1ieuBZdvAW5g==",
+      "path": "phoesion.json/1.0.1",
+      "hashPath": "phoesion.json.1.0.1.nupkg.sha512"
+    },
+    "Phoesion.MsgPack/1.1.1": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-H45htIv9KohJ20as6WIBRvMxmGb3oqQYX0T89LfiRMaGDIPtqsb3rNOXCD/jqecJ6AWv4ztLrcIUuAsfI6pHVQ==",
+      "path": "phoesion.msgpack/1.1.1",
+      "hashPath": "phoesion.msgpack.1.1.1.nupkg.sha512"
+    },
+    "System.Memory/4.5.3": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-3oDzvc/zzetpTKWMShs1AADwZjQ/36HnsufHRPcOjyRAAMLDlu2iD33MBI2opxnezcVUtXyqDXXjoFMOU9c7SA==",
+      "path": "system.memory/4.5.3",
+      "hashPath": "system.memory.4.5.3.nupkg.sha512"
+    },
+    "System.Reflection.Emit/4.6.0": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-qAo4jyXtC9i71iElngX7P2r+zLaiHzxKwf66sc3X91tL5Ks6fnQ1vxL04o7ZSm3sYfLExySL7GN8aTpNYpU1qw==",
+      "path": "system.reflection.emit/4.6.0",
+      "hashPath": "system.reflection.emit.4.6.0.nupkg.sha512"
+    },
+    "System.Reflection.Emit.Lightweight/4.6.0": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-j/V5HVvxvBQ7uubYD0PptQW2KGsi1Pc2kZ9yfwLixv3ADdjL/4M78KyC5e+ymW612DY8ZE4PFoZmWpoNmN2mqg==",
+      "path": "system.reflection.emit.lightweight/4.6.0",
+      "hashPath": "system.reflection.emit.lightweight.4.6.0.nupkg.sha512"
+    },
+    "System.Threading.Tasks.Extensions/4.5.3": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-+MvhNtcvIbqmhANyKu91jQnvIRVSTiaOiFNfKWwXGHG48YAb4I/TyH8spsySiPYla7gKal5ZnF3teJqZAximyQ==",
+      "path": "system.threading.tasks.extensions/4.5.3",
+      "hashPath": "system.threading.tasks.extensions.4.5.3.nupkg.sha512"
+    },
+    "Phoesion.Glow.Fiber/1.0.0": {
+      "type": "project",
+      "serviceable": false,
+      "sha512": ""
+    },
+    "Phoesion.Glow.SDK.Core/1.0.0": {
+      "type": "project",
+      "serviceable": false,
+      "sha512": ""
+    },
+    "Phoesion.Glow.SDK.Firefly/1.0.0": {
+      "type": "project",
+      "serviceable": false,
+      "sha512": ""
+    },
+    "Phoesion.Glow.SDK.Firefly.Components/1.0.0": {
+      "type": "project",
+      "serviceable": false,
+      "sha512": ""
+    },
+    "Phoesion.Glow.SDK.Firefly.Sessions.API/1.0.0": {
+      "type": "project",
+      "serviceable": false,
+      "sha512": ""
+    },
+    "Phoesion.Glow.SDK.Photons/1.0.0": {
+      "type": "project",
+      "serviceable": false,
+      "sha512": ""
+    },
+    "Phoesion.SPChannel/1.0.0": {
+      "type": "project",
+      "serviceable": false,
+      "sha512": ""
+    },
+    "Phoesion.VFSharp/1.0.0": {
+      "type": "project",
+      "serviceable": false,
+      "sha512": ""
+    }
+  }
+}

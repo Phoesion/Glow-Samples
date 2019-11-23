@@ -1,0 +1,32 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>netcoreapp3.0</TargetFramework>
+    <NoWarn>1701;1702;1998</NoWarn>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <None Remove="Views\SampleForm.cshtml" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Content Include="Views\SampleForm.cshtml">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\..\API\Foompany.Services.API.DataModels\Foompany.Services.API.DataModels.csproj" />
+    <ProjectReference Include="..\..\API\Foompany.Services.API.SampleService1\Foompany.Services.API.SampleService1.csproj" />
+  </ItemGroup>
+
+
+  
+  <ItemGroup>
+    <PackageReference Include="Phoesion.Glow.SDK.Firefly" Version="0.0.173" />
+    <PackageReference Include="Phoesion.Glow.SDK.Firefly.Sessions.API" Version="0.0.173" />
+    <PackageReference Include="Phoesion.Glow.SDK.Firefly.Sessions.Extensions" Version="0.0.173" />    
+  </ItemGroup>
+  
+  
+</Project>

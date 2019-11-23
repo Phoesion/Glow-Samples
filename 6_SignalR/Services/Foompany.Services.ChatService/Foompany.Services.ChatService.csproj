@@ -1,0 +1,49 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>netcoreapp3.0</TargetFramework>
+    <NoWarn>1701;1702;1998</NoWarn>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <None Remove="Content\html\ChatPage.html" />
+    <None Remove="Content\js\chat.js" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Content Include="Content\html\ChatPage.html">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Content\js\chat.js">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\..\API\Foompany.Services.API.ChatService\Foompany.Services.API.ChatService.csproj" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Folder Include="Content\lib\signalr\" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <None Update="Content\lib\signalr\dist\browser\signalr.js">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Update="Content\lib\signalr\dist\browser\signalr.js.map">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Update="Content\lib\signalr\dist\browser\signalr.min.js">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Update="Content\lib\signalr\dist\browser\signalr.min.js.map">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+  </ItemGroup>
+
+  <ItemGroup>
+    <PackageReference Include="Phoesion.Glow.SDK.Firefly" Version="0.0.173" />
+  </ItemGroup>
+
+</Project>

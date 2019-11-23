@@ -1,0 +1,16 @@
+{
+  "RemoveServiceNamePrefix": "Foompany.Services",
+  "Services": [
+    {
+      "IsEnabled": true,
+      "CSProjectFile": "Foompany.Services.HelloWorld\\Foompany.Services.HelloWorld.csproj",
+      "ServiceHost": "DotNet",
+      "Builds": [
+        {
+          "Build": "AnyCpu",
+          "AssemblyFilePath": "Foompany.Services.HelloWorld\\bin\\%BUILD%\\netcoreapp3.0\\Foompany.Services.HelloWorld.dll"
+        }
+      ]
+    }
+  ]
+}

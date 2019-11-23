@@ -1,0 +1,16 @@
+{
+  "RemoveServiceNamePrefix": "Foompany.Services",
+  "Services": [
+    {
+      "IsEnabled": true,
+      "CSProjectFile": "Services\\Foompany.Services.ChatService\\Foompany.Services.ChatService.csproj",
+      "ServiceHost": "DotNet",
+      "Builds": [
+        {
+          "Build": "AnyCpu",
+          "AssemblyFilePath": "Services\\Foompany.Services.ChatService\\bin\\%BUILD%\\netcoreapp3.0\\Foompany.Services.ChatService.dll"
+        }
+      ]
+    }
+  ]
+}

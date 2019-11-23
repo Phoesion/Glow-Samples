@@ -1,0 +1,16 @@
+{
+  "RemoveServiceNamePrefix": "Foompany.Services",
+  "Services": [
+    {
+      "IsEnabled": true,
+      "CSProjectFile": "Services\\Foompany.Services.SampleService1\\Foompany.Services.SampleService1.csproj",
+      "ServiceHost": "DotNet",
+      "Builds": [
+        {
+          "Build": "AnyCpu",
+          "AssemblyFilePath": "Services\\Foompany.Services.SampleService1\\bin\\%BUILD%\\netcoreapp3.0\\Foompany.Services.SampleService1.dll"
+        }
+      ]
+    }
+  ]
+}
