@@ -23,9 +23,9 @@
 
   
   <ItemGroup>
-    <PackageReference Include="Phoesion.Glow.SDK.Firefly" Version="0.0.173" />
-    <PackageReference Include="Phoesion.Glow.SDK.Firefly.Sessions.API" Version="0.0.173" />
-    <PackageReference Include="Phoesion.Glow.SDK.Firefly.Sessions.Extensions" Version="0.0.173" />    
+    <PackageReference Include="Phoesion.Glow.SDK.Firefly" Version="0.0.174" />
+    <PackageReference Include="Phoesion.Glow.SDK.Firefly.Sessions.API" Version="0.0.174" />
+    <PackageReference Include="Phoesion.Glow.SDK.Firefly.Sessions.Extensions" Version="0.0.174" />    
   </ItemGroup>
   
   

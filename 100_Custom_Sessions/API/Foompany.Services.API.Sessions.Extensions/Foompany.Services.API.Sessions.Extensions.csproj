@@ -6,7 +6,7 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <PackageReference Include="Phoesion.MsgPack" Version="1.1.1" />
+    <PackageReference Include="Phoesion.MsgPack" Version="1.1.2" />
   </ItemGroup>
 
   <ItemGroup>
@@ -14,7 +14,7 @@
   </ItemGroup>
 
   <ItemGroup>
-    <PackageReference Include="Phoesion.Glow.SDK.Firefly" Version="0.0.173" />
+    <PackageReference Include="Phoesion.Glow.SDK.Firefly" Version="0.0.174" />
   </ItemGroup>
 
 </Project>

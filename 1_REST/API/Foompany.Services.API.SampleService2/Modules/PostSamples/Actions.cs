@@ -11,7 +11,7 @@ namespace Foompany.Services.API.SampleService2.Modules.PostSamples
     [API]
     public abstract class Actions
     {
-        [Action(Methods.GET)]
+        [Action(Methods.POST)]
         public static string Action1() => null;
 
         //You can enable multiple http methods

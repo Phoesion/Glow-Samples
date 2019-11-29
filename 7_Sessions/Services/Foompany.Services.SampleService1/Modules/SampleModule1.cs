@@ -35,7 +35,7 @@ namespace Foompany.Services.SampleService1.Modules
         //----------------------------------------------------------------------------------------------------------------------------------------------
 
         [ActionBody]
-        public async Task<PhotonRestResponse> UpdateUsername(IPhotonRestRequest Request, string username)
+        public async Task<PhotonRestResponse> UpdateUsername(IActionContext Context, IPhotonRestRequest Request, string username)
         {
             //get session data
             var session = await Request.GetSession<API.DataModels.UserSession>(this);
@@ -48,7 +48,7 @@ namespace Foompany.Services.SampleService1.Modules
             session.Username = username;
 
             //save session
-            if (!await Request.SaveSession(this, session))
+            if (!await Request.SaveSession(this, Context.RestResponse, session))
                 throw PhotonResponseError.InternalServerError.WithErrorMessage("Could not update session");
 
             //done!
