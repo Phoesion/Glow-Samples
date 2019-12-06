@@ -25,9 +25,9 @@ namespace Foompany.Services.SampleService2
 
         /// <summary> Sample action that exposes both GET and POST methods (as specified in action's api) </summary>
         [ActionBody]
-        public string Action2(IPhotonRestRequest Request)
+        public string Action2()
         {
-            return $"Called Action2 using {Request.Method} in PostSamples module.";
+            return $"Called Action2 using {RestRequest.Method} in PostSamples module.";
         }
 
         //----------------------------------------------------------------------------------------------------------------------------------------------

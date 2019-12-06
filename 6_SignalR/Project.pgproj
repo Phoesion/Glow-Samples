@@ -8,7 +8,7 @@
       "Builds": [
         {
           "Build": "AnyCpu",
-          "AssemblyFilePath": "Services\\Foompany.Services.ChatService\\bin\\%BUILD%\\netcoreapp3.0\\Foompany.Services.ChatService.dll"
+          "AssemblyFilePath": "Services\\Foompany.Services.ChatService\\bin\\%BUILD%\\netcoreapp3.1\\Foompany.Services.ChatService.dll"
         }
       ]
     }

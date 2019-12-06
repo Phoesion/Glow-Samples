@@ -20,14 +20,14 @@ namespace Foompany.Services.SampleService2.Modules
         //----------------------------------------------------------------------------------------------------------------------------------------------
 
         [ActionBody]
-        public async Task<string> StartSimpleWizard(IPhotonRestRequest Request)
+        public async Task<string> StartSimpleWizard()
         {
             var operation = await StartOperation<API.SampleService2.Operations.SimpleWizard.Actions>(null);
             if (operation == null)
                 return "Could not start wizard";
             else
             {
-                var uri = new Uri(Request.Url);
+                var uri = new Uri(RestRequest.Url);
                 return $"Wizard started, URI = {uri.Scheme}://{uri.Host}{(uri.IsDefaultPort ? "" : ":" + uri.Port)}/{operation.GetRestPath()}";
             }
         }
@@ -35,7 +35,7 @@ namespace Foompany.Services.SampleService2.Modules
         //----------------------------------------------------------------------------------------------------------------------------------------------
 
         [ActionBody]
-        public async Task<string> SubmitParameterToWizard(IPhotonRestRequest Request, string id, string key, string value)
+        public async Task<string> SubmitParameterToWizard(string id, string key, string value)
         {
             var req = new API.SampleService2.Operations.SimpleWizard.DataModels.SubmitParameter.Request()
             {
@@ -49,9 +49,9 @@ namespace Foompany.Services.SampleService2.Modules
         //----------------------------------------------------------------------------------------------------------------------------------------------
 
         [ActionBody]
-        public async Task<string> SubmitParameterToWizard2(IPhotonRestRequest Request, API.SampleService2.Operations.SimpleWizard.DataModels.SubmitParameter.Request req)
+        public async Task<string> SubmitParameterToWizard2(API.SampleService2.Operations.SimpleWizard.DataModels.SubmitParameter.Request req)
         {
-            var id = Request.Path[0];
+            var id = RestRequest.Path[0];
             var rsp = await CallOperationAsync(id, API.SampleService2.Operations.SimpleWizard.Actions.SubmitParameter, req);
             return rsp?.IsSuccess == true ? "success" : "fail";
         }

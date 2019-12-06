@@ -1,1 +1,1 @@
-﻿Sample of static text file 
+﻿﻿Sample of static text file

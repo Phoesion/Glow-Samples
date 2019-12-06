@@ -21,7 +21,7 @@ namespace Foompany.Services.API.SampleService1.Modules.SampleModule1
         public static string Action2() => null;
 
         [Action(Methods.GET)]
-        public static string Action3(string value1, bool value3, int value2) => null;
+        public static string Action3(string value1, bool value2, int value3) => null;
 
         [Action(Methods.GET)]
         public static string DoTheThing(string username) => null;

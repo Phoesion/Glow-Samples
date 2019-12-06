@@ -40,7 +40,7 @@ namespace Foompany.Services.SampleService2.Modules
         /// </summary>
         [ActionBody]
         [InteropBody]
-        public models.MyDataModel.Response InteropAction3(IPhotonRequest Request)
+        public models.MyDataModel.Response InteropAction3()
         {
             if (Request is PhotonRestRequest)
                 return new models.MyDataModel.Response() { Result = $"I was called from REST!" };

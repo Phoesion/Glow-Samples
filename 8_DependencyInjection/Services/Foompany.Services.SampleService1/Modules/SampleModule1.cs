@@ -17,10 +17,10 @@ namespace Foompany.Services.SampleService1.Modules
         //----------------------------------------------------------------------------------------------------------------------------------------------
 
         [Action(Methods.GET)]
-        public string Action1(IActionContext Context)
+        public string Action1()
         {
             //add log
-            Logger?.AddLog(Context.Request.SourceIP, Context.RestRequest.Url);
+            Logger?.AddLog(RestRequest.SourceIP, RestRequest.Url);
 
             //return response
             return "Hello world!";

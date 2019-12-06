@@ -67,13 +67,5 @@ namespace Foompany.Services.SampleService2.Modules
         }
 
         //----------------------------------------------------------------------------------------------------------------------------------------------
-
-        [ActionBody]
-        public PhotonRestResponse StreamingSample2()
-        {
-            return PhotonRestResponse.AsStream(new MemoryStream(Encoding.UTF8.GetBytes("This is a stream!")));
-        }
-
-        //----------------------------------------------------------------------------------------------------------------------------------------------
     }
 }

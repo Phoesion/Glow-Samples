@@ -8,7 +8,7 @@ using Phoesion.Glow.SDK.Firefly;
 
 using models = Foompany.Services.API.SampleService1.Modules.SampleModule2.Models;
 
-namespace Foompany.Services.SampleService1
+namespace Foompany.Services.SampleService1.Modules
 {
     [ModuleAPI(typeof(API.SampleService1.Modules.SampleModule2.Actions))]
     public class SampleModule2 : Phoesion.Glow.SDK.Firefly.FireflyModule

@@ -2,13 +2,13 @@
 
   <PropertyGroup>
     <OutputType>Library</OutputType>
-    <TargetFramework>netcoreapp3.0</TargetFramework>
+    <TargetFramework>netcoreapp3.1</TargetFramework>
     <CopyLocalLockFileAssemblies>true</CopyLocalLockFileAssemblies>
   </PropertyGroup>
 
   <ItemGroup>
-    <PackageReference Include="Phoesion.Glow.SDK.Firefly" Version="0.0.174" />
-    <PackageReference Include="Phoesion.Glow.SDK.Firefly.AspHost" Version="0.0.174" />
+    <PackageReference Include="Phoesion.Glow.SDK.Firefly" Version="0.0.175" />
+    <PackageReference Include="Phoesion.Glow.SDK.Firefly.AspHost" Version="0.0.175" />
   </ItemGroup>
 
 </Project>

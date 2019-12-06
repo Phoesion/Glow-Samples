@@ -20,9 +20,9 @@ namespace Foompany.Services.SampleService1.Modules
         //----------------------------------------------------------------------------------------------------------------------------------------------
 
         [ActionBody]
-        public async Task<string> SubmitParameterToWizard(IPhotonRestRequest Request, API.SampleService2.Operations.SimpleWizard.DataModels.SubmitParameter.Request req)
+        public async Task<string> SubmitParameterToWizard(API.SampleService2.Operations.SimpleWizard.DataModels.SubmitParameter.Request req)
         {
-            var id = Request.Path[0];
+            var id = RestRequest.Path[0];
             var rsp = await CallOperationAsync(id, API.SampleService2.Operations.SimpleWizard.Actions.SubmitParameter, req);
             return rsp?.IsSuccess == true ? "success" : "fail";
         }

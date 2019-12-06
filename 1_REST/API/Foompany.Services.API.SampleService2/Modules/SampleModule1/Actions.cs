@@ -26,9 +26,5 @@ namespace Foompany.Services.API.SampleService2.Modules.SampleModule1
 
         [Action(Methods.GET)]
         public static Stream StreamingSample1() => null;
-
-        [Action(Methods.GET)]
-        public static object StreamingSample2() => null;
-
     }
 }

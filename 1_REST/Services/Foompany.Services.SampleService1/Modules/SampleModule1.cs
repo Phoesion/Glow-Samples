@@ -7,7 +7,7 @@ using Phoesion.Glow.SDK;
 using Phoesion.Glow.SDK.Firefly;
 
 
-namespace Foompany.Services.SampleService1
+namespace Foompany.Services.SampleService1.Modules
 {
     /* This is the implementation of the firefly service module.
      * It must implement all static methods specified in the api assembly
@@ -40,11 +40,11 @@ namespace Foompany.Services.SampleService1
          *      - the request's Query string
          */
         [ActionBody]
-        public string Action2(IPhotonRestRequest Request)
+        public string Action2()
         {
-            return $"Called Action2 from ip {Request.SourceIP} " +
-                   $"with Path='{JoinStrings("/", Request.Path)}' " +
-                   $"and QueryString='{string.Join("/", Request.Query.Select(kv => kv.Key + "=" + kv.Value))}'";
+            return $"Called Action2 from ip {RestRequest.SourceIP} " +
+                   $"with Path='{JoinStrings("/", RestRequest.Path)}' " +
+                   $"and QueryString='{string.Join("/", RestRequest.Query.Select(kv => kv.Key + "=" + kv.Value))}'";
         }
 
         //----------------------------------------------------------------------------------------------------------------------------------------------
@@ -57,12 +57,12 @@ namespace Foompany.Services.SampleService1
          * Parameters in querystring can be given in any order and are not case-sensitive
          * 
          * If you need the request context you can add a PhotonRestRequest parameter in the beginning like so
-         *   string Action3(PhotonRestRequest Request, string value1, bool value3, int value2 = 12)
+         *   string Action3(PhotonRestRequest Request, string value1, bool value2, int value3 = 12)
          */
         [ActionBody]
-        public string Action3(string value1, bool value3, int value2 = 12)
+        public string Action3(string value1, bool value2, int value3 = 12)
         {
-            if (value3 == true)
+            if (value3 == 100)
                 throw PhotonResponseError.BadRequest;
             else
                 return $"Called Service 1, Action 3! got value1={value1}, value2={value2} and value3={value3}";

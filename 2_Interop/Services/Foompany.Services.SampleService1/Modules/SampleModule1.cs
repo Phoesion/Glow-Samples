@@ -87,7 +87,7 @@ namespace Foompany.Services.SampleService1.Modules
         ///     2) Set the OnError callback that will be invoked with the exception as parameter
         /// </summary>
         [ActionBody]
-        public async Task<string> Action5(IPhotonRestRequest Request, bool AllowExceptions = true)
+        public async Task<string> Action5(bool AllowExceptions = true)
         {
             try
             {

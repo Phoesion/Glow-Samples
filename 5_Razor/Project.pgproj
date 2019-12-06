@@ -8,7 +8,7 @@
       "Builds": [
         {
           "Build": "AnyCpu",
-          "AssemblyFilePath": "Services\\Foompany.Services.SampleService1\\bin\\%BUILD%\\netcoreapp3.0\\Foompany.Services.SampleService1.dll"
+          "AssemblyFilePath": "Services\\Foompany.Services.SampleService1\\bin\\%BUILD%\\netcoreapp3.1\\Foompany.Services.SampleService1.dll"
         }
       ]
     }

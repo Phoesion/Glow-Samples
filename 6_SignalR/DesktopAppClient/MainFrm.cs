@@ -37,7 +37,7 @@ namespace DesktopAppClient
                 //register client
                 var req = txt_Username.Text;
                 var rsp = await Client.Register(api.ClientConnectionRequest, req);
-                //connected, enable groupboxes
+                //connected, enable group boxes
                 groupBox_ConnectionSetup.Enabled = false;
                 groupBox_Chat.Enabled = true;
             }
