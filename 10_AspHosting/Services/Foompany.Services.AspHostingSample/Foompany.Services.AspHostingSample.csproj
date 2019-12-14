@@ -7,8 +7,18 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <PackageReference Include="Phoesion.Glow.SDK.Firefly" Version="0.0.175" />
-    <PackageReference Include="Phoesion.Glow.SDK.Firefly.AspHost" Version="0.0.175" />
+    <PackageReference Include="Phoesion.Glow.SDK.Firefly" Version="0.0.176" />
+    <PackageReference Include="Phoesion.Glow.SDK.Firefly.AspHost" Version="0.0.176" />
+  </ItemGroup>
+
+  <!-- Copy all content to output/publish folder -->
+  <ItemGroup>
+    <Content Update="wwwroot\SomeImage.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Update="wwwroot\TextFile.txt">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
   </ItemGroup>
 
 </Project>

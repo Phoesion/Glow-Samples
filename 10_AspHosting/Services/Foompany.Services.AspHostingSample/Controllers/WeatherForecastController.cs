@@ -5,17 +5,12 @@ using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Logging;
 
-namespace Foompany.DummyService6.Controllers
+namespace Foompany.AspHostingSample.Controllers
 {
     [ApiController]
-    [Route("AspHostingSample/[controller]")]
+    [Route("[controller]")]
     public class WeatherForecastController : ControllerBase
     {
-        private static readonly string[] Summaries = new[]
-        {
-            "Freezing", "Bracing", "Chilly", "Cool", "Mild", "Warm", "Balmy", "Hot", "Sweltering", "Scorching"
-        };
-
         private readonly ILogger<WeatherForecastController> _logger;
 
         public WeatherForecastController(ILogger<WeatherForecastController> logger)
@@ -26,14 +21,27 @@ namespace Foompany.DummyService6.Controllers
         [HttpGet]
         public IEnumerable<Models.WeatherForecast> Get()
         {
-            var rng = new Random();
-            return Enumerable.Range(1, 5).Select(index => new Models.WeatherForecast
+            return new Models.WeatherForecast[]
             {
-                Date = DateTime.Now.AddDays(index),
-                TemperatureC = rng.Next(-20, 55),
-                Summary = Summaries[rng.Next(Summaries.Length)]
-            })
-            .ToArray();
+                new Models.WeatherForecast()
+                {
+                    Date = new DateTime(2020, 1, 20),
+                    TemperatureC = 25,
+                    Summary = "Warm",
+                },
+                new Models.WeatherForecast()
+                {
+                    Date = new DateTime(2020, 1, 21),
+                    TemperatureC = 20,
+                    Summary =  "Mild",
+                },
+                new Models.WeatherForecast()
+                {
+                    Date = new DateTime(2020, 1, 22),
+                    TemperatureC = 5,
+                    Summary =  "Chilly",
+                },
+            };
         }
     }
 }

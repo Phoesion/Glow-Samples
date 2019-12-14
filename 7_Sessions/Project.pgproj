@@ -14,11 +14,12 @@
     },
     {
       "IsEnabled": true,
+      "CSProjectFile": "Services\\Foompany.Services.Sessions\\Foompany.Services.Sessions.csproj",
       "ServiceHost": "DotNet",
       "Builds": [
         {
           "Build": "AnyCpu",
-          "AssemblyFilePath": "_ServiceGallery\\Sessions\\Phoesion.Glow.ServiceGallery.Sessions.Basic.Service.dll"
+          "AssemblyFilePath": "Services\\Foompany.Services.Sessions\\bin\\%BUILD%\\netcoreapp3.1\\Foompany.Services.Sessions.dll"
         }
       ]
     }

@@ -1,0 +1,21 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>netcoreapp3.1</TargetFramework>
+    <NoWarn>1701;1702;1998</NoWarn>
+  </PropertyGroup>
+
+  <!-- Copy all content to output/publish folder -->
+  <ItemGroup>
+    <Content Include="wwwroot\**">
+      <ExcludeFromSingleFile>true</ExcludeFromSingleFile>
+      <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+  </ItemGroup>
+
+  <ItemGroup>
+    <PackageReference Include="Phoesion.Glow.SDK.Firefly" Version="0.0.176" />
+  </ItemGroup>
+
+</Project>

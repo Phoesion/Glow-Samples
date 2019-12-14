@@ -11,19 +11,21 @@ namespace Foompany.Services.API.Sessions
     {
         public static readonly string CookieName = "SessionId".ToLowerInvariant();
 
-        public static async Task<T> GetSession<T>(this IHasCookies photon, FireflyModule module) where T : class, new()
+        public static async Task<T> GetSession<T>(this IActionContext ActionContext) where T : class, new()
         {
             //get photon contexts
-            if (photon == null || photon.Cookies == null)
+            if (ActionContext == null || ActionContext.RestRequest.Cookies == null || ActionContext.Module == null)
                 return null;
 
             //get session context
             Cookie sessionIdCookie;
-            if (!photon.GetCookie(CookieName, out sessionIdCookie) || string.IsNullOrWhiteSpace(sessionIdCookie.Value))
+            if (!ActionContext.RestRequest.GetCookie(CookieName, out sessionIdCookie))
+                return null;
+            if (string.IsNullOrWhiteSpace(sessionIdCookie?.Value))
                 return null;
 
             //request session data
-            var buffer = await module.CallAsync(API.Sessions.Modules.SessionManager.Actions.GetSession, sessionIdCookie.Value);
+            var buffer = await ActionContext.Module.CallAsync(API.Sessions.Modules.SessionManager.Actions.GetSession, sessionIdCookie.Value);
             if (buffer == null)
                 return null;
 
@@ -32,22 +34,22 @@ namespace Foompany.Services.API.Sessions
             catch { return null; }
         }
 
-        public static async Task<bool> SaveSession<T>(this IHasCookies photon, FireflyModule module, T Session) where T : class, new()
+        public static async Task<bool> SaveSession<T>(this IActionContext ActionContext, T Session) where T : class, new()
         {
             //get photon contexts
-            if (photon == null || photon.Cookies == null)
+            if (ActionContext == null || ActionContext.RestRequest?.Cookies == null || ActionContext.RestResponse == null || ActionContext.Module == null)
                 return false;
 
             //get session context
             Cookie sessionIdCookie;
-            if (!photon.GetCookie(CookieName, out sessionIdCookie) || string.IsNullOrWhiteSpace(sessionIdCookie.Value))
+            if (!ActionContext.RestRequest.GetCookie(CookieName, out sessionIdCookie) || string.IsNullOrWhiteSpace(sessionIdCookie?.Value))
             {
                 //create new cookie if null
                 if (sessionIdCookie == null) sessionIdCookie = new Cookie();
                 //create new session id
                 sessionIdCookie.Value = Guid.NewGuid().ToString();
                 //set cookie
-                photon.SetCookie(CookieName, sessionIdCookie);
+                ActionContext.RestResponse.SetCookie(CookieName, sessionIdCookie);
             }
 
             //Serialize
@@ -56,7 +58,7 @@ namespace Foompany.Services.API.Sessions
             catch { return false; }
 
             //update session data
-            var res = await module.CallAsync(API.Sessions.Modules.SessionManager.Actions.SaveSession, sessionIdCookie.Value, buffer);
+            var res = await ActionContext.Module.CallAsync(API.Sessions.Modules.SessionManager.Actions.SaveSession, sessionIdCookie.Value, buffer);
 
             //return result
             return res != null && res.IsSuccess;

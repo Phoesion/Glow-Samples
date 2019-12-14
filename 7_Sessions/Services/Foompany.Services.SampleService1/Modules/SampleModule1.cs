@@ -14,11 +14,16 @@ namespace Foompany.Services.SampleService1.Modules
     {
         //----------------------------------------------------------------------------------------------------------------------------------------------
 
+        [Action(Methods.GET)]
+        public string Default() => "SampleModule1 up and running";
+
+        //----------------------------------------------------------------------------------------------------------------------------------------------
+
         [ActionBody]
         public async Task<PhotonRestResponse> SampleForm()
         {
             //get session data
-            var session = await RestRequest.GetSession<API.DataModels.UserSession>(this);
+            var session = await Context.GetSession<API.DataModels.UserSession>();
 
             //get username
             string username = session?.Username;
@@ -29,16 +34,16 @@ namespace Foompany.Services.SampleService1.Modules
                         $"Hello {username}";
 
             //render SamplePage.cshtml using dynamic model
-            return await View("SampleForm", new { Message = msg });
+            return await View("SamplePage", new { Message = msg });
         }
 
         //----------------------------------------------------------------------------------------------------------------------------------------------
 
         [ActionBody]
-        public async Task<PhotonRestResponse> UpdateUsername(string username)
+        public async Task<HtmlString> UpdateUsername(string username)
         {
             //get session data
-            var session = await RestRequest.GetSession<API.DataModels.UserSession>(this);
+            var session = await Context.GetSession<API.DataModels.UserSession>();
 
             //if no session data already exists create new session
             if (session == null)
@@ -48,11 +53,11 @@ namespace Foompany.Services.SampleService1.Modules
             session.Username = username;
 
             //save session
-            if (!await RestResponse.SaveSession(this, Context.RestResponse, session))
+            if (!await Context.SaveSession(session))
                 throw PhotonResponseError.InternalServerError.WithErrorMessage("Could not update session");
 
             //done!
-            return PhotonRestResponse.AsHtml("Username updated! <a href=\"SampleForm\">View SampleForm</a>");
+            return "Username updated! <a href=\"SampleForm\">View SampleForm</a>";
         }
 
         //----------------------------------------------------------------------------------------------------------------------------------------------

@@ -1,0 +1,17 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>netcoreapp3.1</TargetFramework>
+    <NoWarn>1701;1702;1998</NoWarn>
+  </PropertyGroup>
+
+  <ItemGroup>
+  </ItemGroup>
+
+  <ItemGroup>
+    <PackageReference Include="Phoesion.Glow.SDK.Firefly" Version="0.0.176" />
+    <PackageReference Include="Phoesion.Glow.SDK.Firefly.Components" Version="0.0.176" />
+    <PackageReference Include="Phoesion.Glow.SDK.Firefly.Sessions.API" Version="0.0.176" />
+  </ItemGroup>
+
+</Project>

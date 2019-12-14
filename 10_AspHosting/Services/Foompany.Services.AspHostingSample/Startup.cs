@@ -11,7 +11,7 @@ using Microsoft.Extensions.Hosting;
 using Microsoft.Extensions.Logging;
 using Phoesion.Glow.SDK.Firefly.AspHost;
 
-namespace Foompany.DummyService6
+namespace Foompany.AspHostingSample
 {
     public class Startup
     {
@@ -35,6 +35,8 @@ namespace Foompany.DummyService6
             {
                 app.UseDeveloperExceptionPage();
             }
+
+            //app.UseStaticFiles(); //we do not need this, all files in wwwroot are treated as Static Content by default
 
             app.UseRouting();
 

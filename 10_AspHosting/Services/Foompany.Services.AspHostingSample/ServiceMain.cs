@@ -2,7 +2,7 @@ using System;
 using Microsoft.AspNetCore.Hosting;
 using Phoesion.Glow.SDK.Firefly.AspHost;
 
-namespace Foompany.DummyService6
+namespace Foompany.AspHostingSample
 {
     public class ServiceMain : AspFireflyService
     {

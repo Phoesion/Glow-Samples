@@ -6,11 +6,11 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <None Remove="Views\SampleForm.cshtml" />
+    <None Remove="Views\SamplePage.cshtml" />
   </ItemGroup>
 
   <ItemGroup>
-    <Content Include="Views\SampleForm.cshtml">
+    <Content Include="Views\SamplePage.cshtml">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
   </ItemGroup>
@@ -20,13 +20,10 @@
     <ProjectReference Include="..\..\API\Foompany.Services.API.SampleService1\Foompany.Services.API.SampleService1.csproj" />
   </ItemGroup>
 
-
-  
   <ItemGroup>
-    <PackageReference Include="Phoesion.Glow.SDK.Firefly" Version="0.0.175" />
-    <PackageReference Include="Phoesion.Glow.SDK.Firefly.Sessions.API" Version="0.0.175" />
-    <PackageReference Include="Phoesion.Glow.SDK.Firefly.Sessions.Extensions" Version="0.0.175" />    
+    <PackageReference Include="Phoesion.Glow.SDK.Firefly" Version="0.0.176" />
+    <PackageReference Include="Phoesion.Glow.SDK.Firefly.Sessions.API" Version="0.0.176" />
+    <PackageReference Include="Phoesion.Glow.SDK.Firefly.Sessions.Extensions" Version="0.0.176" />    
   </ItemGroup>
-  
-  
+
 </Project>

@@ -1,6 +1,6 @@
 using System;
 
-namespace Foompany.DummyService6.Models
+namespace Foompany.AspHostingSample.Models
 {
     public class WeatherForecast
     {
