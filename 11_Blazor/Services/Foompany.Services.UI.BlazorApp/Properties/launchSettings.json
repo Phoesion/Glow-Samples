@@ -15,7 +15,7 @@
         "ASPNETCORE_ENVIRONMENT": "Development"
       }
     },
-    "Foompany.Services.Default.BlazorApp": {
+    "Foompany.Services.UI.BlazorApp": {
       "commandName": "Project",
       "launchBrowser": true,
       "environmentVariables": {

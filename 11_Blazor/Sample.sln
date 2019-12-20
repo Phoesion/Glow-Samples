@@ -7,7 +7,7 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "API", "API", "{9B590C81-8A8
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Services", "Services", "{225BDB28-05F3-4CE9-B2DB-23AECC5DB2B6}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Foompany.Services.Default", "Services\Foompany.Services.Default\Foompany.Services.Default.csproj", "{5A2C3A80-0E31-4A22-A046-A0D5584E9C13}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Foompany.Services.UI", "Services\Foompany.Services.UI\Foompany.Services.UI.csproj", "{5A2C3A80-0E31-4A22-A046-A0D5584E9C13}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution Items", "{F14EBF15-DEF8-443C-8579-012E4FE6F1CA}"
 	ProjectSection(SolutionItems) = preProject

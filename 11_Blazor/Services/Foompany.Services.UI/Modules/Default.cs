@@ -12,9 +12,6 @@ namespace Foompany.Services.Default.Modules
     public class DefaultModule : Phoesion.Glow.SDK.Firefly.FireflyModule
     {
         [Action(Methods.GET)]
-        public string Default()
-        {
-            return "Blazor sample service up and running!";
-        }
+        public PhotonRestResponse Default() => PhotonRestResponse.AsRedirect("index.html", HttpRedirectType.Permanent);
     }
 }

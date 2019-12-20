@@ -3,12 +3,12 @@
   "Services": [
     {
       "IsEnabled": true,
-      "CSProjectFile": "Services\\Foompany.Services.Default\\Foompany.Services.Default.csproj",
+      "CSProjectFile": "Services\\Foompany.Services.UI\\Foompany.Services.UI.csproj",
       "ServiceHost": "DotNet",
       "Builds": [
         {
           "Build": "AnyCpu",
-          "AssemblyFilePath": "Services\\Foompany.Services.Default\\bin\\%BUILD%\\netcoreapp3.1\\Foompany.Services.Default.dll"
+          "AssemblyFilePath": "Services\\Foompany.Services.UI\\bin\\%BUILD%\\netcoreapp3.1\\Foompany.Services.UI.dll"
         }
       ]
     }

@@ -3,8 +3,6 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 16
 VisualStudioVersion = 16.0.29306.81
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "API", "API", "{9B590C81-8A88-4E57-AFB8-28F0596BE085}"
-EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Services", "Services", "{225BDB28-05F3-4CE9-B2DB-23AECC5DB2B6}"
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Foompany.Services.AspHostingSample", "Services\Foompany.Services.AspHostingSample\Foompany.Services.AspHostingSample.csproj", "{5A2C3A80-0E31-4A22-A046-A0D5584E9C13}"

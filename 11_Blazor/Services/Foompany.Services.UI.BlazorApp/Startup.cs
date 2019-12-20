@@ -1,7 +1,7 @@
 using Microsoft.AspNetCore.Components.Builder;
 using Microsoft.Extensions.DependencyInjection;
 
-namespace Foompany.Services.Default.BlazorApp
+namespace Foompany.Services.UI.BlazorApp
 {
     public class Startup
     {

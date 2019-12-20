@@ -1,6 +1,6 @@
 ﻿using Microsoft.AspNetCore.Blazor.Hosting;
 
-namespace Foompany.Services.Default.BlazorApp
+namespace Foompany.Services.UI.BlazorApp
 {
     public class Program
     {

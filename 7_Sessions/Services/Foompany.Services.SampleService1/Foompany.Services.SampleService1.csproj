@@ -21,9 +21,9 @@
   </ItemGroup>
 
   <ItemGroup>
-    <PackageReference Include="Phoesion.Glow.SDK.Firefly" Version="0.0.177" />
-    <PackageReference Include="Phoesion.Glow.SDK.Firefly.Sessions.API" Version="0.0.177" />
-    <PackageReference Include="Phoesion.Glow.SDK.Firefly.Sessions.Extensions" Version="0.0.177" />    
+    <PackageReference Include="Phoesion.Glow.SDK.Firefly" Version="0.0.179" />
+    <PackageReference Include="Phoesion.Glow.SDK.Firefly.Sessions.API" Version="0.0.179" />
+    <PackageReference Include="Phoesion.Glow.SDK.Firefly.Sessions.Extensions" Version="0.0.179" />    
   </ItemGroup>
 
 </Project>

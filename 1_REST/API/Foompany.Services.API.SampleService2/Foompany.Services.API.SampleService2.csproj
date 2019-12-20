@@ -6,7 +6,7 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\..\..\..\SDK\Phoesion.Glow.SDK.Core\Phoesion.Glow.SDK.Core.csproj" />
+    <PackageReference Include="Phoesion.Glow.SDK.Core" Version="0.0.179" />
   </ItemGroup>
 
 </Project>

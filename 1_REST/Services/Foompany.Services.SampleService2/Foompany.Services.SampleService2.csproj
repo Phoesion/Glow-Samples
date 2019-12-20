@@ -6,23 +6,22 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <Content Include="Content\**">
+      <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="OtherFiles\**">
+      <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+  </ItemGroup>
+
+  <ItemGroup>
     <ProjectReference Include="..\..\API\Foompany.Services.API.SampleService2\Foompany.Services.API.SampleService2.csproj" />
   </ItemGroup>
 
   <ItemGroup>
-    <None Update="Content\SomeImage.png">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </None>
-    <None Update="Content\TextFile.txt">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </None>
-    <None Update="OtherFiles\SomeFile.txt">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </None>
-  </ItemGroup>
-
-  <ItemGroup>
-    <PackageReference Include="Phoesion.Glow.SDK.Firefly" Version="0.0.177" />
+    <PackageReference Include="Phoesion.Glow.SDK.Firefly" Version="0.0.179" />
   </ItemGroup>
 
 </Project>

@@ -6,31 +6,8 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <None Remove="Views\IncludeSamplePage.cshtml" />
-    <None Remove="Views\PartialPageSample\Header.cshtml" />
-    <None Remove="Views\OtherPages\Page1.cshtml" />
-    <None Remove="Views\SamplePage1.cshtml" />
-    <None Remove="Views\SamplePage2.cshtml" />
-    <None Remove="Views\SamplePage3.cshtml" />
-  </ItemGroup>
-
-  <ItemGroup>
-    <Content Include="Views\PartialPageSample\Header.cshtml">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </Content>
-    <Content Include="Views\OtherPages\Page1.cshtml">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </Content>
-    <Content Include="Views\PartialPageSample\SamplePage.cshtml">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </Content>
-    <Content Include="Views\SamplePage3.cshtml">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </Content>
-    <Content Include="Views\SamplePage2.cshtml">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </Content>
-    <Content Include="Views\SamplePage1.cshtml">
+    <Content Include="Views\**">
+      <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
   </ItemGroup>
@@ -40,7 +17,7 @@
   </ItemGroup>
 
   <ItemGroup>
-    <PackageReference Include="Phoesion.Glow.SDK.Firefly" Version="0.0.177" />
+    <PackageReference Include="Phoesion.Glow.SDK.Firefly" Version="0.0.179" />
   </ItemGroup>
 
 </Project>
