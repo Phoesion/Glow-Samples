@@ -58,7 +58,7 @@ namespace Foompany.Services.SampleService2.Modules
         [InteropBody]
         public string InteropAction4()
         {
-            return $"Hi from {Service.EntityID} ( InstanceId : {InstanceId} )";  //Return the running entity's id, with some random runtime salt value
+            return $"Hi from {Service.FireflyInfo.EntityID} ( InstanceId : {InstanceId} )";  //Return the running entity's id, with some random runtime salt value
         }
 
         //----------------------------------------------------------------------------------------------------------------------------------------------

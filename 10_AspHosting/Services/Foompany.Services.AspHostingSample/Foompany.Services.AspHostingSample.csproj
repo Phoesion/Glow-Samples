@@ -7,8 +7,8 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <PackageReference Include="Phoesion.Glow.SDK.Firefly" Version="0.0.179" />
-    <PackageReference Include="Phoesion.Glow.SDK.Firefly.AspHost" Version="0.0.179" />
+    <PackageReference Include="Phoesion.Glow.SDK.Firefly" Version="0.0.180" />
+    <PackageReference Include="Phoesion.Glow.SDK.Firefly.AspHost" Version="0.0.180" />
   </ItemGroup>
 
   <!-- Copy all content to output/publish folder -->
