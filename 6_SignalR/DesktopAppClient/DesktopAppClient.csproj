@@ -11,7 +11,7 @@
   </ItemGroup>
 
   <ItemGroup>
-    <PackageReference Include="Phoesion.Glow.SDK.Client.SignalR" Version="0.0.180" />
+    <PackageReference Include="Phoesion.Glow.SDK.Client.SignalR" Version="0.0.181" />
   </ItemGroup>
 
 </Project>
