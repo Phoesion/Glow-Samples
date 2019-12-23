@@ -10,7 +10,7 @@
   </ItemGroup>
 
   <ItemGroup>
-    <PackageReference Include="Phoesion.Glow.SDK.Core" Version="0.0.181" />
+    <PackageReference Include="Phoesion.Glow.SDK.Core" Version="0.0.188" />
   </ItemGroup>
 
 </Project>
