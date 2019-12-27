@@ -9,8 +9,11 @@
     <ProjectReference Include="..\..\API\Foompany.Services.API.Logging\Foompany.Services.API.Logging.csproj" />
   </ItemGroup>
 
+  
+
+  
   <ItemGroup>
-    <PackageReference Include="Phoesion.Glow.SDK.Core" Version="0.0.190" />
+    <PackageReference Include="Phoesion.Glow.SDK.Core" Version="*" />
   </ItemGroup>
   
 </Project>

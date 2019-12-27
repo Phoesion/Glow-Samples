@@ -8,10 +8,14 @@
   <ItemGroup>
   </ItemGroup>
 
+  
+
+  
   <ItemGroup>
-    <PackageReference Include="Phoesion.Glow.SDK.Firefly" Version="0.0.190" />
-    <PackageReference Include="Phoesion.Glow.SDK.Firefly.Components" Version="0.0.190" />
-    <PackageReference Include="Phoesion.Glow.SDK.Firefly.Sessions.API" Version="0.0.190" />
+    <PackageReference Include="Phoesion.Glow.SDK.Firefly" Version="*" />
+    <PackageReference Include="Phoesion.Glow.SDK.Firefly.Components" Version="*" />
+    <PackageReference Include="Phoesion.Glow.SDK.Firefly.Sessions.API" Version="*" />
   </ItemGroup>
+  
 
 </Project>

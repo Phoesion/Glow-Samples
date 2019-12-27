@@ -5,8 +5,12 @@
     <NoWarn>1701;1702;1998</NoWarn>
   </PropertyGroup>
 
+  
+
+  
   <ItemGroup>
-    <PackageReference Include="Phoesion.Glow.SDK.Core" Version="0.0.190" />
+    <PackageReference Include="Phoesion.Glow.SDK.Core" Version="*" />
   </ItemGroup>
+  
 
 </Project>
