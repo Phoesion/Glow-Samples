@@ -6,19 +6,15 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <PackageReference Include="Phoesion.MsgPack" Version="1.1.3" />
+    <PackageReference Include="Phoesion.MsgPack" Version="1.2.0" />
   </ItemGroup>
 
   <ItemGroup>
     <ProjectReference Include="..\Foompany.Services.API.Sessions\Foompany.Services.API.Sessions.csproj" />
   </ItemGroup>
 
-  
-
-  
   <ItemGroup>
     <PackageReference Include="Phoesion.Glow.SDK.Firefly" Version="*" />
   </ItemGroup>
-  
 
 </Project>

@@ -30,7 +30,7 @@ namespace Foompany.Services.API.Sessions
                 return null;
 
             //deserialize
-            try { return Phoesion.MsgPack.MessagePackSerializer.Deserialize<T>(buffer, Phoesion.MsgPack.Resolvers.ContractlessStandardResolver.Instance); }
+            try { return Phoesion.MsgPack.MessagePackSerializer.Deserialize<T>(buffer, options: Phoesion.MsgPack.MessagePackSerializerOptions.Standard.WithResolver(Phoesion.MsgPack.Resolvers.ContractlessStandardResolver.Instance)); }
             catch { return null; }
         }
 
@@ -54,7 +54,7 @@ namespace Foompany.Services.API.Sessions
 
             //Serialize
             byte[] buffer;
-            try { buffer = Session == null ? null : Phoesion.MsgPack.MessagePackSerializer.Serialize<T>(Session, Phoesion.MsgPack.Resolvers.ContractlessStandardResolver.Instance); }
+            try { buffer = Session == null ? null : Phoesion.MsgPack.MessagePackSerializer.Serialize<T>(Session, options: Phoesion.MsgPack.MessagePackSerializerOptions.Standard.WithResolver(Phoesion.MsgPack.Resolvers.ContractlessStandardResolver.Instance)); }
             catch { return false; }
 
             //update session data
