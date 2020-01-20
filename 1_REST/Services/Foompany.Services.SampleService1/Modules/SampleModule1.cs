@@ -55,9 +55,6 @@ namespace Foompany.Services.SampleService1.Modules
          *    eg: http://localhost:16000/SampleService1/SampleModule1/Action3?value1=testing&value3=false
          * Parameters that are not specified in the request will get the default(..) value, or if it's optional it will get the default value you specified
          * Parameters in querystring can be given in any order and are not case-sensitive
-         * 
-         * If you need the request context you can add a PhotonRestRequest parameter in the beginning like so
-         *   string Action3(PhotonRestRequest Request, string value1, bool value2, int value3 = 12)
          */
         [ActionBody]
         public string Action3(string value1, bool value2, int value3 = 12)
