@@ -14,11 +14,11 @@ namespace Foompany.Services.API.Sessions
         public static async Task<T> GetSession<T>(this IActionContext ActionContext) where T : class, new()
         {
             //get photon contexts
-            if (ActionContext == null || ActionContext.RestRequest.Cookies == null || ActionContext.Module == null)
+            if (ActionContext == null || ActionContext.Module == null)
                 return null;
 
             //get session context
-            Cookie sessionIdCookie;
+            ICookie sessionIdCookie;
             if (!ActionContext.RestRequest.GetCookie(CookieName, out sessionIdCookie))
                 return null;
             if (string.IsNullOrWhiteSpace(sessionIdCookie?.Value))
@@ -37,11 +37,11 @@ namespace Foompany.Services.API.Sessions
         public static async Task<bool> SaveSession<T>(this IActionContext ActionContext, T Session) where T : class, new()
         {
             //get photon contexts
-            if (ActionContext == null || ActionContext.RestRequest?.Cookies == null || ActionContext.RestResponse == null || ActionContext.Module == null)
+            if (ActionContext == null || ActionContext.RestResponse == null || ActionContext.Module == null)
                 return false;
 
             //get session context
-            Cookie sessionIdCookie;
+            ICookie sessionIdCookie;
             if (!ActionContext.RestRequest.GetCookie(CookieName, out sessionIdCookie) || string.IsNullOrWhiteSpace(sessionIdCookie?.Value))
             {
                 //create new cookie if null
