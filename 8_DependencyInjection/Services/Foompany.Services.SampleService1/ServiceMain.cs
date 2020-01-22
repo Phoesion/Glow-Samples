@@ -5,9 +5,9 @@ using System.Threading.Tasks;
 using Microsoft.Extensions.DependencyInjection;
 using Phoesion.Glow.SDK.Firefly;
 
-using Foompany.Logger;
-using Foompany.Logger.LogFormatters;
-using Foompany.Logger.LogStores;
+using Foompany.IncidentReport;
+using Foompany.IncidentReport.ReportFormatters;
+using Foompany.IncidentReport.ReportStores;
 
 
 namespace Foompany.Services.SampleService1
@@ -18,9 +18,9 @@ namespace Foompany.Services.SampleService1
         {
             await base.ConfigureServices(services);
 
-            //Add logger service
+            //Add incident report service
             //services.AddLogger<SimpleFormatter, ConsoleOutput>();   //simple formatter that outputs to console
-            services.AddLogger<JsonLogFormatter, ConsoleOutput>();   //format as json and output to console
+            services.AddIncidentReporter<JsonFormatter, ConsoleOutput>();   //format as json and output to console
         }
 
     }

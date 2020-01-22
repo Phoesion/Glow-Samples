@@ -1,12 +1,8 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+using System.Threading;
 using Phoesion.Glow.SDK;
 using Phoesion.Glow.SDK.Firefly;
-using Foompany.Services.API.Logging;
-using Foompany.Middleware.Logging;
+using Foompany.Middleware.Profiler;
 
 namespace Foompany.Services.SampleService1.Modules
 {
@@ -22,10 +18,11 @@ namespace Foompany.Services.SampleService1.Modules
 
         //----------------------------------------------------------------------------------------------------------------------------------------------
 
-        [Log]
+        [Profile]
         [Action(Methods.GET)]
         public string Action1()
         {
+            Thread.Sleep(new Random().Next(0, 1000));  //some random delay to emulate business logic work (eg, database access etc)
             return "Hello world!";
         }
 

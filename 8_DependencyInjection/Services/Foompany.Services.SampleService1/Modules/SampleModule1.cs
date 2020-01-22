@@ -5,14 +5,14 @@ using System.Text;
 using System.Threading.Tasks;
 using Phoesion.Glow.SDK;
 using Phoesion.Glow.SDK.Firefly;
-using Foompany.Logger;
+using Foompany.IncidentReport;
 
 namespace Foompany.Services.SampleService1.Modules
 {
     public class SampleModule1 : FireflyModule
     {
-        [AutoWire]  // <-- Autowire attribute is used to indicate that this member must be initialized using dependency injection service provider
-        ILogger Logger;
+        [Autowire]  // <-- Autowire attribute is used to indicate that this member must be initialized using dependency injection service provider
+        IIncidentReporter IncidentReporter;
 
         //----------------------------------------------------------------------------------------------------------------------------------------------
 
@@ -24,8 +24,8 @@ namespace Foompany.Services.SampleService1.Modules
         [Action(Methods.GET)]
         public string Action1()
         {
-            //add log
-            Logger?.AddLog(RestRequest.SourceIP, RestRequest.Url);
+            //add report
+            IncidentReporter?.AddReport(RestRequest.SourceIP, RestRequest.Url, "Called Action1!");
 
             //return response
             return "Hello world!";

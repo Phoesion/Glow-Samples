@@ -5,28 +5,28 @@ using System.Text;
 using System.Threading.Tasks;
 using Phoesion.Glow.SDK;
 using Phoesion.Glow.SDK.Firefly;
-using Foompany.Logger;
+using Foompany.IncidentReport;
 
 namespace Foompany.Services.SampleService1.Modules
 {
     public class AllMethods : FireflyModule
     {
-        [AutoWire]
-        public ILogger PublicMember;
+        [Autowire]
+        public IIncidentReporter PublicMember;
 
-        [AutoWire]
-        ILogger PrivateMember; // autowire to a private member
+        [Autowire]
+        IIncidentReporter PrivateMember;  // autowire to a private member
 
-        [AutoWire]
-        readonly ILogger ReadonlyMember;   // autowire to a readonly member
+        [Autowire]
+        readonly IIncidentReporter ReadonlyMember;   // autowire to a readonly member
 
-        [AutoWire]
-        static ILogger StaticMember;    //STATIC member will be set if found null. Can be used for singletons
+        [Autowire]
+        static IIncidentReporter StaticMember;    //STATIC member will be set if found null. Can be used for singletons
 
-        public readonly ILogger FromConstructor;    //will be set from constructor
+        public readonly IIncidentReporter FromConstructor;    //will be set from constructor
 
         // Constructor with dependency injection and parameter
-        public AllMethods(ILogger main)
+        public AllMethods(IIncidentReporter main)
         {
             this.FromConstructor = main;
         }

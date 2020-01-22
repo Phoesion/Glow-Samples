@@ -6,14 +6,11 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\..\API\Foompany.Services.API.Logging\Foompany.Services.API.Logging.csproj" />
+    <PackageReference Include="System.Threading.Tasks.Extensions" Version="4.5.3" />
   </ItemGroup>
 
-  
-
-  
   <ItemGroup>
-    <PackageReference Include="Phoesion.Glow.SDK.Core" Version="*" />
+    <PackageReference Include="Phoesion.Glow.SDK.Firefly" Version="*" />
   </ItemGroup>
   
 </Project>

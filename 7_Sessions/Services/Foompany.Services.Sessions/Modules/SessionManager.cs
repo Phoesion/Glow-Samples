@@ -13,7 +13,7 @@ namespace Foompany.Services.Sessions.Modules
     public class SessionManager : Phoesion.Glow.SDK.Firefly.FireflyModule
     {
         //Keep sessions in-memory using a distributed dictionary for replication (in real world this could be stored in a database)
-        [AutoWire]
+        [Autowire]
         static DistributedDictionary<string, byte[]> SessionStore;
 
         [InteropBody]

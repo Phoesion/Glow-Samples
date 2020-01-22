@@ -1,0 +1,14 @@
+﻿using System;
+using System.Collections.Generic;
+using System.Text;
+using System.Threading.Tasks;
+
+namespace Foompany.IncidentReport
+{
+    public interface IReportStore
+    {
+        ValueTask SaveReport(string entry);
+
+        ValueTask<string> ReadAllReports();
+    }
+}
