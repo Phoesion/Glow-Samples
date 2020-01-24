@@ -11,10 +11,8 @@ namespace Foompany.Services.SampleService1
 {
     public class ServiceMain : Phoesion.Glow.SDK.Firefly.FireflyService
     {
-        public override async Task Configure(IGlowApplicationBuilder app)
+        protected override async Task Configure(IGlowApplicationBuilder app)
         {
-            await base.Configure(app);
-
             //enable the middleware profiler
             app.UseProfiler();
         }

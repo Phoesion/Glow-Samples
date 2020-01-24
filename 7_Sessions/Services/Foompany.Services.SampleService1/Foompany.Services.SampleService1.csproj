@@ -16,18 +16,18 @@
   </ItemGroup>
 
   <ItemGroup>
+    <PackageReference Include="Microsoft.Extensions.Caching.Memory" Version="3.1.1" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\..\..\..\SDK\Phoesion.Glow.SDK.Middleware\Phoesion.Glow.SDK.Middleware.Session\Phoesion.Glow.SDK.Middleware.Session.csproj" />
     <ProjectReference Include="..\..\API\Foompany.Services.API.DataModels\Foompany.Services.API.DataModels.csproj" />
     <ProjectReference Include="..\..\API\Foompany.Services.API.SampleService1\Foompany.Services.API.SampleService1.csproj" />
   </ItemGroup>
 
-  
-
-  
   <ItemGroup>
     <PackageReference Include="Phoesion.Glow.SDK.Firefly" Version="*" />
-    <PackageReference Include="Phoesion.Glow.SDK.Firefly.Sessions.API" Version="*" />
-    <PackageReference Include="Phoesion.Glow.SDK.Firefly.Sessions.Extensions" Version="*" />    
+    <PackageReference Include="Phoesion.Glow.SDK.Middleware.Session" Version="*" />
   </ItemGroup>
-  
 
 </Project>

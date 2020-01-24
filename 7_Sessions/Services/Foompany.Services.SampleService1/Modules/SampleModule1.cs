@@ -5,7 +5,7 @@ using System.Text;
 using System.Threading.Tasks;
 using Phoesion.Glow.SDK;
 using Phoesion.Glow.SDK.Firefly;
-using Phoesion.Glow.SDK.Firefly.Sessions;
+using Phoesion.Glow.SDK.Middleware.Session;
 
 namespace Foompany.Services.SampleService1.Modules
 {
@@ -23,7 +23,7 @@ namespace Foompany.Services.SampleService1.Modules
         public async Task<PhotonRestResponse> SampleForm()
         {
             //get session data
-            var session = await Context.GetSession<API.DataModels.UserSession>();
+            var session = await Context.GetSessionData<API.DataModels.UserSession>();
 
             //get username
             string username = session?.Username;
@@ -43,7 +43,7 @@ namespace Foompany.Services.SampleService1.Modules
         public async Task<HtmlString> UpdateUsername(string username)
         {
             //get session data
-            var session = await Context.GetSession<API.DataModels.UserSession>();
+            var session = await Context.GetSessionData<API.DataModels.UserSession>();
 
             //if no session data already exists create new session
             if (session == null)
@@ -53,7 +53,7 @@ namespace Foompany.Services.SampleService1.Modules
             session.Username = username;
 
             //save session
-            if (!await Context.SaveSession(session))
+            if (!await Context.SetSessionData(session))
                 throw PhotonResponseError.InternalServerError.WithErrorMessage("Could not update session");
 
             //done!
