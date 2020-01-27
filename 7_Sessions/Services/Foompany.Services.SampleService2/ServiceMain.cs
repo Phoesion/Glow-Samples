@@ -5,7 +5,7 @@ using Phoesion.Glow.SDK.Firefly;
 using Phoesion.Glow.SDK.Session;
 using Phoesion.Glow.SDK.DistributedMemoryCache;
 
-namespace Foompany.Services.SampleService1
+namespace Foompany.Services.SampleService2
 {
     public class ServiceMain : Phoesion.Glow.SDK.Firefly.FireflyService
     {
