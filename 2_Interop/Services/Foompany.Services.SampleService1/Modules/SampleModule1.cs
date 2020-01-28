@@ -32,7 +32,7 @@ namespace Foompany.Services.SampleService1.Modules
             {
                 InputName = "George",
             };
-            var result = await CallAsync(API.SampleService2.Modules.InteropSample1.Actions.InteropAction1, req);
+            var result = await Call(API.SampleService2.Modules.InteropSample1.Actions.InteropAction1, req).InvokeAsync();
             return $"Service 2 said '{result}'";
         }
 
@@ -46,7 +46,7 @@ namespace Foompany.Services.SampleService1.Modules
         {
             var firstName = "John";
             var surName = "Doe";
-            var result = await CallAsync(API.SampleService2.Modules.InteropSample1.Actions.InteropAction2, firstName, surName);
+            var result = await Call(API.SampleService2.Modules.InteropSample1.Actions.InteropAction2, firstName, surName).InvokeAsync();
             return $"Service 2 said '{result}'";
         }
 
@@ -55,7 +55,7 @@ namespace Foompany.Services.SampleService1.Modules
         [ActionBody]
         public async Task<string> Action3()
         {
-            var result = await CallAsync(API.SampleService2.Modules.InteropSample1.Actions.InteropAction3);
+            var result = await Call(API.SampleService2.Modules.InteropSample1.Actions.InteropAction3).InvokeAsync();
             return $"Service 2 said '{result?.Result}'";
         }
 
@@ -68,7 +68,7 @@ namespace Foompany.Services.SampleService1.Modules
         [ActionBody]
         public async Task<string> Action4()
         {
-            var results = await BroadcastCallAsync(API.SampleService2.Modules.InteropSample1.Actions.InteropAction4);
+            var results = await BroadcastCall(API.SampleService2.Modules.InteropSample1.Actions.InteropAction4).InvokeAsync();
             if (results == null)
                 return "Could not call services";
             else
@@ -91,7 +91,9 @@ namespace Foompany.Services.SampleService1.Modules
         {
             try
             {
-                var result = await CallAsync(API.SampleService2.Modules.InteropSample1.Actions.ExceptionSample, ThrowExceptions: AllowExceptions);
+                var result = await Call(API.SampleService2.Modules.InteropSample1.Actions.ExceptionSample)
+                                        .AllowExceptions(AllowExceptions)
+                                        .InvokeAsync();
                 return result ?? "got null result";
             }
             catch (PhotonResponseError ex)
@@ -105,7 +107,7 @@ namespace Foompany.Services.SampleService1.Modules
         [ActionBody]
         public async Task<string> StreamingInteropAction()
         {
-            var stream = await CallAsync(API.SampleService2.Modules.InteropSample1.Actions.StreamingSample);
+            var stream = await Call(API.SampleService2.Modules.InteropSample1.Actions.StreamingSample).InvokeAsync();
             if (stream == null)
                 throw PhotonResponseError.InternalServerError;
             var reader = new StreamReader(stream);

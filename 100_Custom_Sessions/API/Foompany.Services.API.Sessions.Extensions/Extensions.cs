@@ -25,7 +25,7 @@ namespace Foompany.Services.API.Sessions
                 return null;
 
             //request session data
-            var buffer = await ActionContext.Module.CallAsync(API.Sessions.Modules.SessionManager.Actions.GetSession, sessionIdCookie.Value);
+            var buffer = await ActionContext.Module.Call(API.Sessions.Modules.SessionManager.Actions.GetSession, sessionIdCookie.Value).InvokeAsync();
             if (buffer == null)
                 return null;
 
@@ -58,7 +58,7 @@ namespace Foompany.Services.API.Sessions
             catch { return false; }
 
             //update session data
-            var res = await ActionContext.Module.CallAsync(API.Sessions.Modules.SessionManager.Actions.SaveSession, sessionIdCookie.Value, buffer);
+            var res = await ActionContext.Module.Call(API.Sessions.Modules.SessionManager.Actions.SaveSession, sessionIdCookie.Value, buffer).InvokeAsync();
 
             //return result
             return res != null && res.IsSuccess;

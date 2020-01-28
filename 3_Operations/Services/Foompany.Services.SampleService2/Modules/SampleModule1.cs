@@ -42,7 +42,7 @@ namespace Foompany.Services.SampleService2.Modules
                 Key = key,
                 Value = value,
             };
-            var rsp = await CallOperationAsync(id, API.SampleService2.Operations.SimpleWizard.Actions.SubmitParameter, req);
+            var rsp = await CallOperation(id, API.SampleService2.Operations.SimpleWizard.Actions.SubmitParameter, req).InvokeAsync();
             return rsp?.IsSuccess == true ? "success" : "fail";
         }
 
@@ -52,7 +52,7 @@ namespace Foompany.Services.SampleService2.Modules
         public async Task<string> SubmitParameterToWizard2(API.SampleService2.Operations.SimpleWizard.DataModels.SubmitParameter.Request req)
         {
             var id = RestRequest.Path[0];
-            var rsp = await CallOperationAsync(id, API.SampleService2.Operations.SimpleWizard.Actions.SubmitParameter, req);
+            var rsp = await CallOperation(id, API.SampleService2.Operations.SimpleWizard.Actions.SubmitParameter, req).InvokeAsync();
             return rsp?.IsSuccess == true ? "success" : "fail";
         }
 
