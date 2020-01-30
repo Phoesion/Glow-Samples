@@ -1,0 +1,27 @@
+{
+  "RemoveServiceNamePrefix": "Foompany.Services",
+  "Services": [
+    {
+      "IsEnabled": true,
+      "CSProjectFile": "Services\\Foompany.Services.SampleService1\\Foompany.Services.SampleService1.csproj",
+      "ServiceHost": "DotNet",
+      "Builds": [
+        {
+          "Build": "AnyCpu",
+          "AssemblyFilePath": "Services\\Foompany.Services.SampleService1\\bin\\%BUILD%\\netcoreapp3.1\\Foompany.Services.SampleService1.dll"
+        }
+      ]
+    },
+    {
+      "IsEnabled": true,
+      "CSProjectFile": "Services\\Foompany.Services.Authorization\\Foompany.Services.Authorization.csproj",
+      "ServiceHost": "DotNet",
+      "Builds": [
+        {
+          "Build": "AnyCpu",
+          "AssemblyFilePath": "Services\\Foompany.Services.Authorization\\bin\\%BUILD%\\netcoreapp3.1\\Foompany.Services.Authorization.dll"
+        }
+      ]
+    }
+  ]
+}

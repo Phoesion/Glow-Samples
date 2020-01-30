@@ -51,7 +51,7 @@ namespace DesktopAppClient
                 //send chat msg
                 var toUser = txt_SendToUser.Text;
                 var msgText = txt_SendMessage.Text;
-                var result = await Client.CallAsync(api.SendMessage, msgText, toUser);
+                var result = await Client.Call(api.SendMessage, msgText, toUser).InvokeAsync();
             }
             catch (Exception ex) { MessageBox.Show(ex.Message); }
         }

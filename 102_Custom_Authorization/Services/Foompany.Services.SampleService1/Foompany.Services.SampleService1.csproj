@@ -1,0 +1,18 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>netcoreapp3.1</TargetFramework>
+    <NoWarn>1701;1702;1998</NoWarn>
+    <CopyLocalLockFileAssemblies>true</CopyLocalLockFileAssemblies>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\..\API\Foompany.Services.API.DataModels\Foompany.Services.API.DataModels.csproj" />
+    <ProjectReference Include="..\..\API\Foompany.Services.API.SampleService1\Foompany.Services.API.SampleService1.csproj" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <PackageReference Include="Phoesion.Glow.SDK.Firefly" Version="*" />
+  </ItemGroup>
+
+</Project>

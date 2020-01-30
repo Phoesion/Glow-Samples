@@ -19,7 +19,7 @@ namespace Foompany.Services.SampleService2.Modules
         //----------------------------------------------------------------------------------------------------------------------------------------------
 
         [Action(Methods.GET)]
-        public async Task<PhotonRestResponse> SampleForm()
+        public async Task<HtmlString> SampleForm()
         {
             //get session common data
             var session = await Context.GetSessionData<API.DataModels.UserSession>();

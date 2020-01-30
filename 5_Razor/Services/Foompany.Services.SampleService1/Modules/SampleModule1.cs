@@ -22,7 +22,7 @@ namespace Foompany.Services.SampleService1.Modules
         //----------------------------------------------------------------------------------------------------------------------------------------------
 
         [Action(Methods.GET)]
-        public async Task<object> Page1()
+        public async Task<HtmlString> Page1()
         {
             //create model
             var model = new Models.User()
@@ -37,7 +37,7 @@ namespace Foompany.Services.SampleService1.Modules
         //----------------------------------------------------------------------------------------------------------------------------------------------
 
         [Action(Methods.GET)]
-        public async Task<object> Page2()
+        public async Task<HtmlString> Page2()
         {
             //create model
             var model = new API.SampleService1.Models.AnotherAssemblyModel()
@@ -52,7 +52,7 @@ namespace Foompany.Services.SampleService1.Modules
         //----------------------------------------------------------------------------------------------------------------------------------------------
 
         [Action(Methods.GET)]
-        public async Task<object> Page3()
+        public async Task<HtmlString> Page3()
         {
             //render SamplePage3.cshtml with a dynamic model
             return await View("SamplePage3", new { Message = "This is dynamic" });
@@ -61,7 +61,7 @@ namespace Foompany.Services.SampleService1.Modules
         //----------------------------------------------------------------------------------------------------------------------------------------------
 
         [Action(Methods.GET)]
-        public async Task<object> Page4()
+        public async Task<HtmlString> Page4()
         {
             //render Page1.cshtml from the OtherPages folder
             return await View("OtherPages/Page1");
@@ -70,7 +70,7 @@ namespace Foompany.Services.SampleService1.Modules
         //----------------------------------------------------------------------------------------------------------------------------------------------
 
         [Action(Methods.GET)]
-        public async Task<object> Page5()
+        public async Task<HtmlString> Page5()
         {
             //render SamplePage.cshtml from the PartialPageSample folder
             return await View("PartialPageSample/SamplePage");

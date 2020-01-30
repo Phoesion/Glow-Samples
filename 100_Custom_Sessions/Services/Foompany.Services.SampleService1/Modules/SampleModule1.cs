@@ -21,7 +21,7 @@ namespace Foompany.Services.SampleService1.Modules
         //----------------------------------------------------------------------------------------------------------------------------------------------
 
         [ActionBody]
-        public async Task<PhotonRestResponse> SampleForm()
+        public async Task<HtmlString> SampleForm()
         {
             //get session data
             var session = await Context.GetSession<API.DataModels.UserSession>();
@@ -41,7 +41,7 @@ namespace Foompany.Services.SampleService1.Modules
         //----------------------------------------------------------------------------------------------------------------------------------------------
 
         [ActionBody]
-        public async Task<PhotonRestResponse> UpdateUsername(string username)
+        public async Task<HtmlString> UpdateUsername(string username)
         {
             //get session data
             var session = await Context.GetSession<API.DataModels.UserSession>();
@@ -58,7 +58,7 @@ namespace Foompany.Services.SampleService1.Modules
                 throw PhotonResponseError.InternalServerError.WithErrorMessage("Could not update session");
 
             //done!
-            return PhotonRestResponse.AsHtml("Username updated! <a href=\"SampleForm\">View SampleForm</a>");
+            return "Username updated! <a href=\"SampleForm\">View SampleForm</a>";
         }
 
         //----------------------------------------------------------------------------------------------------------------------------------------------
