@@ -1,0 +1,30 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>netcoreapp3.1</TargetFramework>
+    <NoWarn>1701;1702;1998</NoWarn>
+    <CopyLocalLockFileAssemblies>true</CopyLocalLockFileAssemblies>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <PackageReference Include="Microsoft.AspNetCore.Authentication.JwtBearer" Version="3.1.1" />
+    <PackageReference Include="System.IdentityModel.Tokens.Jwt" Version="5.6.0" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Compile Include="..\Constants.cs" Link="Constants.cs" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\..\..\..\SDK\Phoesion.Glow.SDK.Authentication\Phoesion.Glow.SDK.Authentication.csproj" />
+    <ProjectReference Include="..\..\..\..\SDK\Phoesion.Glow.SDK.Authorization\Phoesion.Glow.SDK.Authorization.csproj" />
+    <ProjectReference Include="..\..\API\Foompany.Services.API.SampleService1\Foompany.Services.API.SampleService1.csproj" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <PackageReference Include="Phoesion.Glow.SDK.Firefly" Version="*" />
+    <PackageReference Include="Phoesion.Glow.SDK.Authorization" Version="*" />
+    <PackageReference Include="Phoesion.Glow.SDK.Authentication" Version="*" />
+  </ItemGroup>
+
+</Project>

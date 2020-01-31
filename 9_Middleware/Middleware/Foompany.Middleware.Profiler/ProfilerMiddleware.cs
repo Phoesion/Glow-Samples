@@ -7,7 +7,7 @@ namespace Foompany.Middleware.Profiler
 {
     class ProfilerMiddleware : IMiddleware
     {
-        public async ValueTask InvokeAsync(IMiddlewareChain chain, IActionContext context, MiddlewareTagAttribute tag)
+        public async ValueTask InvokeAsync(IMiddlewareChain chain, IActionContext context, MiddlewareTagAttribute[] tags)
         {
             Console.WriteLine($"Staring execution for {context.RestRequest.Url}");
             var timer = new Stopwatch();

@@ -11,21 +11,29 @@ namespace Foompany.Middleware.Authorization
 {
     public class AuthorizationMiddleware : IMiddleware
     {
-        public ValueTask InvokeAsync(IMiddlewareChain chain, IActionContext context, MiddlewareTagAttribute tag)
+        public ValueTask InvokeAsync(IMiddlewareChain chain, IActionContext context, MiddlewareTagAttribute[] tags)
         {
             //get bearer
             var restReq = context.RestRequest;
             if (restReq != null)
             {
                 //get valid bearer value
-                StringValues bearerValue;
-                if (!restReq.Headers.TryGetValue("bearer", out bearerValue) || bearerValue.Count == 0 || string.IsNullOrWhiteSpace(bearerValue[0]))
-                    throw Phoesion.Glow.SDK.PhotonResponseError.Forbidden.WithErrorMessage("No Bearer found");
+                StringValues auth;
+                if (!restReq.Headers.TryGetValue("Authorization", out auth) || auth.Count == 0 || string.IsNullOrWhiteSpace(auth[0]))
+                    throw Phoesion.Glow.SDK.PhotonResponseError.Forbidden.WithErrorMessage("No Authorization found");
+
+                //get bearer
+                var bearerKV = auth[0].Split(' ');
+                if (bearerKV.Length != 2)
+                    throw Phoesion.Glow.SDK.PhotonResponseError.Forbidden.WithErrorMessage("Invalid Bearer");
+
+                //get token
+                var bearerToken = bearerKV[1];
 
                 //validate access token
                 var handler = new JwtSecurityTokenHandler();
                 SecurityToken token;
-                var claims = handler.ValidateToken(bearerValue[0],
+                var claims = handler.ValidateToken(bearerToken,
                     new TokenValidationParameters()
                     {
                         ValidateAudience = true,

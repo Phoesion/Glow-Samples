@@ -32,7 +32,6 @@ namespace Foompany.ClientApps.SampleApp2
                 else
                     MessageBox.Show($"Got Access Token : {accessToken}");
 
-
                 //call service/module action using anonymous api
                 var rsp = await client.Call(Foompany.Services.API.SampleService1.Modules.SampleModule1.Actions.DoTheThing, txt_SampleInput.Text)
                                       .WithHeader("Authorization", $"Bearer {accessToken}")

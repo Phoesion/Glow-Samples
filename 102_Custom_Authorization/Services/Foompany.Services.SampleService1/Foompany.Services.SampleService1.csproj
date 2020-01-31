@@ -7,7 +7,6 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\..\API\Foompany.Services.API.DataModels\Foompany.Services.API.DataModels.csproj" />
     <ProjectReference Include="..\..\API\Foompany.Services.API.SampleService1\Foompany.Services.API.SampleService1.csproj" />
   </ItemGroup>
 
