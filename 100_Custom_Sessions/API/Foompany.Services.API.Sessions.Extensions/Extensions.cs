@@ -18,14 +18,14 @@ namespace Foompany.Services.API.Sessions
                 return null;
 
             //get session context
-            ICookie sessionIdCookie;
-            if (!ActionContext.RestRequest.GetCookie(CookieName, out sessionIdCookie))
+            string sessionIdCookie;
+            if (!ActionContext.RestRequest.GetCookieValue(CookieName, out sessionIdCookie))
                 return null;
-            if (string.IsNullOrWhiteSpace(sessionIdCookie?.Value))
+            if (string.IsNullOrWhiteSpace(sessionIdCookie))
                 return null;
 
             //request session data
-            var buffer = await ActionContext.Module.Call(API.Sessions.Modules.SessionManager.Actions.GetSession, sessionIdCookie.Value).InvokeAsync();
+            var buffer = await ActionContext.Module.Call(API.Sessions.Modules.SessionManager.Actions.GetSession, sessionIdCookie).InvokeAsync();
             if (buffer == null)
                 return null;
 
@@ -41,13 +41,11 @@ namespace Foompany.Services.API.Sessions
                 return false;
 
             //get session context
-            ICookie sessionIdCookie;
-            if (!ActionContext.RestRequest.GetCookie(CookieName, out sessionIdCookie) || string.IsNullOrWhiteSpace(sessionIdCookie?.Value))
+            string sessionIdCookie;
+            if (!ActionContext.RestRequest.GetCookieValue(CookieName, out sessionIdCookie) || string.IsNullOrWhiteSpace(sessionIdCookie))
             {
-                //create new cookie if null
-                if (sessionIdCookie == null) sessionIdCookie = new Cookie();
                 //create new session id
-                sessionIdCookie.Value = Guid.NewGuid().ToString();
+                sessionIdCookie = Guid.NewGuid().ToString();
                 //set cookie
                 ActionContext.RestResponse.SetCookie(CookieName, sessionIdCookie);
             }
@@ -58,7 +56,7 @@ namespace Foompany.Services.API.Sessions
             catch { return false; }
 
             //update session data
-            var res = await ActionContext.Module.Call(API.Sessions.Modules.SessionManager.Actions.SaveSession, sessionIdCookie.Value, buffer).InvokeAsync();
+            var res = await ActionContext.Module.Call(API.Sessions.Modules.SessionManager.Actions.SaveSession, sessionIdCookie, buffer).InvokeAsync();
 
             //return result
             return res != null && res.IsSuccess;
