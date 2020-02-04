@@ -92,7 +92,7 @@ namespace Foompany.Services.SampleService1.Modules
             try
             {
                 var result = await Call(API.SampleService2.Modules.InteropSample1.Actions.ExceptionSample)
-                                        .AllowExceptions(AllowExceptions)
+                                        .ThrowRemoteExceptions(AllowExceptions)
                                         .InvokeAsync();
                 return result ?? "got null result";
             }

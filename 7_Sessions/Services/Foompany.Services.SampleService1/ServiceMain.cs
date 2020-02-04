@@ -40,13 +40,13 @@ namespace Foompany.Services.SampleService1
             //    o.InstanceName = "SampleInstance";
             //});
 
-            //Add session services
-            services.AddSession();
+            // Add session services
+            services.AddSession(o => o.IdleTimeout = TimeSpan.FromMinutes(10));
         }
 
         protected override async Task Configure(IGlowApplicationBuilder app)
         {
-            //enable the sessions middleware
+            // Enable the sessions middleware
             app.UseSession();
         }
     }
