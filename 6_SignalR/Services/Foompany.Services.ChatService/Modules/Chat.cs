@@ -31,7 +31,7 @@ namespace Foompany.Services.ChatService.Modules
         /// If no exception is thrown then the registration is consider successful (so avoid returning a valid object with status codes, eg. success=false )
         /// PushHubEvents attribute specifies the events (like disconnect) that will be raised for the client that has register on this module/action
         /// </summary>
-        /// <remarks> The action api must specify handling of method <see cref="Methods.PUSH_CONNECT"/> </remarks>
+        /// <remarks> The action api must specify handling of method <see cref="Methods.PUSH_EVENT_CONNECT"/> </remarks>
         [ActionBody]
         [PushHubEvents(OnClientDisconnect = nameof(ClientDisconnected))]    //<-- when client disconnects the 'ClientDisconnected' action will be called
         public async Task<object> ClientConnectionRequest(object req)
@@ -69,8 +69,8 @@ namespace Foompany.Services.ChatService.Modules
         /// <summary>
         /// This route has been registered using the PushHubEvents attribute during the registration process and it will be automatically called by the system when client disconnects
         /// </summary>
-        /// <remarks> The action api must specify handling of method <see cref="Methods.PUSH_DISCONNECT"/> </remarks>
-        [Action(Methods.PUSH_DISCONNECT)]
+        /// <remarks> The action api must specify handling of method <see cref="Methods.PUSH_EVENT_DISCONNECT"/> </remarks>
+        [Action(Methods.PUSH_EVENT_DISCONNECT)]
         public async Task ClientDisconnected()
         {
             //get client id

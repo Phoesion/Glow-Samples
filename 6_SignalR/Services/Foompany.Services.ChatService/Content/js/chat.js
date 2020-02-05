@@ -45,7 +45,7 @@ document.getElementById("sendButton").addEventListener("click", async function (
         var dstUser = document.getElementById("dstuserInput").value;
         var message = document.getElementById("messageInput").value;
         //Send Msg
-        var result = await connection.invoke("POST", "ChatService/Chat/SendMessage", "toUser=" + dstUser, JSON.stringify(message));
+        var result = await connection.invoke("CALL", "ChatService/Chat/SendMessage", "toUser=" + dstUser, JSON.stringify(message));
     }
     catch (err) { alert(err); }
 });

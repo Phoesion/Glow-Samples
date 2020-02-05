@@ -15,10 +15,11 @@ namespace Foompany.Services.API.ChatService.Modules.Chat
         public static string Default() => null;
 
         /// <summary> Handle the PUSH_CONNECT event method </summary>
-        [Action(Methods.PUSH_CONNECT)]
+        [Action(Methods.PUSH_EVENT_CONNECT)]
         public static object ClientConnectionRequest(object Request) => null;
 
-        [Action(Methods.POST)]
+        /// <summary> SendMessage action for push clients </summary>
+        [Action(Methods.PUSH_CALL)]
         public static string SendMessage(object Request, string toUser) => null;
     }
 }
