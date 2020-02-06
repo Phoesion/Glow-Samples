@@ -8,7 +8,6 @@ using Phoesion.Glow.SDK.Firefly;
 
 namespace Foompany.Services.API.SampleService1.Modules.SampleModule1
 {
-    [API]
     public abstract class Actions
     {
         [Action(Methods.GET)]
@@ -30,6 +29,6 @@ namespace Foompany.Services.API.SampleService1.Modules.SampleModule1
         public static string Action5(bool AllowExceptions = true) => null;
 
         [Action(Methods.GET)]
-        public string StreamingInteropAction() => null;
+        public static string StreamingInteropAction() => null;
     }
 }

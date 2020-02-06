@@ -10,7 +10,7 @@ using models = Foompany.Services.API.SampleService2.Modules.PostSamples.Models;
 
 namespace Foompany.Services.SampleService2
 {
-    [ModuleAPI(typeof(API.SampleService2.Modules.PostSamples.Actions))]
+    [API(typeof(API.SampleService2.Modules.PostSamples.Actions))]
     public class PostSamples : Phoesion.Glow.SDK.Firefly.FireflyModule
     {
         //----------------------------------------------------------------------------------------------------------------------------------------------

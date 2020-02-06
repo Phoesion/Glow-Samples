@@ -21,7 +21,7 @@ namespace Foompany.Services.SampleService2.Operations
      * If the service process is restarted (either from a new deploy or a crash) the operation will be deserialized and continue automatically.
      */
     [Serializable]
-    [ModuleAPI(typeof(API.SampleService2.Operations.SimpleWizard.Actions))]
+    [API(typeof(API.SampleService2.Operations.SimpleWizard.Actions))]
     public class SimpleWizard : OperationModule     //<---- deriving from OperationModule instead of the basic FireflyModule
     {
         //In-Memory variables

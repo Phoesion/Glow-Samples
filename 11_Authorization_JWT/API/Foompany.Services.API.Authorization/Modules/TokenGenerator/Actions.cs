@@ -8,7 +8,6 @@ using Phoesion.Glow.SDK.Firefly;
 
 namespace Foompany.Services.API.Authorization.Modules.TokenGenerator
 {
-    [API]
     public abstract class Actions
     {
         [Action(Methods.POST)]

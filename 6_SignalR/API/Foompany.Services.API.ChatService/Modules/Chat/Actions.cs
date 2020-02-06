@@ -8,7 +8,6 @@ using Phoesion.Glow.SDK.Firefly;
 
 namespace Foompany.Services.API.ChatService.Modules.Chat
 {
-    [API]
     public abstract class Actions
     {
         [Action(Methods.GET)]

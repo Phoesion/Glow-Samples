@@ -10,7 +10,7 @@ using topic = Foompany.Services.API.ChatService.Modules.Chat.PushTopics;
 
 namespace Foompany.Services.ChatService.Modules
 {
-    [ModuleAPI(typeof(API.ChatService.Modules.Chat.Actions))]
+    [API(typeof(API.ChatService.Modules.Chat.Actions))]
     public class Chat : FireflyModule
     {
         //----------------------------------------------------------------------------------------------------------------------------------------------

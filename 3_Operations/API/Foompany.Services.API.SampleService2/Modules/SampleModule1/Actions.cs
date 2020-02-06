@@ -8,7 +8,6 @@ using Phoesion.Glow.SDK.Firefly;
 
 namespace Foompany.Services.API.SampleService2.Modules.SampleModule1
 {
-    [API]
     public abstract class Actions
     {
         [Action(Methods.GET)]

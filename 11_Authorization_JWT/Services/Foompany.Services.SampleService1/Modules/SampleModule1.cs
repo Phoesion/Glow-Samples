@@ -9,7 +9,7 @@ using Phoesion.Glow.SDK.Authorization;
 
 namespace Foompany.Services.SampleService1.Modules
 {
-    [ModuleAPI(typeof(API.SampleService1.Modules.SampleModule1.Actions))]
+    [API(typeof(API.SampleService1.Modules.SampleModule1.Actions))]
     public class SampleModule1 : FireflyModule
     {
         //----------------------------------------------------------------------------------------------------------------------------------------------

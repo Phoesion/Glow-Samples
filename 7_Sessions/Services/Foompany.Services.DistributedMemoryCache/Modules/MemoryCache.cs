@@ -9,7 +9,7 @@ using Phoesion.Glow.SDK.Firefly.Components.KeyValueStores;
 
 namespace Foompany.Services.Sessions.Modules
 {
-    [ModuleAPI(typeof(Phoesion.Glow.SDK.DistributedMemoryCache.API.Actions))]
+    [API(typeof(Phoesion.Glow.SDK.DistributedMemoryCache.API.Actions))]
     public class MemoryCache : FireflyModule
     {
         //Keep data in-memory using a distributed dictionary for replication (in real world this could be stored in a database)

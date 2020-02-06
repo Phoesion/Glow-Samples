@@ -9,7 +9,6 @@ using Phoesion.Glow.SDK.Firefly;
 
 namespace Foompany.Services.API.SampleService2.Operations.SimpleWizard
 {
-    [API]
     public abstract class Actions
     {
         /// <summary> Expose the operation Start() action to both REST and Interop </summary>

@@ -14,7 +14,6 @@ namespace Foompany.Services.API.SampleService2.Modules.InteropSample1
      * Do not write any code in this module, static functions in this module will NEVER be called.
      * They are used only as prototypes to declare the api.
      */
-    [API]
     public abstract class Actions
     {
         [Interop]

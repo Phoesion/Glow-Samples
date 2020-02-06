@@ -9,7 +9,6 @@ using Phoesion.Glow.SDK.Firefly;
 
 namespace Foompany.Services.API.SampleService2.Modules.SampleModule1
 {
-    [API]
     public abstract class Actions
     {
         [Action(Methods.GET)]
@@ -19,7 +18,7 @@ namespace Foompany.Services.API.SampleService2.Modules.SampleModule1
         public static string Action1() => null;
 
         [Action(Methods.GET)]
-        public object RedirectMe() => null;
+        public static object RedirectMe() => null;
 
         [Action(Methods.GET)]
         public static string SampleStatusCode(string command) => null;

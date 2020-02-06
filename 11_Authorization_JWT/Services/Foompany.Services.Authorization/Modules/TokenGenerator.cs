@@ -12,7 +12,7 @@ using Microsoft.IdentityModel.Tokens;
 
 namespace Foompany.Services.SampleService1.Modules
 {
-    [ModuleAPI(typeof(API.Authorization.Modules.TokenGenerator.Actions))]
+    [API(typeof(API.Authorization.Modules.TokenGenerator.Actions))]
     public class TokenGenerator : FireflyModule
     {
         //----------------------------------------------------------------------------------------------------------------------------------------------

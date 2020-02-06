@@ -8,7 +8,6 @@ using Phoesion.Glow.SDK.Firefly;
 
 namespace Foompany.Services.API.Sessions.Modules.SessionManager
 {
-    [API]
     public abstract class Actions
     {
         [Interop]
