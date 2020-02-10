@@ -1,8 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Text;
-
-namespace Foompany.Services.SampleService1.Models
+﻿namespace Foompany.Services.SampleService1.Models
 {
     public class User
     {

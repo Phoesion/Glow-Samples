@@ -1,7 +1,4 @@
-﻿using System;
-using System.Diagnostics;
-using System.Threading.Tasks;
-using Phoesion.Glow.SDK;
+﻿using Phoesion.Glow.SDK;
 using Phoesion.Glow.SDK.Firefly;
 
 namespace Foompany.Middleware.Profiler

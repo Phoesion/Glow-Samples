@@ -1,8 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Text;
-
-namespace Foompany.Services.API.SampleService1.Models
+﻿namespace Foompany.Services.API.SampleService1.Models
 {
     public class AnotherAssemblyModel
     {

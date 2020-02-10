@@ -1,13 +1,9 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Text;
-using System.Threading.Tasks;
-using Microsoft.Extensions.DependencyInjection;
-using Phoesion.Glow.SDK.Firefly;
-
-using Foompany.IncidentReport;
+﻿using Foompany.IncidentReport;
 using Foompany.IncidentReport.ReportFormatters;
 using Foompany.IncidentReport.ReportStores;
+using Microsoft.Extensions.DependencyInjection;
+using Phoesion.Glow.SDK.Firefly;
+using System.Threading.Tasks;
 
 
 namespace Foompany.Services.SampleService1

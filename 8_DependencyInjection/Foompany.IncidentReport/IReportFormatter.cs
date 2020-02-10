@@ -1,8 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Text;
-
-namespace Foompany.IncidentReport
+﻿namespace Foompany.IncidentReport
 {
     public interface IReportFormatter
     {

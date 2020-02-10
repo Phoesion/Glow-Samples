@@ -1,12 +1,7 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading;
-using System.Threading.Tasks;
+﻿using Foompany.Middleware.Authorization;
 using Microsoft.Extensions.DependencyInjection;
 using Phoesion.Glow.SDK.Firefly;
-using Foompany.Middleware.Authorization;
+using System.Threading.Tasks;
 
 namespace Foompany.Services.SampleService1
 {

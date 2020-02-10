@@ -1,10 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
-namespace Foompany.Services.API.SampleService2.Modules.InteropSample1.DataModels.MyDataModel
+﻿namespace Foompany.Services.API.SampleService2.Modules.InteropSample1.DataModels.MyDataModel
 {
     public class Request
     {

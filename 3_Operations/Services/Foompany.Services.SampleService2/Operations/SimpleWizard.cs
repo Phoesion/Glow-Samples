@@ -1,12 +1,9 @@
-﻿using System;
+﻿using Phoesion.Glow.SDK;
+using Phoesion.Glow.SDK.Firefly;
+using System;
 using System.Collections.Generic;
 using System.Linq;
-using System.Text;
-using System.Threading;
 using System.Threading.Tasks;
-using Phoesion.Glow.SDK;
-using Phoesion.Glow.SDK.Firefly;
-
 using models = Foompany.Services.API.SampleService2.Operations.SimpleWizard.DataModels;
 
 namespace Foompany.Services.SampleService2.Operations

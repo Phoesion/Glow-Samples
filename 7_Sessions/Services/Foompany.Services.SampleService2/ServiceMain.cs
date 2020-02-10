@@ -1,9 +1,8 @@
-﻿using System;
-using System.Threading.Tasks;
-using Microsoft.Extensions.DependencyInjection;
+﻿using Microsoft.Extensions.DependencyInjection;
+using Phoesion.Glow.SDK.DistributedMemoryCache;
 using Phoesion.Glow.SDK.Firefly;
 using Phoesion.Glow.SDK.Session;
-using Phoesion.Glow.SDK.DistributedMemoryCache;
+using System.Threading.Tasks;
 
 namespace Foompany.Services.SampleService2
 {

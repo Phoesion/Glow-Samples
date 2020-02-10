@@ -1,8 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Text;
-
-namespace Foompany.Middleware.Authorization
+﻿namespace Foompany.Middleware.Authorization
 {
     //Simple class to keep the configs. (In a real scenario your service should get them in some other 'production-approved' way)
     public static class Constants

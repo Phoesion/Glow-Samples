@@ -1,8 +1,8 @@
-﻿using System;
-using System.Threading;
+﻿using Foompany.Middleware.Profiler;
 using Phoesion.Glow.SDK;
 using Phoesion.Glow.SDK.Firefly;
-using Foompany.Middleware.Profiler;
+using System;
+using System.Threading;
 
 namespace Foompany.Services.SampleService1.Modules
 {

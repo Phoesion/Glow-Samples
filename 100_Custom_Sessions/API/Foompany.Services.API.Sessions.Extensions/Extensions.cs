@@ -1,9 +1,6 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Text;
+﻿using Phoesion.Glow.SDK.Firefly;
+using System;
 using System.Threading.Tasks;
-using Phoesion.Glow.SDK;
-using Phoesion.Glow.SDK.Firefly;
 
 namespace Foompany.Services.API.Sessions
 {

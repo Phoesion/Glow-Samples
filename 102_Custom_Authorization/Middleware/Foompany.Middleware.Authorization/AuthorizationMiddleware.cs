@@ -1,11 +1,10 @@
-﻿using System;
-using System.Diagnostics;
+﻿using Microsoft.Extensions.Primitives;
+using Microsoft.IdentityModel.Tokens;
+using Phoesion.Glow.SDK.Firefly;
+using System;
 using System.IdentityModel.Tokens.Jwt;
 using System.Text;
 using System.Threading.Tasks;
-using Microsoft.Extensions.Primitives;
-using Microsoft.IdentityModel.Tokens;
-using Phoesion.Glow.SDK.Firefly;
 
 namespace Foompany.Middleware.Authorization
 {

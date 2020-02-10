@@ -1,15 +1,11 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using Microsoft.IdentityModel.Tokens;
 using Phoesion.Glow.SDK;
 using Phoesion.Glow.SDK.Firefly;
-using System.IO;
-using System.Security.Claims;
+using System;
+using System.Collections.Generic;
 using System.IdentityModel.Tokens.Jwt;
-using Microsoft.IdentityModel.Tokens;
-
+using System.Security.Claims;
+using System.Text;
 using Configs = Foompany.Middleware.Authorization.Constants;
 
 namespace Foompany.Services.SampleService1.Modules

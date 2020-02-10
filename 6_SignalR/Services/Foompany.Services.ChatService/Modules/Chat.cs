@@ -1,11 +1,8 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using Phoesion.Glow.SDK;
+﻿using Phoesion.Glow.SDK;
 using Phoesion.Glow.SDK.Firefly;
-
+using System;
+using System.Collections.Generic;
+using System.Threading.Tasks;
 using topic = Foompany.Services.API.ChatService.Modules.Chat.PushTopics;
 
 namespace Foompany.Services.ChatService.Modules

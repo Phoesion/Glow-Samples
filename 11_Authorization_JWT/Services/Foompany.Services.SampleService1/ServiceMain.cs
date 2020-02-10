@@ -1,16 +1,11 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading;
-using System.Threading.Tasks;
-using Phoesion.Glow.SDK;
-using Phoesion.Glow.SDK.Firefly;
+﻿using Microsoft.AspNetCore.Authentication.JwtBearer;
+using Microsoft.Extensions.DependencyInjection;
+using Microsoft.IdentityModel.Tokens;
 using Phoesion.Glow.SDK.Authentication;
 using Phoesion.Glow.SDK.Authorization;
-using Microsoft.Extensions.DependencyInjection;
-using Microsoft.AspNetCore.Authentication.JwtBearer;
-using Microsoft.IdentityModel.Tokens;
+using Phoesion.Glow.SDK.Firefly;
+using System.Text;
+using System.Threading.Tasks;
 
 namespace Foompany.Services.SampleService1
 {

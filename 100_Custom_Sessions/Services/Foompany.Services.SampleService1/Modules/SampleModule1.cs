@@ -1,12 +1,8 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using Foompany.Services.API.Sessions;
 using Phoesion.Glow.SDK;
 using Phoesion.Glow.SDK.Firefly;
-using Foompany.Services.API.Sessions;
-using System.IO;
+using System;
+using System.Threading.Tasks;
 
 namespace Foompany.Services.SampleService1.Modules
 {
