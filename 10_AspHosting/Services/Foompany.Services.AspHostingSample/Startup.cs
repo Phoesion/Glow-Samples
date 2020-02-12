@@ -29,7 +29,7 @@ namespace Foompany.AspHostingSample
                 app.UseDeveloperExceptionPage();
             }
 
-            //app.UseStaticFiles(); //we do not need this, all files in wwwroot are treated as Static Content by default
+            app.UseStaticFiles(); //all files in wwwroot are treated as Static Content by default and will be copied to the Prism's local cache
 
             app.UseRouting();
 
