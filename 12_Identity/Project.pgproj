@@ -22,6 +22,17 @@
           "AssemblyFilePath": "Services\\Foompany.Services.Identity\\bin\\%BUILD%\\netcoreapp3.1\\Foompany.Services.Identity.dll"
         }
       ]
+    },
+    {
+      "IsEnabled": true,
+      "CSProjectFile": "Services\\Foompany.Services.AspCoreMvc\\Foompany.Services.AspCoreMvc.csproj",
+      "ServiceHost": "DotNet",
+      "Builds": [
+        {
+          "Build": "AnyCpu",
+          "AssemblyFilePath": "Services\\Foompany.Services.AspCoreMvc\\bin\\%BUILD%\\netcoreapp3.1\\Foompany.Services.AspCoreMvc.dll"
+        }
+      ]
     }
   ]
 }

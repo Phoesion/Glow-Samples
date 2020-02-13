@@ -48,10 +48,10 @@ namespace Foompany.Services.Identity
                     RequirePkce = true,
                 
                     // where to redirect to after login
-                    //RedirectUris = { "https://localhost:16000/MyMVCService/signin-oidc" },
+                    RedirectUris = { "http://localhost:16000/AspCoreMvc/signin-oidc" },
 
                     // where to redirect to after logout
-                    //PostLogoutRedirectUris = { "https://localhost:16000/MyMVCService/signout-callback-oidc" },
+                    PostLogoutRedirectUris = { "http://localhost:16000/AspCoreMvc/signout-callback-oidc" },
 
                     AllowedScopes = new List<string>
                     {

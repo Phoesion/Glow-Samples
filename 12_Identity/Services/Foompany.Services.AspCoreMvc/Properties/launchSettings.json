@@ -1,6 +1,6 @@
 {
   "profiles": {
-    "Foompany.Services.Identity": {
+    "Foompany.Services.AspCoreMvc": {
       "commandName": "Project",
       "launchBrowser": false,
       "environmentVariables": {

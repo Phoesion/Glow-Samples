@@ -63,7 +63,7 @@ namespace Foompany.ClientApps.SampleApp2
             {
                 //call service/module action using anonymous api
                 var rsp = await client.Call(Foompany.Services.API.SampleService1.Modules.SampleModule1.Actions.DoTheThing, txt_SampleInput.Text)
-                                      .SetBearerToken(accessToken)
+                                      .WithBearerToken(accessToken)
                                       .InvokeAsync();
                 if (rsp == null)
                 {

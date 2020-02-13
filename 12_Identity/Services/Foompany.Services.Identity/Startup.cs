@@ -5,10 +5,6 @@ using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
 
 using IdentityServer4;
-using Microsoft.AspNetCore.Builder;
-using Microsoft.AspNetCore.Hosting;
-using Microsoft.Extensions.DependencyInjection;
-using Microsoft.Extensions.Hosting;
 using Microsoft.IdentityModel.Tokens;
 
 namespace Foompany.Services.Identity
@@ -28,10 +24,10 @@ namespace Foompany.Services.Identity
             services.AddControllersWithViews();
 
             var builder = services.AddIdentityServer()
-                .AddInMemoryIdentityResources(Config.Ids)
-                .AddInMemoryApiResources(Config.Apis)
-                .AddInMemoryClients(Config.Clients)
-                .AddTestUsers(TestUsers.Users);
+                                  .AddInMemoryIdentityResources(Config.Ids)
+                                  .AddInMemoryApiResources(Config.Apis)
+                                  .AddInMemoryClients(Config.Clients)
+                                  .AddTestUsers(TestUsers.Users);
 
             builder.AddDeveloperSigningCredential();
 
@@ -69,8 +65,6 @@ namespace Foompany.Services.Identity
             {
                 app.UseDeveloperExceptionPage();
             }
-
-            //app.UsePathBase("/Identity");
 
             app.UseStaticFiles(); //all files in wwwroot are treated as Static Content by default and will be copied to the Prism's local cache
 
