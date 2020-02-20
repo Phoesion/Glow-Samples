@@ -1,0 +1,16 @@
+{
+  "RemoveServiceNamePrefix": "Foompany.Services",
+  "Services": [
+    {
+      "IsEnabled": true,
+      "CSProjectFile": "Foompany.Services.BookStore\\Foompany.Services.BookStore.csproj",
+      "ServiceHost": "DotNet",
+      "Builds": [
+        {
+          "Build": "AnyCpu",
+          "AssemblyFilePath": "Foompany.Services.BookStore\\bin\\%BUILD%\\netcoreapp3.1\\Foompany.Services.BookStore.dll"
+        }
+      ]
+    }
+  ]
+}
