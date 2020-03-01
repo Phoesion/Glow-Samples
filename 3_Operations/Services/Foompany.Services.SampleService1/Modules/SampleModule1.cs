@@ -1,4 +1,5 @@
-﻿using Phoesion.Glow.SDK.Firefly;
+﻿using Phoesion.Glow.SDK;
+using Phoesion.Glow.SDK.Firefly;
 using System.Threading.Tasks;
 
 
@@ -9,12 +10,12 @@ namespace Foompany.Services.SampleService1.Modules
     {
         //----------------------------------------------------------------------------------------------------------------------------------------------
 
-        [ActionBody]
+        [ActionBody(Methods.GET)]
         public string Default() => "Operations sample service 1 up and running!";
 
         //----------------------------------------------------------------------------------------------------------------------------------------------
 
-        [ActionBody]
+        [ActionBody(Methods.POST)]
         public async Task<string> SubmitParameterToWizard(API.SampleService2.Operations.SimpleWizard.DataModels.SubmitParameter.Request req)
         {
             var id = RestRequest.Path[0];

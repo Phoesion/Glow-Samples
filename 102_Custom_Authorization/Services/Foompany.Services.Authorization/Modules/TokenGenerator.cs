@@ -20,7 +20,7 @@ namespace Foompany.Services.SampleService1.Modules
 
         //----------------------------------------------------------------------------------------------------------------------------------------------
 
-        [ActionBody]
+        [ActionBody(Methods.POST)]
         public string GetAccessToken(string email, int userid)
         {
             //setup claims

@@ -16,7 +16,7 @@ namespace Foompany.Services.SampleService1.Modules
 
         //----------------------------------------------------------------------------------------------------------------------------------------------
 
-        [ActionBody]
+        [ActionBody(Methods.GET)]
         public async Task<HtmlString> SampleForm()
         {
             //get session data
@@ -36,7 +36,7 @@ namespace Foompany.Services.SampleService1.Modules
 
         //----------------------------------------------------------------------------------------------------------------------------------------------
 
-        [ActionBody]
+        [ActionBody(Methods.POST)]
         public async Task<HtmlString> UpdateUsername(string username)
         {
             //get session data

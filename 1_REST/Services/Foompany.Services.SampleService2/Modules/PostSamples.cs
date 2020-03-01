@@ -1,4 +1,5 @@
-﻿using Phoesion.Glow.SDK.Firefly;
+﻿using Phoesion.Glow.SDK;
+using Phoesion.Glow.SDK.Firefly;
 
 using models = Foompany.Services.API.SampleService2.Modules.PostSamples.Models;
 
@@ -9,7 +10,7 @@ namespace Foompany.Services.SampleService2
     {
         //----------------------------------------------------------------------------------------------------------------------------------------------
 
-        [ActionBody]
+        [ActionBody(Methods.POST)]
         public string Action1()
         {
             return "Called Action1 using POST in PostSamples module";
@@ -17,8 +18,8 @@ namespace Foompany.Services.SampleService2
 
         //----------------------------------------------------------------------------------------------------------------------------------------------
 
-        /// <summary> Sample action that exposes both GET and POST methods (as specified in action's api) </summary>
-        [ActionBody]
+        /// <summary> Sample action that exposes both GET and POST methods </summary>
+        [ActionBody(Methods.GET | Methods.POST)]
         public string Action2()
         {
             return $"Called Action2 using {RestRequest.Method} in PostSamples module.";
@@ -41,7 +42,7 @@ namespace Foompany.Services.SampleService2
          *      An other Accept type can be 'application/xml' and in this case a Xml serializer will be used.
          *      ( 'application/msgpack' is also handled automatically )
          */
-        [ActionBody]
+        [ActionBody(Methods.POST)]
         public models.MyDataModel.Response DoTheThing(models.MyDataModel.Request Model)
         {
             return new models.MyDataModel.Response()

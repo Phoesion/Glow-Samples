@@ -11,7 +11,7 @@ namespace Foompany.Services.SampleService1.Modules
     {
         //----------------------------------------------------------------------------------------------------------------------------------------------
 
-        [ActionBody]
+        [ActionBody(Methods.GET)]
         public string Default() => "Interop sample service up and running!";
 
         //----------------------------------------------------------------------------------------------------------------------------------------------
@@ -19,7 +19,7 @@ namespace Foompany.Services.SampleService1.Modules
         /// <summary>
         /// Call another service with a strong-typed api request/response data model
         /// </summary>
-        [ActionBody]
+        [ActionBody(Methods.GET)]
         public async Task<string> Action1()
         {
             var req = new models.MyDataModel.Request()
@@ -35,7 +35,7 @@ namespace Foompany.Services.SampleService1.Modules
         /// <summary>
         /// Call another service using anonymous api
         /// </summary>
-        [ActionBody]
+        [ActionBody(Methods.GET)]
         public async Task<string> Action2()
         {
             var firstName = "John";
@@ -46,7 +46,7 @@ namespace Foompany.Services.SampleService1.Modules
 
         //----------------------------------------------------------------------------------------------------------------------------------------------
 
-        [ActionBody]
+        [ActionBody(Methods.GET)]
         public async Task<string> Action3()
         {
             var result = await Call(API.SampleService2.Modules.InteropSample1.Actions.InteropAction3).InvokeAsync();
@@ -59,7 +59,7 @@ namespace Foompany.Services.SampleService1.Modules
         /// Sample using the BroadcastCallAsync to rpc/call all running service instance at once.
         /// BroadcastCallAsync returns an IEnumerable<TResp> with the responses.
         /// </summary>
-        [ActionBody]
+        [ActionBody(Methods.GET)]
         public async Task<string> Action4()
         {
             var results = await BroadcastCall(API.SampleService2.Modules.InteropSample1.Actions.InteropAction4).InvokeAsync();
@@ -80,7 +80,7 @@ namespace Foompany.Services.SampleService1.Modules
         ///     1) Set ThrowExceptions to true and use try/catch to handle them
         ///     2) Set the OnError callback that will be invoked with the exception as parameter
         /// </summary>
-        [ActionBody]
+        [ActionBody(Methods.GET)]
         public async Task<string> Action5(bool AllowExceptions = true)
         {
             try
@@ -98,7 +98,7 @@ namespace Foompany.Services.SampleService1.Modules
 
         //----------------------------------------------------------------------------------------------------------------------------------------------
 
-        [ActionBody]
+        [ActionBody(Methods.GET)]
         public async Task<string> StreamingInteropAction()
         {
             var stream = await Call(API.SampleService2.Modules.InteropSample1.Actions.StreamingSample).InvokeAsync();

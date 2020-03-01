@@ -10,7 +10,7 @@ namespace Foompany.Services.SampleService2.Modules
     {
         //----------------------------------------------------------------------------------------------------------------------------------------------
 
-        [ActionBody]
+        [ActionBody(Methods.GET)]
         public string Default()
         {
             return $"This is Service2! SampleModule1 default method \n\n" +
@@ -22,7 +22,7 @@ namespace Foompany.Services.SampleService2.Modules
 
         //----------------------------------------------------------------------------------------------------------------------------------------------
 
-        [ActionBody]
+        [ActionBody(Methods.GET)]
         public string Action1()
         {
             return $"This is Service2! Called Action1 of SampleModule1 \n" +
@@ -31,7 +31,7 @@ namespace Foompany.Services.SampleService2.Modules
 
         //----------------------------------------------------------------------------------------------------------------------------------------------
 
-        [ActionBody]
+        [ActionBody(Methods.GET)]
         public PhotonRestResponse RedirectMe()
         {
             //Returing PhotonRestResponse gives you more options on REST-specific responses
@@ -40,7 +40,7 @@ namespace Foompany.Services.SampleService2.Modules
 
         //----------------------------------------------------------------------------------------------------------------------------------------------
 
-        [ActionBody]
+        [ActionBody(Methods.GET)]
         public string SampleStatusCode(string command)
         {
             var isValid = command == "hi";
@@ -56,7 +56,7 @@ namespace Foompany.Services.SampleService2.Modules
         /// Simple streaming sample. Return a Stream object and it will be consumed by the remote endpoint
         /// WARNING : The stream will be automatically consumed and disposed! Do not keep a reference of it, or use it in any other way after function returns!
         /// </summary>
-        [ActionBody]
+        [ActionBody(Methods.GET)]
         public Stream StreamingSample1()
         {
             return new MemoryStream(Encoding.UTF8.GetBytes("This is a stream!"));

@@ -1,4 +1,5 @@
-﻿using Phoesion.Glow.SDK.Firefly;
+﻿using Phoesion.Glow.SDK;
+using Phoesion.Glow.SDK.Firefly;
 using System;
 using System.Threading.Tasks;
 
@@ -9,12 +10,12 @@ namespace Foompany.Services.SampleService2.Modules
     {
         //----------------------------------------------------------------------------------------------------------------------------------------------
 
-        [ActionBody]
+        [ActionBody(Methods.GET)]
         public string Default() => "Operations sample service 2 up and running!";
 
         //----------------------------------------------------------------------------------------------------------------------------------------------
 
-        [ActionBody]
+        [ActionBody(Methods.GET)]
         public async Task<string> StartSimpleWizard()
         {
             var operation = await StartOperation<API.SampleService2.Operations.SimpleWizard.Actions>(null);
@@ -29,7 +30,7 @@ namespace Foompany.Services.SampleService2.Modules
 
         //----------------------------------------------------------------------------------------------------------------------------------------------
 
-        [ActionBody]
+        [ActionBody(Methods.POST)]
         public async Task<string> SubmitParameterToWizard(string id, string key, string value)
         {
             var req = new API.SampleService2.Operations.SimpleWizard.DataModels.SubmitParameter.Request()
@@ -43,7 +44,7 @@ namespace Foompany.Services.SampleService2.Modules
 
         //----------------------------------------------------------------------------------------------------------------------------------------------
 
-        [ActionBody]
+        [ActionBody(Methods.POST)]
         public async Task<string> SubmitParameterToWizard2(API.SampleService2.Operations.SimpleWizard.DataModels.SubmitParameter.Request req)
         {
             var id = RestRequest.Path[0];

@@ -34,7 +34,7 @@ namespace Foompany.Services.SampleService2.Modules
         /// <summary>
         /// This method can be called from REST and from other services
         /// </summary>
-        [ActionBody]
+        [ActionBody(Methods.GET)]
         [InteropBody]
         public models.MyDataModel.Response InteropAction3()
         {

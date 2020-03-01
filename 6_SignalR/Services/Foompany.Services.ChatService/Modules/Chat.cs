@@ -18,7 +18,7 @@ namespace Foompany.Services.ChatService.Modules
 
         //----------------------------------------------------------------------------------------------------------------------------------------------
 
-        [ActionBody]
+        [ActionBody(Methods.GET)]
         public string Default() => "Module up and running!" + Environment.NewLine + "See chat page at /ChatService/Content/html/ChatPage.html";
 
         //----------------------------------------------------------------------------------------------------------------------------------------------
@@ -29,7 +29,7 @@ namespace Foompany.Services.ChatService.Modules
         /// PushHubEvents attribute specifies the events (like disconnect) that will be raised for the client that has register on this module/action
         /// </summary>
         /// <remarks> The action api must specify handling of method <see cref="Methods.PUSH_EVENT_CONNECT"/> </remarks>
-        [ActionBody]
+        [ActionBody(Methods.PUSH_EVENT_CONNECT)]
         [PushHubEvents(OnClientDisconnect = nameof(ClientDisconnected))]    //<-- when client disconnects the 'ClientDisconnected' action will be called
         public async Task<object> ClientConnectionRequest(object req)
         {
@@ -94,7 +94,7 @@ namespace Foompany.Services.ChatService.Modules
         /// A normal action to receive the msg and forward it to other user(s)
         /// </summary>
         /// <param name="req"> Request can be any other strong-typed class if we need to pass a more complex object (it will be de-jsoned automatically). In this case it will be just a string </param>
-        [ActionBody]
+        [ActionBody(Methods.PUSH_CALL)]
         public async Task<string> SendMessage(object req, string toUser)
         {
             //get client id

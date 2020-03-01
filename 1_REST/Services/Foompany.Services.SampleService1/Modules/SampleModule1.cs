@@ -13,7 +13,7 @@ namespace Foompany.Services.SampleService1.Modules
     {
         //----------------------------------------------------------------------------------------------------------------------------------------------
 
-        [ActionBody]
+        [ActionBody(Methods.GET)]
         public string Default()
         {
             return "SampleModule1 default method";
@@ -21,7 +21,7 @@ namespace Foompany.Services.SampleService1.Modules
 
         //----------------------------------------------------------------------------------------------------------------------------------------------
 
-        [ActionBody]
+        [ActionBody(Methods.GET)]
         public string Action1()
         {
             return "Called Action1 of SampleModule1";
@@ -35,7 +35,7 @@ namespace Foompany.Services.SampleService1.Modules
          *      - the request's Path, (extra path components in the url, eg for http://localhost:16000/SampleService1/SampleModule1/Action2/SomePath/SomeOtherPath the Path will contain 2 elemens with Path[0]="SomePath" and Path[1]="SomeOtherPath" )
          *      - the request's Query string
          */
-        [ActionBody]
+        [ActionBody(Methods.GET)]
         public string Action2()
         {
             return $"Called Action2 from ip {RestRequest.ConnectionInfo.IP} " +
@@ -52,7 +52,7 @@ namespace Foompany.Services.SampleService1.Modules
          * Parameters that are not specified in the request will get the default(..) value, or if it's optional it will get the default value you specified
          * Parameters in querystring can be given in any order and are not case-sensitive
          */
-        [ActionBody]
+        [ActionBody(Methods.GET)]
         public string Action3(string value1, bool value2, int value3 = 12)
         {
             if (value3 == 100)
@@ -64,7 +64,7 @@ namespace Foompany.Services.SampleService1.Modules
         //----------------------------------------------------------------------------------------------------------------------------------------------
 
         //Simple route to be used by client-side sample app (see SampleClient project in solution)
-        [ActionBody]
+        [ActionBody(Methods.GET)]
         public string DoTheThing(string username)
         {
             return $"Hello {username}, i did the thing!";
@@ -72,7 +72,7 @@ namespace Foompany.Services.SampleService1.Modules
 
         //----------------------------------------------------------------------------------------------------------------------------------------------
 
-        //Sample helper function. Functions not decorated with [Action] or [ActionBody] will not be accessible from the outside world
+        //Sample helper function. Functions not decorated with [Action] or [ActionBody(Methods.GET)] will not be accessible from the outside world
         public string JoinStrings(string separator, params string[] value)
         {
             return string.Join(separator, value);

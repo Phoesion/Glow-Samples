@@ -10,7 +10,7 @@ namespace Foompany.Services.SampleService1.Modules
     {
         //----------------------------------------------------------------------------------------------------------------------------------------------
 
-        [ActionBody]
+        [ActionBody(Methods.GET)]
         public string Default()
         {
             return "SampleModule2 default method";
@@ -18,7 +18,7 @@ namespace Foompany.Services.SampleService1.Modules
 
         //----------------------------------------------------------------------------------------------------------------------------------------------
 
-        [ActionBody]
+        [ActionBody(Methods.GET)]
         public PhotonRestResponse Action1()
         {
             return PhotonRestResponse.AsHtml("Called Action1 of <font color=\"Tomato\">SampleModule2</font>. Returning some <b>html</b> code");
@@ -29,7 +29,7 @@ namespace Foompany.Services.SampleService1.Modules
         /* All Action can return a Task<> instead of the final response.
          * This allows the use of async/await model inside the action to do other operation (like database queries etc)
          */
-        [ActionBody]
+        [ActionBody(Methods.GET)]
         public async Task<string> AsyncAction()
         {
             int sleepTime = 5000;
@@ -43,7 +43,7 @@ namespace Foompany.Services.SampleService1.Modules
         /* Here we return a strong-typed api object. This will be serialized automatically to the needs of the caller.
          * In case of REST request, the request will be serialized to json/xml/msgpack/.. etc based on the accept header the client specified in the request (eg 'application/json')
          */
-        [ActionBody]
+        [ActionBody(Methods.GET)]
         public models.MyDataModel.Response SampleStrongType()
         {
             return new models.MyDataModel.Response()
@@ -57,7 +57,7 @@ namespace Foompany.Services.SampleService1.Modules
 
         /* You can return any object if you functions needs to return different types or error codes.
          */
-        [ActionBody]
+        [ActionBody(Methods.GET)]
         public object SampleObjectType(int retType)
         {
             if (retType == 0)

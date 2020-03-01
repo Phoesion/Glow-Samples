@@ -1,4 +1,5 @@
-﻿using Phoesion.Glow.SDK.Firefly;
+﻿using Phoesion.Glow.SDK;
+using Phoesion.Glow.SDK.Firefly;
 
 
 namespace Foompany.Services.SampleService1.Modules.SampleModule1
@@ -9,7 +10,7 @@ namespace Foompany.Services.SampleService1.Modules.SampleModule1
     {
         //----------------------------------------------------------------------------------------------------------------------------------------------
 
-        [ActionBody]
+        [ActionBody(Methods.GET)]
         public override string Action1()
         {
             return base.Action1() + " (but from v2 of module)";
@@ -17,7 +18,7 @@ namespace Foompany.Services.SampleService1.Modules.SampleModule1
 
         //----------------------------------------------------------------------------------------------------------------------------------------------
 
-        [ActionBody]
+        [ActionBody(Methods.GET)]
         public string NewAction()
         {
             return "This is a new action added in v2 of SampleModule1";

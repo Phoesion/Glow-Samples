@@ -26,7 +26,7 @@ namespace Foompany.Services.SampleService2.Operations
 
         //----------------------------------------------------------------------------------------------------------------------------------------------
 
-        [ActionBody]
+        [ActionBody(Methods.GET)]
         public string Status()
         {
             return $"Operation running... \r\nParameters\r\n{string.Join("\r\n", Parameters.Select(kv => kv.Key + " = " + kv.Value))}";
@@ -49,7 +49,7 @@ namespace Foompany.Services.SampleService2.Operations
 
         //----------------------------------------------------------------------------------------------------------------------------------------------
 
-        [ActionBody]
+        [ActionBody(Methods.POST)]
         [InteropBody]
         public async Task<models.SubmitParameter.Response> SubmitParameter(models.SubmitParameter.Request req)
         {
@@ -62,7 +62,7 @@ namespace Foompany.Services.SampleService2.Operations
 
         //----------------------------------------------------------------------------------------------------------------------------------------------
 
-        [ActionBody]
+        [ActionBody(Methods.POST)]
         public async Task<string> Finish()
         {
             //finish operation

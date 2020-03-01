@@ -16,7 +16,7 @@ namespace Foompany.Services.SampleService1.Modules
         //----------------------------------------------------------------------------------------------------------------------------------------------
 
         [Authorize] // <--- Decorate this action with Authorize attribute; This will invoke our Authorization middleware that will check for a valid bearer token
-        [ActionBody]
+        [ActionBody(Methods.POST)]
         public string DoTheThing(string input)
         {
             return $"Did the thing with {input}";

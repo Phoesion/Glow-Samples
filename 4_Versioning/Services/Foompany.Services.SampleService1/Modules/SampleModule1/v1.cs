@@ -1,4 +1,5 @@
-﻿using Phoesion.Glow.SDK.Firefly;
+﻿using Phoesion.Glow.SDK;
+using Phoesion.Glow.SDK.Firefly;
 
 
 namespace Foompany.Services.SampleService1.Modules.SampleModule1
@@ -9,7 +10,7 @@ namespace Foompany.Services.SampleService1.Modules.SampleModule1
     {
         //----------------------------------------------------------------------------------------------------------------------------------------------
 
-        [ActionBody]
+        [ActionBody(Methods.GET)]
         public string Default()
         {
             return "Module up and running!";
@@ -17,7 +18,7 @@ namespace Foompany.Services.SampleService1.Modules.SampleModule1
 
         //----------------------------------------------------------------------------------------------------------------------------------------------
 
-        [ActionBody]
+        [ActionBody(Methods.GET)]
         public virtual string Action1()
         {
             return "Hello world!";

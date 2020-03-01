@@ -1,4 +1,5 @@
-﻿using Phoesion.Glow.SDK.Firefly;
+﻿using Phoesion.Glow.SDK;
+using Phoesion.Glow.SDK.Firefly;
 
 
 namespace Foompany.Services.SampleService2.v2.Modules
@@ -8,7 +9,7 @@ namespace Foompany.Services.SampleService2.v2.Modules
     {
         //----------------------------------------------------------------------------------------------------------------------------------------------
 
-        [ActionBody]
+        [ActionBody(Methods.GET)]
         public string Default()
         {
             return "Module up and running! (SampleService2.v2.SampleModule1)";
@@ -16,7 +17,7 @@ namespace Foompany.Services.SampleService2.v2.Modules
 
         //----------------------------------------------------------------------------------------------------------------------------------------------
 
-        [ActionBody]
+        [ActionBody(Methods.GET)]
         public string Action1()
         {
             return "Hello world, this is service version 2!";
@@ -24,7 +25,7 @@ namespace Foompany.Services.SampleService2.v2.Modules
 
         //----------------------------------------------------------------------------------------------------------------------------------------------
 
-        [ActionBody]
+        [ActionBody(Methods.GET)]
         public string NewAction()
         {
             return "This is a new action that has been added in version 2 of the service";
