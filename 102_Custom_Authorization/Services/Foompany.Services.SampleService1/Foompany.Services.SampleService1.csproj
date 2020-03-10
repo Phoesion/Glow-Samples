@@ -8,6 +8,7 @@
 
   <ItemGroup>
     <ProjectReference Include="..\..\API\Foompany.Services.API.SampleService1\Foompany.Services.API.SampleService1.csproj" />
+    <ProjectReference Include="..\..\Middleware\Foompany.Middleware.Authorization\Foompany.Middleware.Authorization.csproj" />
   </ItemGroup>
 
   <ItemGroup>

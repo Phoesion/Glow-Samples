@@ -12,6 +12,7 @@
 
   <ItemGroup>
     <ProjectReference Include="..\..\API\Foompany.Services.API.Authorization\Foompany.Services.API.Authorization.csproj" />
+    <ProjectReference Include="..\..\Middleware\Foompany.Middleware.Authorization\Foompany.Middleware.Authorization.csproj" />
   </ItemGroup>
 
   <ItemGroup>

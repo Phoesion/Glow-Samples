@@ -12,6 +12,7 @@
 
   <ItemGroup>
     <PackageReference Include="Phoesion.Glow.SDK.Firefly" Version="*" />
+    <PackageReference Include="Phoesion.Glow.SDK.AspAdapter" Version="*" />
   </ItemGroup>
 
 </Project>
