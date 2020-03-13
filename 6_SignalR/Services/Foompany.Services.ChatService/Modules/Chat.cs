@@ -36,17 +36,17 @@ namespace Foompany.Services.ChatService.Modules
             //get client id
             var clientId = Request?.PushClientId;
             if (clientId == null)
-                throw PhotonResponseError.BadRequest;     //allow only push channels
+                throw PhotonException.BadRequest;     //allow only push channels
 
             //get input and sanitize
             var username = req?.ToString()?.ToLower()?.Trim();
             if (string.IsNullOrEmpty(username))
-                throw PhotonResponseError.BadRequest;
+                throw PhotonException.BadRequest;
 
             //check for valid input. A POST request from a browser (not signalR or websockets) will have null for PushClientId)
             lock (clients)
                 if (clientUsernameLookup.ContainsKey(username))
-                    throw PhotonResponseError.CustomError("username already exists");
+                    throw PhotonException.CustomError("username already exists");
                 else
                 {
                     //all good, add user
@@ -73,7 +73,7 @@ namespace Foompany.Services.ChatService.Modules
             //get client id
             var clientId = Request?.PushClientId;
             if (clientId == null)
-                throw PhotonResponseError.BadRequest;
+                throw PhotonException.BadRequest;
 
             //remove user
             string removeUsername = null;
@@ -100,7 +100,7 @@ namespace Foompany.Services.ChatService.Modules
             //get client id
             var clientId = Request?.PushClientId;
             if (clientId == null)
-                throw PhotonResponseError.BadRequest;
+                throw PhotonException.BadRequest;
 
             //find src user
             string srcClient;

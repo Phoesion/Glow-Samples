@@ -19,12 +19,12 @@ namespace Foompany.Middleware.Authorization
                 //get valid bearer value
                 StringValues auth;
                 if (!restReq.Headers.TryGetValue("Authorization", out auth) || auth.Count == 0 || string.IsNullOrWhiteSpace(auth[0]))
-                    throw Phoesion.Glow.SDK.PhotonResponseError.Forbidden.WithErrorMessage("No Authorization found");
+                    throw Phoesion.Glow.SDK.PhotonException.Forbidden.WithMessage("No Authorization found");
 
                 //get bearer
                 var bearerKV = auth[0].Split(' ');
                 if (bearerKV.Length != 2)
-                    throw Phoesion.Glow.SDK.PhotonResponseError.Forbidden.WithErrorMessage("Invalid Bearer");
+                    throw Phoesion.Glow.SDK.PhotonException.Forbidden.WithMessage("Invalid Bearer");
 
                 //get token
                 var bearerToken = bearerKV[1];
@@ -45,11 +45,11 @@ namespace Foompany.Middleware.Authorization
                     out token);
 
                 if (claims == null || token == null)
-                    throw Phoesion.Glow.SDK.PhotonResponseError.Forbidden.WithErrorMessage("JWT token not valid");
+                    throw Phoesion.Glow.SDK.PhotonException.Forbidden.WithMessage("JWT token not valid");
 
                 //check expiration
                 if (DateTime.UtcNow > token.ValidTo)
-                    throw Phoesion.Glow.SDK.PhotonResponseError.Forbidden.WithErrorMessage("Access token expired");
+                    throw Phoesion.Glow.SDK.PhotonException.Forbidden.WithMessage("Access token expired");
             }
 
             return chain.InvokeNextAsync();

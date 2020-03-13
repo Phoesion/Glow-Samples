@@ -51,7 +51,7 @@ namespace Foompany.Services.SampleService1.Modules
 
             //save session
             if (!await Context.SaveSession(session))
-                throw PhotonResponseError.InternalServerError.WithErrorMessage("Could not update session");
+                throw PhotonException.InternalServerError.WithMessage("Could not update session");
 
             //done!
             return "Username updated! <a href=\"SampleForm\">View SampleForm</a>";

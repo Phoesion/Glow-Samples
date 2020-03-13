@@ -39,7 +39,7 @@ namespace Foompany.Services.SampleService2.Operations
         {
             //input check
             if (string.IsNullOrWhiteSpace(key))
-                throw PhotonResponseError.BadRequest.WithErrorMessage("Key cannot be null or whitespace");
+                throw PhotonException.BadRequest.WithMessage("Key cannot be null or whitespace");
             //add parameter
             lock (Parameters)
                 Parameters[key] = value;

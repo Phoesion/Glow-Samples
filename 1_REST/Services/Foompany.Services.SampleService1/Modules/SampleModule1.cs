@@ -1,4 +1,5 @@
-﻿using Phoesion.Glow.SDK;
+﻿using Microsoft.Extensions.Logging;
+using Phoesion.Glow.SDK;
 using Phoesion.Glow.SDK.Firefly;
 using System.Linq;
 
@@ -16,6 +17,10 @@ namespace Foompany.Services.SampleService1.Modules
         [ActionBody(Methods.GET)]
         public string Default()
         {
+            //use logger to log information!
+            logger.LogInformation("hit default method!");
+
+            //return result
             return "SampleModule1 default method";
         }
 
@@ -56,7 +61,7 @@ namespace Foompany.Services.SampleService1.Modules
         public string Action3(string value1, bool value2, int value3 = 12)
         {
             if (value3 == 100)
-                throw PhotonResponseError.BadRequest;
+                throw PhotonException.BadRequest;
             else
                 return $"Called Service 1, Action 3! got value1={value1}, value2={value2} and value3={value3}";
         }

@@ -14,18 +14,22 @@ namespace Foompany.Services.SampleService1
         protected override async Task ConfigureServices(IServiceCollection services)
         {
             // Add authentication
-            services.AddAuthentication("Bearer")
-                    .AddJwtBearer("Bearer", options =>
+            services.AddAuthentication(options =>
                     {
-                        // set authority service
-                        options.Authority = "http://localhost:16000/Identity";
+                        options.DefaultAuthenticateScheme = JwtBearerDefaults.AuthenticationScheme;
+                        options.DefaultChallengeScheme = JwtBearerDefaults.AuthenticationScheme;
+                    })
+                   .AddJwtBearer(options =>
+                   {
+                       // set authority service
+                       options.Authority = "http://localhost:16000/Identity";
 
-                        //disable for development purposes
-                        options.RequireHttpsMetadata = false;
+                       //disable for development purposes
+                       options.RequireHttpsMetadata = false;
 
-                        //set audience
-                        options.Audience = "api1";
-                    });
+                       //set audience
+                       options.Audience = "api1";
+                   });
 
             // Add authorization services
             services.AddAuthorization();

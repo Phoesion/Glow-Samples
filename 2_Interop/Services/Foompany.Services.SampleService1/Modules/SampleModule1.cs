@@ -90,7 +90,7 @@ namespace Foompany.Services.SampleService1.Modules
                                         .InvokeAsync();
                 return result ?? "got null result";
             }
-            catch (PhotonResponseError ex)
+            catch (PhotonException ex)
             {
                 return $"Exception caught! ErrorCode={ex.ErrorCode}";
             }
@@ -103,7 +103,7 @@ namespace Foompany.Services.SampleService1.Modules
         {
             var stream = await Call(API.SampleService2.Modules.InteropSample1.Actions.StreamingSample).InvokeAsync();
             if (stream == null)
-                throw PhotonResponseError.InternalServerError;
+                throw PhotonException.InternalServerError;
             var reader = new StreamReader(stream);
             return await reader.ReadToEndAsync();
         }

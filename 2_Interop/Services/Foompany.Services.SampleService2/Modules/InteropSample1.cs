@@ -62,7 +62,7 @@ namespace Foompany.Services.SampleService2.Modules
         [InteropBody]
         public string ExceptionSample()
         {
-            throw PhotonResponseError.NotFound;
+            throw PhotonException.NotFound;
         }
 
         //----------------------------------------------------------------------------------------------------------------------------------------------

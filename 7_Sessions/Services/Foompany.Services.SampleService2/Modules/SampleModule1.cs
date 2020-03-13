@@ -56,7 +56,7 @@ namespace Foompany.Services.SampleService2.Modules
 
             //save service-specific session data
             if (!await Context.SetSessionData(mySessionData))
-                throw PhotonResponseError.InternalServerError.WithErrorMessage("Could not update session");
+                throw PhotonException.InternalServerError.WithMessage("Could not update session");
 
             //done!
             return "data updated! <a href=\"SampleForm\">View SampleForm</a>";

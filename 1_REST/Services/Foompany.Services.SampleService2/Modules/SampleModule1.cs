@@ -45,7 +45,7 @@ namespace Foompany.Services.SampleService2.Modules
         {
             var isValid = command == "hi";
             if (!isValid)
-                throw PhotonResponseError.BadRequest;
+                throw PhotonException.BadRequest;
             else
                 return "Hello!";
         }

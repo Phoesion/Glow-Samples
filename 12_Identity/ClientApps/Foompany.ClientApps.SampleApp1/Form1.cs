@@ -24,7 +24,7 @@ namespace Foompany.ClientApps.SampleApp2
                 //var disco = await client.GetDiscoveryDocumentAsync($"http://{txt_Hostname.Text}/Identity");
                 var disco = await client.GetDiscoveryDocumentAsync(new DiscoveryDocumentRequest()
                 {
-                    Address = $"http://{txt_Hostname.Text}/Identity",
+                    Address = $"http://{txt_Hostname.Text}/Identity",   //NOTE: use https in production!
                     //for development purpose, disable HTTPS enforce and validations
                     Policy =
                     {
