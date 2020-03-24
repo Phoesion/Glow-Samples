@@ -17,12 +17,8 @@
     <Protobuf Include="DataModels\SampleModule1.proto" GrpcServices="Client" />
   </ItemGroup>
 
-  
-
-  
   <ItemGroup>
     <PackageReference Include="Phoesion.Glow.SDK.Core" Version="*" />
   </ItemGroup>
-  
 
 </Project>

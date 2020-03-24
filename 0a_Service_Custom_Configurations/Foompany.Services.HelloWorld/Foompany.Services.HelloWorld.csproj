@@ -5,12 +5,8 @@
     <NoWarn>1701;1702;1998</NoWarn>
   </PropertyGroup>
 
-  
-
-  
   <ItemGroup>
     <PackageReference Include="Phoesion.Glow.SDK.Firefly" Version="*" />
   </ItemGroup>
-  
 
 </Project>
