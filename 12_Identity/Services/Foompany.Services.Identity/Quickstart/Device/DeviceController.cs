@@ -5,7 +5,6 @@
 using System;
 using System.Linq;
 using System.Threading.Tasks;
-using IdentityServer4.Configuration;
 using IdentityServer4.Events;
 using IdentityServer4.Extensions;
 using IdentityServer4.Models;
@@ -14,9 +13,8 @@ using IdentityServer4.Stores;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Logging;
-using Microsoft.Extensions.Options;
 
-namespace  Foompany.Services.Identity.Device
+namespace IdentityServer4.Quickstart.UI.Device
 {
     [Authorize]
     [SecurityHeaders]
@@ -26,7 +24,6 @@ namespace  Foompany.Services.Identity.Device
         private readonly IClientStore _clientStore;
         private readonly IResourceStore _resourceStore;
         private readonly IEventService _events;
-        private readonly IOptions<IdentityServerOptions> _options;
         private readonly ILogger<DeviceController> _logger;
 
         public DeviceController(
@@ -34,22 +31,18 @@ namespace  Foompany.Services.Identity.Device
             IClientStore clientStore,
             IResourceStore resourceStore,
             IEventService eventService,
-            IOptions<IdentityServerOptions> options,
             ILogger<DeviceController> logger)
         {
             _interaction = interaction;
             _clientStore = clientStore;
             _resourceStore = resourceStore;
             _events = eventService;
-            _options = options;
             _logger = logger;
         }
 
         [HttpGet]
-        public async Task<IActionResult> Index()
+        public async Task<IActionResult> Index([FromQuery(Name = "user_code")] string userCode)
         {
-            string userCodeParamName = _options.Value.UserInteraction.DeviceVerificationUserCodeParameter;
-            string userCode = Request.Query[userCodeParamName];
             if (string.IsNullOrWhiteSpace(userCode)) return View("UserCodeCapture");
 
             var vm = await BuildViewModelAsync(userCode);

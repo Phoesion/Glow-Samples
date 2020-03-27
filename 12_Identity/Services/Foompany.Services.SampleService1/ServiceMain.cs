@@ -29,6 +29,9 @@ namespace Foompany.Services.SampleService1
 
                        //set audience
                        options.Audience = "api1";
+
+                       // Store the resulting access and refresh token in the authentication session
+                       options.SaveToken = true;
                    });
 
             // Add authorization services

@@ -12,10 +12,6 @@
   </ItemGroup>
 
   <ItemGroup>
-    <Compile Include="..\Constants.cs" Link="Constants.cs" />
-  </ItemGroup>
-
-  <ItemGroup>
     <ProjectReference Include="..\..\API\Foompany.Services.API.SampleService1\Foompany.Services.API.SampleService1.csproj" />
   </ItemGroup>
 
@@ -23,6 +19,27 @@
     <PackageReference Include="Phoesion.Glow.SDK.Firefly" Version="*" />
     <PackageReference Include="Phoesion.Glow.SDK.Authorization" Version="*" />
     <PackageReference Include="Phoesion.Glow.SDK.Authentication" Version="*" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Compile Include="..\Constants.cs" Link="Constants.cs" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Content Include="Content\**">
+      <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="appsettings.Development.json">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      <ExcludeFromSingleFile>true</ExcludeFromSingleFile>
+      <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
+    </Content>
+    <Content Include="appsettings.json">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      <ExcludeFromSingleFile>true</ExcludeFromSingleFile>
+      <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
+    </Content>
   </ItemGroup>
 
 </Project>

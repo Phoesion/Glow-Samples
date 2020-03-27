@@ -3,11 +3,12 @@ using Phoesion.Glow.SDK.Firefly.AspHost;
 using Serilog;
 using Serilog.Events;
 using Serilog.Sinks.SystemConsole.Themes;
+using System.Threading.Tasks;
 
 /*
  * Notes
  * ------
- * This sample follows the IdentityServer QuickStart sample, from https://github.com/IdentityServer/IdentityServer4/tree/master/samples/Quickstarts/3_AspNetCoreAndApis
+ * This sample follows the IdentityServer QuickStart sample, from https://github.com/IdentityServer/IdentityServer4/tree/master/samples/Quickstarts/6_AspNetIdentity
  * The entire IdentityServer project has remain mostly unchanged (except namespace changes).
  * The only significant change is this file, where you have the ServiceMain deriving from AspFireflyService, instead of a Program.cs with a Main()
 */
@@ -18,6 +19,8 @@ namespace Foompany.Services.Identity
     {
         protected override void ConfigureWebHost(IWebHostBuilder webHostBuilder)
         {
+            Startup.FireflyDataPath = DataPath; //keep datapath to be used for sqlite
+
             webHostBuilder.UseStartup<Startup>()
                           .UseSerilog((context, configuration) =>
                           {

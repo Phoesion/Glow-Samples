@@ -18,8 +18,14 @@
       "ServiceHost": "DotNet",
       "Builds": [
         {
-          "Build": "AnyCpu",
-          "AssemblyFilePath": "Services\\Foompany.Services.Identity\\bin\\%BUILD%\\netcoreapp3.1\\Foompany.Services.Identity.dll"
+          "Build": "Win_x64",
+          "BuildCommand": "dotnet publish --configuration %BUILD% --framework netcoreapp3.1 --runtime win-x64 -o \"bin\\%BUILD%\\publish\\netcore\\win-x64\"",
+          "AssemblyFilePath": "Services\\Foompany.Services.Identity\\bin\\%BUILD%\\publish\\netcore\\win-x64\\Foompany.Services.Identity.dll"
+        },
+        {
+          "Build": "Linux_x64",
+          "BuildCommand": "dotnet publish --configuration %BUILD% --framework netcoreapp3.1 --runtime linux-x64 -o \"bin\\%BUILD%\\publish\\netcore\\linux-x64\"",
+          "AssemblyFilePath": "Services\\Foompany.Services.Identity\\bin\\%BUILD%\\publish\\netcore\\linux-x64\\Foompany.Services.Identity.dll"
         }
       ]
     },
@@ -31,6 +37,17 @@
         {
           "Build": "AnyCpu",
           "AssemblyFilePath": "Services\\Foompany.Services.AspCoreMvc\\bin\\%BUILD%\\netcoreapp3.1\\Foompany.Services.AspCoreMvc.dll"
+        }
+      ]
+    },
+    {
+      "IsEnabled": true,
+      "CSProjectFile": "Services\\Foompany.Services.JavaScriptClient\\Foompany.Services.JavaScriptClient.csproj",
+      "ServiceHost": "DotNet",
+      "Builds": [
+        {
+          "Build": "AnyCpu",
+          "AssemblyFilePath": "Services\\Foompany.Services.JavaScriptClient\\bin\\%BUILD%\\netcoreapp3.1\\Foompany.Services.JavaScriptClient.dll"
         }
       ]
     }

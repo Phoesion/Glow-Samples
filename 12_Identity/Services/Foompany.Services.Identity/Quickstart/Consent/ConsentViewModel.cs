@@ -4,7 +4,7 @@
 
 using System.Collections.Generic;
 
-namespace  Foompany.Services.Identity
+namespace IdentityServer4.Quickstart.UI
 {
     public class ConsentViewModel : ConsentInputModel
     {

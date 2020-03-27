@@ -10,7 +10,7 @@ using Microsoft.Extensions.Hosting;
 using Microsoft.Extensions.Logging;
 using System.Threading.Tasks;
 
-namespace  Foompany.Services.Identity
+namespace IdentityServer4.Quickstart.UI
 {
     [SecurityHeaders]
     [AllowAnonymous]

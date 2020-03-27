@@ -16,16 +16,16 @@ namespace Foompany.Services.AspCoreMvc
             JwtSecurityTokenHandler.DefaultMapInboundClaims = false;
 
             services.AddAuthentication(options =>
-            {
-                options.DefaultScheme = "Cookies";
-                options.DefaultChallengeScheme = "oidc";
-            })
+                {
+                    options.DefaultScheme = "Cookies";
+                    options.DefaultChallengeScheme = "oidc";
+                })
                 .AddCookie("Cookies")
                 .AddOpenIdConnect("oidc", options =>
                 {
-                    options.Authority = "http://localhost:16000/Identity";
+                    options.Authority = "http://localhost:16000/Identity";  //!! Replace with your host info (with https) !!
                     options.RequireHttpsMetadata = false;
-                    
+
                     options.ClientId = "mvc";
                     options.ClientSecret = "secret";
                     options.ResponseType = "code";

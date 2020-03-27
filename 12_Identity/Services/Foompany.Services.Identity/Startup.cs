@@ -1,72 +1,82 @@
+﻿// Copyright (c) Brock Allen & Dominick Baier. All rights reserved.
+// Licensed under the Apache License, Version 2.0. See LICENSE in the project root for license information.
+
+
+using Foompany.Services.Identity.Data;
+using Foompany.Services.Identity.Models;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
+using Microsoft.AspNetCore.Identity;
+using Microsoft.EntityFrameworkCore;
+using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
-
-using IdentityServer4;
-using Microsoft.IdentityModel.Tokens;
+using Phoesion.Glow.SDK.Firefly;
 
 namespace Foompany.Services.Identity
 {
     public class Startup
     {
-        public Startup(IConfiguration configuration)
+        internal static string FireflyDataPath { get; set; }
+
+        public IWebHostEnvironment Environment { get; }
+        public IConfiguration Configuration { get; }
+
+        public Startup(IWebHostEnvironment environment, IConfiguration configuration)
         {
+            Environment = environment;
             Configuration = configuration;
         }
 
-        public IConfiguration Configuration { get; }
-
-        // This method gets called by the runtime. Use this method to add services to the container.
         public void ConfigureServices(IServiceCollection services)
         {
             services.AddControllersWithViews();
 
-            var builder = services.AddIdentityServer()
-                                  .AddInMemoryIdentityResources(Config.Ids)
-                                  .AddInMemoryApiResources(Config.Apis)
-                                  .AddInMemoryClients(Config.Clients)
-                                  .AddTestUsers(TestUsers.Users);
+            services.AddDbContext<ApplicationDbContext>(options =>
+                options.UseSqlite(Configuration.GetConnectionString("DefaultConnection").Replace("(datapath)", FireflyDataPath)));
 
+            services.AddIdentity<ApplicationUser, IdentityRole>()
+                .AddEntityFrameworkStores<ApplicationDbContext>()
+                .AddDefaultTokenProviders();
+
+            var builder = services.AddIdentityServer(options =>
+                {
+                    options.Events.RaiseErrorEvents = true;
+                    options.Events.RaiseInformationEvents = true;
+                    options.Events.RaiseFailureEvents = true;
+                    options.Events.RaiseSuccessEvents = true;
+                })
+                .AddInMemoryIdentityResources(Config.Ids)
+                .AddInMemoryApiResources(Config.Apis)
+                .AddInMemoryClients(Config.Clients)
+                .AddAspNetIdentity<ApplicationUser>();
+
+            // not recommended for production - you need to store your key material somewhere secure
             builder.AddDeveloperSigningCredential();
 
             services.AddAuthentication()
-                .AddGoogle("Google", options =>
+                .AddGoogle(options =>
                 {
-                    options.SignInScheme = IdentityServerConstants.ExternalCookieAuthenticationScheme;
-
-                    options.ClientId = "<insert here>";
-                    options.ClientSecret = "<insert here>";
-                })
-                .AddOpenIdConnect("oidc", "Demo IdentityServer", options =>
-                {
-                    options.SignInScheme = IdentityServerConstants.ExternalCookieAuthenticationScheme;
-                    options.SignOutScheme = IdentityServerConstants.SignoutScheme;
-                    options.SaveTokens = true;
-
-                    options.Authority = "https://demo.identityserver.io/";
-                    options.ClientId = "native.code";
-                    options.ClientSecret = "secret";
-                    options.ResponseType = "code";
-
-                    options.TokenValidationParameters = new TokenValidationParameters
-                    {
-                        NameClaimType = "name",
-                        RoleClaimType = "role"
-                    };
+                    // register your IdentityServer with Google at https://console.developers.google.com
+                    // enable the Google+ API
+                    // set the redirect URI to http://localhost:5000/signin-google
+                    options.ClientId = "copy client ID from Google here";
+                    options.ClientSecret = "copy client secret from Google here";
                 });
         }
 
-        // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
-        public void Configure(IApplicationBuilder app, IWebHostEnvironment env)
+        public void Configure(IApplicationBuilder app)
         {
-            if (env.IsDevelopment())
+            if (Environment.IsDevelopment())
             {
                 app.UseDeveloperExceptionPage();
             }
 
-            app.UseStaticFiles(); //all files in wwwroot are treated as Static Content by default and will be copied to the Prism's local cache
+            //migrate db (used mostly for testing to create initial scheme and seed data)
+            SeedData.EnsureSeedData(app.ApplicationServices);
+
+            app.UseStaticFiles();
 
             app.UseRouting();
 
