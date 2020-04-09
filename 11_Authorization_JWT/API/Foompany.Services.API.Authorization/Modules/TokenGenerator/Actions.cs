@@ -6,7 +6,7 @@ namespace Foompany.Services.API.Authorization.Modules.TokenGenerator
 {
     public abstract class Actions
     {
-        [Action(Methods.POST)]
+        [Action(Methods.GET)]
         public static string GetAccessToken(string email, int userid) => null;
     }
 }

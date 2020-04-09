@@ -18,7 +18,7 @@ namespace Foompany.Services.SampleService1.Modules
         public string Default()
         {
             //use logger to log information!
-            logger?.LogInformation("hit default method!");
+            Logger?.LogInformation("hit default method!");
 
             //return result
             return "SampleModule1 default method";

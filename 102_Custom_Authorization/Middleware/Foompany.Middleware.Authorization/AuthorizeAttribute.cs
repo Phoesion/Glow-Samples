@@ -1,6 +1,6 @@
 ﻿namespace Foompany.Middleware.Authorization
 {
-    public class AuthorizeAttribute : Phoesion.Glow.SDK.Firefly.MiddlewareTagAttribute
+    public class AuthorizeAttribute : Phoesion.Glow.SDK.Firefly.MiddlewareMetadataAttribute
     {
     }
 }

@@ -1,6 +1,6 @@
 ﻿namespace Foompany.Middleware.Profiler
 {
-    public class ProfileAttribute : Phoesion.Glow.SDK.Firefly.MiddlewareTagAttribute
+    public class ProfileAttribute : Phoesion.Glow.SDK.Firefly.MiddlewareMetadataAttribute
     {
     }
 }

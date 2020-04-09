@@ -11,13 +11,13 @@ namespace Foompany.Services.BookStore
 {
     public class ServiceMain : FireflyService
     {
-        protected override async Task ConfigureServices(IServiceCollection services)
+        protected override void ConfigureServices(IServiceCollection services)
         {
             //add OData services
             services.AddOData();
         }
 
-        protected override async Task Configure(IGlowApplicationBuilder app)
+        protected override void Configure(IGlowApplicationBuilder app)
         {
             //TODO : ...
             //Microsoft.AspNetCore.Routing.IRouteBuilder b;

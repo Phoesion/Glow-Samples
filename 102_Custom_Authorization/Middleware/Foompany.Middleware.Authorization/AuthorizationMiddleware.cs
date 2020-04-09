@@ -2,6 +2,7 @@
 using Microsoft.IdentityModel.Tokens;
 using Phoesion.Glow.SDK.Firefly;
 using System;
+using System.Collections.Generic;
 using System.IdentityModel.Tokens.Jwt;
 using System.Text;
 using System.Threading.Tasks;
@@ -10,7 +11,7 @@ namespace Foompany.Middleware.Authorization
 {
     public class AuthorizationMiddleware : IMiddleware
     {
-        public ValueTask InvokeAsync(IMiddlewareChain chain, IActionContext context, MiddlewareTagAttribute[] tags)
+        public ValueTask InvokeAsync(IMiddlewareChain chain, IActionContext context, IReadOnlyList<IMiddlewareMetadata> metadata)
         {
             //get bearer
             var restReq = context.RestRequest;

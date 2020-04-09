@@ -11,7 +11,7 @@ namespace Foompany.Services.SampleService1
 {
     public class ServiceMain : Phoesion.Glow.SDK.Firefly.FireflyService
     {
-        protected override async Task ConfigureServices(IServiceCollection services)
+        protected override void ConfigureServices(IServiceCollection services)
         {
             // Add authentication
             services.AddAuthentication(options =>
@@ -36,7 +36,7 @@ namespace Foompany.Services.SampleService1
             services.AddAuthorization();
         }
 
-        protected override async Task Configure(IGlowApplicationBuilder app)
+        protected override void Configure(IGlowApplicationBuilder app)
         {
             // Enable Authentication/Authorization middleware (order is important!)
             app.UseAuthentication();

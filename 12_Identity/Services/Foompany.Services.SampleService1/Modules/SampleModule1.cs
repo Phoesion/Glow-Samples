@@ -3,6 +3,8 @@ using Phoesion.Glow.SDK.Authorization;
 using Phoesion.Glow.SDK.Firefly;
 using System;
 using System.Linq;
+using System.Net.Http.Headers;
+using System.Threading.Tasks;
 
 namespace Foompany.Services.SampleService1.Modules
 {
@@ -29,6 +31,22 @@ namespace Foompany.Services.SampleService1.Modules
         {
             return from c in Context.User.Claims
                    select new { c.Type, c.Value };
+        }
+
+        //----------------------------------------------------------------------------------------------------------------------------------------------
+
+        [Action(Methods.GET)]
+        public async Task<string> GetActionToken()
+        {
+            var accessToken = "";
+            //var accessToken = await Context.GetTokenAsync("access_token");
+
+            // Use accessToken to perform requests to other services, in-behalf of user, like so :
+            //var client = new System.Net.Http.HttpClient();
+            //client.DefaultRequestHeaders.Authorization = new AuthenticationHeaderValue("Bearer", accessToken);
+            //var result = await client.PostAsync("http://localhost:16000/xxx", null);
+
+            return accessToken;
         }
         //----------------------------------------------------------------------------------------------------------------------------------------------
     }

@@ -9,7 +9,7 @@ namespace Foompany.Services.SampleService1
 {
     public class ServiceMain : Phoesion.Glow.SDK.Firefly.FireflyService
     {
-        protected override async Task ConfigureServices(IServiceCollection services)
+        protected override void ConfigureServices(IServiceCollection services)
         {
             // Uncomment the following line to use the dummy in-memory implementation of IDistributedCache
             // This should only be used in single server scenarios as this cache stores items in memory and doesn't expand across multiple machines.
@@ -44,7 +44,7 @@ namespace Foompany.Services.SampleService1
             services.AddSession(o => o.IdleTimeout = TimeSpan.FromMinutes(10));
         }
 
-        protected override async Task Configure(IGlowApplicationBuilder app)
+        protected override void Configure(IGlowApplicationBuilder app)
         {
             // Enable the sessions middleware
             app.UseSession();
