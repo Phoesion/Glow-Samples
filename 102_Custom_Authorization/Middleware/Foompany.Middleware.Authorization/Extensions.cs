@@ -8,7 +8,7 @@ namespace Foompany.Middleware.Authorization
         public static void UseAuthorization(this IGlowApplicationBuilder app)
         {
             //add a AuthorizationMiddleware to middleware chain
-            app.UseMiddleware<AuthorizationMiddleware, AuthorizeAttribute>(DependencyInjectionMode.Singleton);
+            app.UseMiddleware<AuthorizationMiddleware, AuthorizeAttribute>();
         }
     }
 }

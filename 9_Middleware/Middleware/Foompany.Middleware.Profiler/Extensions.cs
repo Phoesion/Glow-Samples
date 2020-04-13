@@ -8,7 +8,7 @@ namespace Foompany.Middleware.Profiler
         public static void UseProfiler(this IGlowApplicationBuilder app)
         {
             //add a ProfilerMiddleware to middleware chain
-            app.UseMiddleware<ProfilerMiddleware, ProfileAttribute>(DependencyInjectionMode.Singleton);
+            app.UseMiddleware<ProfilerMiddleware, ProfileAttribute>();
         }
     }
 }
