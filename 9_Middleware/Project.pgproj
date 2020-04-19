@@ -1,5 +1,4 @@
 {
-  "RemoveServiceNamePrefix": "Foompany.Services",
   "Services": [
     {
       "IsEnabled": true,

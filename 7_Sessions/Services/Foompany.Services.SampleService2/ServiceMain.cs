@@ -6,6 +6,7 @@ using System.Threading.Tasks;
 
 namespace Foompany.Services.SampleService2
 {
+    [ServiceName("SampleService2")]
     public class ServiceMain : Phoesion.Glow.SDK.Firefly.FireflyService
     {
         protected override void ConfigureServices(IServiceCollection services)

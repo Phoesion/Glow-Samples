@@ -9,6 +9,7 @@ using Microsoft.AspNet.OData.Extensions;
 
 namespace Foompany.Services.BookStore
 {
+    [ServiceName("BookStore")]
     public class ServiceMain : FireflyService
     {
         protected override void ConfigureServices(IServiceCollection services)

@@ -1,4 +1,5 @@
 using Microsoft.AspNetCore.Hosting;
+using Phoesion.Glow.SDK.Firefly;
 using Phoesion.Glow.SDK.Firefly.AspHost;
 
 /*
@@ -11,6 +12,7 @@ using Phoesion.Glow.SDK.Firefly.AspHost;
 
 namespace Foompany.Services.AspCoreMvc
 {
+    [ServiceName("AspCoreMvc")]
     public class ServiceMain : AspFireflyService
     {
         protected override void ConfigureWebHost(IWebHostBuilder webHostBuilder)

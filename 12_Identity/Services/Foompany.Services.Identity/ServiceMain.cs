@@ -1,9 +1,10 @@
-using Microsoft.AspNetCore.Hosting;
-using Phoesion.Glow.SDK.Firefly.AspHost;
 using Serilog;
+using System.Threading.Tasks;
 using Serilog.Events;
 using Serilog.Sinks.SystemConsole.Themes;
-using System.Threading.Tasks;
+using Microsoft.AspNetCore.Hosting;
+using Phoesion.Glow.SDK.Firefly;
+using Phoesion.Glow.SDK.Firefly.AspHost;
 
 /*
  * Notes
@@ -15,6 +16,7 @@ using System.Threading.Tasks;
 
 namespace Foompany.Services.Identity
 {
+    [ServiceName("Identity")]
     public class ServiceMain : AspFireflyService
     {
         protected override void ConfigureWebHost(IWebHostBuilder webHostBuilder)
