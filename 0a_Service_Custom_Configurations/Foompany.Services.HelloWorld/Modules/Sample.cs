@@ -8,7 +8,7 @@ namespace Foompany.Services.HelloWorld.Modules
     public class Sample : Phoesion.Glow.SDK.Firefly.FireflyModule
     {
         [Autowire]
-        new ServiceMain Service;
+        private new ServiceMain Service;
 
         //----------------------------------------------------------------------------------------------------------------------------------------------
 
@@ -18,7 +18,9 @@ namespace Foompany.Services.HelloWorld.Modules
             return $"SampleData1 = {Service.SampleData1} \r\n\r\n" +
                    $"DataWithDefaultValue = {Service.DataWithDefaultValue} \r\n\r\n" +
                    $"SampleNumberConfig = {Service.SampleNumberConfig} \r\n\r\n" +
-                   $"ComplexModelConfig = {Phoesion.Json.JsonConvert.SerializeObject(Service.ComplexModelConfig)} \r\n\r\n";
+                   $"ComplexModelConfig = {ToJson(Service.ComplexModelConfig)} \r\n\r\n" +
+                   $"ValueFromAppSettings = {Service.ValueFromAppSettings} \r\n\r\n" +
+                   $"Configs_MyKey2 = {Service.Configs_MyKey2} \r\n\r\n";
         }
 
         //----------------------------------------------------------------------------------------------------------------------------------------------
