@@ -1,28 +1,14 @@
 {
-  "iisSettings": {
-    "windowsAuthentication": false,
-    "anonymousAuthentication": true,
-    "iisExpress": {
-      "applicationUrl": "http://localhost:5000",
-      "sslPort": 0
-    }
-  },
   "profiles": {
-    "IIS Express": {
-      "commandName": "IISExpress",
-      "launchBrowser": true,
-      "launchUrl": "http://localhost:5000",
-      "environmentVariables": {
-        "ASPNETCORE_ENVIRONMENT": "Development"
-      }
+    "MyCompany.Services.MyService (Local)": {
+      "commandName": "Executable",
+      "executablePath": "Phoesion.Glow.Reactor.Debugger.exe",
+      "commandLineArgs": "-QuantumSpace:Default -NamespacePreffix:Auto \"$(TargetPath)\""
     },
-    "SelfHost": {
-      "commandName": "Project",
-      "launchBrowser": true,
-      "environmentVariables": {
-        "ASPNETCORE_ENVIRONMENT": "Development"
-      },
-      "applicationUrl": "http://localhost:5000"
+    "MyCompany.Services.MyService (Remote Debugger)": {
+      "commandName": "Executable",
+      "executablePath": "Phoesion.Glow.Debugger.FireflySrv.exe",
+      "commandLineArgs": "\"$(TargetPath)\""
     }
   }
 }
