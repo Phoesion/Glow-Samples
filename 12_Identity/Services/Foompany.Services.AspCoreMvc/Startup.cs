@@ -38,6 +38,8 @@ namespace Foompany.Services.AspCoreMvc
 
                     options.ClaimActions.MapJsonKey("website", "website");
                 });
+
+            services.AddAuthorization();
         }
 
         public void Configure(IApplicationBuilder app, IWebHostEnvironment env)
@@ -60,8 +62,7 @@ namespace Foompany.Services.AspCoreMvc
 
             app.UseEndpoints(endpoints =>
             {
-                endpoints.MapDefaultControllerRoute()
-                    .RequireAuthorization();
+                endpoints.MapDefaultControllerRoute();
             });
         }
     }
