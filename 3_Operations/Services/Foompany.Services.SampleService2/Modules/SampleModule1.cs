@@ -47,7 +47,7 @@ namespace Foompany.Services.SampleService2.Modules
         [ActionBody(Methods.POST)]
         public async Task<string> SubmitParameterToWizard2(API.SampleService2.Operations.SimpleWizard.DataModels.SubmitParameter.Request req)
         {
-            var id = RestRequest.Path[0];
+            var id = RestRequest.ParamPath[0];
             var rsp = await CallOperation(id, API.SampleService2.Operations.SimpleWizard.Actions.SubmitParameter, req).InvokeAsync();
             return rsp?.IsSuccess == true ? "success" : "fail";
         }

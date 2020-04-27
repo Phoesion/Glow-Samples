@@ -49,12 +49,24 @@ namespace Foompany.Services.Identity
                     RequirePkce = true,
                 
                     // where to redirect to after login
-                    RedirectUris = { "http://localhost:16000/AspCoreMvc/signin-oidc" },
+                    RedirectUris =
+                    {
+                        "http://localhost:16000/AspCoreMvc/signin-oidc",
+                        "http://localhost/AspCoreMvc/signin-oidc",
+                        "http://localhost:16000/FireflyMvc/signin-oidc",
+                        "http://localhost/FireflyMvc/signin-oidc",
+                    },
 
                     // where to redirect to after logout
-                    PostLogoutRedirectUris = { "http://localhost:16000/AspCoreMvc/signout-callback-oidc" },
+                    PostLogoutRedirectUris =
+                    {
+                        "http://localhost:16000/AspCoreMvc/signout-callback-oidc",
+                        "http://localhost/AspCoreMvc/signout-callback-oidc",
+                        "http://localhost:16000/FireflyMvc/signin-oidc",
+                        "http://localhost/FireflyMvc/signin-oidc",
+                    },
 
-                    AllowedScopes = new List<string>
+                    AllowedScopes =
                     {
                         IdentityServerConstants.StandardScopes.OpenId,
                         IdentityServerConstants.StandardScopes.Profile,

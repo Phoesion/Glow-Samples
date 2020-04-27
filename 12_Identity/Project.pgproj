@@ -13,6 +13,17 @@
     },
     {
       "IsEnabled": true,
+      "CSProjectFile": "Services\\Foompany.Services.FireflyMvc\\Foompany.Services.FireflyMvc.csproj",
+      "ServiceHost": "DotNet",
+      "Builds": [
+        {
+          "Build": "AnyCpu",
+          "AssemblyFilePath": "Services\\Foompany.Services.FireflyMvc\\bin\\%BUILD%\\netcoreapp3.1\\Foompany.Services.FireflyMvc.dll"
+        }
+      ]
+    },
+    {
+      "IsEnabled": true,
       "CSProjectFile": "Services\\Foompany.Services.Identity\\Foompany.Services.Identity.csproj",
       "ServiceHost": "DotNet",
       "Builds": [

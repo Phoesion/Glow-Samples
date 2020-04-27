@@ -8,10 +8,7 @@
 
   <ItemGroup>
     <PackageReference Include="Microsoft.AspNetCore.Authentication.JwtBearer" Version="3.1.3" />
-  </ItemGroup>
-
-  <ItemGroup>
-    <ProjectReference Include="..\..\API\Foompany.Services.API.SampleService1\Foompany.Services.API.SampleService1.csproj" />
+    <PackageReference Include="Microsoft.AspNetCore.Authentication.OpenIdConnect" Version="3.1.3" />
   </ItemGroup>
 
   <ItemGroup>
@@ -40,6 +37,10 @@
       <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
       <DependentUpon>appsettings.json</DependentUpon>
     </Content>
+  </ItemGroup>
+
+  <ItemGroup>
+    <None Remove="Views\Index.cshtml" />
   </ItemGroup>
 
 </Project>
