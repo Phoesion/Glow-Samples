@@ -18,3 +18,4 @@ using Phoesion.Glow.SDK.Firefly;
 //---------------------------------------------------
 // OpenId Connect middleware
 [assembly: DynamicRoutingRule("/signin-oidc")]
+[assembly: DynamicRoutingRule("/signout-callback-oidc")]

@@ -21,8 +21,6 @@ namespace Foompany.Services.Identity
     {
         protected override void ConfigureWebHost(IWebHostBuilder webHostBuilder)
         {
-            Startup.FireflyDataPath = DataPath; //keep DataPath to be used for sqlite
-
             webHostBuilder.UseStartup<Startup>()
                           .UseSerilog((context, configuration) =>
                           {

@@ -18,8 +18,6 @@ namespace Foompany.Services.Identity
 {
     public class Startup
     {
-        internal static string FireflyDataPath { get; set; }
-
         public IWebHostEnvironment Environment { get; }
         public IConfiguration Configuration { get; }
 
@@ -34,7 +32,8 @@ namespace Foompany.Services.Identity
             services.AddControllersWithViews();
 
             services.AddDbContext<ApplicationDbContext>(options =>
-                options.UseSqlite(Configuration.GetConnectionString("DefaultConnection").Replace("(datapath)", FireflyDataPath)));
+                options.UseSqlite(Configuration.GetConnectionString("DefaultConnection")
+                                               .Replace("%DataPath%", Configuration["DataPath"])));
 
             services.AddIdentity<ApplicationUser, IdentityRole>()
                 .AddEntityFrameworkStores<ApplicationDbContext>()
