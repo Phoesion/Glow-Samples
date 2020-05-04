@@ -15,19 +15,19 @@ namespace Foompany.Services.Sessions.Modules
         [InteropBody]
         public Task<byte[]> GetData(string key)
         {
-            return SessionStore.GetValue(key);
+            return SessionStore.GetValue(key, Context.CancellationToken);
         }
 
         [InteropBody]
         public async Task<ActionResultBool> SaveData(string key, byte[] data)
         {
-            return new ActionResultBool(await SessionStore.SetValue(key, data));
+            return new ActionResultBool(await SessionStore.SetValue(key, data, Context.CancellationToken));
         }
 
         [InteropBody]
         public async Task<ActionResultBool> RemoveData(string key)
         {
-            return new ActionResultBool(await SessionStore.Remove(key));
+            return new ActionResultBool(await SessionStore.Remove(key, Context.CancellationToken));
         }
     }
 }

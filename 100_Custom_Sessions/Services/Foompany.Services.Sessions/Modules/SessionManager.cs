@@ -15,13 +15,13 @@ namespace Foompany.Services.Sessions.Pipelines
         [InteropBody]
         public Task<byte[]> GetSession(string sessionId)
         {
-            return SessionStore.GetValue(sessionId);
+            return SessionStore.GetValue(sessionId, Context.CancellationToken);
         }
 
         [InteropBody]
         public async Task<ActionResultBool> SaveSession(string sessionId, byte[] session)
         {
-            return new ActionResultBool(await SessionStore.SetValue(sessionId, session));
+            return new ActionResultBool(await SessionStore.SetValue(sessionId, session, Context.CancellationToken));
         }
     }
 }
