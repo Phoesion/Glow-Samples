@@ -32,10 +32,10 @@ namespace Foompany.Services.SampleService2.Modules
         //----------------------------------------------------------------------------------------------------------------------------------------------
 
         [ActionBody(Methods.GET)]
-        public PhotonRestResponse RedirectMe()
+        public void RedirectMe()
         {
-            //Returing PhotonRestResponse gives you more options on REST-specific responses
-            return PhotonRestResponse.AsRedirect("https://www.google.com");
+            //Apply redirect to REST-specific response
+            RestResponse.AsRedirect("https://www.google.com");
         }
 
         //----------------------------------------------------------------------------------------------------------------------------------------------

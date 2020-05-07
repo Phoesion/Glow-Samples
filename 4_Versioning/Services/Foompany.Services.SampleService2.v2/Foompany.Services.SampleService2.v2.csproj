@@ -9,9 +9,13 @@
     <ProjectReference Include="..\..\API\Foompany.Services.API.SampleService2.v2\Foompany.Services.API.SampleService2.v2.csproj" />
   </ItemGroup>
 
+  
+
+  
   <ItemGroup>
     <PackageReference Include="Phoesion.Glow.SDK.Firefly" Version="*" />
   </ItemGroup>
+  
 
   <ItemGroup>
     <Content Include="Content\**">

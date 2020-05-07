@@ -17,8 +17,12 @@
     <Protobuf Include="DataModels\SampleModule1.proto" GrpcServices="Client" />
   </ItemGroup>
 
+  
+
+  
   <ItemGroup>
-    <PackageReference Include="Phoesion.Glow.SDK.Core" Version="*" />
+    <PackageReference Include="Phoesion.Glow.SDK.Firefly.Abstractions" Version="*" />
   </ItemGroup>
+  
 
 </Project>

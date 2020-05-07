@@ -9,8 +9,12 @@
     <ProjectReference Include="..\Foompany.Services.API.DataModels\Foompany.Services.API.DataModels.csproj" />
   </ItemGroup>
 
+  
+
+  
   <ItemGroup>
-    <PackageReference Include="Phoesion.Glow.SDK.Core" Version="*" />
+    <PackageReference Include="Phoesion.Glow.SDK.Firefly.Abstractions" Version="*" />
   </ItemGroup>
+  
 
 </Project>

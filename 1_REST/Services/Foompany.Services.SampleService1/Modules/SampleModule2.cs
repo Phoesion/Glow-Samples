@@ -19,9 +19,9 @@ namespace Foompany.Services.SampleService1.Modules
         //----------------------------------------------------------------------------------------------------------------------------------------------
 
         [ActionBody(Methods.GET)]
-        public PhotonRestResponse Action1()
+        public HtmlString Action1()
         {
-            return PhotonRestResponse.AsHtml("Called Action1 of <font color=\"Tomato\">SampleModule2</font>. Returning some <b>html</b> code");
+            return "Called Action1 of <font color=\"Tomato\">SampleModule2</font>. Returning some <b>html</b> code";
         }
 
         //----------------------------------------------------------------------------------------------------------------------------------------------
@@ -69,9 +69,9 @@ namespace Foompany.Services.SampleService1.Modules
                     Message = "Returning an object",
                 };
             else if (retType == 2)
-                return PhotonRestResponse.AsBinary(new byte[] { 1, 2, 3, 4 });
+                return RestResponse.AsBinary(new byte[] { 1, 2, 3, 4 });
             else
-                return PhotonRestResponse.BadRequest;
+                throw PhotonException.BadRequest;
         }
 
         //----------------------------------------------------------------------------------------------------------------------------------------------

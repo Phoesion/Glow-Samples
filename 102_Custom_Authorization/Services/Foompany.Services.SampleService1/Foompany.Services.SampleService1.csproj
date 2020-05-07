@@ -11,9 +11,13 @@
     <ProjectReference Include="..\..\Middleware\Foompany.Middleware.Authorization\Foompany.Middleware.Authorization.csproj" />
   </ItemGroup>
 
+  
+
+  
   <ItemGroup>
     <PackageReference Include="Phoesion.Glow.SDK.Firefly" Version="*" />
   </ItemGroup>
+  
 
   <ItemGroup>
     <Content Include="Content\**">

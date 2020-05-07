@@ -11,9 +11,13 @@
     <ProjectReference Include="..\..\API\Foompany.Services.API.SampleService2\Foompany.Services.API.SampleService2.csproj" />
   </ItemGroup>
 
+  
+
+  
   <ItemGroup>
     <PackageReference Include="Phoesion.Glow.SDK.Firefly" Version="*" />
   </ItemGroup>
+  
 
   <ItemGroup>
     <Content Include="Content\**">
@@ -32,5 +36,6 @@
       <DependentUpon>appsettings.json</DependentUpon>
     </Content>
   </ItemGroup>
+
 
 </Project>

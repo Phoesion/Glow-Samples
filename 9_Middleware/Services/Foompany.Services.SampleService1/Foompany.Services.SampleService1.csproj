@@ -9,9 +9,13 @@
     <ProjectReference Include="..\..\Middleware\Foompany.Middleware.Profiler\Foompany.Middleware.Profiler.csproj" />
   </ItemGroup>
 
+  
+
+  
   <ItemGroup>
     <PackageReference Include="Phoesion.Glow.SDK.Firefly" Version="*" />
   </ItemGroup>
+  
 
   <ItemGroup>
     <Content Include="Content\**">

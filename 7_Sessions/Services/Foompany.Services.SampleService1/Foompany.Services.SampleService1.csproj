@@ -13,11 +13,15 @@
     <ProjectReference Include="..\..\API\Foompany.Services.API.DataModels\Foompany.Services.API.DataModels.csproj" />
   </ItemGroup>
 
+  
+
+  
   <ItemGroup>
     <PackageReference Include="Phoesion.Glow.SDK.Firefly" Version="*" />
     <PackageReference Include="Phoesion.Glow.SDK.Session" Version="*" />
     <PackageReference Include="Phoesion.Glow.SDK.DistributedMemoryCache" Version="*" />
   </ItemGroup>
+  
 
   <ItemGroup>
     <Content Include="Views\**">
