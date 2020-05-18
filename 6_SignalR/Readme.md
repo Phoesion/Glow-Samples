@@ -16,6 +16,6 @@ This sample demonstrated the basic concepts of writing **SignalR** enabled servi
 ### How to test
 After you deploy your **glow project** you can test it using the following paths *(assuming local deployment)* :
 
-- [http://localhost:16000/ChatService/Content/html/ChatPage.html]() 
+- [http://localhost:16000/ChatService/Chat](http://localhost:16000/ChatService/Chat) 
 
 

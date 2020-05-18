@@ -1,20 +1,19 @@
-﻿@model Foompany.Services.API.SampleService1.Models.AnotherAssemblyModel
+﻿@inherits  Phoesion.Glow.SDK.Firefly.RazorPage<Foompany.Services.API.SampleService1.Models.AnotherAssemblyModel>    
 
 <!DOCTYPE html>
-
 <html lang="en" xmlns="http://www.w3.org/1999/xhtml">
-<head>
-    <meta charset="utf-8" />
-    <title></title>
-</head>
-<body>
+    <head>
+        <meta charset="utf-8" />
+        <title></title>
+    </head>
+    <body>
 
-    <div>Razor Sample Page : Model from another assembly</div>
+        <div>Razor Sample Page : Model from another assembly</div>
 
-    <br /><br />
+        <br /><br />
 
-    <div>Status : @Model.IsSuccess,</div>
-    <div>Message : @Model.Message,</div>
+        <div>Status : @Model.IsSuccess,</div>
+        <div>Message : @Model.Message,</div>
 
-</body>
+    </body>
 </html>

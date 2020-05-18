@@ -17,7 +17,7 @@ It contains a single service with a couple of modules and basic "hello world" ac
 ### How to test
 After you deploy your **glow project** you can test it using the following paths *(assuming local deployment)* :
 
-- [http://localhost:16000/HelloWorld/Greeter/SayHello]() 
+- [http://localhost:16000/HelloWorld/Greeter/SayHello](http://localhost:16000/HelloWorld/Greeter/SayHello)
 
 You should see a "Hello World" message in your browser.
 

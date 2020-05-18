@@ -40,6 +40,14 @@ namespace Foompany.Services.SampleService2.Modules
 
         //----------------------------------------------------------------------------------------------------------------------------------------------
 
+        [Action(Methods.GET)]
+        public void RedirectSample1() => RedirectToAction(RedirectTarget);  //Redirect REST request to a specific action
+
+        [Action(Methods.GET)]
+        public string RedirectTarget() => "hit RedirectTarget() action!";
+
+        //----------------------------------------------------------------------------------------------------------------------------------------------
+
         [ActionBody(Methods.GET)]
         public string SampleStatusCode(string command)
         {

@@ -19,7 +19,7 @@ Configuration are only valid for the **Quantum Space you deployed** your service
 ### How to test
 After you deploy your **glow project** you can test it using the following paths *(assuming local deployment)* :
 
-- [http://localhost:16000/HelloWorld/Sample/ViewConfigs]() 
+- [http://localhost:16000/HelloWorld/Sample/ViewConfigs](http://localhost:16000/HelloWorld/Sample/ViewConfigs) 
 
 You should see the following :  *(these are the default values)*
 

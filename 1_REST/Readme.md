@@ -28,27 +28,27 @@ After you deploy your **glow project** you can test it using the following paths
 
 ---
 
-- [http://localhost:16000/SampleService1/SampleModule1/]() 
-- [http://localhost:16000/SampleService1/SampleModule1/Action1]() 
-- [http://localhost:16000/SampleService1/SampleModule1/Action2/test?myKey=myValue]() 
-- [http://localhost:16000/SampleService1/SampleModule1/Action3?value1=hi&value2=true]() 
-- [http://localhost:16000/SampleService1/SampleModule1/DoTheThing?username=john]() 
+- [http://localhost:16000/SampleService1/SampleModule1/](http://localhost:16000/SampleService1/SampleModule1/) 
+- [http://localhost:16000/SampleService1/SampleModule1/Action1](http://localhost:16000/SampleService1/SampleModule1/Action1) 
+- [http://localhost:16000/SampleService1/SampleModule1/Action2/test?myKey=myValue](http://localhost:16000/SampleService1/SampleModule1/Action2/test?myKey=myValue) 
+- [http://localhost:16000/SampleService1/SampleModule1/Action3?value1=hi&value2=true](http://localhost:16000/SampleService1/SampleModule1/Action3?value1=hi&value2=true) 
+- [http://localhost:16000/SampleService1/SampleModule1/DoTheThing?username=john](http://localhost:16000/SampleService1/SampleModule1/DoTheThing?username=john) 
 
 ---
 
-- [http://localhost:16000/SampleService1/SampleModule2/Action1]() 
-- [http://localhost:16000/SampleService1/SampleModule2/AsyncAction]() 
-- [http://localhost:16000/SampleService1/SampleModule2/SampleStrongType]() 
-- [http://localhost:16000/SampleService1/SampleModule2/SampleObjectType?retType=1]() 
+- [http://localhost:16000/SampleService1/SampleModule2/Action1](http://localhost:16000/SampleService1/SampleModule2/Action1) 
+- [http://localhost:16000/SampleService1/SampleModule2/AsyncAction](http://localhost:16000/SampleService1/SampleModule2/AsyncAction) 
+- [http://localhost:16000/SampleService1/SampleModule2/SampleStrongType](http://localhost:16000/SampleService1/SampleModule2/SampleStrongType) 
+- [http://localhost:16000/SampleService1/SampleModule2/SampleObjectType?retType=1](http://localhost:16000/SampleService1/SampleModule2/SampleObjectType?retType=1) 
 
 ---
 
-- [http://localhost:16000/SampleService2/SampleModule1/Action1]() 
-- [http://localhost:16000/SampleService2/SampleModule1/RedirectMe]() 
-- [http://localhost:16000/SampleService2/SampleModule1/SampleStatusCode?command)=hi]() 
-- [http://localhost:16000/SampleService2/SampleModule1/SampleStatusCode?command=banana]() 
-- [http://localhost:16000/SampleService2/SampleModule1/StreamingSample1]() 
-- [http://localhost:16000/SampleService2/SampleModule1/]() 
+- [http://localhost:16000/SampleService2/SampleModule1/Action1](http://localhost:16000/SampleService2/SampleModule1/Action1) 
+- [http://localhost:16000/SampleService2/SampleModule1/RedirectMe](http://localhost:16000/SampleService2/SampleModule1/RedirectMe) 
+- [http://localhost:16000/SampleService2/SampleModule1/SampleStatusCode?command=hi](http://localhost:16000/SampleService2/SampleModule1/SampleStatusCode?command=hi) 
+- [http://localhost:16000/SampleService2/SampleModule1/SampleStatusCode?command=banana](http://localhost:16000/SampleService2/SampleModule1/SampleStatusCode?command=banana) 
+- [http://localhost:16000/SampleService2/SampleModule1/StreamingSample1](http://localhost:16000/SampleService2/SampleModule1/StreamingSample1) 
+- [http://localhost:16000/SampleService2/SampleModule1/](http://localhost:16000/SampleService2/SampleModule1/) 
 
 ---
 

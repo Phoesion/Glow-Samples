@@ -27,23 +27,23 @@ After you deploy your **glow project** you can test it using the following paths
 
 **This list does not contain all possible paths**
 
-1. Start a wizard using [http://localhost:16000/SampleService2/SampleModule1/StartSimpleWizard]() \
+1. Start a wizard using [http://localhost:16000/SampleService2/SampleModule1/StartSimpleWizard](http://localhost:16000/SampleService2/SampleModule1/StartSimpleWizard) \
    This will return the **operationId** that should be used for subsequent requests
 
-2. See the status using either : [http://localhost:16000/SampleService2/Operations.SimpleWizard/Status/[OPERATIONID]]() \
+2. See the status using either : [http://localhost:16000/SampleService2/Operations.SimpleWizard/Status/[OPERATIONID]](http://localhost:16000/SampleService2/Operations.SimpleWizard/Status/[OPERATIONID]) \
    Note: make sure to replace **[OPERATIONID]** value in the query string with your own. \
    *(Results should be empty)*
 
 4. Using Postman send a POST request to either :
-   - [http://localhost:16000/SampleService1/SampleModule1/SubmitParameterToWizard?id=[OPERATIONID]>&key=sampleKey&value=sampleValue]()\
+   - [http://localhost:16000/SampleService1/SampleModule1/SubmitParameterToWizard?id=[OPERATIONID]>&key=sampleKey&value=sampleValue](http://localhost:16000/SampleService1/SampleModule1/SubmitParameterToWizard?id=[OPERATIONID]>&key=sampleKey&value=sampleValue)\
     or
-   - [http://localhost:16000/SampleService1/Operations.SimpleWizard/SubmitParameterToWizard/[OPERATIONID]?key=sampleKey&value=sampleValue]()
+   - [http://localhost:16000/SampleService1/Operations.SimpleWizard/SubmitParameterToWizard/[OPERATIONID]?key=sampleKey&value=sampleValue](http://localhost:16000/SampleService1/Operations.SimpleWizard/SubmitParameterToWizard/[OPERATIONID]?key=sampleKey&value=sampleValue)
 
    Note: make sure to replace **[OPERATIONID]** value in the query string with your own.
 
 4. See the status again using the url from **Step 2**
 
-5. Complete/Finish the wizard(and destroy the operation) using **POST** to [http://localhost:16000/SampleService1/Operations.SimpleWizard/Finish/[OPERATIONID]]() \
+5. Complete/Finish the wizard(and destroy the operation) using **POST** to [http://localhost:16000/SampleService1/Operations.SimpleWizard/Finish/[OPERATIONID]](http://localhost:16000/SampleService1/Operations.SimpleWizard/Finish/[OPERATIONID]) \
    Note: make sure to replace **[OPERATIONID]** value in the query string with your own.
 
 

@@ -26,17 +26,17 @@ After you deploy your **glow project** you can test it using the following paths
 
 ---
 
-- [http://localhost:16000/SampleService1/SampleModule1/]() 
-- [http://localhost:16000/SampleService1/SampleModule1/Action1]() 
-- [http://localhost:16000/SampleService1/SampleModule1/Action2]() 
-- [http://localhost:16000/SampleService1/SampleModule1/Action3]() 
-- [http://localhost:16000/SampleService1/SampleModule1/Action4]() 
-- [http://localhost:16000/SampleService1/SampleModule1/Action5]() 
-- [http://localhost:16000/SampleService1/SampleModule1/StreamingInteropAction]() 
+- [http://localhost:16000/SampleService1/SampleModule1/](http://localhost:16000/SampleService1/SampleModule1/) 
+- [http://localhost:16000/SampleService1/SampleModule1/Action1](http://localhost:16000/SampleService1/SampleModule1/Action1) 
+- [http://localhost:16000/SampleService1/SampleModule1/Action2](http://localhost:16000/SampleService1/SampleModule1/Action2) 
+- [http://localhost:16000/SampleService1/SampleModule1/Action3](http://localhost:16000/SampleService1/SampleModule1/Action3) 
+- [http://localhost:16000/SampleService1/SampleModule1/Action4](http://localhost:16000/SampleService1/SampleModule1/Action4) 
+- [http://localhost:16000/SampleService1/SampleModule1/Action5](http://localhost:16000/SampleService1/SampleModule1/Action5) 
+- [http://localhost:16000/SampleService1/SampleModule1/StreamingInteropAction](http://localhost:16000/SampleService1/SampleModule1/StreamingInteropAction) 
 
 ---
 
-- [http://localhost:16000/SampleService2/InteropSample1/InteropAction3]() 
+- [http://localhost:16000/SampleService2/InteropSample1/InteropAction3](http://localhost:16000/SampleService2/InteropSample1/InteropAction3) 
 
 ---
 

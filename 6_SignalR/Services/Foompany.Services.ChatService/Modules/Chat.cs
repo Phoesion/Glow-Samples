@@ -18,8 +18,9 @@ namespace Foompany.Services.ChatService.Modules
 
         //----------------------------------------------------------------------------------------------------------------------------------------------
 
+        //Render ChatPage.cshtml
         [ActionBody(Methods.GET)]
-        public string Default() => "Module up and running!" + Environment.NewLine + "See chat page at /ChatService/Content/html/ChatPage.html";
+        public Task<HtmlString> Default() => View("ChatPage");
 
         //----------------------------------------------------------------------------------------------------------------------------------------------
 
