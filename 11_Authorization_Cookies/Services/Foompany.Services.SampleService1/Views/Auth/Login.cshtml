@@ -1,0 +1,47 @@
+﻿@inherits Phoesion.Glow.SDK.Firefly.RazorPage
+
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title>Login Form</title>
+    <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css">
+</head>
+
+<body>
+    <div class="login-box">
+        <div class="login-box-body">
+            @if (Model.HasError)
+            {
+                <div id="errorBox" class="login-box-msg" style="color:red">Invalid Username or Password</div>
+            }
+            <div>
+                <p class="login-box-msg">Sign in with your Credentials</p>
+                <p>Test credentials : username = John , password = Doe </p>
+                <form class="form-login" name="form-signin" role="form" method="post" action="~/Auth/Login?ReturnUrl=@Model.ReturnUrl">
+                    @Html.AntiForgeryToken()
+                    <div class="form-group has-feedback">
+                        <input type="text" class="form-control" placeholder="Username" name="username" id="usernameInput" required autofocus>
+                    </div>
+                    <div class="form-group has-feedback">
+                        <input name="password" id="passwordInput" type="password" class="form-control" placeholder="Password" required>
+                    </div>
+                    <div class="row">
+                        <div class="col-xs-8 col-sm-8 col-md-8 col-lg-8 col-xl-8">
+                            <label>
+                                <input name="RememberMe" type="checkbox" value="true" checked> Remember me?
+                            </label>
+                        </div>
+                        <input type="hidden" id="offsetInput" name="offsetInHours" value="-24" />
+                        <div class="col-xs-4 col-sm-4 col-md-4 col-lg-4 col-xl-4">
+                            <button id="login_btn" class="btn btn-md btn-warning btn-block btn-signin" type="submit">Login</button>
+                        </div>
+                    </div>
+                </form>
+                <br />
+                <a href="~/logout">Logout</a>
+            </div>
+        </div>
+    </div>
+</body>
+</html>
