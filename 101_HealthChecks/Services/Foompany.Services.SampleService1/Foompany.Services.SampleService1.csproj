@@ -2,16 +2,11 @@
 
   <PropertyGroup>
     <TargetFramework>netcoreapp3.1</TargetFramework>
-    <NoWarn>1701;1702;1998</NoWarn>
-    <CopyLocalLockFileAssemblies>true</CopyLocalLockFileAssemblies>
+    <NoWarn>1701;1702;1998;</NoWarn>
   </PropertyGroup>
 
   <ItemGroup>
-    <PackageReference Include="System.IdentityModel.Tokens.Jwt" Version="6.6.0" />
-  </ItemGroup>
-
-  <ItemGroup>
-    <ProjectReference Include="..\..\API\Foompany.Services.API.Authorization\Foompany.Services.API.Authorization.csproj" />
+    <PackageReference Include="Microsoft.Extensions.Diagnostics.HealthChecks" Version="3.1.4" />
   </ItemGroup>
 
   
@@ -21,10 +16,6 @@
     <PackageReference Include="Phoesion.Glow.SDK.Firefly" Version="*" />
   </ItemGroup>
   
-
-  <ItemGroup>
-    <Compile Include="..\Constants.cs" Link="Constants.cs" />
-  </ItemGroup>
 
   <ItemGroup>
     <Content Include="Content\**">

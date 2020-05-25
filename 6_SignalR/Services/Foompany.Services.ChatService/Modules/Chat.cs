@@ -35,7 +35,7 @@ namespace Foompany.Services.ChatService.Modules
         public async Task<object> ClientConnectionRequest(object req)
         {
             //get client id
-            var clientId = Request?.PushClientId;
+            var clientId = Context?.PushClientId;
             if (clientId == null)
                 throw PhotonException.BadRequest;     //allow only push channels
 
@@ -72,7 +72,7 @@ namespace Foompany.Services.ChatService.Modules
         public async Task ClientDisconnected()
         {
             //get client id
-            var clientId = Request?.PushClientId;
+            var clientId = Context?.PushClientId;
             if (clientId == null)
                 throw PhotonException.BadRequest;
 
@@ -99,14 +99,14 @@ namespace Foompany.Services.ChatService.Modules
         public async Task<string> SendMessage(object req, string toUser)
         {
             //get client id
-            var clientId = Request?.PushClientId;
+            var clientId = Context?.PushClientId;
             if (clientId == null)
                 throw PhotonException.BadRequest;
 
             //find src user
             string srcClient;
             lock (clients)
-                if (!clients.TryGetValue(Request.PushClientId, out srcClient))
+                if (!clients.TryGetValue(Context.PushClientId, out srcClient))
                     return "error";
 
             //handle destination
