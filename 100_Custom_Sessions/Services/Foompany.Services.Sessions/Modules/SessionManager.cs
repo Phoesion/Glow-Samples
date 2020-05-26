@@ -10,7 +10,7 @@ namespace Foompany.Services.Sessions.Pipelines
     {
         //Keep sessions in-memory using a distributed dictionary for replication (in real world this could be stored in a database)
         [Autowire]
-        static DistributedDictionary<string, byte[]> SessionStore;
+        public static DistributedDictionary<string, byte[]> SessionStore;
 
         [InteropBody]
         public Task<byte[]> GetSession(string sessionId)

@@ -17,7 +17,7 @@ namespace Foompany.Services.SampleService1.Modules
     public class Health : FireflyModule
     {
         [Autowire]
-        HealthCheckService healthCheckService;
+        public HealthCheckService healthCheckService;
 
         //----------------------------------------------------------------------------------------------------------------------------------------------
 

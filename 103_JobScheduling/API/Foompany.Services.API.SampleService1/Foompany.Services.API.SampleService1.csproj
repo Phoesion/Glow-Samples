@@ -1,0 +1,16 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>netstandard2.0</TargetFramework>
+    <NoWarn>1701;1702;1998</NoWarn>
+  </PropertyGroup>
+
+  
+
+  
+  <ItemGroup>
+    <PackageReference Include="Phoesion.Glow.SDK.Firefly.Abstractions" Version="*" />
+  </ItemGroup>
+  
+
+</Project>

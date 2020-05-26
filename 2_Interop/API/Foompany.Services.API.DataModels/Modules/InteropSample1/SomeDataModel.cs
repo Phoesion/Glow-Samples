@@ -1,4 +1,4 @@
-﻿namespace Foompany.Services.API.SampleService2.Modules.InteropSample1.DataModels.MyDataModel
+﻿namespace Foompany.Services.API.SampleService2.Modules.SendEmail.DataModels.MyDataModel
 {
     public class Request
     {

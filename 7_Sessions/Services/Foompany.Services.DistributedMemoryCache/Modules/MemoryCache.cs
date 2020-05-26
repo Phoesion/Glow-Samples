@@ -10,7 +10,7 @@ namespace Foompany.Services.Sessions.Modules
     {
         //Keep data in-memory using a distributed dictionary for replication (in real world this could be stored in a database)
         [Autowire]
-        static DistributedDictionary<string, byte[]> SessionStore;
+        public static DistributedDictionary<string, byte[]> SessionStore;
 
         [InteropBody]
         public Task<byte[]> GetData(string key)

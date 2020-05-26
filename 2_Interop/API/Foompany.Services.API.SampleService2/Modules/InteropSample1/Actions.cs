@@ -3,7 +3,7 @@ using Phoesion.Glow.SDK.Firefly;
 using System;
 using System.IO;
 
-namespace Foompany.Services.API.SampleService2.Modules.InteropSample1
+namespace Foompany.Services.API.SampleService2.Modules.SendEmail
 {
     /* This is the API declaration module.
      * You can declare the actions that the module exposes and their attributes.

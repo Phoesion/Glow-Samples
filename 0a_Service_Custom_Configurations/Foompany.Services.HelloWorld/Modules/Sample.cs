@@ -8,7 +8,7 @@ namespace Foompany.Services.HelloWorld.Modules
     public class Sample : Phoesion.Glow.SDK.Firefly.FireflyModule
     {
         [Autowire]
-        private new ServiceMain Service;
+        public new ServiceMain Service;
 
         //----------------------------------------------------------------------------------------------------------------------------------------------
 
