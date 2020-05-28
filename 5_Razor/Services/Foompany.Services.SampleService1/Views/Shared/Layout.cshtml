@@ -5,15 +5,9 @@
 <html lang="en" xmlns="http://www.w3.org/1999/xhtml">
 <head>
     <meta charset="utf-8" />
-    <title>Razor Sample Page</title>
+    <title>@ViewData["Title"]</title>
 </head>
 <body>
-
-    <div>Razor Sample Page : Sub-folder page</div>
-
-    <br /><br />
-
-    <div>This view page is in a sub-folder</div>
-
+    @RenderBody()
 </body>
 </html>

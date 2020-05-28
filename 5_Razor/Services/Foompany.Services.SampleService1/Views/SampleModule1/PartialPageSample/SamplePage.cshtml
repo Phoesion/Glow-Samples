@@ -1,15 +1,17 @@
 ﻿@inherits Phoesion.Glow.SDK.Firefly.RazorPage
+@{
+    ViewData["Title"] = "Razor Sample Page";
+    Layout = "Layout";
+}
 
-<!DOCTYPE html>
-<html lang="en" xmlns="http://www.w3.org/1999/xhtml">
-@{ await IncludeAsync("PartialPageSample/Header.cshtml", Model); }
-<body>
+<div>Razor Sample Page : Include page</div>
 
-    <div>Razor Sample Page : Include page</div>
+<br />
+<br />
 
-    <br /><br />
+@await IncludeAsync("PartialPageSample/Child.cshtml", Model);
 
-    <div>Header (title) included from Header.cshtml</div>
+<br />
 
-</body>
-</html>
+<div>Content above was included from Child.cshtml</div>
+

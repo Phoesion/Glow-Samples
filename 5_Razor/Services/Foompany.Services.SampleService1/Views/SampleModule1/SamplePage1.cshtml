@@ -1,21 +1,14 @@
 ﻿@inherits Phoesion.Glow.SDK.Firefly.RazorPage<Foompany.Services.SampleService1.Models.User>
 @using Foompany.Services.SampleService1;
+@{
+    ViewData["Title"] = "Razor Sample Page";
+    Layout = "Layout";
+}
 
-<!DOCTYPE html>
+<div>Razor Sample Page</div>
 
-<html lang="en" xmlns="http://www.w3.org/1999/xhtml">
-<head>
-    <meta charset="utf-8" />
-    <title></title>
-</head>
-<body>
+<br />
+<br />
 
-    <div>Razor Sample Page</div>
-
-    <br /><br />
-
-    <div>Username : @Model.Username,</div>
-    <div>Name : @Model.Name,</div>
-
-</body>
-</html>
+<div>Username : @Model.Username,</div>
+<div>Name : @Model.Name,</div>
