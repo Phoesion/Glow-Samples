@@ -3,7 +3,6 @@
   <PropertyGroup>
     <OutputType>Library</OutputType>
     <TargetFramework>netcoreapp3.1</TargetFramework>
-    <CopyLocalLockFileAssemblies>true</CopyLocalLockFileAssemblies>
   </PropertyGroup>
 
   
@@ -14,12 +13,5 @@
     <PackageReference Include="Phoesion.Glow.SDK.Firefly.AspHost" Version="*" />
   </ItemGroup>
   
-
-  <!-- Copy all content to output/publish folder -->
-  <ItemGroup>
-    <Content Update="wwwroot\**">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </Content>
-  </ItemGroup>
 
 </Project>

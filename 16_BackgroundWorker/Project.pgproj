@@ -11,16 +11,5 @@
         }
       ]
     },
-    {
-      "IsEnabled": true,
-      "CSProjectFile": "Services\\Foompany.Services.EmailService\\Foompany.Services.EmailService.csproj",
-      "ServiceHost": "DotNet",
-      "Builds": [
-        {
-          "Build": "AnyCpu",
-          "AssemblyFilePath": "Services\\Foompany.Services.EmailService\\bin\\%BUILD%\\netcoreapp3.1\\Foompany.Services.EmailService.dll"
-        }
-      ]
-    }
   ]
 }
