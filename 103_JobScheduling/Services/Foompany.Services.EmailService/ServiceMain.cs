@@ -17,18 +17,23 @@ namespace Foompany.Services.EmailService
     {
         protected override void ConfigureServices(IServiceCollection services)
         {
+            //add testing email sender service
+            services.AddSingleton<IEmailSenderService, ServiceImplementations.EmailSenderServiceImpl>();
+
             //add HangFire services (using memory storage for this sample)
             services.AddHangfire(x => x.UseMemoryStorage());
 
-            //add testing email sender service
-            services.AddSingleton<IEmailSenderService, ServiceImplementations.EmailSenderServiceImpl>();
+            //add HangFire server
+            services.AddHangfireServer(options =>
+            {
+                options.Queues = new[] { "default" }; //specify the queues this server will handle (if non-default)
+            });
         }
 
         protected override void Configure(IGlowApplicationBuilder app)
         {
-            //enable HangFire server and dashboard (using the glow->asp middleware adapter)
-            app.AsAspApp().UseHangfireServer()
-                          .UseHangfireDashboard("/hangfire");
+            //enable HangFire dashboard (using the glow->asp middleware adapter)
+            app.AsAspApp().UseHangfireDashboard("/hangfire");
         }
     }
 }
