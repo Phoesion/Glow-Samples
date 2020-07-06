@@ -1,6 +1,6 @@
 ﻿using Phoesion.Glow.SDK;
 using Phoesion.Glow.SDK.Firefly;
-
+using System;
 using models = Foompany.Services.API.SampleService2.Modules.PostSamples.Models;
 
 namespace Foompany.Services.SampleService2
@@ -50,6 +50,15 @@ namespace Foompany.Services.SampleService2
                 IsSuccess = true,
                 Message = $"Hello {Model.InputName}",
             };
+        }
+
+        //----------------------------------------------------------------------------------------------------------------------------------------------
+
+        /// <summary> Sample action that reads body as string </summary>
+        [ActionBody(Methods.POST)]
+        public string Action3([FromBody] string body)
+        {
+            return $"Called Action3 using body : " + Environment.NewLine + body;
         }
 
         //----------------------------------------------------------------------------------------------------------------------------------------------

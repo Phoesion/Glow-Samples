@@ -10,11 +10,7 @@ namespace Foompany.AspHostingSample
     {
         protected override void ConfigureWebHost(IWebHostBuilder webHostBuilder)
         {
-            webHostBuilder.UseStartup<Startup>()
-                          .ConfigureLogging(builder =>
-                          {
-                              builder.AddConsole();
-                          });
+            webHostBuilder.UseStartup<Startup>();
         }
     }
 }

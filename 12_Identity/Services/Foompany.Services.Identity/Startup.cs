@@ -32,8 +32,7 @@ namespace Foompany.Services.Identity
             services.AddControllersWithViews();
 
             services.AddDbContext<ApplicationDbContext>(options =>
-                options.UseSqlite(Configuration.GetConnectionString("DefaultConnection")
-                                               .Replace("%DataPath%", Configuration["DataPath"])));
+                options.UseMySql(Configuration.GetConnectionString("DefaultConnection")));
 
             services.AddIdentity<ApplicationUser, IdentityRole>()
                 .AddEntityFrameworkStores<ApplicationDbContext>()
@@ -71,9 +70,6 @@ namespace Foompany.Services.Identity
             {
                 app.UseDeveloperExceptionPage();
             }
-
-            //migrate db (used mostly for testing to create initial scheme and seed data)
-            SeedData.EnsureSeedData(app.ApplicationServices);
 
             app.UseStaticFiles();
 

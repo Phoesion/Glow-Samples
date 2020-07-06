@@ -35,7 +35,7 @@ namespace Foompany.Services.ChatService.Modules
         public async Task<object> ClientConnectionRequest(object req)
         {
             //get client id
-            var clientId = Context?.PushClientId;
+            var clientId = Context?.ClientId;
             if (clientId == null)
                 throw PhotonException.BadRequest;     //allow only push channels
 
@@ -44,7 +44,7 @@ namespace Foompany.Services.ChatService.Modules
             if (string.IsNullOrEmpty(username))
                 throw PhotonException.BadRequest;
 
-            //check for valid input. A POST request from a browser (not signalR or websockets) will have null for PushClientId)
+            //check for valid input. A POST request from a browser (not signalR or websockets) will have null for ClientId)
             lock (clients)
                 if (clientUsernameLookup.ContainsKey(username))
                     throw PhotonException.CustomError("username already exists");
@@ -72,7 +72,7 @@ namespace Foompany.Services.ChatService.Modules
         public async Task ClientDisconnected()
         {
             //get client id
-            var clientId = Context?.PushClientId;
+            var clientId = Context?.ClientId;
             if (clientId == null)
                 throw PhotonException.BadRequest;
 
@@ -99,14 +99,14 @@ namespace Foompany.Services.ChatService.Modules
         public async Task<string> SendMessage(object req, string toUser)
         {
             //get client id
-            var clientId = Context?.PushClientId;
+            var clientId = Context?.ClientId;
             if (clientId == null)
                 throw PhotonException.BadRequest;
 
             //find src user
             string srcClient;
             lock (clients)
-                if (!clients.TryGetValue(Context.PushClientId, out srcClient))
+                if (!clients.TryGetValue(Context.ClientId, out srcClient))
                     return "error";
 
             //handle destination
@@ -116,7 +116,7 @@ namespace Foompany.Services.ChatService.Modules
                 // Broadcast
                 //-------------------
                 //send to clients, clientid '*' is the broadcast group and all connected (and registered) clients will receive this msg
-                if (!await PushMessage("*", topic.ChatMsg, $"{srcClient} says {req?.ToString()}"))
+                if (!await PushMessage("*", topic.ChatMsg, $"{srcClient} says \"{req?.ToString()}\""))
                     return "error";
             }
             else
@@ -130,7 +130,7 @@ namespace Foompany.Services.ChatService.Modules
                     if (toUser == null || !clientUsernameLookup.TryGetValue(toUser.ToLower().Trim(), out dstClientId))
                         return "error";
                 //send to client
-                if (!await PushMessage(dstClientId, topic.ChatMsg, $"{srcClient} says {RestRequest.Body_AsUTF8()}"))
+                if (!await PushMessage(dstClientId, topic.ChatMsg, $"{srcClient} says \"{req?.ToString()}\""))
                     return "error";
             }
             //done

@@ -1,10 +1,12 @@
-using Serilog;
 using System.Threading.Tasks;
-using Serilog.Events;
-using Serilog.Sinks.SystemConsole.Themes;
 using Microsoft.AspNetCore.Hosting;
 using Phoesion.Glow.SDK.Firefly;
 using Phoesion.Glow.SDK.Firefly.AspHost;
+using System.Threading;
+using Microsoft.EntityFrameworkCore.Design;
+using Microsoft.Extensions.Configuration;
+using Microsoft.EntityFrameworkCore;
+using Microsoft.Extensions.Logging;
 
 /*
  * Notes
@@ -17,21 +19,34 @@ using Phoesion.Glow.SDK.Firefly.AspHost;
 namespace Foompany.Services.Identity
 {
     [ServiceName("Identity")]
-    public class ServiceMain : AspFireflyService
+    public class ServiceMain : AspFireflyService, IDesignTimeDbContextFactory<Data.ApplicationDbContext>
     {
+        //------------------------------------------------------------------------------------------------------------------------
+
         protected override void ConfigureWebHost(IWebHostBuilder webHostBuilder)
         {
-            webHostBuilder.UseStartup<Startup>()
-                          .UseSerilog((context, configuration) =>
-                          {
-                              configuration
-                                    .MinimumLevel.Debug()
-                                    .MinimumLevel.Override("Microsoft", LogEventLevel.Warning)
-                                    .MinimumLevel.Override("System", LogEventLevel.Warning)
-                                    .MinimumLevel.Override("Microsoft.AspNetCore.Authentication", LogEventLevel.Information)
-                                    .Enrich.FromLogContext()
-                                    .WriteTo.Console(outputTemplate: "[{Timestamp:HH:mm:ss} {Level}] {SourceContext}{NewLine}{Message:lj}{NewLine}{Exception}{NewLine}", theme: AnsiConsoleTheme.Literate);
-                          });
+            webHostBuilder.UseStartup<Startup>();
         }
+
+        //------------------------------------------------------------------------------------------------------------------------
+
+        protected override async Task StartAsync(CancellationToken cancellationToken)
+        {
+            await base.StartAsync(cancellationToken);
+
+            //migrate db (used mostly for testing to create initial scheme and seed data)
+            SeedData.EnsureSeedData(Services);
+        }
+
+        //------------------------------------------------------------------------------------------------------------------------
+
+        /* Used by EF design tools to create our DbContext.
+           In this sample we use the 'DefaultConnection' connection string that will be used by the service when running,
+             but we could change this so something else if needed, that will be used only by the design tools and not at runtime.
+        */
+        public Data.ApplicationDbContext CreateDbContext(string[] args) =>
+            EFDesignTools.CreateDbContext<Data.ApplicationDbContext>((options, conf) => options.UseMySql(conf.GetConnectionString("DefaultConnection")));
+
+        //------------------------------------------------------------------------------------------------------------------------
     }
 }

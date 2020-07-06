@@ -8,13 +8,9 @@
     <ProjectReference Include="..\..\API\Foompany.Services.API.Sessions\Foompany.Services.API.Sessions.csproj" />
   </ItemGroup>
 
-  
-
-  
   <ItemGroup>
     <PackageReference Include="Phoesion.Glow.SDK.Firefly" Version="*" />
     <PackageReference Include="Phoesion.Glow.SDK.Firefly.Components" Version="*" />
   </ItemGroup>
-  
 
 </Project>

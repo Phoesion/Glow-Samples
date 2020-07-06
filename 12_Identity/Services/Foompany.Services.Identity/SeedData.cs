@@ -11,7 +11,6 @@ using Foompany.Services.Identity.Models;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.DependencyInjection;
-using Serilog;
 
 namespace Foompany.Services.Identity
 {
@@ -51,11 +50,6 @@ namespace Foompany.Services.Identity
                     {
                         throw new Exception(result.Errors.First().Description);
                     }
-                    Log.Debug("alice created");
-                }
-                else
-                {
-                    Log.Debug("alice already exists");
                 }
 
                 var bob = userMgr.FindByNameAsync("bob").Result;
@@ -85,11 +79,6 @@ namespace Foompany.Services.Identity
                     {
                         throw new Exception(result.Errors.First().Description);
                     }
-                    Log.Debug("bob created");
-                }
-                else
-                {
-                    Log.Debug("bob already exists");
                 }
             }
         }

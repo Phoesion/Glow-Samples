@@ -2,7 +2,7 @@
   "profiles": {
     "MyCompany.Services.MyService (Local)": {
       "commandName": "Executable",
-      "executablePath": "P:\\Phoesion\\Glow\\Phoesion.Glow.Reactor\\Phoesion.Glow.Reactor.Debugger\\bin\\Debug\\netcoreapp3.1\\Phoesion.Glow.Reactor.Debugger.exe",
+      "executablePath": "Phoesion.Glow.Reactor.Debugger.exe",
       "commandLineArgs": "-QuantumSpace:Default -NamespacePreffix:Auto \"$(TargetPath)\""
     },
     "MyCompany.Services.MyService (Remote Debugger)": {

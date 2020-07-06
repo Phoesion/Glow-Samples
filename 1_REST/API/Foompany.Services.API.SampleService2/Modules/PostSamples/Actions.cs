@@ -15,5 +15,8 @@ namespace Foompany.Services.API.SampleService2.Modules.PostSamples
 
         [Action(Methods.POST)]
         public static Models.MyDataModel.Response DoTheThing(Models.MyDataModel.Request Model) => null;
+
+        [Action(Methods.POST)]
+        public static string Action3([FromBody] string body) => null;
     }
 }

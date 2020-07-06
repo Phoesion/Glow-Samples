@@ -13,7 +13,8 @@ namespace Foompany.SampleClient.MyApp
         private async void button1_Click(object sender, EventArgs e)
         {
             //create a REST client
-            using (var client = new Phoesion.Glow.SDK.Client.REST.GlowClient(txt_Hostname.Text, IsSecure: false))
+            var targetBase = $"http://{txt_Hostname.Text}";
+            using (var client = new Phoesion.Glow.SDK.Client.REST.GlowClient(targetBase))
             {
                 //call service/module action
                 var rsp = await client.Call(Foompany.Services.API.SampleService1.Modules.SampleModule1.Actions.DoTheThing, txt_SampleInput.Text).InvokeAsync();

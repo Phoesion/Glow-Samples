@@ -13,13 +13,9 @@
     <ProjectReference Include="..\..\API\Foompany.Services.API.EmailService\Foompany.Services.API.EmailService.csproj" />
   </ItemGroup>
 
-  
-
-  
   <ItemGroup>
     <PackageReference Include="Phoesion.Glow.SDK.Firefly" Version="*" />
     <PackageReference Include="Phoesion.Glow.SDK.AspAdapter" Version="*" />
   </ItemGroup>
-  
 
 </Project>

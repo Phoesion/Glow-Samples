@@ -59,7 +59,7 @@ namespace Foompany.ClientApps.SampleApp2
             }
 
             //create a REST client
-            using (var client = new Phoesion.Glow.SDK.Client.REST.GlowClient(txt_Hostname.Text, IsSecure: false))
+            using (var client = new Phoesion.Glow.SDK.Client.REST.GlowClient($"http://{txt_Hostname.Text}"))
             {
                 //call service/module action using anonymous api
                 var rsp = await client.Call(Foompany.Services.API.SampleService1.Modules.SampleModule1.Actions.DoTheThing, txt_SampleInput.Text)

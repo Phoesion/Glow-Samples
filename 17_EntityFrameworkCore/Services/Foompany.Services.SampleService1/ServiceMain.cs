@@ -43,7 +43,7 @@ namespace Foompany.Services.SampleService1
             await base.StartAsync(cancellationToken);
 
             //Optionally, we can migrate the database during the startup process of the service
-            using (var scope = ServiceProvider.GetRequiredService<IServiceScopeFactory>().CreateScope())
+            using (var scope = Services.GetRequiredService<IServiceScopeFactory>().CreateScope())
             {
                 var context = scope.ServiceProvider.GetService<dbSchemaContext>();
                 await context.Database.MigrateAsync();
