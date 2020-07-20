@@ -1,28 +1,27 @@
-# Phoesion Glow Sample - Interop
+# Phoesion Glow Sample - Entity Framework Core
 
 
 #### [Documentation : Read the full tutorial here](https://glow-docs.phoesion.com/articles/)
 
 
 ### Introduction
-This sample demonstrated the basic concepts of a background worker in your services.
+This sample demonstrated the basic concepts of using EFCore in your services.
 
 
 ### How to run
+- Setup a local MySQL server with a user **root** and password **root**, and a database schema with name **localhost** *(or change the connection string to your own)*
 - Build the **Sample.sln** solution
 - Deploy the **project** (*Project.pgproj*) to your glow cloud using Phoesion Glow **Blaze**. For more information how to setup you cloud you can [read the getting started guide](https://glow-docs.phoesion.com/articles/Getting_Started_DevMachine_Setup.html)
 
 
-## Sumarry
-In this sample, we create a services **SampleService1** with a background worker that counts up every 0.5 second. The *DefaultModule.cs* displays the counter value.
-
-You **don't have to** to expose any modules/action from your service, if you just want it to be a worker service that is unreachable from the outside world.
+## Summary
+In this sample, we create simple schema of a blog with some posts. Notice the **IDesignTimeDbContextFactory<dbSchemaContext>** interface that the **EFCore tools** can use to detect our schema so we can use them to perform *add-migration*, *update-database* etc..
 
 
 ### How to test
 After you deploy your **glow project** you can test it using the following paths *(assuming local deployment)* :
 
-- [http://localhost:16000/SampleService1/SampleModule1/](http://localhost:16000/SampleService1/SampleModule1/) 
+- [http://localhost:16000/SampleService1/](http://localhost:16000/SampleService1/) 
 
 
 

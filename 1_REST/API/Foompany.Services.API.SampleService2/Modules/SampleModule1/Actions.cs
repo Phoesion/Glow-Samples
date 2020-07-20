@@ -20,6 +20,9 @@ namespace Foompany.Services.API.SampleService2.Modules.SampleModule1
         public static string SampleStatusCode(string command) => null;
 
         [Action(Methods.GET)]
+        public static string ActionAliasSample() => null;
+
+        [Action(Methods.GET)]
         public static Stream StreamingSample1() => null;
     }
 }

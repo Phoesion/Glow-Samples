@@ -22,7 +22,10 @@ namespace Foompany.Services.API.SampleService1.Modules.SampleModule1
         public static string Action4() => null;
 
         [Action(Methods.GET)]
-        public static string Action5(bool AllowExceptions = true) => null;
+        public static string Action5() => null;
+
+        [Action(Methods.GET)]
+        public static string Action6(bool AllowExceptions = true) => null;
 
         [Action(Methods.GET)]
         public static string StreamingInteropAction() => null;

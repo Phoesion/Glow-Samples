@@ -17,7 +17,10 @@ namespace Foompany.Services.SampleService1
         {
             //Add Worker
             //Note: you can use the AddHostedService<T>() extension here, but then the 'MyWorker' instance cannot be injected to other classes
-            services.AddSingletonHostedService<MyWorker>();
+            services.AddSingletonHostedService<Workers.MyWorker>();
+
+            //Add a sample worker that handles external incoming request in proper scope/context and generate rayIds for logger
+            services.RegisterExternalEventConsumer();
         }
 
         protected override void Configure(IGlowApplicationBuilder app)

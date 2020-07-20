@@ -60,6 +60,18 @@ namespace Foompany.Services.SampleService2.Modules
 
         //----------------------------------------------------------------------------------------------------------------------------------------------
 
+        /// <summary>
+        /// Simple sample to demonstrate an action alias
+        /// This action can be hit by both uris
+        ///     - http://localhost/SampleService2/SampleModule1/ActionAliasSample
+        ///     - http://localhost/SampleService2/SampleModule1/my.alias
+        /// </summary>
+        /// <returns></returns>
+        [ActionBody(Methods.GET), ActionAlias("my.alias")]
+        public string ActionAliasSample() => "You hit ActionAliasSample()";
+
+        //----------------------------------------------------------------------------------------------------------------------------------------------
+
         /// <summary> 
         /// Simple streaming sample. Return a Stream object and it will be consumed by the remote endpoint
         /// WARNING : The stream will be automatically consumed and disposed! Do not keep a reference of it, or use it in any other way after function returns!

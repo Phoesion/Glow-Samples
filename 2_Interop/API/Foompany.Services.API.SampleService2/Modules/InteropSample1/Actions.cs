@@ -1,6 +1,7 @@
 ﻿using Phoesion.Glow.SDK;
 using Phoesion.Glow.SDK.Firefly;
 using System;
+using System.Collections.Generic;
 using System.IO;
 
 namespace Foompany.Services.API.SampleService2.Modules.SendEmail
@@ -20,10 +21,14 @@ namespace Foompany.Services.API.SampleService2.Modules.SendEmail
 
         [Action(Methods.GET)]
         [Interop]
-        public static DataModels.MyDataModel.Response InteropAction3() => null;  //Note : we do not need to declare PhotonRequest parameter here
+        public static DataModels.MyDataModel.Response HybridAction3() => null;
 
         [Interop]
         public static string InteropAction4() => null;
+
+        [Action(Methods.GET | Methods.POST)]
+        [Interop]
+        public static string HybridAction5(IList<string> data) => null;
 
         [Interop]
         public static string ExceptionSample() => null;

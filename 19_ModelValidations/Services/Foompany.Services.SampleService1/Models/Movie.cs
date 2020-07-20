@@ -10,14 +10,14 @@ namespace Foompany.Services.SampleService1.Models
     /// <summary>
     /// Sample input model with validation attributes.
     /// Notes : 
-    ///     - If recursive validation is not enabled and you need the validator to continue into an inner-class you can :
+    ///     - If you disable recursive validations and you need the validator to continue into an inner-class you can :
     ///         1) decorate the model class with [EnableDeepValidation]
     ///         2) decorate a specific property with [ValidateObject]
     ///             eg. assuming a complex Director class with it's own validations
     ///                 [ValidateObject]
     ///                 public Director Director { get; set;}
     ///            
-    ///     - For custom validation you can use the IValidatableObject interface
+    ///     - For custom validation you can use the IValidatableObject interface, or IValidatableObjectAsync if validation will have IO operations (eg. querying a database)
     /// </summary>
     public class Movie
     {

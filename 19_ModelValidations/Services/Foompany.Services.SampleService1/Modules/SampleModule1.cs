@@ -2,6 +2,7 @@
 using Phoesion.Glow.SDK;
 using Phoesion.Glow.SDK.Firefly;
 using System;
+using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 using System.Linq;
 
@@ -55,9 +56,20 @@ namespace Foompany.Services.SampleService1.Modules
         {
             if (!ModelState.IsValid)
             {
-                return "Errors : " + Environment.NewLine + string.Join(Environment.NewLine, ModelState.Errors);
+                return "Errors : " + Environment.NewLine + string.Join(Environment.NewLine, ModelState.Errors.Select(e => e.Message));
             }
 
+            return "ok!";
+        }
+
+        //----------------------------------------------------------------------------------------------------------------------------------------------
+
+        /// <summary>
+        /// Model validations can run on collections themselves and their content
+        /// </summary>
+        [Action(Methods.POST)]
+        public string Action4(IEnumerable<Models.Movie> movies)
+        {
             return "ok!";
         }
 

@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 using Microsoft.Extensions.Hosting;
 using Microsoft.Extensions.Logging;
 
-namespace Foompany.Services.SampleService1
+namespace Foompany.Services.SampleService1.Workers
 {
     /// <summary>
     /// This is the worker implementation.
@@ -50,7 +50,7 @@ namespace Foompany.Services.SampleService1
                 //print value
                 logger.LogInformation($"Counter = {Counter}");
                 //sleep a bit
-                await Task.Delay(500, cancellationToken);
+                await Task.Delay(1000, cancellationToken);
             }
         }
     }

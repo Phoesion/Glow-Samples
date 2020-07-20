@@ -1,11 +1,11 @@
 {
   "profiles": {
-    "MyCompany.Services.MyService (Local)": {
+    "Foompany.Services.BookStore (Local)": {
       "commandName": "Executable",
       "executablePath": "Phoesion.Glow.Reactor.Debugger.exe",
-      "commandLineArgs": "-QuantumSpace:Default -NamespacePreffix:Auto \"$(TargetPath)\""
+      "commandLineArgs": "-QuantumSpace:Default \"$(TargetPath)\""
     },
-    "MyCompany.Services.MyService (Remote Debugger)": {
+    "Foompany.Services.BookStore (Remote Debugger)": {
       "commandName": "Executable",
       "executablePath": "Phoesion.Glow.Debugger.FireflySrv.exe",
       "commandLineArgs": "\"$(TargetPath)\""

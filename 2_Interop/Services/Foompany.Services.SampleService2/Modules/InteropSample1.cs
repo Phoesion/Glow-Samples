@@ -1,6 +1,7 @@
 ﻿using Phoesion.Glow.SDK;
 using Phoesion.Glow.SDK.Firefly;
 using System;
+using System.Collections.Generic;
 using System.IO;
 using System.Text;
 using models = Foompany.Services.API.SampleService2.Modules.SendEmail.DataModels;
@@ -36,7 +37,7 @@ namespace Foompany.Services.SampleService2.Modules
         /// </summary>
         [ActionBody(Methods.GET)]
         [InteropBody]
-        public models.MyDataModel.Response InteropAction3()
+        public models.MyDataModel.Response HybridAction3()
         {
             if (Request is PhotonRestRequest)
                 return new models.MyDataModel.Response() { Result = $"I was called from REST!" };
@@ -56,6 +57,18 @@ namespace Foompany.Services.SampleService2.Modules
         {
             return $"Hi from {Service.FireflyInfo.EntityID} ( InstanceId : {InstanceId} )";  //Return the running entity's id, with some random runtime salt value
         }
+
+        //----------------------------------------------------------------------------------------------------------------------------------------------
+
+        /// <summary>
+        /// Common interface model input sample
+        /// This sample demonstrates the ability to receive data into common collection interfaces, either from other firefly services or an external REST client.
+        /// </summary>
+        [ActionBody(Methods.GET | Methods.POST)]
+        [InteropBody]
+        public string HybridAction5(IList<string> data)
+            => data == null ? "received null list" :
+                              $"received {data.Count} items. {Environment.NewLine} {string.Join(Environment.NewLine, data)}";
 
         //----------------------------------------------------------------------------------------------------------------------------------------------
 

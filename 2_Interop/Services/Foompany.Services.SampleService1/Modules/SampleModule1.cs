@@ -1,5 +1,6 @@
 ﻿using Phoesion.Glow.SDK;
 using Phoesion.Glow.SDK.Firefly;
+using System.Collections.Generic;
 using System.IO;
 using System.Threading.Tasks;
 using models = Foompany.Services.API.SampleService2.Modules.SendEmail.DataModels;
@@ -49,7 +50,7 @@ namespace Foompany.Services.SampleService1.Modules
         [ActionBody(Methods.GET)]
         public async Task<string> Action3()
         {
-            var result = await Call(API.SampleService2.Modules.SendEmail.Actions.InteropAction3).InvokeAsync();
+            var result = await Call(API.SampleService2.Modules.SendEmail.Actions.HybridAction3).InvokeAsync();
             return $"Service 2 said '{result?.Result}'";
         }
 
@@ -72,6 +73,21 @@ namespace Foompany.Services.SampleService1.Modules
 
         //----------------------------------------------------------------------------------------------------------------------------------------------
 
+        /// <summary> Pass a data set to another service </summary>
+        [ActionBody(Methods.GET)]
+        public Task<string> Action5()
+        {
+            var data = new List<string>
+            {
+                "item 1",
+                "item 2",
+                "item 3",
+            };
+            return Call(API.SampleService2.Modules.SendEmail.Actions.HybridAction5, data).InvokeAsync();
+        }
+
+        //----------------------------------------------------------------------------------------------------------------------------------------------
+
         /// <summary>
         /// Sample for exception propagation.
         /// For exceptions to propagate, they must be of type PhotonResponseError.
@@ -81,7 +97,7 @@ namespace Foompany.Services.SampleService1.Modules
         ///     2) Set the OnError callback that will be invoked with the exception as parameter
         /// </summary>
         [ActionBody(Methods.GET)]
-        public async Task<string> Action5(bool AllowExceptions = true)
+        public async Task<string> Action6(bool AllowExceptions = true)
         {
             try
             {

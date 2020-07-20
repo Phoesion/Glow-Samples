@@ -1,4 +1,4 @@
-# Phoesion Glow Sample - Interop
+# Phoesion Glow Sample - Background Worker (HostedServices)
 
 
 #### [Documentation : Read the full tutorial here](https://glow-docs.phoesion.com/articles/)

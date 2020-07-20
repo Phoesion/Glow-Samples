@@ -1,11 +1,11 @@
-# Phoesion Glow Sample - Custom Service Configurations
+# Phoesion Glow Sample - Service Configurations
 
 
-#### [Documentation : Read the full tutorial here](https://glow-docs.phoesion.com/articles/Tutorials_Custom_Configurations.html)
+#### [Documentation : Read the full tutorial here](https://glow-docs.phoesion.com/articles/Tutorials_Service_Configurations.html)
 
 
 ### Introduction
-**Service Custom Configurations** is a mechanism that allows you to provide **deploy-time** configurations to **your services**.
+The **Service Configuration** system allows you to provide **deploy-time** configurations to **your services**.
 The configurations can be setup during the deployment process and will be available to your firefly service.
 Configuration are only valid for the **Quantum Space you deployed** your services, each **Quantum Space** has it's own configuration set *(even if you deploy the same service assemblies)*.
 
