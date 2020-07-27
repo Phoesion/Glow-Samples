@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 using System.Text;
+using Microsoft.Extensions.DependencyInjection;
 
 namespace Foompany.Services.SampleService1.Models.Validators
 {
@@ -17,8 +18,7 @@ namespace Foompany.Services.SampleService1.Models.Validators
         public string GetErrorMessage() =>
             $"Classic movies must have a release year no later than {Year}.";
 
-        protected override ValidationResult IsValid(object value,
-            ValidationContext validationContext)
+        protected override ValidationResult IsValid(object value, ValidationContext validationContext)
         {
             var movie = (Movie)validationContext.ObjectInstance;
             var releaseYear = ((DateTime)value).Year;

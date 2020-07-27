@@ -58,12 +58,12 @@ namespace Foompany.Services.SampleService1.Modules
          * Parameters in querystring can be given in any order and are not case-sensitive
          */
         [ActionBody(Methods.GET)]
-        public string Action3(string value1, bool value2, int value3 = 12)
+        public string Action3(string value1, bool value2, int value3 = 12, int? value4 = null, LogLevel? value5 = null)
         {
             if (value3 == 100)
                 throw PhotonException.BadRequest;
             else
-                return $"Called Service 1, Action 3! got value1={value1}, value2={value2} and value3={value3}";
+                return $"Called Service 1, Action 3! got value1={value1}, value2={value2}, value3={value3}, value4={value4} and value5={value5}";
         }
 
         //----------------------------------------------------------------------------------------------------------------------------------------------

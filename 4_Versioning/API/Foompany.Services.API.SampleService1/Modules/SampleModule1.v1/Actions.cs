@@ -11,5 +11,8 @@ namespace Foompany.Services.API.SampleService1.Modules.SampleModule1.v1
 
         [Action(Methods.GET)]
         public static string Action1() => null;
+
+        [Action(Methods.GET)]
+        public static string Action2() => null;
     }
 }

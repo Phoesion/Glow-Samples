@@ -1,4 +1,5 @@
 ﻿using Microsoft.AspNetCore.Mvc;
+using Microsoft.Extensions.Configuration;
 using System.Threading.Tasks;
 
 namespace Foompany.AspHostingSample.Controllers
@@ -7,6 +8,13 @@ namespace Foompany.AspHostingSample.Controllers
     [Route("[controller]")]
     public class TestController : ControllerBase
     {
+        readonly IConfiguration configs;
+
+        public TestController(IConfiguration configs)
+        {
+            this.configs = configs;
+        }
+
         [HttpGet]
         public string Get() => "Default method";
 
@@ -17,6 +25,10 @@ namespace Foompany.AspHostingSample.Controllers
         [HttpGet]
         [Route(nameof(Action2))]
         public string Action2(string username, int value) => $"Action2 method. input username={username} with value {value}";
+
+        [HttpGet]
+        [Route(nameof(Action3))]
+        public string Action3() => $"config value = {configs["testC"]}";
 
         [HttpGet]
         [Route(nameof(DelayAction))]

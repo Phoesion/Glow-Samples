@@ -32,7 +32,7 @@ namespace Foompany.Services.ChatService.Modules
         /// <remarks> The action api must specify handling of method <see cref="Methods.PUSH_EVENT_CONNECT"/> </remarks>
         [ActionBody(Methods.PUSH_EVENT_CONNECT)]
         [PushHubEvents(OnClientDisconnect = nameof(ClientDisconnected))]    //<-- when client disconnects the 'ClientDisconnected' action will be called
-        public async Task<object> ClientConnectionRequest(object req)
+        public async Task<object> ClientConnectionRequest(object Request)
         {
             //get client id
             var clientId = Context?.ClientId;
@@ -40,7 +40,7 @@ namespace Foompany.Services.ChatService.Modules
                 throw PhotonException.BadRequest;     //allow only push channels
 
             //get input and sanitize
-            var username = req?.ToString()?.ToLower()?.Trim();
+            var username = Request?.ToString()?.ToLower()?.Trim();
             if (string.IsNullOrEmpty(username))
                 throw PhotonException.BadRequest;
 
@@ -96,7 +96,7 @@ namespace Foompany.Services.ChatService.Modules
         /// </summary>
         /// <param name="req"> Request can be any other strong-typed class if we need to pass a more complex object (it will be de-jsoned automatically). In this case it will be just a string </param>
         [ActionBody(Methods.PUSH_CALL)]
-        public async Task<string> SendMessage(object req, string toUser)
+        public async Task<string> SendMessage(object Request, string toUser)
         {
             //get client id
             var clientId = Context?.ClientId;
@@ -116,7 +116,7 @@ namespace Foompany.Services.ChatService.Modules
                 // Broadcast
                 //-------------------
                 //send to clients, clientid '*' is the broadcast group and all connected (and registered) clients will receive this msg
-                if (!await PushMessage("*", topic.ChatMsg, $"{srcClient} says \"{req?.ToString()}\""))
+                if (!await PushMessage("*", topic.ChatMsg, $"{srcClient} says \"{Request?.ToString()}\""))
                     return "error";
             }
             else
@@ -130,7 +130,7 @@ namespace Foompany.Services.ChatService.Modules
                     if (toUser == null || !clientUsernameLookup.TryGetValue(toUser.ToLower().Trim(), out dstClientId))
                         return "error";
                 //send to client
-                if (!await PushMessage(dstClientId, topic.ChatMsg, $"{srcClient} says \"{req?.ToString()}\""))
+                if (!await PushMessage(dstClientId, topic.ChatMsg, $"{srcClient} says \"{Request?.ToString()}\""))
                     return "error";
             }
             //done
