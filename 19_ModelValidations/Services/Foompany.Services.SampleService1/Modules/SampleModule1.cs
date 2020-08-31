@@ -5,6 +5,7 @@ using System;
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 using System.Linq;
+using System.Threading.Tasks;
 
 namespace Foompany.Services.SampleService1.Modules
 {
@@ -72,6 +73,31 @@ namespace Foompany.Services.SampleService1.Modules
         {
             return "ok!";
         }
+
+        //----------------------------------------------------------------------------------------------------------------------------------------------
+
+        /// <summary>
+        /// Validate an arbitrary model
+        /// </summary>
+        [Action(Methods.GET)]
+        public async Task<string> Action5(string title, string description, Models.Genre genre = Models.Genre.Classic, int price = 0)
+        {
+            //create model
+            var model = new Models.Movie()
+            {
+                Title = title,
+                Description = description,
+                Genre = genre,
+                Price = price,
+            };
+
+            //validate it manually
+            if (!await TryValidateModel(model, nameof(model), out IList<ModelValidationResults.Result> errors))
+                throw PhotonException.BadRequest.WithMessage("Errors : " + Environment.NewLine + string.Join(Environment.NewLine, errors.Select(e => e.Message)));
+
+            return "ok!";
+        }
+
 
         //----------------------------------------------------------------------------------------------------------------------------------------------
     }

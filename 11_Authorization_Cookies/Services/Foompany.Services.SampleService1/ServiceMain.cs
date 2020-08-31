@@ -17,7 +17,7 @@ namespace Foompany.Services.SampleService1
             services.AddAuthentication(CookieAuthenticationDefaults.AuthenticationScheme)
                     .AddCookie(CookieAuthenticationDefaults.AuthenticationScheme, config =>
                     {
-                        config.Cookie.Name = "DeployerCookie";
+                        config.Cookie.Name = "SampleAuthCookie";
                         config.LoginPath = "/Auth/Login";
                     });
 

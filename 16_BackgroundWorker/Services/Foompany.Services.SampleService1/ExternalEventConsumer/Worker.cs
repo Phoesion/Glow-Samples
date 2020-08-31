@@ -7,6 +7,7 @@ using Microsoft.Extensions.Hosting;
 using Microsoft.Extensions.Logging;
 using Microsoft.Extensions.DependencyInjection;
 using Phoesion.Glow.SDK.Firefly;
+using Phoesion.Glow.SDK;
 
 namespace Foompany.Services.SampleService1.ExternalEventConsumer
 {
@@ -35,7 +36,7 @@ namespace Foompany.Services.SampleService1.ExternalEventConsumer
 
                 //create a Service/Logging scope to handle request
                 using (var scope = services.CreateScope())
-                using (logger.BeginScope(FireflyLoggerContext.Create()))
+                using (logger.CreateRayScope(out PhotonId photonId))
                 {
                     //we can now get a Scoped service like so
                     var handler = scope.ServiceProvider.GetRequiredService<Handler>();

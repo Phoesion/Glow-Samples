@@ -11,7 +11,7 @@ namespace Foompany.Services.SampleService1.Modules
         //----------------------------------------------------------------------------------------------------------------------------------------------
 
         [Action(Methods.GET)]
-        public string Default() => "Interop sample service up and running!";
+        public string Default() => "Service up and running!";
 
         //----------------------------------------------------------------------------------------------------------------------------------------------
 
