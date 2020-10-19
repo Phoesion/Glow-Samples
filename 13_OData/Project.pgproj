@@ -7,7 +7,7 @@
       "Builds": [
         {
           "Build": "AnyCpu",
-          "AssemblyFilePath": "Foompany.Services.BookStore\\bin\\%BUILD%\\netcoreapp3.1\\Foompany.Services.BookStore.dll"
+          "AssemblyFilePath": "Foompany.Services.BookStore\\bin\\%BUILD%\\net5.0\\Foompany.Services.BookStore.dll"
         }
       ]
     }

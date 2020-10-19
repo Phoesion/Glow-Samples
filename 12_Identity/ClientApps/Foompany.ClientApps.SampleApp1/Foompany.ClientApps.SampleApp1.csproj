@@ -2,7 +2,7 @@
 
   <PropertyGroup>
     <OutputType>WinExe</OutputType>
-    <TargetFramework>netcoreapp3.1</TargetFramework>
+    <TargetFramework>net5.0-windows</TargetFramework>
     <UseWindowsForms>true</UseWindowsForms>
   </PropertyGroup>
 
@@ -11,11 +11,15 @@
   </ItemGroup>
 
   <ItemGroup>
-    <PackageReference Include="IdentityModel" Version="4.3.1" />
+    <PackageReference Include="IdentityModel" Version="5.0.0-preview.0" />
   </ItemGroup>
 
+  
+
+  
   <ItemGroup>
     <PackageReference Include="Phoesion.Glow.SDK.Client.REST" Version="*" />
   </ItemGroup>
+  
 
 </Project>

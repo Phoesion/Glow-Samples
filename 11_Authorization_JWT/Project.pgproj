@@ -8,7 +8,7 @@
       "Builds": [
         {
           "Build": "AnyCpu",
-          "AssemblyFilePath": "Services\\Foompany.Services.SampleService1\\bin\\%BUILD%\\netcoreapp3.1\\Foompany.Services.SampleService1.dll"
+          "AssemblyFilePath": "Services\\Foompany.Services.SampleService1\\bin\\%BUILD%\\net5.0\\Foompany.Services.SampleService1.dll"
         }
       ]
     },
@@ -19,7 +19,7 @@
       "Builds": [
         {
           "Build": "AnyCpu",
-          "AssemblyFilePath": "Services\\Foompany.Services.Authorization\\bin\\%BUILD%\\netcoreapp3.1\\Foompany.Services.Authorization.dll"
+          "AssemblyFilePath": "Services\\Foompany.Services.Authorization\\bin\\%BUILD%\\net5.0\\Foompany.Services.Authorization.dll"
         }
       ]
     }

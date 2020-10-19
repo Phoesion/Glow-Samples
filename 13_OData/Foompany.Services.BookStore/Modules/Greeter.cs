@@ -1,4 +1,4 @@
-﻿using Microsoft.AspNet.OData;
+﻿using Microsoft.AspNetCore.OData.Query;
 using Phoesion.Glow.SDK;
 using Phoesion.Glow.SDK.Firefly;
 using System;

@@ -21,12 +21,14 @@ document.getElementById("loginButton").addEventListener("click", async function 
         event.preventDefault();
         //get input
         var uname = document.getElementById("usernameInput").value;
+        //create request 
+        var request = { Username: uname };
         //Register client
         var result = await connection.invoke
             (
                 "REGISTER",                                     // This is a registration operation
                 "ChatService/Chat/ClientConnectionRequest",     // The path to hit for registration handling
-                JSON.stringify(uname)                           // Registration request msg (json)
+                request                                         // Registration request
             );
         if (result === "ok") {
             document.getElementById("sendButton").disabled = false;
@@ -43,9 +45,10 @@ document.getElementById("sendButton").addEventListener("click", async function (
         event.preventDefault();
         //get input
         var dstUser = document.getElementById("dstuserInput").value;
-        var message = document.getElementById("messageInput").value;
+        var message = { Text: document.getElementById("messageInput").value };
         //Send Msg
-        var result = await connection.invoke("CALL", "ChatService/Chat/SendMessage", "toUser=" + dstUser, JSON.stringify(message));
+        var res = await connection.invoke("CALL", "ChatService/Chat/SendMessage", "toUser=" + dstUser, message);
+        console.log(res);
     }
     catch (err) { alert(err); }
 });
@@ -54,7 +57,7 @@ document.getElementById("sendButton").addEventListener("click", async function (
 //register event for new chat msg
 connection.on("ChatMsg", function (message) {
     var li = document.createElement("li");
-    li.textContent = JSON.parse(message);
+    li.textContent = message;
     document.getElementById("messagesList").appendChild(li);
 });
 
@@ -62,6 +65,6 @@ connection.on("ChatMsg", function (message) {
 //register event for new notification msg
 connection.on("NotificationMsg", function (message) {
     var li = document.createElement("li");
-    li.textContent = "*** " + JSON.parse(message);
+    li.textContent = "*** " + message;
     document.getElementById("messagesList").appendChild(li);
 });

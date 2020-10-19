@@ -82,7 +82,7 @@ namespace Foompany.Services.SampleService1.Modules
             await db.AddAsync(blog);
 
             //save changes
-            db.SaveChanges();
+            await db.SaveChangesAsync();
 
             //done
             return $"Created blog with name '{blog.Name}'";

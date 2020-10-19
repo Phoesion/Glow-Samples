@@ -1,11 +1,11 @@
 <Project Sdk="Microsoft.NET.Sdk">
 
   <PropertyGroup>
-    <TargetFramework>netcoreapp3.1</TargetFramework>
+    <TargetFramework>net5.0</TargetFramework>
   </PropertyGroup>
 
   <ItemGroup>
-    <PackageReference Include="Hangfire" Version="1.7.12" />
+    <PackageReference Include="Hangfire" Version="1.7.16" />
     <PackageReference Include="Hangfire.MemoryStorage" Version="1.7.0" />
   </ItemGroup>
 

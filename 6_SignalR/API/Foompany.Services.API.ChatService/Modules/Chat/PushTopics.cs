@@ -1,4 +1,4 @@
-﻿using Phoesion.Glow.SDK;
+using Phoesion.Glow.SDK;
 
 namespace Foompany.Services.API.ChatService.Modules.Chat
 {

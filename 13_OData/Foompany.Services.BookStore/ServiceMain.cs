@@ -1,11 +1,10 @@
 ﻿using Foompany.Services.BookStore.Models;
-using Microsoft.AspNet.OData.Builder;
-using Microsoft.AspNet.OData.Extensions;
+using Microsoft.AspNetCore.OData;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.OData.Edm;
+using Microsoft.OData.ModelBuilder;
 using Phoesion.Glow.SDK.Firefly;
 using System.Threading.Tasks;
-using Microsoft.AspNet.OData.Extensions;
 
 namespace Foompany.Services.BookStore
 {
@@ -27,7 +26,7 @@ namespace Foompany.Services.BookStore
 
         private static IEdmModel GetEdmModel()
         {
-            ODataConventionModelBuilder builder = new ODataConventionModelBuilder();
+            var builder = new ODataConventionModelBuilder();
             builder.EntitySet<Book>("Books");
             builder.EntitySet<Press>("Presses");
             return builder.GetEdmModel();

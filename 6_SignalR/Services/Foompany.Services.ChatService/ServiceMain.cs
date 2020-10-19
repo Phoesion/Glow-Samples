@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 using System.Text;
 using System.Linq;
 using System.Threading.Tasks;
@@ -15,7 +15,9 @@ namespace Foompany.Services.ChatService
     {
         protected override void ConfigureServices(IServiceCollection services)
         {
-            //TODO: Configure services..
+            //add in-memory user store
+            //NOTE: in real-world production application you should probably use a database or a distributed cache store
+            services.AddSingleton<Store.IUserStore, Store.InMemoryUserStore>();
         }
 
         protected override void Configure(IGlowApplicationBuilder app)

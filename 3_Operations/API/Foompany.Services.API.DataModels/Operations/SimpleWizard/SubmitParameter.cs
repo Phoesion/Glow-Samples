@@ -2,12 +2,12 @@
 {
     public class Request
     {
-        public string Key;
-        public string Value;
+        public string Key { get; set; }
+        public string Value { get; set; }
     }
 
     public class Response
     {
-        public bool IsSuccess;
+        public bool IsSuccess { get; set; }
     }
 }

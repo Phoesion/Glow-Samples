@@ -7,7 +7,7 @@
       "Builds": [
         {
           "Build": "AnyCpu",
-          "AssemblyFilePath": "Services\\Foompany.Services.AspHostingSample\\bin\\%BUILD%\\netcoreapp3.1\\Foompany.Services.AspHostingSample.dll"
+          "AssemblyFilePath": "Services\\Foompany.Services.AspHostingSample\\bin\\%BUILD%\\net5.0\\Foompany.Services.AspHostingSample.dll"
         }
       ]
     }

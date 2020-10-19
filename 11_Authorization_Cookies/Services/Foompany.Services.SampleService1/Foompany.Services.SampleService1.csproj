@@ -1,13 +1,17 @@
 <Project Sdk="Microsoft.NET.Sdk">
 
   <PropertyGroup>
-    <TargetFramework>netcoreapp3.1</TargetFramework>
+    <TargetFramework>net5.0</TargetFramework>
   </PropertyGroup>
 
+  
+
+  
   <ItemGroup>
     <PackageReference Include="Phoesion.Glow.SDK.Firefly" Version="*" />
     <PackageReference Include="Phoesion.Glow.SDK.Authorization" Version="*" />
     <PackageReference Include="Phoesion.Glow.SDK.Authentication" Version="*" />
   </ItemGroup>
+  
 
 </Project>

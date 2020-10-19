@@ -7,7 +7,7 @@
       "Builds": [
         {
           "Build": "AnyCpu",
-          "AssemblyFilePath": "Services\\Foompany.Services.SampleService1\\bin\\%BUILD%\\netcoreapp3.1\\Foompany.Services.SampleService1.dll"
+          "AssemblyFilePath": "Services\\Foompany.Services.SampleService1\\bin\\%BUILD%\\net5.0\\Foompany.Services.SampleService1.dll"
         }
       ]
     },
@@ -18,7 +18,7 @@
       "Builds": [
         {
           "Build": "AnyCpu",
-          "AssemblyFilePath": "Services\\Foompany.Services.FireflyMvc\\bin\\%BUILD%\\netcoreapp3.1\\Foompany.Services.FireflyMvc.dll"
+          "AssemblyFilePath": "Services\\Foompany.Services.FireflyMvc\\bin\\%BUILD%\\net5.0\\Foompany.Services.FireflyMvc.dll"
         }
       ]
     },
@@ -29,12 +29,12 @@
       "Builds": [
         {
           "Build": "Win_x64",
-          "BuildCommand": "dotnet publish --configuration %BUILD% --framework netcoreapp3.1 --runtime win-x64 -o \"bin\\%BUILD%\\publish\\netcore\\win-x64\"",
+          "BuildCommand": "dotnet publish --configuration %BUILD% --framework net5.0 --runtime win-x64 -o \"bin\\%BUILD%\\publish\\netcore\\win-x64\"",
           "AssemblyFilePath": "Services\\Foompany.Services.Identity\\bin\\%BUILD%\\publish\\netcore\\win-x64\\Foompany.Services.Identity.dll"
         },
         {
           "Build": "Linux_x64",
-          "BuildCommand": "dotnet publish --configuration %BUILD% --framework netcoreapp3.1 --runtime linux-x64 -o \"bin\\%BUILD%\\publish\\netcore\\linux-x64\"",
+          "BuildCommand": "dotnet publish --configuration %BUILD% --framework net5.0 --runtime linux-x64 -o \"bin\\%BUILD%\\publish\\netcore\\linux-x64\"",
           "AssemblyFilePath": "Services\\Foompany.Services.Identity\\bin\\%BUILD%\\publish\\netcore\\linux-x64\\Foompany.Services.Identity.dll"
         }
       ]
@@ -46,7 +46,7 @@
       "Builds": [
         {
           "Build": "AnyCpu",
-          "AssemblyFilePath": "Services\\Foompany.Services.AspCoreMvc\\bin\\%BUILD%\\netcoreapp3.1\\Foompany.Services.AspCoreMvc.dll"
+          "AssemblyFilePath": "Services\\Foompany.Services.AspCoreMvc\\bin\\%BUILD%\\net5.0\\Foompany.Services.AspCoreMvc.dll"
         }
       ]
     },
@@ -57,7 +57,7 @@
       "Builds": [
         {
           "Build": "AnyCpu",
-          "AssemblyFilePath": "Services\\Foompany.Services.JavaScriptClient\\bin\\%BUILD%\\netcoreapp3.1\\Foompany.Services.JavaScriptClient.dll"
+          "AssemblyFilePath": "Services\\Foompany.Services.JavaScriptClient\\bin\\%BUILD%\\net5.0\\Foompany.Services.JavaScriptClient.dll"
         }
       ]
     }
