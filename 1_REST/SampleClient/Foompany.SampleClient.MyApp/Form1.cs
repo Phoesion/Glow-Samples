@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 using System.Windows.Forms;
 
 namespace Foompany.SampleClient.MyApp
@@ -14,7 +14,7 @@ namespace Foompany.SampleClient.MyApp
         {
             //create a REST client
             var targetBase = $"http://{txt_Hostname.Text}";
-            using (var client = new Phoesion.Glow.SDK.Client.REST.GlowClient(targetBase))
+            using (var client = Phoesion.Glow.SDK.Client.REST.GlowClient.FromBaseUri(targetBase))
             {
                 //call service/module action
                 var rsp = await client.Call(Foompany.Services.API.SampleService1.Modules.SampleModule1.Actions.DoTheThing, txt_SampleInput.Text).InvokeAsync();

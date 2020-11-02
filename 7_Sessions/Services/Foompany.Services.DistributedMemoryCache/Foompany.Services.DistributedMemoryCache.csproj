@@ -5,14 +5,10 @@
     <NoWarn>1701;1702;1998</NoWarn>
   </PropertyGroup>
 
-  
-
-  
   <ItemGroup>
     <PackageReference Include="Phoesion.Glow.SDK.Firefly" Version="*" />
     <PackageReference Include="Phoesion.Glow.SDK.Firefly.Components" Version="*" />
     <PackageReference Include="Phoesion.Glow.SDK.DistributedMemoryCache" Version="*" />
   </ItemGroup>
-  
 
 </Project>

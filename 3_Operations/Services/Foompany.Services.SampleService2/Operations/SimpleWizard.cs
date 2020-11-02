@@ -1,7 +1,8 @@
-﻿using Phoesion.Glow.SDK;
+using Phoesion.Glow.SDK;
 using Phoesion.Glow.SDK.Firefly;
 using System;
 using System.Collections.Generic;
+using System.IO;
 using System.Linq;
 using System.Threading.Tasks;
 using models = Foompany.Services.API.SampleService2.Operations.SimpleWizard.DataModels;
@@ -12,17 +13,47 @@ namespace Foompany.Services.SampleService2.Operations
      * This operation keeps an in-memory dictionary with Key-Value pairs that can be submitted using action SubmitParameter
      * either direct with REST(Post) or from other services with interop.
      * When you can to complete (and dispose of) the operation, you must call End(). This is done in the Finish() action that is exposed to REST(Post)
-     * 
-     * The [Serializable] attribute specifies that this class can be serialized.
-     * This means that after any Action in the module is called, it will be automatically stored in a local database on disk.
-     * If the service process is restarted (either from a new deploy or a crash) the operation will be deserialized and continue automatically.
      */
-    [Serializable]
     [API(typeof(API.SampleService2.Operations.SimpleWizard.Actions))]
     public class SimpleWizard : OperationModule     //<---- deriving from OperationModule instead of the basic FireflyModule
     {
+        [Autowire]
+        IJsonSerializer serialiser; //get json serializer
+
         //In-Memory variables
-        Dictionary<string, string> Parameters = new Dictionary<string, string>();
+        readonly Dictionary<string, string> Parameters = new Dictionary<string, string>();
+
+        //----------------------------------------------------------------------------------------------------------------------------------------------
+
+        #region Save / Load operation state
+
+        //class to hold state data when serialized
+        class OperationState
+        {
+            public Dictionary<string, string> Parameters { get; set; }
+        }
+
+        //Save operation state
+        protected override Task SaveStateAsync(Stream stream)
+        {
+            return serialiser.SerializeAsync(stream, new OperationState
+            {
+                Parameters = Parameters,
+            });
+        }
+
+        //Load operation state
+        protected override async Task LoadStateAsync(Stream stream)
+        {
+            var data = await serialiser.DeserializeAsync<OperationState>(stream);
+            if (data != null)
+            {
+                if (data.Parameters != null)
+                    foreach (var (k, v) in data.Parameters)
+                        Parameters[k] = v;
+            }
+        }
+        #endregion
 
         //----------------------------------------------------------------------------------------------------------------------------------------------
 

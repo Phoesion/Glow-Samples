@@ -14,19 +14,15 @@
   <ItemGroup>
     <PackageReference Include="Microsoft.AspNetCore.Identity.EntityFrameworkCore" Version="5.0.0-rc.2.20475.17" />
     <PackageReference Include="Microsoft.EntityFrameworkCore.SqlServer" Version="5.0.0-rc.2.20475.6" />
-    <PackageReference Include="Pomelo.EntityFrameworkCore.MySql" Version="3.2.3" />
+    <PackageReference Include="Pomelo.EntityFrameworkCore.MySql" Version="3.2.4" />
     <PackageReference Include="Microsoft.EntityFrameworkCore.Tools" Version="5.0.0-rc.2.20475.6" PrivateAssets="all">
       <IncludeAssets>runtime; build; native; contentfiles; analyzers</IncludeAssets>
     </PackageReference>
   </ItemGroup>
 
-  
-
-  
   <ItemGroup>
     <PackageReference Include="Phoesion.Glow.SDK.Firefly" Version="*" />
     <PackageReference Include="Phoesion.Glow.SDK.Firefly.AspHost" Version="*" />
   </ItemGroup>
-  
 
 </Project>

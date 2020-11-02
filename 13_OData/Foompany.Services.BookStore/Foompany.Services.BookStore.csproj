@@ -10,13 +10,9 @@
     <PackageReference Include="Microsoft.EntityFrameworkCore.InMemory" Version="5.0.0-rc.2.20475.6" />
   </ItemGroup>
 
-  
-
-  
   <ItemGroup>
     <PackageReference Include="Phoesion.Glow.SDK.Firefly" Version="*" />
     <PackageReference Include="Phoesion.Glow.SDK.AspAdapter" Version="*" />
   </ItemGroup>
-  
 
 </Project>

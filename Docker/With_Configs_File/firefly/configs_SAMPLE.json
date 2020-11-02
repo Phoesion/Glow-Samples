@@ -1,0 +1,32 @@
+{
+    // Persistent data store path. Will store holograms and app executable/runtime/log data.
+    "DataPath": "%Home%/.phoesion/glow/firefly",
+
+    // Path to save service persistent data storage path.
+    "ServicePersistentDataDir": "%ServiceRoot%/data",
+
+    // Kaleidoscope connection string.
+    "KaleidoscopeConnectionString": "Host=auto",
+
+    // Key generated for Firefly entity to authenticate to broker (kaleidoscope).
+    "EntityAuthKey": null,
+
+    // The tags for this entity
+    "Tags": null,
+
+    // Setup any QuantumSpaces rules and options for this entity instance (leave null for default)
+    "QuantumSpaces": null
+    // Example :
+    /*
+    "QuantumSpaces": {
+        // Setup default global rules
+        "*": {
+            "IsEnabled": false // by-default disable QuantumSpace
+        },
+        // Setup specific rules for QuantumSpace 'myQSpace1' 
+        "myQSpace1": {
+            "IsEnabled": true // enable this QuantumSpace
+        }
+    }
+    */
+}

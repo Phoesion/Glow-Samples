@@ -14,12 +14,8 @@
     <PackageReference Include="IdentityModel" Version="5.0.0-preview.0" />
   </ItemGroup>
 
-  
-
-  
   <ItemGroup>
     <PackageReference Include="Phoesion.Glow.SDK.Client.REST" Version="*" />
   </ItemGroup>
-  
 
 </Project>

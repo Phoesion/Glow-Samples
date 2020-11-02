@@ -8,9 +8,6 @@
     <PackageReference Include="Microsoft.Extensions.Diagnostics.HealthChecks" Version="5.0.0-rc.2.20475.17" />
   </ItemGroup>
 
-  
-
-  
   <ItemGroup>
     <PackageReference Include="Phoesion.Glow.SDK.Firefly" Version="*" />
   </ItemGroup>

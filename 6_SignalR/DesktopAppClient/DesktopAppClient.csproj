@@ -10,12 +10,8 @@
     <ProjectReference Include="..\API\Foompany.Services.API.ChatService\Foompany.Services.API.ChatService.csproj" />
   </ItemGroup>
 
-  
-
-  
   <ItemGroup>
     <PackageReference Include="Phoesion.Glow.SDK.Client.SignalR" Version="*" />
   </ItemGroup>
-  
 
 </Project>

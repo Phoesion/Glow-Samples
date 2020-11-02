@@ -1,0 +1,10 @@
+{
+    // Persistent data store path. Will store app runtime/log data.
+    "DataPath": "%Home%/.phoesion/glow/kaleidoscope",
+
+    // Key generated for Kaleidoscope entity
+    "EntityAuthKey": null,
+
+    // List of ip/domains that make up the cluster to connect to. "auto" enables auto-discovery services
+    "ClusterNodes": [ "auto" ]
+}

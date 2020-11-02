@@ -12,13 +12,9 @@
     <ProjectReference Include="..\..\API\Foompany.Services.API.Authorization\Foompany.Services.API.Authorization.csproj" />
   </ItemGroup>
 
-  
-
-  
   <ItemGroup>
     <PackageReference Include="Phoesion.Glow.SDK.Firefly" Version="*" />
   </ItemGroup>
-  
 
   <ItemGroup>
     <Compile Include="..\Constants.cs" Link="Constants.cs" />

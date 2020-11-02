@@ -1,0 +1,14 @@
+{
+  // Kaleidoscope connection string.
+  "KaleidoscopeConnectionString": "Host=kaleidoscope",
+
+  // Create Default admin user
+  "DefaultUser": {
+    "Username": "admin",
+    "Name": "Administrator",
+    "Description": "Default administrator account created from configs",
+    "Email": "admin@myOrganization.org",
+    "Password": "123qweASD!", //prefer to use an SSH KEY
+    "SshKey": null
+  }
+}
