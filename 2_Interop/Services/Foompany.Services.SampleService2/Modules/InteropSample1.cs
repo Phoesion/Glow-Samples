@@ -1,17 +1,17 @@
-﻿using Phoesion.Glow.SDK;
+using Phoesion.Glow.SDK;
 using Phoesion.Glow.SDK.Firefly;
 using System;
 using System.Collections.Generic;
 using System.IO;
 using System.Text;
-using models = Foompany.Services.API.SampleService2.Modules.SendEmail.DataModels;
+using models = Foompany.Services.API.SampleService2.Modules.InteropSample1.DataModels;
 
 namespace Foompany.Services.SampleService2.Modules
 {
     /* This is the implementation of the firefly service module.
      * It must implement all static methods specified in the api assembly
      */
-    [API(typeof(API.SampleService2.Modules.SendEmail.Actions))]
+    [API(typeof(API.SampleService2.Modules.InteropSample1.Actions))]
     public class InteropSample1 : FireflyModule
     {
         //----------------------------------------------------------------------------------------------------------------------------------------------

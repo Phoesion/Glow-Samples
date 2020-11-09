@@ -1,0 +1,15 @@
+{
+  "Services": [
+    {
+      "IsEnabled": true,
+      "CSProjectFile": "Foompany.Services.HelloWorld\\Foompany.Services.HelloWorld.csproj",
+      "ServiceHost": "DotNet",
+      "Builds": [
+        {
+          "Build": "AnyCpu",
+          "AssemblyFilePath": "Foompany.Services.HelloWorld\\bin\\%BUILD%\\net5.0\\Foompany.Services.HelloWorld.dll"
+        }
+      ]
+    }
+  ]
+}

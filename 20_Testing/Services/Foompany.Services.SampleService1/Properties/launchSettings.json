@@ -1,0 +1,14 @@
+{
+  "profiles": {
+    "Foompany.Services.SampleService1 (Local)": {
+      "commandName": "Executable",
+      "executablePath": "Phoesion.Glow.Reactor.Debugger.exe",
+      "commandLineArgs": "-QuantumSpace:Default \"$(TargetPath)\""
+    },
+    "Foompany.Services.SampleService1 (Remote Debugger)": {
+      "commandName": "Executable",
+      "executablePath": "Phoesion.Glow.Debugger.FireflySrv.exe",
+      "commandLineArgs": "\"$(TargetPath)\""
+    }
+  }
+}

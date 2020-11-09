@@ -67,7 +67,7 @@ volumes:
 networks:
   backend:
 
-# Generate keys for sample. Replace with your own!
+# AuthKeys for sample. Replace with your own!
 secrets:
   FIREFLY_EntityAuthKey:
     file: ./firefly/EntityAuthKey.txt

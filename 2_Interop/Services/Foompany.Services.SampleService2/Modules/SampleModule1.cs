@@ -1,4 +1,4 @@
-﻿using Phoesion.Glow.SDK;
+using Phoesion.Glow.SDK;
 using Phoesion.Glow.SDK.Firefly;
 using System;
 using System.Collections.Generic;
@@ -26,7 +26,7 @@ namespace Foompany.Services.SampleService2.Modules
         {
             var firstName = "John";
             var surName = "Doe";
-            var result = await Call(API.SampleService2.Modules.SendEmail.Actions.InteropAction2, firstName, surName).InvokeAsync();
+            var result = await Call(API.SampleService2.Modules.InteropSample1.Actions.InteropAction2, firstName, surName).InvokeAsync();
             return $"SampleService2 said '{result}'";
         }
 

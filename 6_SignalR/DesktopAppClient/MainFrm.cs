@@ -1,12 +1,12 @@
 using System;
 using System.Windows.Forms;
+using System.Threading.Tasks;
+using Microsoft.Extensions.Options;
+using Phoesion.Glow.SDK.Client.SignalR;
 
 using api = Foompany.Services.API.ChatService.Modules.Chat.Actions;
 using topic = Foompany.Services.API.ChatService.Modules.Chat.PushTopics;
 using msg = Foompany.Services.API.ChatService.Modules.Chat.Messages;
-using Phoesion.Glow.SDK.Client.SignalR;
-using Microsoft.Extensions.Options;
-using System.Threading.Tasks;
 
 namespace DesktopAppClient
 {
@@ -31,7 +31,7 @@ namespace DesktopAppClient
                 AutoReconnect = true,
                 //UseMessagePackProtocol = true,
             };
-            Client = new GlowClient(Options.Create(options));
+            Client = new GlowClient(Options.Create(options), null);
 
             //setup registration handler
             Client.Registration = registrationHandler;

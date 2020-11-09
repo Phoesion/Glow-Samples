@@ -1,9 +1,9 @@
-﻿using Phoesion.Glow.SDK;
+using Phoesion.Glow.SDK;
 using Phoesion.Glow.SDK.Firefly;
 using System.Collections.Generic;
 using System.IO;
 using System.Threading.Tasks;
-using models = Foompany.Services.API.SampleService2.Modules.SendEmail.DataModels;
+using models = Foompany.Services.API.SampleService2.Modules.InteropSample1.DataModels;
 
 namespace Foompany.Services.SampleService1.Modules
 {
@@ -27,7 +27,7 @@ namespace Foompany.Services.SampleService1.Modules
             {
                 InputName = "George",
             };
-            var result = await Call(API.SampleService2.Modules.SendEmail.Actions.InteropAction1, req).InvokeAsync();
+            var result = await Call(API.SampleService2.Modules.InteropSample1.Actions.InteropAction1, req).InvokeAsync();
             return $"Service 2 said '{result}'";
         }
 
@@ -41,7 +41,7 @@ namespace Foompany.Services.SampleService1.Modules
         {
             var firstName = "John";
             var surName = "Doe";
-            var result = await Call(API.SampleService2.Modules.SendEmail.Actions.InteropAction2, firstName, surName).InvokeAsync();
+            var result = await Call(API.SampleService2.Modules.InteropSample1.Actions.InteropAction2, firstName, surName).InvokeAsync();
             return $"Service 2 said '{result}'";
         }
 
@@ -50,7 +50,7 @@ namespace Foompany.Services.SampleService1.Modules
         [ActionBody(Methods.GET)]
         public async Task<string> Action3()
         {
-            var result = await Call(API.SampleService2.Modules.SendEmail.Actions.HybridAction3).InvokeAsync();
+            var result = await Call(API.SampleService2.Modules.InteropSample1.Actions.HybridAction3).InvokeAsync();
             return $"Service 2 said '{result?.Result}'";
         }
 
@@ -63,7 +63,7 @@ namespace Foompany.Services.SampleService1.Modules
         [ActionBody(Methods.GET)]
         public async Task<string> Action4()
         {
-            var results = await BroadcastCall(API.SampleService2.Modules.SendEmail.Actions.InteropAction4).InvokeAsync();
+            var results = await BroadcastCall(API.SampleService2.Modules.InteropSample1.Actions.InteropAction4).InvokeAsync();
             if (results == null)
                 return "Could not call services";
             else
@@ -83,7 +83,7 @@ namespace Foompany.Services.SampleService1.Modules
                 "item 2",
                 "item 3",
             };
-            return Call(API.SampleService2.Modules.SendEmail.Actions.HybridAction5, data).InvokeAsync();
+            return Call(API.SampleService2.Modules.InteropSample1.Actions.HybridAction5, data).InvokeAsync();
         }
 
         //----------------------------------------------------------------------------------------------------------------------------------------------
@@ -101,7 +101,7 @@ namespace Foompany.Services.SampleService1.Modules
         {
             try
             {
-                var result = await Call(API.SampleService2.Modules.SendEmail.Actions.ExceptionSample)
+                var result = await Call(API.SampleService2.Modules.InteropSample1.Actions.ExceptionSample)
                                         .ThrowRemoteExceptions(AllowExceptions)
                                         .InvokeAsync();
                 return result ?? "got null result";
@@ -117,11 +117,20 @@ namespace Foompany.Services.SampleService1.Modules
         [ActionBody(Methods.GET)]
         public async Task<string> StreamingInteropAction()
         {
-            var stream = await Call(API.SampleService2.Modules.SendEmail.Actions.StreamingSample).InvokeAsync();
+            var stream = await Call(API.SampleService2.Modules.InteropSample1.Actions.StreamingSample).InvokeAsync();
             if (stream == null)
                 throw PhotonException.InternalServerError;
             var reader = new StreamReader(stream);
             return await reader.ReadToEndAsync();
+        }
+
+        //----------------------------------------------------------------------------------------------------------------------------------------------
+
+        [ActionBody(Methods.GET)]
+        public async Task<Stream> StreamingInteropAction2()
+        {
+            var stream = await Call(API.SampleService2.Modules.InteropSample1.Actions.StreamingSample).InvokeAsync();
+            return stream;
         }
 
         //----------------------------------------------------------------------------------------------------------------------------------------------

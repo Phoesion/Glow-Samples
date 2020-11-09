@@ -1,6 +1,7 @@
-﻿using Phoesion.Glow.SDK;
+using Phoesion.Glow.SDK;
 using Phoesion.Glow.SDK.Firefly;
 using System;
+using System.IO;
 
 namespace Foompany.Services.API.SampleService1.Modules.SampleModule1
 {
@@ -29,5 +30,9 @@ namespace Foompany.Services.API.SampleService1.Modules.SampleModule1
 
         [Action(Methods.GET)]
         public static string StreamingInteropAction() => null;
+
+        [Action(Methods.GET)]
+        public static Stream StreamingInteropAction2() => null;
+
     }
 }

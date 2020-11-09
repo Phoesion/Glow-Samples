@@ -1,10 +1,10 @@
-﻿using Phoesion.Glow.SDK;
+using Phoesion.Glow.SDK;
 using Phoesion.Glow.SDK.Firefly;
 using System;
 using System.Collections.Generic;
 using System.IO;
 
-namespace Foompany.Services.API.SampleService2.Modules.SendEmail
+namespace Foompany.Services.API.SampleService2.Modules.InteropSample1
 {
     /* This is the API declaration module.
      * You can declare the actions that the module exposes and their attributes.

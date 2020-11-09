@@ -13,7 +13,7 @@ This sample demonstrated the basic concepts of communication between your servic
 - Deploy the **project** (*Project.pgproj*) to your glow cloud using Phoesion Glow **Blaze**. For more information how to setup you cloud you can [read the getting started guide](https://glow-docs.phoesion.com/articles/Getting_Started_DevMachine_Setup.html)
 
 
-## Sumarry
+## Summary
 In this sample, we create two services. **SampleService2** implements a set of interop action, which it exposes for consumption using the service's api *(in project Foompany.Services.API.SampleService2)*.
 
 **SampleService1** references that api and can consume it *(call the actions)* using the **Call(apimethod).InvokeAsync()** function. *[(sample code)](https://github.com/Phoesion/Glow-Samples/blob/master/2_Interop/Services/Foompany.Services.SampleService1/Modules/SampleModule1.cs#L23)*

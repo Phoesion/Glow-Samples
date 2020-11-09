@@ -13,7 +13,7 @@ This sample demonstrated the basic concepts of **Operations**, a system to perfo
 - Deploy the **project** (*Project.pgproj*) to your glow cloud using Phoesion Glow **Blaze**. For more information how to setup you cloud you can [read the getting started guide](https://glow-docs.phoesion.com/articles/Getting_Started_DevMachine_Setup.html)
 
 
-## Sumarry
+## Summary
 In this sample, we have two services.
 
  **SampleService2** implements an **Operation Module**, to create a simple wizard.
