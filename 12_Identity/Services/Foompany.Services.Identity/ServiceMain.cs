@@ -45,7 +45,7 @@ namespace Foompany.Services.Identity
              but we could change this so something else if needed, that will be used only by the design tools and not at runtime.
         */
         public Data.ApplicationDbContext CreateDbContext(string[] args) =>
-            EFDesignTools.CreateDbContext<Data.ApplicationDbContext>((options, conf) => options.UseMySql(conf.GetConnectionString("DefaultConnection")));
+            EFDesignTools.CreateDbContext<Data.ApplicationDbContext>((options, conf) => options.UseMySql(conf.GetConnectionString("DefaultConnection"), ServerVersion.AutoDetect(conf.GetConnectionString("DefaultConnection"))));
 
         //------------------------------------------------------------------------------------------------------------------------
     }

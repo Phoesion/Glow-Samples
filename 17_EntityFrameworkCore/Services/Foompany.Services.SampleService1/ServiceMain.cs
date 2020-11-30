@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 using System.Text;
 using System.Linq;
 using System.Threading.Tasks;
@@ -26,7 +26,7 @@ namespace Foompany.Services.SampleService1
         protected override void ConfigureServices(IServiceCollection services)
         {
             // Add db context using MySql provider 
-            services.AddDbContext<dbSchemaContext>(options => options.UseMySql(Configurations.GetConnectionString("DefaultConnection")));
+            services.AddDbContext<dbSchemaContext>(options => options.UseMySql(Configurations.GetConnectionString("DefaultConnection"), ServerVersion.AutoDetect(Configurations.GetConnectionString("DefaultConnection"))));
         }
 
         //------------------------------------------------------------------------------------------------------------------------
@@ -57,7 +57,7 @@ namespace Foompany.Services.SampleService1
              but we could change this so something else if needed, that will be used only by the design tools and not at runtime.
         */
         public dbSchemaContext CreateDbContext(string[] args) =>
-            EFDesignTools.CreateDbContext<dbSchemaContext>((options, conf) => options.UseMySql(conf.GetConnectionString("DefaultConnection")));
+            EFDesignTools.CreateDbContext<dbSchemaContext>((options, conf) => options.UseMySql(conf.GetConnectionString("DefaultConnection"), ServerVersion.AutoDetect(conf.GetConnectionString("DefaultConnection"))));
 
         //------------------------------------------------------------------------------------------------------------------------
     }

@@ -1,4 +1,5 @@
-﻿using Foompany.IncidentReport;
+#pragma warning disable CS0649
+using Foompany.IncidentReport;
 using Phoesion.Glow.SDK;
 using Phoesion.Glow.SDK.Firefly;
 using System;

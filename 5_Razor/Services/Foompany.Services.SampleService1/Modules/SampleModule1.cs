@@ -1,4 +1,4 @@
-﻿using Phoesion.Glow.SDK;
+using Phoesion.Glow.SDK;
 using Phoesion.Glow.SDK.Firefly;
 using System;
 using System.Threading.Tasks;
@@ -6,6 +6,7 @@ using System.Threading.Tasks;
 
 namespace Foompany.Services.SampleService1.Modules
 {
+    [API(typeof(API.SampleService1.Modules.SampleModule1.Actions))]
     public class SampleModule1 : Phoesion.Glow.SDK.Firefly.FireflyModule
     {
         //----------------------------------------------------------------------------------------------------------------------------------------------
@@ -18,7 +19,7 @@ namespace Foompany.Services.SampleService1.Modules
 
         //----------------------------------------------------------------------------------------------------------------------------------------------
 
-        [Action(Methods.GET)]
+        [ActionBody(Methods.GET)]
         public async Task<HtmlString> Page1()
         {
             //create model

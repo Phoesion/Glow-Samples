@@ -1,4 +1,5 @@
-﻿using Phoesion.Glow.SDK;
+#pragma warning disable CS0649
+using Phoesion.Glow.SDK;
 using Phoesion.Glow.SDK.Firefly;
 using System;
 using System.IO;

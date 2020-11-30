@@ -1,8 +1,8 @@
-﻿using Microsoft.AspNetCore.OData.Query;
 using Phoesion.Glow.SDK;
 using Phoesion.Glow.SDK.Firefly;
 using System;
 using System.Collections.Generic;
+//using Microsoft.AspNetCore.OData.Query;
 
 namespace Foompany.Services.BookStore.Modules
 {
@@ -16,7 +16,7 @@ namespace Foompany.Services.BookStore.Modules
         //----------------------------------------------------------------------------------------------------------------------------------------------
 
         [Action(Methods.GET)]
-        [EnableQuery]
+        //[EnableQuery]
         public IEnumerable<Models.Book> GetBooks()
         {
             yield return new Models.Book() { Id = 0, Title = "book 1" };

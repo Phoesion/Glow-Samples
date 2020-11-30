@@ -1,4 +1,4 @@
-﻿using Microsoft.Extensions.Logging;
+using Microsoft.Extensions.Logging;
 using Phoesion.Glow.SDK;
 using Phoesion.Glow.SDK.Firefly;
 using System;
@@ -92,7 +92,7 @@ namespace Foompany.Services.SampleService1.Modules
             };
 
             //validate it manually
-            if (!await TryValidateModel(model, nameof(model), out IList<ModelValidationResults.Result> errors))
+            if (!await TryValidateModelAsync(model, nameof(model), out List<ModelValidationResults.Result> errors))
                 throw PhotonException.BadRequest.WithMessage("Errors : " + Environment.NewLine + string.Join(Environment.NewLine, errors.Select(e => e.Message)));
 
             return "ok!";

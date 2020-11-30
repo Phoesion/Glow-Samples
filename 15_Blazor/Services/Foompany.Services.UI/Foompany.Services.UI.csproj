@@ -1,12 +1,25 @@
 <Project Sdk="Microsoft.NET.Sdk">
 
-  <PropertyGroup>
-    <TargetFramework>net5.0</TargetFramework>
-    <NoWarn>1701;1702;1998</NoWarn>
-  </PropertyGroup>
+    <PropertyGroup>
+        <TargetFramework>net5.0</TargetFramework>
+        <NoWarn>1701;1702;1998</NoWarn>
+    </PropertyGroup>
 
-  <ItemGroup>
-    <PackageReference Include="Phoesion.Glow.SDK.Firefly" Version="*" />
-  </ItemGroup>
+    
+
+    
+    <ItemGroup>
+        <PackageReference Include="Phoesion.Glow.SDK.Firefly" Version="*" />
+    </ItemGroup>
+    
+
+    <ItemGroup>
+        <!-- Add BlazorApp wwwroot files to our wwwroot  -->
+        <Folder Include="wwwroot\" />
+        <Content Include="..\Foompany.Services.UI.BlazorApp\bin\Release\publish\wwwroot\**">
+            <Link>wwwroot\%(RecursiveDir)/%(FileName)%(Extension)</Link>
+            <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+        </Content>
+    </ItemGroup>
 
 </Project>

@@ -7,6 +7,10 @@ Each service will **run in a separate process**, as they normally would in produ
 This mean everything the service does or needs, eg. filesystem, databases, brokers, etc. must be available and **will be used/modified by service during the testing.**
 If you what to use *mocks and fakes* to test a single action without any other components/dependencies, then have a look in the **UnitTest** directory.
 
+The reactor debugger will host the service in the **Testing** environment, which means the configuration will be read from the **appsettings.Testing.json** file if available.
+
+
+
 
 
 

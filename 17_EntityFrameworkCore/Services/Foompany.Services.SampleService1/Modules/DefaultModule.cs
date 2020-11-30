@@ -1,4 +1,5 @@
-﻿using Foompany.Services.SampleService1.Models;
+#pragma warning disable CS0649
+using Foompany.Services.SampleService1.Models;
 using Microsoft.EntityFrameworkCore;
 using Phoesion.Glow.SDK;
 using Phoesion.Glow.SDK.Firefly;

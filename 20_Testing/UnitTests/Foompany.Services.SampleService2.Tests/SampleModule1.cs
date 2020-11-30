@@ -34,7 +34,7 @@ namespace Foompany.Services.SampleService2.Tests
 
                 //check response
                 if (res != expectation)
-                    Assert.Fail("Response body did not match expectation");
+                    Assert.Fail("Response did not match expectation");
             }
         }
 
@@ -56,7 +56,7 @@ namespace Foompany.Services.SampleService2.Tests
             //create service provider builder
             using var services = TestingServiceProviderBuilder
                 .CreateDefault<ServiceMain>()
-                .AddInteropInvokerMock(interopMock)
+                .AddInteropInvoker(interopMock.Object)
                 .Build();
 
             //begin a test request scope
@@ -70,7 +70,7 @@ namespace Foompany.Services.SampleService2.Tests
 
                 //check response
                 if (res != expectation)
-                    Assert.Fail("Response body did not match expectation");
+                    Assert.Fail("Response did not match expectation");
             }
         }
     }

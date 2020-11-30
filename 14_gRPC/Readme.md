@@ -15,7 +15,7 @@ This sample demonstrated the basic concepts of writing **gRPC** enabled services
 
 
 ### How to test
-After you deploy your **glow project** you can test it using the following paths *(assuming local deployment)* :
+After you deploy your **glow project** you can test it using :
 
 - Run the **Client app**
 

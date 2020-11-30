@@ -23,7 +23,7 @@ namespace BasicTests
                 Assert.Fail("Returned not OK!");
             //check response
             if (await res.Content.ReadAsStringAsync() != expectation)
-                Assert.Fail("Response body did not match expectation");
+                Assert.Fail("Response did not match expectation");
         }
 
         [Test]
@@ -44,7 +44,7 @@ namespace BasicTests
                 Assert.Fail("Returned not OK!");
             //check response
             if (await res.Content.ReadAsStringAsync() != expectation)
-                Assert.Fail("Response body did not match expectation");
+                Assert.Fail("Response did not match expectation");
         }
     }
 }

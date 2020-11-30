@@ -21,7 +21,7 @@ namespace BasicTests
             var res = await client.Call(actions.Default).InvokeAsync();
             //check response
             if (res != expectation)
-                Assert.Fail("Response body did not match expectation");
+                Assert.Fail("Response did not match expectation");
         }
 
         [Test]
@@ -36,7 +36,7 @@ namespace BasicTests
             var res = await client.Call(actions.Action1, input).InvokeAsync();
             //check response
             if (res != expectation)
-                Assert.Fail("Response body did not match expectation");
+                Assert.Fail("Response did not match expectation");
         }
 
         [Test]
@@ -53,7 +53,7 @@ namespace BasicTests
                 var res = await reader.ReadToEndAsync();
                 //check body
                 if (res != expectation)
-                    Assert.Fail("Response body did not match expectation");
+                    Assert.Fail("Response did not match expectation");
             }
         }
     }

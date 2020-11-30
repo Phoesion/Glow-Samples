@@ -127,6 +127,7 @@ namespace IdentityServer4.Quickstart.UI
             additionalLocalClaims.AddRange(principal.Claims);
             var name = principal.FindFirst(JwtClaimTypes.Name)?.Value ?? user.Id;
             throw new NotImplementedException(); //TODO:..
+#if false
             //await HttpContext.SignInAsync(user.Id, name, provider, localSignInProps, additionalLocalClaims.ToArray());
 
             // delete temporary cookie used during external authentication
@@ -150,6 +151,7 @@ namespace IdentityServer4.Quickstart.UI
             }
 
             return Redirect(returnUrl);
+#endif
         }
 
         private async Task<(ApplicationUser user, string provider, string providerUserId, IEnumerable<Claim> claims)>

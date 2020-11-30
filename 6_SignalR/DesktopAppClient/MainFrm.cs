@@ -7,6 +7,7 @@ using Phoesion.Glow.SDK.Client.SignalR;
 using api = Foompany.Services.API.ChatService.Modules.Chat.Actions;
 using topic = Foompany.Services.API.ChatService.Modules.Chat.PushTopics;
 using msg = Foompany.Services.API.ChatService.Modules.Chat.Messages;
+using System.Threading;
 
 namespace DesktopAppClient
 {
@@ -66,10 +67,10 @@ namespace DesktopAppClient
             }));
         }
 
-        async Task registrationHandler(GlowClient client)
+        async Task registrationHandler(GlowClient client, CancellationToken cancellationToken)
         {
             var req = new msg.RegistrationRequest() { Username = txt_Username.Text };
-            var rsp = await client.Register(api.ClientConnectionRequest, req);
+            var rsp = await client.Register(api.ClientConnectionRequest, req, cancellationToken);
         }
 
         private async void Btn_SendMessage_Click(object sender, EventArgs e)

@@ -30,15 +30,48 @@ namespace Foompany.Services.SampleService2.Tests
                 //instantiate module in the request scope/context
                 var module = scope.GetFireflyModule<Modules.InteropSample1>();
 
-                //invoke action
-                var res = module.InteropAction1(new API.SampleService2.Modules.InteropSample1.DataModels.MyDataModel.Request()
+                //Run validations with invalid input
+                {
+                    // Test case 1
+                    try
+                    {
+                        var _badModel = new API.SampleService2.Modules.InteropSample1.DataModels.MyDataModel.Request()
+                        {
+                            InputName = "This is a large string that is larger than the MaxLength of 32 characters",
+                        };
+                        await module.ValidateModelAsync(_badModel, nameof(_badModel));
+                        Assert.Fail("ModelValidation should have failed! [1]");
+                    }
+                    catch { }
+
+                    // Test case 2
+                    try
+                    {
+                        var _badModel = new API.SampleService2.Modules.InteropSample1.DataModels.MyDataModel.Request()
+                        {
+                            InputName = null, //this field is [Required] and should throw an exception 
+                        };
+                        await module.ValidateModelAsync(_badModel, nameof(_badModel));
+                        Assert.Fail("ModelValidation should have failed! [2]");
+                    }
+                    catch { }
+                }
+
+                //create model
+                var model = new API.SampleService2.Modules.InteropSample1.DataModels.MyDataModel.Request()
                 {
                     InputName = input.InputName,
-                });
+                };
+
+                //run model validations
+                await module.ValidateModelAsync(model, nameof(model));
+
+                //invoke action
+                var res = module.InteropAction1(model);
 
                 //check response
                 if (res != expectation)
-                    Assert.Fail("Response body did not match expectation");
+                    Assert.Fail("Response did not match expectation");
             }
         }
 
@@ -65,7 +98,7 @@ namespace Foompany.Services.SampleService2.Tests
 
                 //check response
                 if (res != expectation)
-                    Assert.Fail("Response body did not match expectation");
+                    Assert.Fail("Response did not match expectation");
             }
         }
 
@@ -95,7 +128,7 @@ namespace Foompany.Services.SampleService2.Tests
 
                 //check response
                 if (res != expectation)
-                    Assert.Fail("Response body did not match expectation");
+                    Assert.Fail("Response did not match expectation");
             }
         }
     }

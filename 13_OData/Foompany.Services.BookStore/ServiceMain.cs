@@ -1,8 +1,8 @@
-﻿using Foompany.Services.BookStore.Models;
-using Microsoft.AspNetCore.OData;
+using Foompany.Services.BookStore.Models;
 using Microsoft.Extensions.DependencyInjection;
-using Microsoft.OData.Edm;
-using Microsoft.OData.ModelBuilder;
+//using Microsoft.AspNetCore.OData;
+//using Microsoft.OData.Edm;
+//using Microsoft.OData.ModelBuilder;
 using Phoesion.Glow.SDK.Firefly;
 using System.Threading.Tasks;
 
@@ -14,7 +14,7 @@ namespace Foompany.Services.BookStore
         protected override void ConfigureServices(IServiceCollection services)
         {
             //add OData services
-            services.AddOData();
+            //services.AddOData();
         }
 
         protected override void Configure(IGlowApplicationBuilder app)
@@ -23,13 +23,13 @@ namespace Foompany.Services.BookStore
             //Microsoft.AspNetCore.Routing.IRouteBuilder b;
             //b.MapODataServiceRoute("odata", "odata", GetEdmModel());
         }
-
+        /*
         private static IEdmModel GetEdmModel()
         {
             var builder = new ODataConventionModelBuilder();
             builder.EntitySet<Book>("Books");
             builder.EntitySet<Press>("Presses");
             return builder.GetEdmModel();
-        }
+        }*/
     }
 }
