@@ -5,7 +5,7 @@
     // Server private rsa key used for Server authentication and encryption.
     "PrivateKey": null,
 
-    // Kaleidoscope connection string.
+    // Kaleidoscope connection string. "auto" enables auto-discovery services
     "KaleidoscopeConnectionString": "Host=auto",
 
     // Key generated for Lighthouse entity to authenticate to broker (kaleidoscope).

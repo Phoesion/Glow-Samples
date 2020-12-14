@@ -6,7 +6,7 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <PackageReference Include="Phoesion.MsgPack" Version="2.2.60" />
+    <PackageReference Include="Phoesion.MsgPack" Version="2.2.86" />
   </ItemGroup>
 
   <ItemGroup>

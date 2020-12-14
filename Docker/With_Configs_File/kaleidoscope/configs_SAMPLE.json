@@ -6,5 +6,9 @@
     "EntityAuthKey": null,
 
     // List of ip/domains that make up the cluster to connect to. "auto" enables auto-discovery services
-    "ClusterNodes": [ "auto" ]
+    "ClusterNodes": [ "auto" ],
+
+    // Set IsEphemeral true to enable a state-less operation mode, if you don't want to have a state-full persistent volume when running in a container.
+    // 	In this case EntitySeed/EntityId will be generated on the fly and all files will be re-synced when service starts
+    "IsEphemeral": false
 }

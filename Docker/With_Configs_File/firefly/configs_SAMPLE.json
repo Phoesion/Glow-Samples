@@ -5,7 +5,7 @@
     // Path to save service persistent data storage path.
     "ServicePersistentDataDir": "%ServiceRoot%/data",
 
-    // Kaleidoscope connection string.
+    // Kaleidoscope connection string. "auto" enables auto-discovery services
     "KaleidoscopeConnectionString": "Host=auto",
 
     // Key generated for Firefly entity to authenticate to broker (kaleidoscope).
@@ -15,7 +15,7 @@
     "Tags": null,
 
     // Setup any QuantumSpaces rules and options for this entity instance (leave null for default)
-    "QuantumSpaces": null
+    "QuantumSpaces": null,
     // Example :
     /*
     "QuantumSpaces": {
@@ -29,4 +29,8 @@
         }
     }
     */
+
+    // Set IsEphemeral true to enable a state-less operation mode, if you don't want to have a state-full persistent volume when running in a container.
+    // 	In this case EntitySeed/EntityId will be generated on the fly and all files will be re-synced when service starts
+    "IsEphemeral": false
 }
