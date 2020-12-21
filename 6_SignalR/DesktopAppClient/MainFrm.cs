@@ -1,4 +1,6 @@
 using System;
+using System.Threading;
+using System.Diagnostics;
 using System.Windows.Forms;
 using System.Threading.Tasks;
 using Microsoft.Extensions.Options;
@@ -7,7 +9,6 @@ using Phoesion.Glow.SDK.Client.SignalR;
 using api = Foompany.Services.API.ChatService.Modules.Chat.Actions;
 using topic = Foompany.Services.API.ChatService.Modules.Chat.PushTopics;
 using msg = Foompany.Services.API.ChatService.Modules.Chat.Messages;
-using System.Threading;
 
 namespace DesktopAppClient
 {
@@ -40,6 +41,7 @@ namespace DesktopAppClient
             //setup incoming events handlers
             Client.On(topic.ChatMsg, handle_ChatMsg);
             Client.On(topic.Notification, handle_NotificationMsg);
+            Client.On(topic.Ping, handle_Ping);
 
             //setup connection events
             Client.Opened += Client_Opened;
@@ -47,8 +49,12 @@ namespace DesktopAppClient
 
             //start connection
             lst_Log.Items.Add("*** Connecting...");
-            await Client.Start();
-            lst_Log.Items.Add("*** Connected!");
+            try
+            {
+                await Client.Start();
+                lst_Log.Items.Add("*** Connected!");
+            }
+            catch (Exception ex) { MessageBox.Show($"Connection failed! ({ex.Message})"); }
         }
 
         async Task Client_Closed()
@@ -95,6 +101,17 @@ namespace DesktopAppClient
             this.Invoke((MethodInvoker)(() => lst_Log.Items.Add("*** " + msg)));
         }
 
+        msg.Ping.Response handle_Ping(msg.Ping.Request req)
+        {
+            this.Invoke((MethodInvoker)(() => lst_Log.Items.Add("*** received ping request from " + req.FromUser)));
+            return new msg.Ping.Response()
+            {
+                IsSuccess = true,
+                Nonce = req.Nonce,
+            };
+        }
+
+
         private async void btn_TestComplexMsg_Click(object sender, EventArgs e)
         {
             try
@@ -107,6 +124,34 @@ namespace DesktopAppClient
                 var result = await Client.Call(api.ComplexMessageSample, req).InvokeAsync();
                 //show result
                 MessageBox.Show("Result : " + (result?.IsSuccess ?? false) + (result?.Message == null ? null : $"  ({result?.Message})"));
+            }
+            catch (Exception ex) { MessageBox.Show("EXCEPTION : " + ex.Message); }
+        }
+
+        private async void btn_Ping_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                var user = txt_SendToUser.Text;
+                if (string.IsNullOrWhiteSpace(user))
+                {
+                    MessageBox.Show("Invalid username specified");
+                    return;
+                }
+                if (user == "*")
+                {
+                    MessageBox.Show("Cannot broadcast ping. You must specify a username");
+                    return;
+                }
+                //create a stopwatch to measure time
+                var stopwatch = new Stopwatch();
+                stopwatch.Start();
+                //send ping request
+                var nonce = "1234";
+                var result = await Client.Call(api.Ping, user, nonce).InvokeAsync();
+                stopwatch.Stop();
+                //show result
+                MessageBox.Show($"Result : {(result == "1234" ? $"success! round trip time is {stopwatch.ElapsedMilliseconds} ms" : "failed!")}");
             }
             catch (Exception ex) { MessageBox.Show("EXCEPTION : " + ex.Message); }
         }

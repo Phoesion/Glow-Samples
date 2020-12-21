@@ -19,7 +19,7 @@ namespace Foompany.Services.ChatService.Store
         //keep track of connected clients' clientId and username in (static) memory
         // NOTE: in real-world production application you should probably use a database or a distributed cache
         Dictionary<string, string> clientId2username = new Dictionary<string, string>();
-        Dictionary<string, string> username2clientid = new Dictionary<string, string>();
+        Dictionary<string, string> username2clientid = new Dictionary<string, string>(comparer: StringComparer.OrdinalIgnoreCase);
 
         public async Task Add(string username, string clientId)
         {

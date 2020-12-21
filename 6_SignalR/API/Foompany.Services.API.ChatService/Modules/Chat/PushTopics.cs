@@ -10,5 +10,7 @@ namespace Foompany.Services.API.ChatService.Modules.Chat
     {
         public static readonly PushTopic<string> Notification = "NotificationMsg";
         public static readonly PushTopic<string> ChatMsg = "ChatMsg";
+
+        public static readonly PushTopic<Messages.Ping.Request, Messages.Ping.Response> Ping = "Ping";
     }
 }

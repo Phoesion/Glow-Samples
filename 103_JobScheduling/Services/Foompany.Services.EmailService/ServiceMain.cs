@@ -1,14 +1,7 @@
-﻿using System;
-using System.Text;
-using System.Linq;
-using System.Threading.Tasks;
-using Microsoft.Extensions.DependencyInjection;
-using Microsoft.Extensions.Logging;
-using Phoesion.Glow.SDK;
-using Phoesion.Glow.SDK.Firefly;
 using Hangfire;
 using Hangfire.MemoryStorage;
-using Microsoft.Extensions.Configuration;
+using Microsoft.Extensions.DependencyInjection;
+using Phoesion.Glow.SDK.Firefly;
 
 namespace Foompany.Services.EmailService
 {
@@ -33,6 +26,7 @@ namespace Foompany.Services.EmailService
         protected override void Configure(IGlowApplicationBuilder app)
         {
             //enable HangFire dashboard (using the glow->asp middleware adapter)
+            //NOTE: for this to work we also need to add a dynamic routing rule in AssemblyInfo.cs
             app.AsAspApp().UseHangfireDashboard("/hangfire");
         }
     }

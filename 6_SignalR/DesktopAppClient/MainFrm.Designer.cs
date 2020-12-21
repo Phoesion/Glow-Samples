@@ -1,4 +1,4 @@
-﻿namespace DesktopAppClient
+namespace DesktopAppClient
 {
     partial class MainFrm
     {
@@ -35,6 +35,7 @@
             this.txt_Username = new System.Windows.Forms.TextBox();
             this.groupBox_ConnectionSetup = new System.Windows.Forms.GroupBox();
             this.groupBox_Chat = new System.Windows.Forms.GroupBox();
+            this.btn_Ping = new System.Windows.Forms.Button();
             this.btn_TestComplexMsg = new System.Windows.Forms.Button();
             this.label5 = new System.Windows.Forms.Label();
             this.lst_Log = new System.Windows.Forms.ListBox();
@@ -125,6 +126,7 @@
             | System.Windows.Forms.AnchorStyles.Left)
             | System.Windows.Forms.AnchorStyles.Right)));
             this.groupBox_Chat.BackColor = System.Drawing.SystemColors.ControlLight;
+            this.groupBox_Chat.Controls.Add(this.btn_Ping);
             this.groupBox_Chat.Controls.Add(this.btn_TestComplexMsg);
             this.groupBox_Chat.Controls.Add(this.label5);
             this.groupBox_Chat.Controls.Add(this.lst_Log);
@@ -134,22 +136,34 @@
             this.groupBox_Chat.Controls.Add(this.label4);
             this.groupBox_Chat.Controls.Add(this.btn_SendMessage);
             this.groupBox_Chat.Enabled = false;
-            this.groupBox_Chat.Location = new System.Drawing.Point(5, 259);
+            this.groupBox_Chat.Location = new System.Drawing.Point(5, 258);
             this.groupBox_Chat.Margin = new System.Windows.Forms.Padding(5, 6, 5, 6);
             this.groupBox_Chat.Name = "groupBox_Chat";
             this.groupBox_Chat.Padding = new System.Windows.Forms.Padding(5, 6, 5, 6);
-            this.groupBox_Chat.Size = new System.Drawing.Size(493, 717);
+            this.groupBox_Chat.Size = new System.Drawing.Size(493, 700);
             this.groupBox_Chat.TabIndex = 6;
             this.groupBox_Chat.TabStop = false;
             this.groupBox_Chat.Text = "Chat";
             // 
+            // btn_Ping
+            // 
+            this.btn_Ping.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
+            this.btn_Ping.Location = new System.Drawing.Point(277, 635);
+            this.btn_Ping.Margin = new System.Windows.Forms.Padding(0);
+            this.btn_Ping.Name = "btn_Ping";
+            this.btn_Ping.Size = new System.Drawing.Size(197, 40);
+            this.btn_Ping.TabIndex = 14;
+            this.btn_Ping.Text = "Ping user";
+            this.btn_Ping.UseVisualStyleBackColor = true;
+            this.btn_Ping.Click += new System.EventHandler(this.btn_Ping_Click);
+            // 
             // btn_TestComplexMsg
             // 
             this.btn_TestComplexMsg.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
-            this.btn_TestComplexMsg.Location = new System.Drawing.Point(10, 666);
-            this.btn_TestComplexMsg.Margin = new System.Windows.Forms.Padding(0, 0, 0, 0);
+            this.btn_TestComplexMsg.Location = new System.Drawing.Point(10, 635);
+            this.btn_TestComplexMsg.Margin = new System.Windows.Forms.Padding(0);
             this.btn_TestComplexMsg.Name = "btn_TestComplexMsg";
-            this.btn_TestComplexMsg.Size = new System.Drawing.Size(236, 38);
+            this.btn_TestComplexMsg.Size = new System.Drawing.Size(236, 40);
             this.btn_TestComplexMsg.TabIndex = 13;
             this.btn_TestComplexMsg.Text = "Send Complex Message";
             this.btn_TestComplexMsg.UseVisualStyleBackColor = true;
@@ -172,10 +186,10 @@
             | System.Windows.Forms.AnchorStyles.Right)));
             this.lst_Log.FormattingEnabled = true;
             this.lst_Log.ItemHeight = 25;
-            this.lst_Log.Location = new System.Drawing.Point(15, 246);
+            this.lst_Log.Location = new System.Drawing.Point(15, 245);
             this.lst_Log.Margin = new System.Windows.Forms.Padding(5, 6, 5, 6);
             this.lst_Log.Name = "lst_Log";
-            this.lst_Log.Size = new System.Drawing.Size(459, 404);
+            this.lst_Log.Size = new System.Drawing.Size(459, 380);
             this.lst_Log.TabIndex = 11;
             // 
             // label3
@@ -236,7 +250,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(10F, 25F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(505, 978);
+            this.ClientSize = new System.Drawing.Size(505, 958);
             this.Controls.Add(this.groupBox_Chat);
             this.Controls.Add(this.groupBox_ConnectionSetup);
             this.Margin = new System.Windows.Forms.Padding(5, 6, 5, 6);
@@ -268,6 +282,7 @@
         private System.Windows.Forms.Label label5;
         private System.Windows.Forms.ListBox lst_Log;
         private System.Windows.Forms.Button btn_TestComplexMsg;
+        private System.Windows.Forms.Button btn_Ping;
     }
 }
 

@@ -1,6 +1,7 @@
+using System;
+using System.ComponentModel.DataAnnotations;
 using Phoesion.Glow.SDK;
 using Phoesion.Glow.SDK.Firefly;
-using System;
 
 namespace Foompany.Services.API.ChatService.Modules.Chat
 {
@@ -20,5 +21,10 @@ namespace Foompany.Services.API.ChatService.Modules.Chat
         /// <summary> Sample action with complex messages </summary>
         [Action(Methods.PUSH_CALL)]
         public static Messages.SampleComplexMsg.Response ComplexMessageSample(Messages.SampleComplexMsg.Request request) => null;
+
+        /// <summary> client to client ping test request </summary>
+        [Action(Methods.PUSH_CALL)]
+        public static string Ping(string toUser, [MaxLength(8)] string nonce) => null;
+
     }
 }

@@ -3,6 +3,7 @@ using Phoesion.Glow.SDK;
 using Phoesion.Glow.SDK.Firefly;
 using System;
 using System.Collections.Generic;
+using System.ComponentModel.DataAnnotations;
 using System.Threading.Tasks;
 
 using msg = Foompany.Services.API.ChatService.Modules.Chat.Messages;
@@ -137,6 +138,43 @@ namespace Foompany.Services.ChatService.Modules
                     IsSuccess = false,
                     Message = "Data must be 'test'",
                 };
+        }
+
+        //----------------------------------------------------------------------------------------------------------------------------------------------
+
+        /// <summary>
+        /// A Sample action to demonstrate an RPC from service to a client
+        /// </summary>
+        [ActionBody(Methods.PUSH_CALL)]
+        public async Task<string> Ping(string toUser, [MaxLength(8)] string nonce)
+        {
+            //get client id
+            var clientId = Context?.ClientId;
+            if (clientId == null)
+                throw PhotonException.BadRequest;
+
+            //find src user username
+            var srcUsername = await userStore.GetUsername(clientId);
+            if (srcUsername == null)
+                throw PhotonException.InternalServerError.WithMessage("Could not find source client username");
+
+            //find dst user clientId
+            var dstClientId = await userStore.GetClientId(toUser);
+            if (dstClientId == null)
+                throw PhotonException.InternalServerError.WithMessage("Could not find destination client id");
+
+            //prepare request to client
+            var req = new msg.Ping.Request()
+            {
+                FromUser = srcUsername,
+                Nonce = nonce,
+            };
+            var rsp = await PushCall(dstClientId, topic.Ping, req);
+            if (rsp == null || !rsp.IsSuccess)
+                throw PhotonException.BadGateway.WithMessage("Could not ping user");
+
+            //return response nonce to caller
+            return rsp.Nonce;
         }
 
         //----------------------------------------------------------------------------------------------------------------------------------------------
