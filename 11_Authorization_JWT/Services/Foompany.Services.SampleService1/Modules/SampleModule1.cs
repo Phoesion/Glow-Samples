@@ -1,4 +1,4 @@
-﻿using Phoesion.Glow.SDK;
+using Phoesion.Glow.SDK;
 using Phoesion.Glow.SDK.Authorization;
 using Phoesion.Glow.SDK.Firefly;
 using System;
@@ -15,7 +15,7 @@ namespace Foompany.Services.SampleService1.Modules
 
         //----------------------------------------------------------------------------------------------------------------------------------------------
 
-        [Authorize] // <--- Decorate this action with Authorize attribute; This will invoke our Authorization middleware that will check for a valid bearer token
+        [AuthorizeJWT] // <--- Decorate this action with Authorize attribute; This will invoke our Authorization middleware that will check for a valid bearer token
         [ActionBody(Methods.POST)]
         public string DoTheThing(string input)
         {
