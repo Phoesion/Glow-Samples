@@ -35,5 +35,11 @@ namespace Foompany.Services.API.SampleService2.Modules.InteropSample1
 
         [Interop]
         public static Stream StreamingSample() => null;
+
+        [Interop]
+        public static IAsyncEnumerable<DataModels.MyDataModel.Response> AsyncEnumerableSample() => null;
+
+        [Interop]
+        public static string CancellableSample(string input) => null;
     }
 }

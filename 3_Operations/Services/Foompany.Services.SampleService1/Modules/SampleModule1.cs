@@ -1,4 +1,4 @@
-﻿using Phoesion.Glow.SDK;
+using Phoesion.Glow.SDK;
 using Phoesion.Glow.SDK.Firefly;
 using System.Threading.Tasks;
 
@@ -16,11 +16,11 @@ namespace Foompany.Services.SampleService1.Modules
         //----------------------------------------------------------------------------------------------------------------------------------------------
 
         [ActionBody(Methods.POST)]
-        public async Task<string> SubmitParameterToWizard(API.SampleService2.Operations.SimpleWizard.DataModels.SubmitParameter.Request req)
+        public async Task<string> SubmitParameterToWizard(string operationId, string key, string value)
         {
-            var id = RestRequest.ParamPath[0];
-            var rsp = await CallOperation(id, API.SampleService2.Operations.SimpleWizard.Actions.SubmitParameter, req).InvokeAsync();
-            return rsp?.IsSuccess == true ? "success" : "fail";
+            //perform an Interop call to the service (and instance) that manages the operation 
+            var rsp = await Call(operationId, API.SampleService2.Modules.SampleModule1.Actions.SubmitParameterToWizard, key, value).InvokeAsync();
+            return rsp;
         }
 
         //----------------------------------------------------------------------------------------------------------------------------------------------

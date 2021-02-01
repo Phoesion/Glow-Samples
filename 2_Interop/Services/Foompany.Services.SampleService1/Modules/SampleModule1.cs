@@ -127,6 +127,20 @@ namespace Foompany.Services.SampleService1.Modules
         //----------------------------------------------------------------------------------------------------------------------------------------------
 
         [ActionBody(Methods.GET)]
+        public async IAsyncEnumerable<string> AsyncEnumerableSampleAction()
+        {
+            //invoke service
+            var results = await Call(API.SampleService2.Modules.InteropSample1.Actions.AsyncEnumerableSample).InvokeAsync();
+            if (results == null)
+                throw PhotonException.InternalServerError;
+            //enumerate results as they come, back to user
+            await foreach (var item in results.WithCancellation(Context.CancellationToken))
+                yield return $"service responded with : \"{item.Result}\" \r\n";
+        }
+
+        //----------------------------------------------------------------------------------------------------------------------------------------------
+
+        [ActionBody(Methods.GET)]
         public async Task<Stream> StreamingInteropAction2()
         {
             var stream = await Call(API.SampleService2.Modules.InteropSample1.Actions.StreamingSample).InvokeAsync();

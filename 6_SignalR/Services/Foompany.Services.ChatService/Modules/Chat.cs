@@ -117,6 +117,7 @@ namespace Foompany.Services.ChatService.Modules
                 if (!await PushMessage(dstClientId, topic.ChatMsg, $"{srcClient} says \"{request?.Text}\""))
                     return "error";
             }
+
             //done
             return "ok";
         }

@@ -1,16 +1,16 @@
 # Phoesion Glow Sample - Operations
 
 
-#### [Documentation : Read the full tutorial here](https://glow-docs.phoesion.com/articles/Tutorials_Operation_Module.html)
+#### [Documentation : Read the full tutorial here](https://glow-docs.phoesion.com/tutorials/Operations.html)
 
 
 ### Introduction
-This sample demonstrated the basic concepts of **Operations**, a system to perform in-memory context-sensitive work.
+This sample demonstrated the basic concepts of **Operations**, a system to perform in-memory context-dependent work.
 
 
 ### How to run
 - Build the **Sample.sln** solution
-- Deploy the **project** (*Project.pgproj*) to your glow cloud using Phoesion Glow **Blaze**. For more information how to setup you cloud you can [read the getting started guide](https://glow-docs.phoesion.com/articles/Getting_Started_DevMachine_Setup.html)
+- Deploy the **project** (*Project.pgproj*) to your glow cloud using Phoesion Glow **Blaze**. For more information how to setup you cloud you can [read the getting started guide](https://glow-docs.phoesion.com/getting_started/DevMachine_Setup.html)
 
 
 ## Summary
@@ -30,20 +30,20 @@ After you deploy your **glow project** you can test it using the following paths
 1. Start a wizard using [http://localhost:16000/SampleService2/SampleModule1/StartSimpleWizard](http://localhost:16000/SampleService2/SampleModule1/StartSimpleWizard) \
    This will return the **operationId** that should be used for subsequent requests
 
-2. See the status using either : [http://localhost:16000/SampleService2/Operations.SimpleWizard/Status/[OPERATIONID]](http://localhost:16000/SampleService2/Operations.SimpleWizard/Status/[OPERATIONID]) \
+2. See the status using : [http://localhost:16000/SampleService2/SampleModule1/GetWizardStatus/[OPERATIONID]](http://localhost:16000/SampleService2/SampleModule1/GetWizardStatus/[OPERATIONID]) \
    Note: make sure to replace **[OPERATIONID]** value in the query string with your own. \
    *(Results should be empty)*
 
-4. Using Postman send a POST request to either :
-   - [http://localhost:16000/SampleService1/SampleModule1/SubmitParameterToWizard?id=[OPERATIONID]>&key=sampleKey&value=sampleValue](http://localhost:16000/SampleService1/SampleModule1/SubmitParameterToWizard?id=[OPERATIONID]>&key=sampleKey&value=sampleValue)\
+3. Using Postman send a POST request to either :
+   - [http://localhost:16000/SampleService1/SampleModule1/SubmitParameterToWizard?operationId=[OPERATIONID]>&key=sampleKey&value=sampleValue](http://localhost:16000/SampleService1/SampleModule1/SubmitParameterToWizard?operationId=[OPERATIONID]>&key=sampleKey&value=sampleValue)\
     or
-   - [http://localhost:16000/SampleService1/Operations.SimpleWizard/SubmitParameterToWizard/[OPERATIONID]?key=sampleKey&value=sampleValue](http://localhost:16000/SampleService1/Operations.SimpleWizard/SubmitParameterToWizard/[OPERATIONID]?key=sampleKey&value=sampleValue)
+   - [http://localhost:16000/SampleService2/SampleModule1/SubmitParameterToWizard/[OPERATIONID]?key=sampleKey&value=sampleValue](http://localhost:16000/SampleService2/SampleModule1/SubmitParameterToWizard/[OPERATIONID]?key=sampleKey&value=sampleValue)
 
    Note: make sure to replace **[OPERATIONID]** value in the query string with your own.
 
-4. See the status again using the url from **Step 2**
+4. See the status again using the URL from **Step 2**
 
-5. Complete/Finish the wizard(and destroy the operation) using **POST** to [http://localhost:16000/SampleService1/Operations.SimpleWizard/Finish/[OPERATIONID]](http://localhost:16000/SampleService1/Operations.SimpleWizard/Finish/[OPERATIONID]) \
+5. Complete/Finish the wizard(and destroy the operation) using **POST** to [http://localhost:16000/SampleService2/SampleModule1/FinishWizard/[OPERATIONID]](http://localhost:16000/SampleService2/SampleModule1/FinishWizard/[OPERATIONID]) \
    Note: make sure to replace **[OPERATIONID]** value in the query string with your own.
 
 

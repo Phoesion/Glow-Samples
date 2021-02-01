@@ -1,4 +1,4 @@
-﻿using Phoesion.Glow.SDK;
+using Phoesion.Glow.SDK;
 using Phoesion.Glow.SDK.Firefly;
 using System;
 using System.Threading.Tasks;
@@ -15,41 +15,69 @@ namespace Foompany.Services.SampleService2.Modules
 
         //----------------------------------------------------------------------------------------------------------------------------------------------
 
-        [ActionBody(Methods.GET)]
+        [ActionBody(Methods.GET), InteropBody]
         public async Task<string> StartSimpleWizard()
         {
-            var operation = await StartOperation<API.SampleService2.Operations.SimpleWizard.Actions>(null);
+            var operation = await StartOperation<Operations.SimpleWizard>(null);
             if (operation == null)
                 return "Could not start wizard";
             else
             {
                 var uri = new Uri(RestRequest.Url);
-                return $"Wizard started, URI = {uri.Scheme}://{uri.Host}{(uri.IsDefaultPort ? "" : ":" + uri.Port)}/{operation.GetRestPath()}";
+                var baseUri = $"{uri.Scheme}://{uri.Host}{(uri.IsDefaultPort ? "" : ":" + uri.Port)}";
+                return $"Wizard started, with operation id : " + operation.ID + Environment.NewLine +
+                       $"Get status uri = {baseUri}/SampleService2/SampleModule1/GetWizardStatus/" + operation.ID;
             }
         }
 
         //----------------------------------------------------------------------------------------------------------------------------------------------
 
-        [ActionBody(Methods.POST)]
-        public async Task<string> SubmitParameterToWizard(string id, string key, string value)
+        [ActionBody(Methods.GET), InteropBody]
+        public async Task<string> GetWizardStatus()
         {
-            var req = new API.SampleService2.Operations.SimpleWizard.DataModels.SubmitParameter.Request()
-            {
-                Key = key,
-                Value = value,
-            };
-            var rsp = await CallOperation(id, API.SampleService2.Operations.SimpleWizard.Actions.SubmitParameter, req).InvokeAsync();
-            return rsp?.IsSuccess == true ? "success" : "fail";
+            //get wizard operation
+            var wizard = Context.Operation as Operations.SimpleWizard;
+            if (wizard == null)
+                throw PhotonException.InternalServerError.WithMessage("Operation not found");
+
+            //return status
+            return wizard.Status();
         }
 
         //----------------------------------------------------------------------------------------------------------------------------------------------
 
-        [ActionBody(Methods.POST)]
-        public async Task<string> SubmitParameterToWizard2(API.SampleService2.Operations.SimpleWizard.DataModels.SubmitParameter.Request req)
+        [ActionBody(Methods.POST), InteropBody]
+        public async Task<string> SubmitParameterToWizard(string key, string value)
         {
-            var id = RestRequest.ParamPath[0];
-            var rsp = await CallOperation(id, API.SampleService2.Operations.SimpleWizard.Actions.SubmitParameter, req).InvokeAsync();
-            return rsp?.IsSuccess == true ? "success" : "fail";
+            //get wizard operation
+            var wizard = Context.Operation as Operations.SimpleWizard;
+            if (wizard == null)
+                throw PhotonException.InternalServerError.WithMessage("Operation not found");
+
+            //set value
+            if (!await wizard.SubmitParameter(key, value))
+                throw PhotonException.InternalServerError.WithMessage("Submit parameter failed");
+
+            //done!
+            return "success";
+        }
+
+        //----------------------------------------------------------------------------------------------------------------------------------------------
+
+        [ActionBody(Methods.POST), InteropBody]
+        public async Task<string> FinishWizard()
+        {
+            //get wizard operation
+            var wizard = Context.Operation as Operations.SimpleWizard;
+            if (wizard == null)
+                throw PhotonException.InternalServerError.WithMessage("Operation not found");
+
+            //finish wizard
+            if (!await wizard.End())
+                throw PhotonException.InternalServerError.WithMessage("Wizard End() failed");
+
+            //done!
+            return "success";
         }
 
         //----------------------------------------------------------------------------------------------------------------------------------------------

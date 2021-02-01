@@ -4,6 +4,7 @@ using System;
 using System.Collections.Generic;
 using System.IO;
 using System.Text;
+using System.Threading.Tasks;
 using models = Foompany.Services.API.SampleService2.Modules.InteropSample1.DataModels;
 
 namespace Foompany.Services.SampleService2.Modules
@@ -88,6 +89,47 @@ namespace Foompany.Services.SampleService2.Modules
         public Stream StreamingSample()
         {
             return new MemoryStream(Encoding.UTF8.GetBytes("This is a stream!"));
+        }
+
+        //----------------------------------------------------------------------------------------------------------------------------------------------
+
+        /// <summary> 
+        /// Simple streaming sample. Return a Stream object and it will be consumed by the remote endpoint
+        /// WARNING : The stream will be automatically consumed and disposed! Do not keep a reference of it, or use it in any other way after function returns!
+        /// </summary>
+        [InteropBody]
+        public async IAsyncEnumerable<models.MyDataModel.Response> AsyncEnumerableSample()
+        {
+            for (int n = 0; n < 10; n++)
+            {
+                //return a result
+                yield return new models.MyDataModel.Response() { Result = "This is response n:" + n };
+                //sleep for a second ( simulate processing or IO operation)
+                await Task.Delay(1000);
+            }
+        }
+
+        //----------------------------------------------------------------------------------------------------------------------------------------------
+
+        /// <summary>
+        /// A sample interop function that examines for cancellation requests and reports progress back to caller
+        /// </summary>
+        [InteropBody]
+        public async Task<string> CancellableSample(string input)
+        {
+            //do some "processing"
+            for (int n = 0; n < 20; n++)
+            {
+                //submit update
+                var progressPercentage = (byte)((n / 20f) * byte.MaxValue);
+                Context.SubmitProgressUpdate(progressPercentage, (byte)n, $"spin={n} for input={input}");
+                //simulate processing 
+                await Task.Delay(500);
+                //examine cancellation
+                Context.ThrowIfCancellationRequested();
+            }
+
+            return $"finished! (input='{input}')";
         }
 
         //----------------------------------------------------------------------------------------------------------------------------------------------

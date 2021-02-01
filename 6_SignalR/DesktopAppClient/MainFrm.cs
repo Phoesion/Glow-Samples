@@ -49,11 +49,7 @@ namespace DesktopAppClient
 
             //start connection
             lst_Log.Items.Add("*** Connecting...");
-            try
-            {
-                await Client.Start();
-                lst_Log.Items.Add("*** Connected!");
-            }
+            try { await Client.Start(); }
             catch (Exception ex) { MessageBox.Show($"Connection failed! ({ex.Message})"); }
         }
 
@@ -62,6 +58,7 @@ namespace DesktopAppClient
             this.Invoke((MethodInvoker)(() =>
             {
                 groupBox_Chat.Enabled = false;
+                lst_Log.Items.Add("*** Disconnected (Reconnecting...)");
             }));
         }
 
@@ -69,6 +66,7 @@ namespace DesktopAppClient
         {
             this.Invoke((MethodInvoker)(() =>
             {
+                lst_Log.Items.Add("*** Connected!");
                 groupBox_Chat.Enabled = true;
             }));
         }
@@ -101,7 +99,7 @@ namespace DesktopAppClient
             this.Invoke((MethodInvoker)(() => lst_Log.Items.Add("*** " + msg)));
         }
 
-        msg.Ping.Response handle_Ping(msg.Ping.Request req)
+        msg.Ping.Response handle_Ping(msg.Ping.Request req, IRequestHandlerContext ctx)
         {
             this.Invoke((MethodInvoker)(() => lst_Log.Items.Add("*** received ping request from " + req.FromUser)));
             return new msg.Ping.Response()
