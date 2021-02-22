@@ -1,5 +1,8 @@
-﻿using Microsoft.AspNetCore.Mvc;
+using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Configuration;
+using Microsoft.Net.Http.Headers;
+using System.IO;
+using System.Text;
 using System.Threading.Tasks;
 
 namespace Foompany.AspHostingSample.Controllers
@@ -41,5 +44,14 @@ namespace Foompany.AspHostingSample.Controllers
         [HttpGet]
         [Route(nameof(RedirectTest))]
         public IActionResult RedirectTest() => Redirect("https://www.google.com");
+
+        [HttpGet]
+        [Route(nameof(StreamFile))]
+        public IActionResult StreamFile() => File(Encoding.ASCII.GetBytes("Hello World"), "text/plain", "test.txt");
+
+        [HttpGet]
+        [Route(nameof(StreamLargeFile))]
+        public IActionResult StreamLargeFile() => File("LargeFile.zip", "application/zip", "LargeFile.zip");
+
     }
 }

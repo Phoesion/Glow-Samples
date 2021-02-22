@@ -1,4 +1,5 @@
 {
+  "ProjectReferences": [],
   "Services": [
     {
       "IsEnabled": true,
@@ -7,9 +8,27 @@
       "Builds": [
         {
           "Build": "AnyCpu",
-          "AssemblyFilePath": "Services\\Foompany.Services.UI\\bin\\%BUILD%\\net5.0\\Foompany.Services.UI.dll"
+          "AssemblyFilePath": "Services\\Foompany.Services.UI\\bin\\%BUILD%\\publish\\anycpu\\Foompany.Services.UI.dll",
+          "BuildCommands": [
+            "dotnet publish --configuration %BUILD% --no-self-contained -o \"bin\\%BUILD%\\publish\\anycpu\""
+          ]
+        },
+        {
+          "Build": "Win_x64",
+          "AssemblyFilePath": "Services\\Foompany.Services.UI\\bin\\%BUILD%\\publish\\win-x64\\Foompany.Services.UI.dll",
+          "BuildCommands": [
+            "dotnet publish --configuration %BUILD% --runtime win-x64 --no-self-contained -o \"bin\\%BUILD%\\publish\\win-x64\""
+          ]
+        },
+        {
+          "Build": "Linux_x64",
+          "AssemblyFilePath": "Services\\Foompany.Services.UI\\bin\\%BUILD%\\publish\\linux-x64\\Foompany.Services.UI.dll",
+          "BuildCommands": [
+            "dotnet publish --configuration %BUILD% --runtime linux-x64 --no-self-contained -o \"bin\\%BUILD%\\publish\\linux-x64\""
+          ]
         }
       ]
     }
-  ]
+  ],
+  "UrlRewriteRules": []
 }

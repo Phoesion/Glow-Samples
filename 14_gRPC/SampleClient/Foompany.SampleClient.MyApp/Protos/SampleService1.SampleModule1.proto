@@ -3,12 +3,6 @@ syntax = "proto3";
 // Package name must match the module API type namespace
 package Foompany.Services.API.SampleService1.Modules.SampleModule1;
 
-// The service definition. This must match exactly the class name of the module API type
-service Actions {
-  // Sends a greeting
-  rpc DoTheThing (HelloRequest) returns (HelloReply);
-}
-
 // The request message containing the user's name.
 message HelloRequest {
   string InputName = 1;
@@ -18,3 +12,14 @@ message HelloRequest {
 message HelloReply {
   string Result = 1;
 }
+
+// The service definition. This must match exactly the class name of the module API type
+service Actions {
+
+// Sends a greeting
+  rpc DoTheThing (HelloRequest) returns (HelloReply);
+
+  // Stream results sample
+  rpc StreamResultsSample (HelloRequest) returns (stream HelloReply);
+}
+

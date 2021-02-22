@@ -3,12 +3,14 @@
     "Foompany.Services.AspHostingSample (Local)": {
       "commandName": "Executable",
       "executablePath": "Phoesion.Glow.Reactor.Debugger.exe",
-      "commandLineArgs": "-QuantumSpace:Default \"$(TargetPath)\""
+      "commandLineArgs": "-QuantumSpace:Default \"$(TargetPath)\"",
+	  "applicationUrl": "http://localhost:16000",
     },
     "Foompany.Services.AspHostingSample (Remote Debugger)": {
       "commandName": "Executable",
       "executablePath": "Phoesion.Glow.Debugger.FireflySrv.exe",
-      "commandLineArgs": "\"$(TargetPath)\""
+      "commandLineArgs": "\"$(TargetPath)\"",
+	  "applicationUrl": "http://localhost:16000",
     }
   }
 }

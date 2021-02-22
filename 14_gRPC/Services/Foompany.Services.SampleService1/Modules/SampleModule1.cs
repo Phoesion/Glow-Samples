@@ -1,6 +1,8 @@
-﻿using Phoesion.Glow.SDK;
+using Phoesion.Glow.SDK;
 using Phoesion.Glow.SDK.Firefly;
+using System.Collections.Generic;
 using System.Linq;
+using System.Threading.Tasks;
 
 using dataModels = Foompany.Services.API.SampleService1.Modules.SampleModule1.DataModels;
 
@@ -23,5 +25,18 @@ namespace Foompany.Services.SampleService1.Modules
             };
         }
 
+
+        [ActionBody(Methods.gRPC)]
+        public async IAsyncEnumerable<dataModels.HelloReply> StreamResultsSample(dataModels.HelloRequest request)
+        {
+            for (int n = 0; n < 10; n++)
+            {
+                yield return new dataModels.HelloReply()
+                {
+                    Result = $"Hello {request.InputName}, this is result {n}!",
+                };
+                await Task.Delay(1000);
+            }
+        }
     }
 }

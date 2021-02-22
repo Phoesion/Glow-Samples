@@ -1,7 +1,10 @@
-﻿using Phoesion.Glow.SDK;
+using Phoesion.Glow.SDK;
 using Phoesion.Glow.SDK.Firefly;
+using System;
+using System.Collections.Generic;
 using System.IO;
 using System.Text;
+using System.Threading.Tasks;
 
 namespace Foompany.Services.SampleService2.Modules
 {
@@ -80,6 +83,22 @@ namespace Foompany.Services.SampleService2.Modules
         public Stream StreamingSample1()
         {
             return new MemoryStream(Encoding.UTF8.GetBytes("This is a stream!"));
+        }
+
+        //----------------------------------------------------------------------------------------------------------------------------------------------
+
+        /// <summary>
+        /// Simple result streaming sample by asynchronously yielding results back to caller.
+        /// </summary>
+        /// <returns></returns>
+        [Action(Methods.GET)]
+        public async IAsyncEnumerable<string> YieldReturnResults()
+        {
+            for (int n = 0; n < 10; n++)
+            {
+                yield return $"value is " + n + Environment.NewLine;
+                await Task.Delay(1000);  //simulate processing or IO operations
+            }
         }
 
         //----------------------------------------------------------------------------------------------------------------------------------------------

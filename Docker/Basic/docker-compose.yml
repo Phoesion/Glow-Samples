@@ -30,7 +30,7 @@ services:
       LIGHTHOUSE_DefaultUser__Email: "admin@myOrganization.org"
       LIGHTHOUSE_DefaultUser__Password: "123qweASD!"
       #LIGHTHOUSE_DefaultUser__SshKey: "ssh-rsa AAAAB3NzaC1yc2EA........"
-      LIGHTHOUSE_DefaultUser__AllowedIP: "*"	  
+      LIGHTHOUSE_DefaultUser__AllowedIP: "*"
     volumes:
       - lighthouseVol:/data/lighthouse
     networks:

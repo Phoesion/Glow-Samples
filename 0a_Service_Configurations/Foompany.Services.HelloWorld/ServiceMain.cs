@@ -1,4 +1,5 @@
-﻿using Phoesion.Glow.SDK.Firefly;
+using System.ComponentModel;
+using Phoesion.Glow.SDK.Firefly;
 
 namespace Foompany.Services.HelloWorld
 {
@@ -12,15 +13,11 @@ namespace Foompany.Services.HelloWorld
         [Configuration]
         public string DataWithDefaultValue = "Some default value";
 
-        [Configuration]
-        public int SampleNumberConfig;
+        [Configuration, DisplayName("A Number Sample"), Description("A configuration with a primitive (int) type")]
+        public int SampleNumberConfig { get; set; }
 
-        [Configuration]
-        public Configurations.SampleConfigModel ComplexModelConfig = new Configurations.SampleConfigModel()
-        {
-            Value1 = "v1",
-            Value2 = "v2",
-        };
+        [Configuration("ContactInfo")]
+        public Configurations.ContactInfo Configs_ContactInfo;
 
         [Configuration]
         public string ValueFromAppSettings;
