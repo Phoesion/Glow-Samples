@@ -26,5 +26,11 @@ namespace Foompany.Services.API.ChatService.Modules.Chat
         [Action(Methods.PUSH_CALL)]
         public static string Ping(string toUser, [MaxLength(8)] string nonce) => null;
 
+        // Simple void methods (with no result)
+        [Action(Methods.PUSH_CALL)]
+        public static void Void(string test) { }
+        [Action(Methods.PUSH_CALL)]
+        public static void VoidAsync(string test) { }
+
     }
 }

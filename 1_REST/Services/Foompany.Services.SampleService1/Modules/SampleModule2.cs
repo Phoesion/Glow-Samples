@@ -1,4 +1,4 @@
-﻿using Phoesion.Glow.SDK;
+using Phoesion.Glow.SDK;
 using Phoesion.Glow.SDK.Firefly;
 using System.Threading.Tasks;
 using models = Foompany.Services.API.SampleService1.Modules.SampleModule2.Models;
@@ -33,8 +33,8 @@ namespace Foompany.Services.SampleService1.Modules
         public async Task<string> AsyncAction()
         {
             int sleepTime = 5000;
-            await Task.Delay(sleepTime); //you can await other operations (like database queries etc).
-                                         //(Advanced tip: Task context does not need to be preserved. You can use .ConfigureAwait(false) safely)
+            await Task.Delay(sleepTime); /* you can await other operations (like database queries etc). */
+            //(Advanced tip: Task context does not need to be preserved. You can use .ConfigureAwait(false) safely)
             return $"Called AsyncAction with sleeptime={sleepTime}";
         }
 

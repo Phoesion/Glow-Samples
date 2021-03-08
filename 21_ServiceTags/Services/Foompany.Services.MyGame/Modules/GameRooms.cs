@@ -1,10 +1,11 @@
-using Phoesion.Glow.SDK;
-using Phoesion.Glow.SDK.Firefly;
 using System;
 using System.Collections.Generic;
 using System.IO;
 using System.Text;
 using System.Threading.Tasks;
+using Phoesion.Glow.SDK;
+using Phoesion.Glow.SDK.Firefly;
+using Foompany.Services.API.MyGame;
 
 namespace Foompany.Services.MyGame.Modules
 {
@@ -18,7 +19,7 @@ namespace Foompany.Services.MyGame.Modules
 
         //----------------------------------------------------------------------------------------------------------------------------------------------
 
-        [ActionBody(Methods.GET), InteropBody]
+        [ActionBody(Methods.GET), InteropBody, ServerLocationTag]
         public string CreateGameRoom(string RoomName)
         {
             return $"Created game room with name {RoomName}";

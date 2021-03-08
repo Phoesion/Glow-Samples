@@ -12,13 +12,13 @@ namespace Foompany.Services.API.SampleService2.Modules.SampleModule1
         [Action(Methods.GET), Interop]
         public static string StartSimpleWizard() => null;
 
-        [Action(Methods.GET), Interop]
+        [Action(Methods.GET), Interop, Operation]
         public static string GetWizardStatus() => null;
 
-        [Action(Methods.POST), Interop]
+        [Action(Methods.POST), Interop, Operation]
         public static string SubmitParameterToWizard(string key, string value) => null;
 
-        [Action(Methods.POST), Interop]
+        [Action(Methods.POST), Interop, Operation]
         public static string FinishWizard() => null;
     }
 }

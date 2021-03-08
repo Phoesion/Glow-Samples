@@ -87,6 +87,28 @@ namespace Foompany.Services.SampleService2.Modules
 
         //----------------------------------------------------------------------------------------------------------------------------------------------
 
+        /// <summary> 
+        /// File streaming sample.
+        /// </summary>
+        [Action(Methods.GET)]
+        public FileStreamResult FileDownloadSample()
+            => new FileStreamResult(Path.Combine("Content", "TextFile.txt"), "text/plain", "SampleTextFile.txt");
+
+        //----------------------------------------------------------------------------------------------------------------------------------------------
+
+        /// <summary> 
+        /// File streaming sample 2. Return a Stream with metadata indicating that this is a file
+        /// </summary>
+        [Action(Methods.GET)]
+        public StreamWithMetadata FileDownloadSample2()
+        {
+            //var stream = new MemoryStream(Encoding.UTF8.GetBytes("Hello world"));
+            var stream = new FileStream(Path.Combine("Content", "TextFile.txt"), FileMode.Open, FileAccess.Read, FileShare.Read);
+            return new StreamWithMetadata(stream, "text/plain").AsAttachment(fileName: "SampleTextFile.txt");
+        }
+
+        //----------------------------------------------------------------------------------------------------------------------------------------------
+
         /// <summary>
         /// Simple result streaming sample by asynchronously yielding results back to caller.
         /// </summary>

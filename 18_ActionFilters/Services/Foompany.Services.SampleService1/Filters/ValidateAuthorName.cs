@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 using System.Collections.Generic;
 using System.Text;
 using System.Threading.Tasks;
@@ -7,11 +7,11 @@ using Phoesion.Glow.SDK.Firefly;
 
 namespace Foompany.Services.SampleService1.Filters
 {
-    class ValidateAuthorName : Attribute, IActionFilter
+    class ValidateAuthorName : ActionFilter
     {
         public string FieldToCheck = null;
 
-        public ValueTask<object> InvokeAsync(IActionFilterChain chain, IActionFilterContext context)
+        public override ValueTask<object> InvokeAsync(IActionFilterChain chain, IActionFilterContext context)
         {
             //ignore filter if not field set by user
             if (FieldToCheck == null)

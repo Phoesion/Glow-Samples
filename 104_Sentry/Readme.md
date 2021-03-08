@@ -7,7 +7,7 @@ This sample demonstrates how to add Sentry to your service
 ### How to run
 - Setup you Sentry configurations in appsettings.json
 - Build the **Sample.sln** solution
-- Deploy the **project** (*Project.pgproj*) to your glow cloud using Phoesion Glow **Blaze**. For more information how to setup you cloud you can [read the getting started guide](https://glow-docs.phoesion.com/getting_started/DevMachine_Setup.html)
+- Deploy the **project** (*Project.pgproject*) to your glow cloud using Phoesion Glow **Blaze**. For more information how to setup you cloud you can [read the getting started guide](https://glow-docs.phoesion.com/getting_started/DevMachine_Setup.html)
 
 
 ### How to test

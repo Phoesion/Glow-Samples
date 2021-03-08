@@ -1,4 +1,5 @@
 #pragma warning disable CS0649
+using Microsoft.Extensions.Logging;
 using Phoesion.Glow.SDK;
 using Phoesion.Glow.SDK.Firefly;
 using System;
@@ -177,6 +178,17 @@ namespace Foompany.Services.ChatService.Modules
             //return response nonce to caller
             return rsp.Nonce;
         }
+
+
+        //----------------------------------------------------------------------------------------------------------------------------------------------
+
+        // Simple void methods (with no result)
+
+        [ActionBody(Methods.PUSH_CALL)]
+        public void Void(string test) => logger.LogInformation("hit void");
+
+        [ActionBody(Methods.PUSH_CALL)]
+        public async Task VoidAsync(string test) => logger.LogInformation("hit void");
 
         //----------------------------------------------------------------------------------------------------------------------------------------------
     }

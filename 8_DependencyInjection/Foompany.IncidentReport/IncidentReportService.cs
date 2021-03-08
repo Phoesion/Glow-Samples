@@ -1,4 +1,5 @@
-﻿using System.Threading.Tasks;
+using System;
+using System.Threading.Tasks;
 
 
 namespace Foompany.IncidentReport
@@ -14,6 +15,9 @@ namespace Foompany.IncidentReport
             this.Formatter = Formatter;
             this.Store = Store;
         }
+
+        public ValueTask<bool> AddReport(string sourceIP, Uri url, string message)
+            => AddReport(sourceIP, url.ToString(), message);
 
         public async ValueTask<bool> AddReport(string sourceIP, string url, string message)
         {

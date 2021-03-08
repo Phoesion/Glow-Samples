@@ -23,7 +23,7 @@ namespace Foompany.Services.SampleService2.Modules
                 return "Could not start wizard";
             else
             {
-                var uri = new Uri(RestRequest.Url);
+                var uri = RestRequest.Url;
                 var baseUri = $"{uri.Scheme}://{uri.Host}{(uri.IsDefaultPort ? "" : ":" + uri.Port)}";
                 return $"Wizard started, with operation id : " + operation.ID + Environment.NewLine +
                        $"Get status uri = {baseUri}/SampleService2/SampleModule1/GetWizardStatus/" + operation.ID;
@@ -32,7 +32,7 @@ namespace Foompany.Services.SampleService2.Modules
 
         //----------------------------------------------------------------------------------------------------------------------------------------------
 
-        [ActionBody(Methods.GET), InteropBody]
+        [ActionBody(Methods.GET), InteropBody, Operation]
         public async Task<string> GetWizardStatus()
         {
             //get wizard operation
@@ -46,7 +46,7 @@ namespace Foompany.Services.SampleService2.Modules
 
         //----------------------------------------------------------------------------------------------------------------------------------------------
 
-        [ActionBody(Methods.POST), InteropBody]
+        [ActionBody(Methods.POST), InteropBody, Operation]
         public async Task<string> SubmitParameterToWizard(string key, string value)
         {
             //get wizard operation
@@ -64,7 +64,7 @@ namespace Foompany.Services.SampleService2.Modules
 
         //----------------------------------------------------------------------------------------------------------------------------------------------
 
-        [ActionBody(Methods.POST), InteropBody]
+        [ActionBody(Methods.POST), InteropBody, Operation]
         public async Task<string> FinishWizard()
         {
             //get wizard operation
