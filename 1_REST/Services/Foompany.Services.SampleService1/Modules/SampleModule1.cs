@@ -1,4 +1,4 @@
-﻿using Microsoft.Extensions.Logging;
+using Microsoft.Extensions.Logging;
 using Phoesion.Glow.SDK;
 using Phoesion.Glow.SDK.Firefly;
 using System.Linq;
