@@ -1,0 +1,21 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+    <PropertyGroup>
+        <TargetFramework>net5.0</TargetFramework>
+    </PropertyGroup>
+
+    <ItemGroup>
+        <ProjectReference Include="..\..\API\Foompany.Services.API.SampleService1\Foompany.Services.API.SampleService1.csproj" />
+    </ItemGroup>
+
+    
+
+    
+  <ItemGroup>
+    <PackageReference Include="Phoesion.Glow.SDK.Firefly" Version="*" />
+    <PackageReference Include="Phoesion.Glow.SDK.Authentication" Version="*" />
+    <PackageReference Include="Phoesion.Glow.SDK.Authentication.ApiKey" Version="*" />
+    <PackageReference Include="Phoesion.Glow.SDK.Authorization" Version="*" />
+  </ItemGroup>
+
+</Project>

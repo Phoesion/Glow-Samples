@@ -9,7 +9,7 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "API", "API", "{9B590C81-8A8
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Services", "Services", "{225BDB28-05F3-4CE9-B2DB-23AECC5DB2B6}"
 	ProjectSection(SolutionItems) = preProject
-		Project.pgproj = Project.pgproj
+		Project.pgproject = Project.pgproject
 	EndProjectSection
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Foompany.Services.API.DataModels", "API\Foompany.Services.API.DataModels\Foompany.Services.API.DataModels.csproj", "{D7E2EFA4-AF78-42CD-B479-71A9F88B7DFA}"

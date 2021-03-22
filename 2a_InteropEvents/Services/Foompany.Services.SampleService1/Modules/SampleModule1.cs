@@ -38,7 +38,7 @@ namespace Foompany.Services.SampleService1.Modules
         //----------------------------------------------------------------------------------------------------------------------------------------------
 
         /// <summary>
-        /// This is an message type of event, meaning that we don't care about a result and will return immediately
+        /// This is a message type of event, meaning that we don't care about a result and will return immediately
         /// </summary>
         [ActionBody(Methods.GET)]
         public async Task<string> Action2(string data = "myData")
@@ -51,7 +51,7 @@ namespace Foompany.Services.SampleService1.Modules
         //----------------------------------------------------------------------------------------------------------------------------------------------
 
         /// <summary>
-        /// This is an broadcast-RPC type of event, meaning that we will get a response from all instances of the receiving service
+        /// This is a broadcast-RPC type of event, meaning that we will get a response from all instances of the receiving service
         /// </summary>
         [ActionBody(Methods.GET)]
         public async Task<string> Action3(string data = "myData")
@@ -67,7 +67,7 @@ namespace Foompany.Services.SampleService1.Modules
         //----------------------------------------------------------------------------------------------------------------------------------------------
 
         /// <summary>
-        /// This is an broadcast-message type of event, meaning that we will message all instances of the receiving service, but will return immediately
+        /// This is a broadcast-message type of event, meaning that we will message all instances of the receiving service, but will return immediately
         /// </summary>
         [ActionBody(Methods.GET)]
         public async Task<string> Action4(string data = "myData")
