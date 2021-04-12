@@ -2,6 +2,7 @@ using Phoesion.Glow.SDK;
 using Phoesion.Glow.SDK.Firefly;
 using System;
 using System.Collections.Generic;
+using System.ComponentModel.DataAnnotations;
 using System.IO;
 
 namespace Foompany.Services.API.SampleService2.Modules.InteropSample1
@@ -28,7 +29,7 @@ namespace Foompany.Services.API.SampleService2.Modules.InteropSample1
 
         [Action(Methods.GET | Methods.POST)]
         [Interop]
-        public static string HybridAction5(IList<string> data) => null;
+        public static string HybridAction5([Required, FromBody] IList<string> data) => null;
 
         [Interop]
         public static string ExceptionSample() => null;

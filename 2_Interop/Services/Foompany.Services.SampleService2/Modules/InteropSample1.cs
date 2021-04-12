@@ -2,6 +2,7 @@ using Phoesion.Glow.SDK;
 using Phoesion.Glow.SDK.Firefly;
 using System;
 using System.Collections.Generic;
+using System.ComponentModel.DataAnnotations;
 using System.IO;
 using System.Text;
 using System.Threading.Tasks;
@@ -67,7 +68,7 @@ namespace Foompany.Services.SampleService2.Modules
         /// </summary>
         [ActionBody(Methods.GET | Methods.POST)]
         [InteropBody]
-        public string HybridAction5(IList<string> data)
+        public string HybridAction5([Required, FromBody] IList<string> data)
             => data == null ? "received null list" :
                               $"received {data.Count} items. {Environment.NewLine} {string.Join(Environment.NewLine, data)}";
 
