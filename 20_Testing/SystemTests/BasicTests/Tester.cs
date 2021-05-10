@@ -41,6 +41,6 @@ namespace BasicTests
         }
 
         //helper method to build assembly file path
-        static string buildFilePath(string asmName) => @$"..\..\..\..\..\Services\{asmName}\bin\Debug\net5.0\{asmName}.dll";
+        static string buildFilePath(string asmName) => @$"..\..\..\..\..\Services\{asmName}\bin\Debug\net5.0\win-x64\{asmName}.dll";
     }
 }

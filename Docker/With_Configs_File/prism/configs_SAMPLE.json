@@ -1,53 +1,52 @@
 {
     // Persistent data store path. Will store holograms and app executable/runtime/log data.
-    "DataPath": "%Home%/.phoesion/glow/prism",
+    //"DataPath": "%Home%/.phoesion/glow/lighthouse",
+
+    // Server private rsa key used for Server authentication and encryption.
+    //"PrivateKey": null,
 
     // Kaleidoscope connection string. "auto" enables auto-discovery services
-    "KaleidoscopeConnectionString": "Host=auto",
+    //"KaleidoscopeConnectionString": "Host=auto",
 
-    // Key generated for Prism entity to authenticate to broker (kaleidoscope).
-    "EntityAuthKey": null,
+    // Key generated for Lighthouse entity to authenticate to broker (kaleidoscope).
+    //"EntityAuthKey": null,
 
-    // Web server ports
-    "HttpPort": [ 80, 16000 ],
-    "HttpsPort": [ 443, 16001 ],
+    // Allow only local connections (loopback, eg 127.0.0.1).
+    //"AllowOnlyLocalConnections": false,
 
-    //Enable X-Forwarded-xxx headers
-    "XForwardedFor": true,
-    "XForwardedProto": true,
-    "XForwardedHost": true,
+    //Allow only private connections. The private address ranges as defined in RFC1918:
+    //   127.0.0.0    - 127.255.255.255 (loopback)
+    //   10.0.0.0     - 10.255.255.255 (10/8 prefix)
+    //   172.16.0.0   - 172.31.255.255 (172.16/12 prefix)
+    //   192.168.0.0  - 192.168.255.255 (192.168/16 prefix)
+    //"AllowOnlyIntranetConnections": false,
 
-    // Forwarded headers for client ip, when prism is behind a proxy.
-    "ForwardedIP_Headers": [
-        "X-Real-IP",
-        "True-Client-IP", // CloudFlare
-        "CF-Connecting-IP" // CloudFlare
-    ],
-
-    // Resolve the domain from header instead of request url. Useful when behind a reverse proxy, to specify the desired domain.
-    //"ResolveDomainFromHeader": null,
-
-    // Resolve the quantum space from header instead of domain. Useful when behind a reverse proxy, to target the desired QuantumSpace.
-    //"ResolveQuantumSpaceFromHeader": null,
-
-    // SignalR Configurations
-    "SignalR": {
-        // Enable/Disable SignaR
-        //"IsEnabled": true,
-
-        "MessagePack": {
-            // Enable/Disable MessagePack protocol for SignalR
-            //"IsEnabled": true,
-        }
+    // Database store for Lighthouse operations. Will store information for user/entity/quantumSpaces/etc.
+    /*
+    "Database": {
+        "Provider": "SQLite",
+        "ConnectionString": "Data Source=%DataPath%/Phoesion.Glow.Lighthouse.db;"
     },
+    */
 
-    // WebSockets Configurations
-    "WebSockets": {
-        // Enable/Disable WebSockets
-        //"IsEnabled": true,
+    // Database store for logging.
+    /*
+    "LoggingDatabase": {
+        "Provider": "SQLite",
+        "ConnectionString": "Data Source=%DataPath%/Phoesion.Glow.Lighthouse.Logging.db;"
     },
+    */
 
-    // Set IsEphemeral true to enable a state-less operation mode, if you don't want to have a state-full persistent volume when running in a container.
-    // 	In this case EntitySeed/EntityId will be generated on the fly and all files will be re-synced when service starts
-    "IsEphemeral": false
+    // Create Default admin user, useful when building an image to run in a container.
+    /* Example :
+    "DefaultUser": {
+        "Username": "admin",
+        "Name": "Administrator",
+        "Description": "Default administrator account created from configs",
+        "Email": "admin@myOrganization.org",
+        "Password": null, //not used, prefer ssh keys
+        "SshKey": "ssh-rsa AAAAB3NzaC1yc2EAAAABJQAAAQElJ......X92NrHEcrqBRXMsQ== my_rsa_key",
+        "AllowedIP": "*", //null for localhost, "*" for all ips, or use a comma-separated ip list
+    }
+    */
 }

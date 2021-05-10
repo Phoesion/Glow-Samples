@@ -4,6 +4,7 @@ version: "3.8"
 services:
   kaleidoscope:
     image: phoesion/phoesion.glow.kaleidoscope
+	restart: unless-stopped
     ports:
       - "15010:15010"
       - "15011:15011"
@@ -20,6 +21,7 @@ services:
 
   lighthouse:
     image: phoesion/phoesion.glow.lighthouse
+	restart: unless-stopped
     ports:
       - "15000:15000"
     environment:
@@ -42,6 +44,7 @@ services:
 
   prism:
     image: phoesion/phoesion.glow.prism
+	restart: unless-stopped
     ports:
       - "80:80"
       - "443:443"
@@ -62,6 +65,7 @@ services:
 
   firefly:
     image: phoesion/phoesion.glow.firefly
+	restart: unless-stopped
     environment:
       FIREFLY_KaleidoscopeConnectionString: "Host=kaleidoscope"
       #PRISM_IsEphemeral: "true" # Uncomment to enable a state-less operation mode,

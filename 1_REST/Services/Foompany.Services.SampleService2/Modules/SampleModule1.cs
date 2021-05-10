@@ -88,6 +88,21 @@ namespace Foompany.Services.SampleService2.Modules
         //----------------------------------------------------------------------------------------------------------------------------------------------
 
         /// <summary> 
+        /// Return a binary payload from a byte array
+        /// </summary>
+        [Action(Methods.GET)]
+        public byte[] BinaryPayload() => new byte[] { 1, 2, 3, 4 };
+
+
+        /// <summary> 
+        /// Return a binary file from byte[] for download
+        /// </summary>
+        [Action(Methods.GET)]
+        public FileContentResult BinaryPayloadAsFile() => new FileContentResult(new byte[] { 1, 2, 3, 4 }, "myFile.bin");
+
+        //----------------------------------------------------------------------------------------------------------------------------------------------
+
+        /// <summary> 
         /// File streaming sample.
         /// </summary>
         [Action(Methods.GET)]

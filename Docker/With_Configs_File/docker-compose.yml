@@ -4,6 +4,7 @@ version: "3.8"
 services:
   kaleidoscope:
     build: ./kaleidoscope
+	restart: unless-stopped
     ports:
       - "15010:15010"
       - "15011:15011"
@@ -16,6 +17,7 @@ services:
 
   lighthouse:
     build: ./lighthouse
+	restart: unless-stopped
     ports:
       - "15000:15000"
     volumes:
@@ -29,6 +31,7 @@ services:
 
   prism:
     build: ./prism
+	restart: unless-stopped
     ports:
       - "80:80"
       - "443:443"
@@ -46,6 +49,7 @@ services:
 
   firefly:
     build: ./firefly
+	restart: unless-stopped
     volumes:
       - fireflyVol:/data/firefly
     networks:
