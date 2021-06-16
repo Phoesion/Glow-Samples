@@ -57,7 +57,7 @@ namespace DesktopAppClient
             this.txt_ServerUrl.Name = "txt_ServerUrl";
             this.txt_ServerUrl.Size = new System.Drawing.Size(321, 31);
             this.txt_ServerUrl.TabIndex = 0;
-            this.txt_ServerUrl.Text = "http://localhost:16000";
+            this.txt_ServerUrl.Text = "http://localhost:16000/ChatService/Chat";
             // 
             // label1
             // 
@@ -285,4 +285,3 @@ namespace DesktopAppClient
         private System.Windows.Forms.Button btn_Ping;
     }
 }
-

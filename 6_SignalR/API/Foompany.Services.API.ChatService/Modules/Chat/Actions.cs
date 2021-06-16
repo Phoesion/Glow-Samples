@@ -7,12 +7,14 @@ namespace Foompany.Services.API.ChatService.Modules.Chat
 {
     public abstract class Actions
     {
+        public const string HubName = "ChatService/Chat";
+
         [Action(Methods.GET)]
         public static string Default() => null;
 
-        /// <summary> Handle the PUSH_CONNECT event method </summary>
-        [Action(Methods.PUSH_EVENT_CONNECT, Timeout = 20)]
-        public static string ClientConnectionRequest(Messages.RegistrationRequest request) => null;
+        /// <summary> Handle the PUSH_EVENT_REGISTER event method </summary>
+        [Action(Methods.PUSH_EVENT_REGISTER)]
+        public static string Register(Messages.RegistrationRequest request) => null;
 
         /// <summary> SendMessage action for push clients </summary>
         [Action(Methods.PUSH_CALL)]

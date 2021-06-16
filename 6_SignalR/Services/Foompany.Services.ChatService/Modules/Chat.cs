@@ -12,8 +12,9 @@ using topic = Foompany.Services.API.ChatService.Modules.Chat.PushTopics;
 
 namespace Foompany.Services.ChatService.Modules
 {
+    //[PushHubOptions(RequiresRegistration=true, RestrictToService=true)] // <--- Optional attribute to configure hub behavior
     [API(typeof(API.ChatService.Modules.Chat.Actions))]
-    public class Chat : FireflyModule
+    public class Chat : PushHubModule
     {
         [Autowire]
         Store.IUserStore userStore;
@@ -29,12 +30,10 @@ namespace Foompany.Services.ChatService.Modules
         /// <summary>
         /// For a signalR (or any other push channel) to successfully open, the client must register
         /// If no exception is thrown then the registration is consider successful (so avoid returning a valid object for a failed registration, with status codes, eg. success=false )
-        /// PushHubEvents attribute specifies the events (like disconnect) that will be raised for the client that has register on this module/action
         /// </summary>
-        /// <remarks> The action api must specify handling of method <see cref="Methods.PUSH_EVENT_CONNECT"/> </remarks>
-        [ActionBody(Methods.PUSH_EVENT_CONNECT)]
-        [PushHubEvents(OnClientDisconnect = nameof(ClientDisconnected))]    //<-- when client disconnects the 'ClientDisconnected' action will be called
-        public async Task<string> ClientConnectionRequest(msg.RegistrationRequest request)
+        /// <remarks> The action api must specify handling of method <see cref="Methods.PUSH_EVENT_REGISTER"/> </remarks>
+        [ActionBody(Methods.PUSH_EVENT_REGISTER)]
+        public async Task<string> Register(msg.RegistrationRequest request)
         {
             //get client id
             var clientId = Context?.ClientId;
@@ -53,6 +52,7 @@ namespace Foompany.Services.ChatService.Modules
             await PushBroadcastMessage(topic.Notification, $"{username} connected");
 
             //accept connection (no exception is thrown and we return a 200 OK response)
+            logger.LogInformation("New PushClient connected with id {clientId}", clientId);
             return "ok";
         }
 
@@ -62,8 +62,7 @@ namespace Foompany.Services.ChatService.Modules
         /// This route has been registered using the PushHubEvents attribute during the registration process and it will be automatically called by the system when client disconnects
         /// </summary>
         /// <remarks> The action api must specify handling of method <see cref="Methods.PUSH_EVENT_DISCONNECT"/> </remarks>
-        [Action(Methods.PUSH_EVENT_DISCONNECT)]
-        public async Task ClientDisconnected()
+        protected override async Task OnDisconnected()
         {
             //get client id
             var clientId = Context?.ClientId;
@@ -76,6 +75,9 @@ namespace Foompany.Services.ChatService.Modules
             //send notification
             if (removedUsername != null)
                 await PushBroadcastMessage(topic.Notification, $"{removedUsername} disconnected");
+
+            //log it
+            logger.LogInformation("PushClient with id {clientId} has disconnected", clientId);
         }
 
         //----------------------------------------------------------------------------------------------------------------------------------------------
@@ -103,7 +105,7 @@ namespace Foompany.Services.ChatService.Modules
                 //-------------------
                 //send to all connected (and registered) clients
                 if (!await PushBroadcastMessage(topic.ChatMsg, $"{srcClient} says \"{request?.Text}\""))
-                    return "error";
+                    throw PhotonException.InternalServerError;
             }
             else
             {
@@ -113,10 +115,10 @@ namespace Foompany.Services.ChatService.Modules
                 //find dst user
                 var dstClientId = await userStore.GetClientId(toUser?.ToLower()?.Trim());
                 if (dstClientId == null)
-                    return "error";
+                    throw PhotonException.InternalServerError;
                 //send to client
                 if (!await PushMessage(dstClientId, topic.ChatMsg, $"{srcClient} says \"{request?.Text}\""))
-                    return "error";
+                    throw PhotonException.InternalServerError;
             }
 
             //done

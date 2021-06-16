@@ -71,6 +71,20 @@ namespace Foompany.Services.SampleService1.Modules
                         string.Join("\r\n", results);
         }
 
+        /// <summary>
+        /// Sample using the BroadcastCallAsync to rpc/call all running service instance at once.
+        /// </summary>
+        [ActionBody(Methods.GET)]
+        public async Task<string> Action4_1()
+        {
+            var results = await BroadcastMessage(API.SampleService2.Modules.InteropSample1.Actions.InteropAction4).InvokeAsync();
+            if (results)
+                return "Message has been broadcast!";
+            else
+                return "Message broadcast failed!";
+        }
+
+
         //----------------------------------------------------------------------------------------------------------------------------------------------
 
         /// <summary> Pass a data set to another service </summary>

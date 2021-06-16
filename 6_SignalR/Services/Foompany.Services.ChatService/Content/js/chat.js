@@ -1,7 +1,7 @@
-﻿"use strict";
+"use strict";
 
-//create connection (use the generic 'Glow.SignalR' hub provided by the prism server)
-var connection = new signalR.HubConnectionBuilder().withUrl("/Glow.SignalR").build();
+//create connection on our pushHub module
+var connection = new signalR.HubConnectionBuilder().withUrl("/ChatService/Chat").build();
 
 
 //Disable buttons until connection is established
@@ -26,9 +26,9 @@ document.getElementById("loginButton").addEventListener("click", async function 
         //Register client
         var result = await connection.invoke
             (
-                "REGISTER",                                     // This is a registration operation
-                "ChatService/Chat/ClientConnectionRequest",     // The path to hit for registration handling
-                request                                         // Registration request
+                "REGISTER",                         // This is a registration operation
+                "ChatService/Chat/Register",        // The path to hit for registration handling
+                request                             // Registration request
             );
         if (result === "ok") {
             document.getElementById("sendButton").disabled = false;

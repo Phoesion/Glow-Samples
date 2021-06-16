@@ -28,7 +28,7 @@ public class App {
 		System.out.print("Enter your username : ");
 		RegistrationRequestDto registrationRequest = new RegistrationRequestDto();
 		registrationRequest.username =  reader.nextLine();
-		hubConnection.invoke(String.class, "REGISTER", "ChatService/Chat/ClientConnectionRequest", registrationRequest);
+		hubConnection.invoke(String.class, "REGISTER", "ChatService/Chat/Register", registrationRequest);
 
 		//message loop
 		while (true)

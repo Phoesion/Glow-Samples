@@ -74,7 +74,7 @@ namespace DesktopAppClient
         async Task registrationHandler(GlowClient client, CancellationToken cancellationToken)
         {
             var req = new msg.RegistrationRequest() { Username = txt_Username.Text };
-            var rsp = await client.RegisterAsync(api.ClientConnectionRequest, req, cancellationToken);
+            var rsp = await client.RegisterAsync(api.Register, req, cancellationToken);
         }
 
         private async void Btn_SendMessage_Click(object sender, EventArgs e)

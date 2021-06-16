@@ -24,6 +24,9 @@ namespace Foompany.Services.API.SampleService1.Modules.SampleModule1
         public static string Action4() => null;
 
         [Action(Methods.GET)]
+        public static string Action4_1() => null;
+
+        [Action(Methods.GET)]
         public static string Action5() => null;
 
         [Action(Methods.GET)]
