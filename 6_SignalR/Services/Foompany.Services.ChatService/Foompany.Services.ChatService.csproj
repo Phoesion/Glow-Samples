@@ -1,14 +1,18 @@
 <Project Sdk="Microsoft.NET.Sdk">
 
-  <PropertyGroup>
-    <TargetFramework>net5.0</TargetFramework>
-    <NoWarn>1701;1702;1998</NoWarn>
-  </PropertyGroup>
+    <PropertyGroup>
+        <TargetFramework>net5.0</TargetFramework>
+        <NoWarn>1701;1702;1998</NoWarn>
+        <RuntimeIdentifier>win-x64</RuntimeIdentifier>
+    </PropertyGroup>
 
-  <ItemGroup>
-    <ProjectReference Include="..\..\API\Foompany.Services.API.ChatService\Foompany.Services.API.ChatService.csproj" />
-  </ItemGroup>
+    <ItemGroup>
+        <ProjectReference Include="..\..\API\Foompany.Services.API.ChatService\Foompany.Services.API.ChatService.csproj" />
+    </ItemGroup>
 
+    
+
+    
   <ItemGroup>
     <PackageReference Include="Phoesion.Glow.SDK.Firefly" Version="*" />
   </ItemGroup>

@@ -9,9 +9,6 @@ namespace Foompany.Services.API.ChatService.Modules.Chat
     {
         public const string HubName = "ChatService/Chat";
 
-        [Action(Methods.GET)]
-        public static string Default() => null;
-
         /// <summary> Handle the PUSH_EVENT_REGISTER event method </summary>
         [Action(Methods.PUSH_EVENT_REGISTER)]
         public static string Register(Messages.RegistrationRequest request) => null;
@@ -33,6 +30,10 @@ namespace Foompany.Services.API.ChatService.Modules.Chat
         public static void Void(string test) { }
         [Action(Methods.PUSH_CALL)]
         public static void VoidAsync(string test) { }
+
+        /// <summary> exposed REST action. Can be invoke by either REST or a push-clients </summary>
+        [Action(Methods.GET | Methods.PUSH_CALL)]
+        public static string GetUsers() => null;
 
     }
 }

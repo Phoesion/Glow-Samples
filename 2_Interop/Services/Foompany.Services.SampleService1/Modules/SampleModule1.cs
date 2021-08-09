@@ -104,10 +104,9 @@ namespace Foompany.Services.SampleService1.Modules
 
         /// <summary>
         /// Sample for exception propagation.
-        /// For exceptions to propagate, they must be of type PhotonResponseError.
-        /// By default exception will not be thrown and the CallAsync() will return with null.
-        /// To get the exceptions thrown in the remote service you can use 2 ways :
-        ///     1) Set ThrowExceptions to true and use try/catch to handle them
+        /// For exceptions to propagate, they must be of type PhotonException.
+        /// To get the exceptions thrown in the remote service (as InnerException) you can use 2 ways :
+        ///     1) Set IncludeRemoteExceptions to true and use try/catch (PhotonRemoteException ex) to handle them (will be in InnerException)
         ///     2) Set the OnError callback that will be invoked with the exception as parameter
         /// </summary>
         [ActionBody(Methods.GET)]
@@ -116,13 +115,16 @@ namespace Foompany.Services.SampleService1.Modules
             try
             {
                 var result = await Call(API.SampleService2.Modules.InteropSample1.Actions.ExceptionSample)
-                                        .ThrowRemoteExceptions(AllowExceptions)
+                                        .IncludeRemoteExceptions(AllowExceptions)
                                         .InvokeAsync();
                 return result ?? "got null result";
             }
-            catch (PhotonException ex)
+            catch (PhotonRemoteException ex)
             {
-                return $"Exception caught! ErrorCode={ex.ErrorCode}";
+                if (ex.InnerException == null)
+                    return $"Remote exception caught!";
+                else
+                    return $"Remote exception caught! Remote ErrorCode={ex.InnerException.ErrorCode}";
             }
         }
 

@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 using System.Text;
 using System.Linq;
 using System.Threading.Tasks;
@@ -7,10 +7,9 @@ using Microsoft.Extensions.Logging;
 using Phoesion.Glow.SDK;
 using Phoesion.Glow.SDK.Firefly;
 
-
-namespace Foompany.Services.UI
+namespace Foompany.Services.Backend
 {
-    [ServiceName("UI")]
+    [ServiceName("Backend")]
     public class ServiceMain : FireflyService
     {
         protected override void ConfigureServices(IServiceCollection services)

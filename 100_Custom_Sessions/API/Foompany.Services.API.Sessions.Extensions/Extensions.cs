@@ -1,4 +1,4 @@
-﻿using Phoesion.Glow.SDK.Firefly;
+using Phoesion.Glow.SDK.Firefly;
 using System;
 using System.Threading.Tasks;
 
@@ -56,7 +56,7 @@ namespace Foompany.Services.API.Sessions
             var res = await ActionContext.Module.Call(API.Sessions.Modules.SessionManager.Actions.SaveSession, sessionIdCookie, buffer).InvokeAsync();
 
             //return result
-            return res != null && res.IsSuccess;
+            return res;
         }
     }
 }

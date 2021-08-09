@@ -7,6 +7,7 @@ using Microsoft.Extensions.Logging;
 using Phoesion.Glow.SDK;
 using Phoesion.Glow.SDK.Firefly;
 using Microsoft.AspNetCore.Hosting;
+using Sentry.AspNetCore;
 
 namespace Foompany.Services.HelloWorld
 {
@@ -16,7 +17,8 @@ namespace Foompany.Services.HelloWorld
         protected override void ConfigureWebHostBuilder(IWebHostBuilderProxy builder)
         {
             //Add sentry
-            builder.AsAsp().UseSentry();
+            builder.AsAsp()
+                   .UseSentry();
         }
 
         protected override void ConfigureServices(IServiceCollection services)
@@ -27,6 +29,13 @@ namespace Foompany.Services.HelloWorld
         protected override void Configure(IGlowApplicationBuilder app)
         {
             //TODO: Configure middleware..
+
+#if DEBUG
+            // Enable automatic tracing integration.
+            app.AsAspApp()
+               .UseSentryTracing();
+#endif
+
         }
     }
 }

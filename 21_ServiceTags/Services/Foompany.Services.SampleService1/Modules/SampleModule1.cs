@@ -23,13 +23,17 @@ namespace Foompany.Services.SampleService1.Modules
         [ActionBody(Methods.GET)]
         public async Task<string> RequestGameRoom(string room_name, string region)
         {
-            var result = await Call(API.MyGame.Modules.GameRooms.Actions.CreateGameRoom, room_name)
-                                .WithServiceTag<ServerLocationTag>(region)
-                                .InvokeAsync();
-            if (result == null)
-                throw PhotonException.BadGateway.WithMessage("No available MyGame service found for this region");
-            else
+            try
+            {
+                var result = await Call(API.MyGame.Modules.GameRooms.Actions.CreateGameRoom, room_name)
+                                    .WithServiceTag<ServerLocationTag>(region)
+                                    .InvokeAsync();
                 return $"MyGame service said '{result}'";
+            }
+            catch (PhotonException ex)
+            {
+                throw PhotonException.BadGateway.WithMessage("No available MyGame service found for this region");
+            }
         }
 
         //----------------------------------------------------------------------------------------------------------------------------------------------

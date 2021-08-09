@@ -1,18 +1,22 @@
 <Project Sdk="Microsoft.NET.Sdk">
 
-  <PropertyGroup>
-    <TargetFramework>net5.0</TargetFramework>
-  </PropertyGroup>
+    <PropertyGroup>
+        <TargetFramework>net5.0</TargetFramework>
+        <RuntimeIdentifier>win-x64</RuntimeIdentifier>
+    </PropertyGroup>
 
-  <ItemGroup>
-    <PackageReference Include="Hangfire" Version="1.7.23" />
-    <PackageReference Include="Hangfire.MemoryStorage" Version="1.7.0" />
-  </ItemGroup>
+    <ItemGroup>
+        <PackageReference Include="Hangfire" Version="1.7.24" />
+        <PackageReference Include="Hangfire.MemoryStorage" Version="1.7.0" />
+    </ItemGroup>
 
-  <ItemGroup>
-    <ProjectReference Include="..\..\API\Foompany.Services.API.EmailService\Foompany.Services.API.EmailService.csproj" />
-  </ItemGroup>
+    <ItemGroup>
+        <ProjectReference Include="..\..\API\Foompany.Services.API.EmailService\Foompany.Services.API.EmailService.csproj" />
+    </ItemGroup>
 
+    
+
+    
   <ItemGroup>
     <PackageReference Include="Phoesion.Glow.SDK.Firefly" Version="*" />
     <PackageReference Include="Phoesion.Glow.SDK.AspAdapter" Version="*" />

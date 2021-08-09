@@ -1,18 +1,22 @@
 <Project Sdk="Microsoft.NET.Sdk">
 
-  <PropertyGroup>
-    <TargetFramework>net5.0</TargetFramework>
-  </PropertyGroup>
+    <PropertyGroup>
+        <TargetFramework>net5.0</TargetFramework>
+        <RuntimeIdentifier>win-x64</RuntimeIdentifier>
+    </PropertyGroup>
 
-  <ItemGroup>
-    <PackageReference Include="System.IdentityModel.Tokens.Jwt" Version="6.11.1" />
-  </ItemGroup>
+    <ItemGroup>
+        <PackageReference Include="System.IdentityModel.Tokens.Jwt" Version="6.12.0" />
+    </ItemGroup>
 
-  <ItemGroup>
-    <ProjectReference Include="..\..\API\Foompany.Services.API.Authorization\Foompany.Services.API.Authorization.csproj" />
-    <ProjectReference Include="..\..\Middleware\Foompany.Middleware.Authorization\Foompany.Middleware.Authorization.csproj" />
-  </ItemGroup>
+    <ItemGroup>
+        <ProjectReference Include="..\..\API\Foompany.Services.API.Authorization\Foompany.Services.API.Authorization.csproj" />
+        <ProjectReference Include="..\..\Middleware\Foompany.Middleware.Authorization\Foompany.Middleware.Authorization.csproj" />
+    </ItemGroup>
 
+    
+
+    
   <ItemGroup>
     <PackageReference Include="Phoesion.Glow.SDK.Firefly" Version="*" />
   </ItemGroup>

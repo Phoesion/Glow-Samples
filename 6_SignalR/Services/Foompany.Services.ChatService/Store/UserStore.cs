@@ -12,6 +12,7 @@ namespace Foompany.Services.ChatService.Store
         Task<string> Remove(string clientId);
         Task<string> GetClientId(string username);
         Task<string> GetUsername(string clientId);
+        Task<IEnumerable<string>> GetUsernames();
     }
 
     class InMemoryUserStore : IUserStore
@@ -61,6 +62,12 @@ namespace Foompany.Services.ChatService.Store
                     return username;
                 else
                     return null;
+        }
+
+        public async Task<IEnumerable<string>> GetUsernames()
+        {
+            lock (clientId2username)
+                return username2clientid.Keys.ToList();
         }
     }
 }

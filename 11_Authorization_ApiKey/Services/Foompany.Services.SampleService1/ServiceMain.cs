@@ -1,7 +1,10 @@
+using Microsoft.AspNetCore.Builder;
 using Microsoft.Extensions.DependencyInjection;
+using Microsoft.OpenApi.Models;
 using Phoesion.Glow.SDK.Authentication;
 using Phoesion.Glow.SDK.Authorization;
 using Phoesion.Glow.SDK.Firefly;
+using Swashbuckle.AspNetCore.Filters;
 using System.Collections.Generic;
 using System.Security.Claims;
 using System.Text;
@@ -26,30 +29,52 @@ namespace Foompany.Services.SampleService1
                         options.HeaderName = ApiKeyDefaults.HeaderName;
                         //setup the authentication logic
                         options.Authenticator = async (_ctx, _key) =>
-                        {
-                            if (_key != "this-is-my-api-key")
-                                return null;    /* return null claims for invalid authentication */
-                            else
                             {
-                                //Setup user claims to indicate a valid authentication
-                                return ApiKeyDefaults.EmptyClaims;
-                                /* Or create user claims like so :
-                                    return new List<Claim>()
-                                    {
-                                        //Add any 
-                                        new Claim(ClaimTypes.Name, "KeyOwnerName"),
-                                    };
-                                */
-                            }
-                        };
+                                if (_key != "this-is-my-api-key")
+                                    return null;    /* return null claims for invalid authentication */
+                                else
+                                {
+                                    //Setup user claims to indicate a valid authentication
+                                    return ApiKeyDefaults.EmptyClaims;
+                                    /* Or create user claims like so :
+                                        return new List<Claim>()
+                                        {
+                                            //Add any 
+                                            new Claim(ClaimTypes.Name, "KeyOwnerName"),
+                                        };
+                                    */
+                                }
+                            };
                     });
 
             // Add authorization services
             services.AddAuthorization();
+
+            // Register the Swagger generator
+            services.AddSwaggerGen(options =>
+            {
+                //Add API key as authentication method
+                options.AddSecurityDefinition(ApiKeyDefaults.AuthenticationScheme, new OpenApiSecurityScheme
+                {
+                    Description = "Api Key authorization header.",
+                    Type = SecuritySchemeType.ApiKey,
+                    In = ParameterLocation.Header,
+                    Name = ApiKeyDefaults.HeaderName,
+                });
+                options.OperationFilter<SecurityRequirementsOperationFilter>(ApiKeyDefaults.AuthenticationScheme);
+            });
         }
 
         protected override void Configure(IGlowApplicationBuilder app)
         {
+            //Swagger middleware
+            app.AsAspApp()
+                .UseSwagger()
+                .UseSwaggerUI(c =>
+                {
+                    c.SwaggerEndpoint("/SampleService1/swagger/v1/swagger.json", "My API V1");
+                });
+
             // Enable Authentication/Authorization middleware (order is important!)
             app.UseAuthentication();
             app.UseAuthorization();

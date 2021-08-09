@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 using Phoesion.Glow.SDK;
 using Phoesion.Glow.SDK.Firefly;
 
@@ -12,3 +12,10 @@ using Phoesion.Glow.SDK.Firefly;
 
 // Uncomment to enable 'Default' scheme for this service (can also be applied per-module or per-action)
 //[assembly: EnableCORS("Default")]
+
+
+//---------------------------------------------------
+//   Declare dynamic paths used by middleware
+//---------------------------------------------------
+//Swagger Json/UI
+[assembly: DynamicRoutingRule("/swagger")]

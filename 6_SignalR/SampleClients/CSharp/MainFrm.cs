@@ -118,6 +118,19 @@ namespace DesktopAppClient
                 var req = new msg.SampleComplexMsg.Request()
                 {
                     Data = "test",
+                    MoreData = new System.Collections.Generic.List<msg.SampleComplexMsg.Request.c_MoreData>()
+                    {
+                         new msg.SampleComplexMsg.Request.c_MoreData()
+                         {
+                              Data1 = "moredata1",
+                              Data2 = 1,
+                         },
+                         new msg.SampleComplexMsg.Request.c_MoreData()
+                         {
+                              Data1 = "moredata2",
+                              Data2 = 2,
+                         }
+                    }
                 };
                 var result = await Client.Call(api.ComplexMessageSample, req).InvokeAsync();
                 //show result

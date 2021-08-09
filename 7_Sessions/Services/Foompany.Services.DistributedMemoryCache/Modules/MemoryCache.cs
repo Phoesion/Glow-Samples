@@ -1,4 +1,4 @@
-﻿using Phoesion.Glow.SDK;
+using Phoesion.Glow.SDK;
 using Phoesion.Glow.SDK.Firefly;
 using Phoesion.Glow.SDK.Firefly.Components.KeyValueStores;
 using System.Threading.Tasks;
@@ -22,15 +22,15 @@ namespace Foompany.Services.DistributedMemoryCache.Modules
         }
 
         [InteropBody]
-        public async Task<ActionResultBool> SaveData(string key, byte[] data)
+        public async Task<bool> SaveData(string key, byte[] data)
         {
-            return new ActionResultBool(await SessionStore.SetValue(key, data, Context.CancellationToken));
+            return await SessionStore.SetValue(key, data, Context.CancellationToken);
         }
 
         [InteropBody]
-        public async Task<ActionResultBool> RemoveData(string key)
+        public async Task<bool> RemoveData(string key)
         {
-            return new ActionResultBool(await SessionStore.Remove(key, Context.CancellationToken));
+            return await SessionStore.Remove(key, Context.CancellationToken);
         }
     }
 }

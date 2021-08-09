@@ -2,12 +2,32 @@
 
     <PropertyGroup>
         <TargetFramework>net5.0</TargetFramework>
+        <ServiceWorkerAssetsManifest>service-worker-assets.js</ServiceWorkerAssetsManifest>
     </PropertyGroup>
 
+    <!-- Other packages -->
     <ItemGroup>
-        <PackageReference Include="Microsoft.AspNetCore.Components.WebAssembly" Version="5.0.7" />
-        <PackageReference Include="Microsoft.AspNetCore.Components.WebAssembly.DevServer" Version="5.0.7" PrivateAssets="all" />
+        <PackageReference Include="Microsoft.AspNetCore.Components.WebAssembly" Version="5.0.8" />
         <PackageReference Include="System.Net.Http.Json" Version="5.0.0" />
+    </ItemGroup>
+
+    <!-- Glow packages -->
+    
+
+    
+    <ItemGroup>
+        <PackageReference Include="Phoesion.Glow.SDK.Blazor" Version="*" />
+    </ItemGroup>
+    
+
+    <!-- Project references -->
+    <ItemGroup>
+        <ProjectReference Include="..\..\API\Foompany.Services.Backend.API\Foompany.Services.Backend.API.csproj" />
+    </ItemGroup>
+
+    <!-- ServiceWorker -->
+    <ItemGroup>
+        <ServiceWorker Include="wwwroot\service-worker.js" PublishedContent="wwwroot\service-worker.published.js" />
     </ItemGroup>
 
 </Project>

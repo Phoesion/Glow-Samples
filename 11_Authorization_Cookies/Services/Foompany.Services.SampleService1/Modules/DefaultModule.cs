@@ -1,4 +1,4 @@
-﻿using Phoesion.Glow.SDK;
+using Phoesion.Glow.SDK;
 using Phoesion.Glow.SDK.Authorization;
 using Phoesion.Glow.SDK.Firefly;
 using System;
@@ -9,5 +9,8 @@ namespace Foompany.Services.SampleService1.Modules
     {
         [Action(Methods.GET)]
         public void Default() => RedirectToAction(typeof(SampleModule1), nameof(SampleModule1.DoTheThing), "input=somedata");
+
+        [Action(Methods.GET)]
+        public string Something() => "You hit something";
     }
 }

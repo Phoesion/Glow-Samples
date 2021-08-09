@@ -22,7 +22,7 @@ namespace Foompany.Services.ChatService.Modules
         //----------------------------------------------------------------------------------------------------------------------------------------------
 
         //Render ChatPage.cshtml
-        [ActionBody(Methods.GET)]
+        [Action(Methods.GET)]
         public Task<HtmlString> Default() => View("ChatPage");
 
         //----------------------------------------------------------------------------------------------------------------------------------------------
@@ -135,7 +135,7 @@ namespace Foompany.Services.ChatService.Modules
         public async Task<msg.SampleComplexMsg.Response> ComplexMessageSample(msg.SampleComplexMsg.Request request)
         {
             if (request?.Data == "test")
-                return new msg.SampleComplexMsg.Response() { IsSuccess = true };
+                return new msg.SampleComplexMsg.Response() { IsSuccess = true, Message = "Received MoreData : " + ToJson(request.MoreData) };
             else
                 return new msg.SampleComplexMsg.Response()
                 {
@@ -191,6 +191,11 @@ namespace Foompany.Services.ChatService.Modules
 
         [ActionBody(Methods.PUSH_CALL)]
         public async Task VoidAsync(string test) => logger.LogInformation("hit void");
+
+        //----------------------------------------------------------------------------------------------------------------------------------------------
+
+        [ActionBody(Methods.GET | Methods.PUSH_CALL)]
+        public async Task<string> GetUsers() => string.Join("\r\n", await userStore.GetUsernames());
 
         //----------------------------------------------------------------------------------------------------------------------------------------------
     }

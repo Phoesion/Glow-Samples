@@ -1,4 +1,4 @@
-﻿using Phoesion.Glow.SDK;
+using Phoesion.Glow.SDK;
 using Phoesion.Glow.SDK.Firefly;
 using Phoesion.Glow.SDK.Firefly.Components.KeyValueStores;
 using System.Threading.Tasks;
@@ -19,9 +19,9 @@ namespace Foompany.Services.Sessions.Pipelines
         }
 
         [InteropBody]
-        public async Task<ActionResultBool> SaveSession(string sessionId, byte[] session)
+        public async Task<bool> SaveSession(string sessionId, byte[] session)
         {
-            return new ActionResultBool(await SessionStore.SetValue(sessionId, session, Context.CancellationToken));
+            return await SessionStore.SetValue(sessionId, session, Context.CancellationToken);
         }
     }
 }

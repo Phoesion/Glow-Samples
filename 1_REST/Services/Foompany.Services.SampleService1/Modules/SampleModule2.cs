@@ -55,6 +55,16 @@ namespace Foompany.Services.SampleService1.Modules
 
         //----------------------------------------------------------------------------------------------------------------------------------------------
 
+        /* Here we return a primitive object. */
+
+        [ActionBody(Methods.GET)]
+        public int SamplePrimitiveType(int value) => value * 2;
+
+        [ActionBody(Methods.GET)]
+        public int? SamplePrimitiveNullableType(bool retNull) => retNull ? null : 12;
+
+        //----------------------------------------------------------------------------------------------------------------------------------------------
+
         /* You can return any object if you functions needs to return different types or error codes.
          */
         [ActionBody(Methods.GET)]

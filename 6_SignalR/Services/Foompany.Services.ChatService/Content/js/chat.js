@@ -68,3 +68,17 @@ connection.on("NotificationMsg", function (message) {
     li.textContent = "*** " + message;
     document.getElementById("messagesList").appendChild(li);
 });
+
+
+//register RPC ping event
+connection.on("Ping", async function (message, correlationId, isCancellable) {
+    //log it
+    console.log("received ping request!");
+    //create response
+    var response = {
+        IsSuccess: true,
+        Nonce: message.Nonce,
+    };
+    //send Response
+    var res = await connection.invoke("ANSWER", correlationId, response);
+});

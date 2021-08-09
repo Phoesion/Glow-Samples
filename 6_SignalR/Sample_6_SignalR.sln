@@ -23,6 +23,8 @@ EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Python", "Python", "{BA4D7137-67A9-45E8-8A85-6C30A7A4B8EB}"
 	ProjectSection(SolutionItems) = preProject
 		SampleClients\Python\client.py = SampleClients\Python\client.py
+		SampleClients\Python\Dockerfile = SampleClients\Python\Dockerfile
+		SampleClients\Python\requirements.txt = SampleClients\Python\requirements.txt
 	EndProjectSection
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Java", "Java", "{44ECCE44-61E8-491C-BDAE-5D87850161D3}"
