@@ -7,6 +7,7 @@ using Microsoft.AspNetCore.Components.WebAssembly.Hosting;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Logging;
+using Phoesion.Glow.SDK.Client.REST;
 
 namespace Foompany.Services.UI.BlazorApp
 {
@@ -15,12 +16,25 @@ namespace Foompany.Services.UI.BlazorApp
         public static async Task Main(string[] args)
         {
             var builder = WebAssemblyHostBuilder.CreateDefault(args);
+            var configuration = builder.Configuration;
+            var services = builder.Services;
+            var logging = builder.Logging;
 
+            //create app
             builder.RootComponents.Add<App>("#app");
 
-            builder.Services.AddScoped(sp => new HttpClient { BaseAddress = getRootUri(builder.HostEnvironment.BaseAddress) });
+            //add generic http client
+            services.AddScoped(sp => new HttpClient { BaseAddress = getRootUri(builder.HostEnvironment.BaseAddress) });
 
+            //add glow client factory
+            services.AddGlowRestClientFactory();
+
+            //add named glow client for my services
+            services.AddGlowRestClient(Constants.MyServicesClient, getRootUri(builder.HostEnvironment.BaseAddress));
+
+            //run app
             await builder.Build().RunAsync();
+            return;
         }
 
         static Uri getRootUri(string path)

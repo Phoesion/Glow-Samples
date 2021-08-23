@@ -1,0 +1,1 @@
+React Buildc files will be linked to wwwroot to be used as statics files.

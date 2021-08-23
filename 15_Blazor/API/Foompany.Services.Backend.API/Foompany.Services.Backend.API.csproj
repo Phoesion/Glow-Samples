@@ -4,12 +4,16 @@
         <TargetFramework>net5.0</TargetFramework>
     </PropertyGroup>
 
+    
+
+    
     <ItemGroup>
-        <SupportedPlatform Include="browser" />
+        <PackageReference Include="Phoesion.Glow.SDK.Firefly.Abstractions" Version="*" />
     </ItemGroup>
+    
 
     <ItemGroup>
-      <Folder Include="Modules\" />
+        <SupportedPlatform Include="browser" />
     </ItemGroup>
 
 </Project>

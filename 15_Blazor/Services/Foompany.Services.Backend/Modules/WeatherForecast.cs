@@ -5,6 +5,7 @@ using System.Linq;
 
 namespace Foompany.Services.Backend.Modules
 {
+    [API(typeof(API.Modules.WeatherForecast))]
     public class WeatherForecast : FireflyModule
     {
         private static readonly string[] Summaries = new[]
@@ -12,10 +13,12 @@ namespace Foompany.Services.Backend.Modules
             "Freezing", "Bracing", "Chilly", "Cool", "Mild", "Warm", "Balmy", "Hot", "Sweltering", "Scorching"
         };
 
+
         [Action(Methods.GET)]
         public string Default() => "WeatherForecast module up and running";
 
-        [Action(Methods.GET)]
+
+        [ActionBody(Methods.GET)]
         public API.Dto.WeatherForecast[] GetForecast()
         {
             var rng = new Random();

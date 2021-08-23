@@ -1,0 +1,16 @@
+{
+  "profiles": {
+    "Foompany.Services.UI.ReactApp": {
+      "commandName": "Executable",
+      "executablePath": "Phoesion.Glow.Reactor.Debugger.exe",
+      "commandLineArgs": "-QuantumSpace:Default \"$(TargetPath)\"",
+      "applicationUrl": "http://localhost:16000"
+    },
+    "Foompany.Services.UI.ReactApp (Remote Debugger)": {
+      "commandName": "Executable",
+      "executablePath": "Phoesion.Glow.Debugger.FireflySrv.exe",
+      "commandLineArgs": "\"$(TargetPath)\"",
+      "applicationUrl": "http://localhost:16000"
+    }
+  }
+}
