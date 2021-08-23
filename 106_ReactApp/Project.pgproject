@@ -1,0 +1,53 @@
+{
+  "DefaultService": "myApp",
+  "ProjectReferences": [],
+  "Services": [
+    {
+      "IsEnabled": true,
+      "CSProjectFile": "Services\\Foompany.Services.Backend\\Foompany.Services.Backend.csproj",
+      "ServiceHost": "DotNet",
+      "Containerization": "None",
+      "ContainerOptions": {},
+      "Builds": [
+        {
+          "Build": "AnyCpu",
+          "AssemblyFilePath": "Services\\Foompany.Services.Backend\\bin\\%BUILD%\\publish\\anycpu\\Foompany.Services.Backend.dll",
+          "BuildCommands": [
+            "dotnet publish --configuration %BUILD%  --runtime any --no-self-contained -o \"bin\\%BUILD%\\publish\\anycpu\" \"$ProjectName$\""
+          ]
+        },
+        {
+          "Build": "Win_x64",
+          "AssemblyFilePath": "Services\\Foompany.Services.Backend\\bin\\%BUILD%\\publish\\win-x64\\Foompany.Services.Backend.dll",
+          "BuildCommands": [
+            "dotnet publish --configuration %BUILD%  --runtime win-x64 --no-self-contained -o \"bin\\%BUILD%\\publish\\win-x64\" \"$ProjectName$\""
+          ]
+        },
+        {
+          "Build": "Linux_x64",
+          "AssemblyFilePath": "Services\\Foompany.Services.Backend\\bin\\%BUILD%\\publish\\linux-x64\\Foompany.Services.Backend.dll",
+          "BuildCommands": [
+            "dotnet publish --configuration %BUILD%  --runtime linux-x64 --no-self-contained -o \"bin\\%BUILD%\\publish\\linux-x64\" \"$ProjectName$\""
+          ]
+        }
+      ]
+    },
+    {
+      "IsEnabled": true,
+      "CSProjectFile": "Services\\Foompany.Services.UI.ReactApp\\Foompany.Services.UI.ReactApp.csproj",
+      "ServiceHost": "DotNet",
+      "Containerization": "None",
+      "ContainerOptions": {},
+      "Builds": [
+        {
+          "Build": "AnyCpu",
+          "AssemblyFilePath": "Services\\Foompany.Services.UI.ReactApp\\bin\\%BUILD%\\publish\\anycpu\\Foompany.Services.UI.ReactApp.dll",
+          "BuildCommands": [
+            "dotnet publish --configuration %BUILD%  --runtime any --no-self-contained -o \"bin\\%BUILD%\\publish\\anycpu\" \"$ProjectName$\""
+          ]
+        }
+      ]
+    }
+  ],
+  "UrlRewriteRules": []
+}

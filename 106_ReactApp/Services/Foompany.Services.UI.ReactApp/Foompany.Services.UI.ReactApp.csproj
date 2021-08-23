@@ -1,0 +1,59 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+    <PropertyGroup>
+        <TargetFramework>net5.0</TargetFramework>
+        <RuntimeIdentifier>win-x64</RuntimeIdentifier>
+        <RuntimeIdentifiers>win-x64;win-x86;linux-x64</RuntimeIdentifiers>
+        <SpaRoot>app</SpaRoot>
+        <DefaultItemExcludes>$(DefaultItemExcludes);$(SpaRoot)node_modules\**</DefaultItemExcludes>
+    </PropertyGroup>
+
+    <!-- Glow packages -->
+    
+
+    
+    <ItemGroup>
+        <PackageReference Include="Phoesion.Glow.SDK.Firefly.StaticFileService" Version="*" />
+    </ItemGroup>
+    
+
+    <!-- Don't publish the SPA source files, but do show them in the project files list -->
+    <ItemGroup>
+        <Content Remove="$(SpaRoot)\**" />
+        <None Remove="$(SpaRoot)\**" />
+        <None Include="$(SpaRoot)\**" Exclude="$(SpaRoot)\node_modules\**;$(SpaRoot)\build\**" />
+    </ItemGroup>
+
+    <!-- 1. Ensure Dev tools (node.js) -->
+    <Target Name="DebugEnsureNodeEnv" BeforeTargets="Build" Condition=" '$(Configuration)' == 'Debug' And !Exists('$(SpaRoot)/node_modules') ">
+        <!-- Ensure Node.js is installed -->
+        <Exec Command="node --version" ContinueOnError="true">
+            <Output TaskParameter="ExitCode" PropertyName="ErrorCode" />
+        </Exec>
+        <Error Condition="'$(ErrorCode)' != '0'" Text="Node.js is required to build and run this project. To continue, please install Node.js from https://nodejs.org/, and then restart your command prompt or IDE." />
+        <Message Importance="high" Text="Restoring dependencies using 'npm'. This may take several minutes..." />
+        <Exec WorkingDirectory="$(SpaRoot)" Command="npm install" />
+    </Target>
+
+    <!-- 2. Install npm packages -->
+    <Target Name="NpmInstall" Inputs="$(SpaRoot)\package.json" Outputs="$(SpaRoot)\node_modules\.install-stamp">
+        <Exec Command="npm ci" Condition="$(RestorePackagesWithLockFile) == 'true'" WorkingDirectory="$(SpaRoot)" />
+        <Exec Command="npm install" Condition="$(RestorePackagesWithLockFile) != 'true'" WorkingDirectory="$(SpaRoot)" />
+        <!-- Write the stamp file, so incremental builds work -->
+        <Touch Files="$(SpaRoot)\node_modules\.install-stamp" AlwaysCreate="true" />
+    </Target>
+
+    <!-- 3. Run npm run build before building the .NET project. -->
+    <Target Name="NpmRunBuild" DependsOnTargets="NpmInstall" BeforeTargets="BeforeBuild">
+        <Exec Command="npm run build" WorkingDirectory="$(SpaRoot)" />
+    </Target>
+
+    <!-- 4. Include build files in wwwroot. -->
+    <ItemGroup>
+        <Content Include="$(SpaRoot)\build\**\*">
+            <Link>wwwroot\%(RecursiveDir)%(Filename)%(Extension)</Link>
+            <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+        </Content>
+    </ItemGroup>
+
+</Project>

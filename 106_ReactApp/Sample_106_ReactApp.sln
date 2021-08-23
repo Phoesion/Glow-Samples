@@ -1,0 +1,36 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 16
+VisualStudioVersion = 16.0.29306.81
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution Items", "{F14EBF15-DEF8-443C-8579-012E4FE6F1CA}"
+	ProjectSection(SolutionItems) = preProject
+		Project.pgproject = Project.pgproject
+	EndProjectSection
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Foompany.Services.Backend", "Services\Foompany.Services.Backend\Foompany.Services.Backend.csproj", "{9D70064B-FE50-4C8F-B1F7-015FADCC9073}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Foompany.Services.UI.ReactApp", "Services\Foompany.Services.UI.ReactApp\Foompany.Services.UI.ReactApp.csproj", "{5648FCDD-B80A-43A7-BC5E-7163B09AB918}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{9D70064B-FE50-4C8F-B1F7-015FADCC9073}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{9D70064B-FE50-4C8F-B1F7-015FADCC9073}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{9D70064B-FE50-4C8F-B1F7-015FADCC9073}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{9D70064B-FE50-4C8F-B1F7-015FADCC9073}.Release|Any CPU.Build.0 = Release|Any CPU
+		{5648FCDD-B80A-43A7-BC5E-7163B09AB918}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{5648FCDD-B80A-43A7-BC5E-7163B09AB918}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{5648FCDD-B80A-43A7-BC5E-7163B09AB918}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{5648FCDD-B80A-43A7-BC5E-7163B09AB918}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {3AEBB254-FF1E-4C67-92B2-F6C7F253C175}
+	EndGlobalSection
+EndGlobal
