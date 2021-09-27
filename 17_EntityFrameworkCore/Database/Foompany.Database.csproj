@@ -2,16 +2,7 @@
 
     <PropertyGroup>
         <TargetFramework>net5.0</TargetFramework>
-        <RuntimeIdentifier>win-x64</RuntimeIdentifier>
     </PropertyGroup>
-
-    
-
-    
-    <ItemGroup>
-        <PackageReference Include="Phoesion.Glow.SDK.Firefly" Version="*" />
-    </ItemGroup>
-    
 
     <!-- Entity Framework Core dependencies-->
     <ItemGroup>
@@ -20,11 +11,6 @@
             <PrivateAssets>all</PrivateAssets>
             <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
         </PackageReference>
-    </ItemGroup>
-
-    <!-- Project references -->
-    <ItemGroup>
-        <ProjectReference Include="..\..\Database\Foompany.Database.csproj" />
     </ItemGroup>
 
 </Project>

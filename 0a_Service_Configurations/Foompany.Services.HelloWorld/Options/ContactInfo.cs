@@ -1,6 +1,6 @@
-namespace Foompany.Services.HelloWorld.Configurations
+namespace Foompany.Services.HelloWorld.Options
 {
-    public class ContactInfo
+    public class ContactInfoOptions
     {
         public string Name { get; set; }
         public string Email { get; set; }

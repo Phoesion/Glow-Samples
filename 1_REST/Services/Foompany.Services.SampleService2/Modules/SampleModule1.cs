@@ -56,7 +56,10 @@ namespace Foompany.Services.SampleService2.Modules
         {
             var isValid = command == "hi";
             if (!isValid)
-                throw PhotonException.BadRequest;
+            {
+                throw PhotonException.BadRequest.WithMessage("command value must be 'hi'");
+                //return BadRequest("command value must be 'hi'");  //<-- same as above, without throwing exception
+            }
             else
                 return "Hello!";
         }

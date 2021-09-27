@@ -15,7 +15,7 @@ namespace Foompany.Services.SampleService1.Modules
 
         //----------------------------------------------------------------------------------------------------------------------------------------------
 
-        [AuthorizeJWT] // <--- Decorate this action with Authorize attribute; This will invoke our Authorization middleware that will check for a valid bearer token
+        [AuthorizeJWT] // <--- Decorate this action with Authorize attribute
         [ActionBody(Methods.POST)]
         public string DoTheThing(string input)
         {

@@ -1,4 +1,5 @@
 using System.ComponentModel;
+using Microsoft.Extensions.DependencyInjection;
 using Phoesion.Glow.SDK.Firefly;
 
 namespace Foompany.Services.HelloWorld
@@ -17,7 +18,7 @@ namespace Foompany.Services.HelloWorld
         public int SampleNumberConfig { get; set; }
 
         [Configuration("ContactInfo")]
-        public Configurations.ContactInfo Configs_ContactInfo;
+        public Options.ContactInfoOptions Configs_ContactInfo;
 
         [Configuration]
         public string ValueFromAppSettings;
@@ -25,5 +26,10 @@ namespace Foompany.Services.HelloWorld
         [Configuration("MyKey2")]   //get a specific section from appsettings (not using member name)
         public string Configs_MyKey2;
 
+        protected override void ConfigureServices(IServiceCollection services)
+        {
+            //configure ContactInfo using IOptions pattern
+            services.Configure<Options.ContactInfoOptions>(Configurations.GetSection("ContactInfo"));
+        }
     }
 }

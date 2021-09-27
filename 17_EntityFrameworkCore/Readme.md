@@ -15,7 +15,7 @@ This sample demonstrated the basic concepts of using EFCore in your services.
 
 
 ## Summary
-In this sample, we create simple schema of a blog with some posts. Notice the **IDesignTimeDbContextFactory<dbSchemaContext>** interface that the **EFCore tools** can use to detect our schema so we can use them to perform *add-migration*, *update-database* etc..
+In this sample, we create simple schema of a blog with some posts. Notice the **IDesignTimeDbContextFactory<dbSchemaContext>** interface that the **EFCore tools** can use to detect our schema so we can use them to perform *add-migration*, *update-database* etc. using the scripts provided in the **Scripts** directory in the **Foompany.Database** project
 
 
 ### How to test

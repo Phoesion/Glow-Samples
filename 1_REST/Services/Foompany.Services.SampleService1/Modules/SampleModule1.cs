@@ -61,7 +61,10 @@ namespace Foompany.Services.SampleService1.Modules
         public string Action3(string value1, bool value2, int value3 = 12, int? value4 = null, LogLevel? value5 = null)
         {
             if (value3 == 100)
-                throw PhotonException.BadRequest;
+            {
+                throw PhotonException.BadRequest.WithMessage("value3 cannot be 100");
+                //return NotFound("value3 cannot be 100");  //<-- same as above, without throwing exception
+            }
             else
                 return $"Called Service 1, Action 3! got value1={value1}, value2={value2}, value3={value3}, value4={value4} and value5={value5}";
         }

@@ -10,6 +10,10 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Services", "Services", "{22
 		Project.pgproject = Project.pgproject
 	EndProjectSection
 EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Database", "Database", "{6605AE98-BFD2-4D58-860E-D22CC125CC7B}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Foompany.Database", "Database\Foompany.Database.csproj", "{BECED180-91F0-4B37-9F57-83538A102182}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -20,12 +24,17 @@ Global
 		{5DBC60B9-7661-41FF-9A88-E4A64167FDCD}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{5DBC60B9-7661-41FF-9A88-E4A64167FDCD}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{5DBC60B9-7661-41FF-9A88-E4A64167FDCD}.Release|Any CPU.Build.0 = Release|Any CPU
+		{BECED180-91F0-4B37-9F57-83538A102182}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{BECED180-91F0-4B37-9F57-83538A102182}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{BECED180-91F0-4B37-9F57-83538A102182}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{BECED180-91F0-4B37-9F57-83538A102182}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
 	EndGlobalSection
 	GlobalSection(NestedProjects) = preSolution
 		{5DBC60B9-7661-41FF-9A88-E4A64167FDCD} = {225BDB28-05F3-4CE9-B2DB-23AECC5DB2B6}
+		{BECED180-91F0-4B37-9F57-83538A102182} = {6605AE98-BFD2-4D58-860E-D22CC125CC7B}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {3AEBB254-FF1E-4C67-92B2-F6C7F253C175}

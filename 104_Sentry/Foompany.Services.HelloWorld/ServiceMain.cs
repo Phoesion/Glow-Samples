@@ -8,6 +8,7 @@ using Phoesion.Glow.SDK;
 using Phoesion.Glow.SDK.Firefly;
 using Microsoft.AspNetCore.Hosting;
 using Sentry.AspNetCore;
+using Microsoft.AspNetCore.Builder;
 
 namespace Foompany.Services.HelloWorld
 {
@@ -35,7 +36,6 @@ namespace Foompany.Services.HelloWorld
             app.AsAspApp()
                .UseSentryTracing();
 #endif
-
         }
     }
 }

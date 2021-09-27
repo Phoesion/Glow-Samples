@@ -2,7 +2,7 @@ using Microsoft.Extensions.Options;
 using Phoesion.Glow.SDK;
 using Phoesion.Glow.SDK.Firefly;
 using System;
-
+using Foompany.Services.HelloWorld.Options;
 
 namespace Foompany.Services.HelloWorld.Modules
 {
@@ -13,11 +13,15 @@ namespace Foompany.Services.HelloWorld.Modules
 
         //Get using Dependency Inject and the IOptions<> mechanism
         [Autowire(Required = true)]
-        IOptions<Configurations.ContactInfo> ContactInfo { get; set; }
+        IOptions<ContactInfoOptions> ContactInfoOptions { get; set; }
 
-        // Autowire configuration in module.
+        // Auto-bind configuration in module.
         [Configuration]
         string ValueFromAppSettings;
+
+        // Auto-bind configuration in module.
+        [Configuration]
+        ContactInfoOptions ContactInfo { get; set; }
 
         //----------------------------------------------------------------------------------------------------------------------------------------------
 
@@ -32,8 +36,23 @@ namespace Foompany.Services.HelloWorld.Modules
             return $"ValueFromAppSettings = {Configurations["ValueFromAppSettings"]} \r\n\r\n" +
                    $"Configs_MyKey2 = {Configurations["MyKey2"]} \r\n\r\n" +
                    $"ContactInfo.Name = {Configurations["ContactInfo:Name"]} \r\n\r\n" +
-                   $"ContactInfo.Email = {Configurations["ContactInfo:Email"]} \r\n\r\n" +
-                   $"ContactInfo from IOptions = {ToJson(ContactInfo)} \r\n\r\n";
+                   $"ContactInfo.Email = {Configurations["ContactInfo:Email"]} \r\n\r\n";
+        }
+
+        //----------------------------------------------------------------------------------------------------------------------------------------------
+
+        [Action(Methods.GET)]
+        public string FromIOptions()
+        {
+            return $"ContactInfo from IOptions = {ToJson(ContactInfoOptions)} \r\n\r\n";
+        }
+        //----------------------------------------------------------------------------------------------------------------------------------------------
+
+        [Action(Methods.GET)]
+        public string FromAutoBind()
+        {
+            return $"ValueFromAppSettings = {ValueFromAppSettings} \r\n\r\n" +
+                   $"ContactInfo auto-bind = {ToJson(ContactInfo)} \r\n\r\n";
         }
 
         //----------------------------------------------------------------------------------------------------------------------------------------------
@@ -47,14 +66,6 @@ namespace Foompany.Services.HelloWorld.Modules
                    $"Configs_ContactInfo = {ToJson(Service.Configs_ContactInfo)} \r\n\r\n" +
                    $"ValueFromAppSettings = {Service.ValueFromAppSettings} \r\n\r\n" +
                    $"Configs_MyKey2 = {Service.Configs_MyKey2} \r\n\r\n";
-        }
-
-        //----------------------------------------------------------------------------------------------------------------------------------------------
-
-        [Action(Methods.GET)]
-        public string FromModule()
-        {
-            return $"ValueFromAppSettings = {ValueFromAppSettings} \r\n\r\n";
         }
 
         //----------------------------------------------------------------------------------------------------------------------------------------------
