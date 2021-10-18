@@ -6,8 +6,8 @@
 
     <!-- Entity Framework Core dependencies-->
     <ItemGroup>
-        <PackageReference Include="Pomelo.EntityFrameworkCore.MySql" Version="5.0.1" />
-        <PackageReference Include="Microsoft.EntityFrameworkCore.Tools" Version="5.0.10">
+        <PackageReference Include="Pomelo.EntityFrameworkCore.MySql" Version="5.0.2" />
+        <PackageReference Include="Microsoft.EntityFrameworkCore.Tools" Version="5.0.11">
             <PrivateAssets>all</PrivateAssets>
             <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
         </PackageReference>

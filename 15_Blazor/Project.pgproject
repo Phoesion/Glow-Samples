@@ -44,7 +44,7 @@
           "AssemblyFilePath": "Services\\Foompany.Services.UI.BlazorApp\\bin\\%BUILD%\\publish\\anycpu\\Foompany.Services.UI.BlazorApp.dll",
           "BuildCommands": [
             "dotnet publish --configuration %BUILD%  --runtime any --self-contained true -o \"bin\\%BUILD%\\publish\\anycpu\" \"$ProjectName$\"",
-            "xcopy /Y \"bin\\%BUILD%\\publish\\anycpu\\wwwroot\\_framework\\Foompany.Services.UI.BlazorApp.*\" \"bin\\%BUILD%\\publish\\anycpu\\\""
+            "glow_copy \"bin\\%BUILD%\\publish\\anycpu\\wwwroot\\_framework\\Foompany.Services.UI.BlazorApp.*\" \"bin\\%BUILD%\\publish\\anycpu\\\""
           ]
         }
       ]
