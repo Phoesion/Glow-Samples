@@ -124,7 +124,7 @@ namespace Foompany.Services.SampleService1.Modules
                 if (ex.InnerException == null)
                     return $"Remote exception caught!";
                 else
-                    return $"Remote exception caught! Remote ErrorCode={ex.InnerException.ErrorCode}";
+                    return $"Remote exception caught! Remote ErrorCode={ex.InnerException.StatusCode}";
             }
         }
 

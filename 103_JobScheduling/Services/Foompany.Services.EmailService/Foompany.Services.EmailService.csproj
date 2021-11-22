@@ -1,12 +1,12 @@
 <Project Sdk="Microsoft.NET.Sdk">
 
     <PropertyGroup>
-        <TargetFramework>net5.0</TargetFramework>
+        <TargetFramework>net6.0</TargetFramework>
         <RuntimeIdentifier>win-x64</RuntimeIdentifier>
     </PropertyGroup>
 
     <ItemGroup>
-        <PackageReference Include="Hangfire" Version="1.7.25" />
+        <PackageReference Include="Hangfire" Version="1.7.27" />
         <PackageReference Include="Hangfire.MemoryStorage" Version="1.7.0" />
     </ItemGroup>
 

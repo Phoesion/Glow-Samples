@@ -35,17 +35,17 @@ namespace Foompany.Services.ChatService.Modules
         [ActionBody(Methods.PUSH_EVENT_REGISTER)]
         public async Task<string> Register(msg.RegistrationRequest request)
         {
-            //get client id
+            //check for valid clientid. (eg. A POST request from a browser (not signalR or websockets) will have null ClientId)
             var clientId = Context?.ClientId;
             if (clientId == null)
-                throw PhotonException.BadRequest;     //allow only push channels
+                throw PhotonException.BadRequest;
 
             //get input and sanitize
             var username = request?.Username?.ToLower()?.Trim();
             if (string.IsNullOrEmpty(username))
                 throw PhotonException.BadRequest;
 
-            //check for valid input. A POST request from a browser (not signalR or websockets) will have null for ClientId)
+            //Add to store
             await userStore.Add(username, clientId);
 
             //send notification, the asterisk (*) for clientid indicates that this is a broadcast
