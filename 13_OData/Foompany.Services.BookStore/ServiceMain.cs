@@ -1,9 +1,8 @@
 using Foompany.Services.BookStore.Models;
+using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.DependencyInjection;
-//using Microsoft.AspNetCore.OData;
-//using Microsoft.OData.Edm;
-//using Microsoft.OData.ModelBuilder;
 using Phoesion.Glow.SDK.Firefly;
+using System.Threading;
 using System.Threading.Tasks;
 
 namespace Foompany.Services.BookStore
@@ -13,23 +12,28 @@ namespace Foompany.Services.BookStore
     {
         protected override void ConfigureServices(IServiceCollection services)
         {
+            //setup in-memory db context
+            services.AddDbContext<MyDBContext>((o) => o.UseInMemoryDatabase(databaseName: "Test"));
+
             //add OData services
-            //services.AddOData();
+            services.AddOData(o => o.Select().Expand().Filter().OrderBy().Count().SetMaxTop(100));
         }
 
         protected override void Configure(IGlowApplicationBuilder app)
         {
-            //TODO : ...
-            //Microsoft.AspNetCore.Routing.IRouteBuilder b;
-            //b.MapODataServiceRoute("odata", "odata", GetEdmModel());
         }
-        /*
-        private static IEdmModel GetEdmModel()
+
+        protected override async Task StartAsync(CancellationToken cancellationToken)
         {
-            var builder = new ODataConventionModelBuilder();
-            builder.EntitySet<Book>("Books");
-            builder.EntitySet<Press>("Presses");
-            return builder.GetEdmModel();
-        }*/
+            //call base
+            await base.StartAsync(cancellationToken);
+
+            //seed in-memory db
+            await using (var scope = Services.CreateAsyncScope())
+            {
+                var dbContext = scope.ServiceProvider.GetService<MyDBContext>();
+                MyDBContext.SeedDB(dbContext);
+            }
+        }
     }
 }

@@ -16,5 +16,10 @@ This sample demonstrates the most basic and fundamental concepts of OData.
 ### How to test
 After you deploy your **glow project** you can test it using the following paths *(assuming local deployment)* :
 
-TODO:..
+For simple IEnumerable types :
+- http://localhost:16000/BookStore/Inventory/GetBooks?$select=Title&$orderby=Id%20desc
+- http://localhost:16000/BookStore/Inventory/GetBooks?$filter=id%20eq%201&$select=Title
 
+For IQueryable types (from EFCore queries) : 
+- http://localhost:16000/BookStore/Inventory/GetBooksFromDB?$select=Title&$orderby=Id%20desc
+- http://localhost:16000/BookStore/Inventory/GetBooksFromDB?$filter=id%20eq%201&$select=Title

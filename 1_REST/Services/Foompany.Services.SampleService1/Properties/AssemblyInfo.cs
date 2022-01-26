@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 using Phoesion.Glow.SDK;
 using Phoesion.Glow.SDK.Firefly;
 using Foompany.Services.SampleService1.Modules;
@@ -13,6 +13,9 @@ using Foompany.Services.SampleService1.Modules;
 
 // Uncomment to enable 'Default' scheme for this service (can also be applied per-module or per-action)
 //[assembly: EnableCORS("Default")]
+
+// Enable Client-side logging for all service actions
+//[assembly: EnableClientLogging()]
 
 
 //---------------------------------------------------

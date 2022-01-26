@@ -17,7 +17,7 @@ namespace Foompany.Services.HelloWorld
         protected override void ConfigureServices(IServiceCollection services)
         {
             // Register the Swagger generator
-            services.AddSwaggerGen();
+            services.AddSwaggerGen(config => config.CustomSchemaIds(x => x.FullName));
         }
 
         protected override void Configure(IGlowApplicationBuilder app)

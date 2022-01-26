@@ -1,8 +1,6 @@
 @page "/fetchdata2"
 @using Foompany.Services.Backend.API.Dto
-@using Phoesion.Glow.SDK.Client.REST
 @using api = Foompany.Services.Backend.API.Modules.WeatherForecast;
-@inject HttpClient Http
 
 <h1>Weather forecast</h1>
 
@@ -10,44 +8,62 @@
 
 @if (forecasts == null)
 {
-    <p><em>Loading...</em></p>
+	<p><em>Loading...</em></p>
 }
 else
 {
-    <table class="table">
-        <thead>
-            <tr>
-                <th>Date</th>
-                <th>Temp. (C)</th>
-                <th>Temp. (F)</th>
-                <th>Summary</th>
-            </tr>
-        </thead>
-        <tbody>
-            @foreach (var forecast in forecasts)
-            {
-                <tr>
-                    <td>@forecast.Date.ToShortDateString()</td>
-                    <td>@forecast.TemperatureC</td>
-                    <td>@forecast.TemperatureF</td>
-                    <td>@forecast.Summary</td>
-                </tr>
-            }
-        </tbody>
-    </table>
+	<table class="table">
+		<thead>
+			<tr>
+				<th>Date</th>
+				<th>Temp. (C)</th>
+				<th>Temp. (F)</th>
+				<th>Summary</th>
+			</tr>
+		</thead>
+		<tbody>
+			@foreach (var forecast in forecasts)
+			{
+				<tr>
+					<td>@forecast.Date.ToShortDateString()</td>
+					<td>@forecast.TemperatureC</td>
+					<td>@forecast.TemperatureF</td>
+					<td>@forecast.Summary</td>
+				</tr>
+			}
+		</tbody>
+	</table>
 }
 
 @code {
-    [Inject]
-    IGlowClientFactory GlowClientFactory { get; set; }
+	[Inject] IGlowClientFactory GlowClientFactory { get; set; }
+	[Inject] ILogger<FetchData2> logger { get; set; }
 
-    private WeatherForecast[] forecasts;
+	private WeatherForecast[] forecasts;
 
-    protected override async Task OnInitializedAsync()
-    {
-        //get glow client
-        using var client = GlowClientFactory.GetClient(Constants.MyServicesClient);
+	protected override async Task OnInitializedAsync()
+	{
+		//get glow client
+		using var client = GlowClientFactory.GetClient(Constants.MyServicesClient);
 
-        forecasts = await client.Call(api.GetForecast).InvokeAsync();
-    }
+		//start ray logging scope (logs for this request will be visible from blaze)
+		using (logger.BeginClientLoggingScope())
+			try
+			{
+				//send request
+				logger.LogInformation("Requesting forecast..");
+				forecasts = await client.Call(api.GetForecast).InvokeAsync();
+				logger.LogInformation($"Response received, forecast has {(forecasts?.Length ?? 0)} entries.");
+
+				//logging scope example
+				using (logger.BeginScope("test scope"))
+				{
+					logger.LogInformation($"logging from scope.");
+				}
+
+				//throw a test exception (for logging)
+				//throw new Exception("test exception error");
+			}
+			catch (Exception ex) { logger.LogError(ex, "Unhandled exception caught"); } //log exception
+	}
 }

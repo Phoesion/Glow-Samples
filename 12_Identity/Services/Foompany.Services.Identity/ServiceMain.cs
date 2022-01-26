@@ -7,6 +7,8 @@ using Microsoft.EntityFrameworkCore.Design;
 using Microsoft.Extensions.Configuration;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Logging;
+using System;
+using System.IO;
 
 /*
  * Notes
@@ -45,7 +47,22 @@ namespace Foompany.Services.Identity
              but we could change this so something else if needed, that will be used only by the design tools and not at runtime.
         */
         public Data.ApplicationDbContext CreateDbContext(string[] args) =>
-            EFDesignTools.CreateDbContext<Data.ApplicationDbContext>((options, conf) => options.UseMySql(conf.GetConnectionString("DefaultConnection"), ServerVersion.AutoDetect(conf.GetConnectionString("DefaultConnection"))));
+            CreateDbContext<Data.ApplicationDbContext>((options, conf) => options.UseMySql(conf.GetConnectionString("DefaultConnection"), ServerVersion.AutoDetect(conf.GetConnectionString("DefaultConnection"))));
+
+        public static TDbContext CreateDbContext<TDbContext>(Action<Microsoft.EntityFrameworkCore.DbContextOptionsBuilder, IConfiguration> configure)
+            where TDbContext : Microsoft.EntityFrameworkCore.DbContext
+        {
+            var configuration = new ConfigurationBuilder()
+                                        .SetBasePath(Directory.GetCurrentDirectory())
+                                        .AddJsonFile("appsettings.json", true)
+                                        .AddJsonFile("appsettings.Development.json", true)
+                                        .Build();
+
+            var builder = new Microsoft.EntityFrameworkCore.DbContextOptionsBuilder<TDbContext>();
+            configure(builder, configuration);
+
+            return (TDbContext)(Activator.CreateInstance(typeof(TDbContext), builder.Options) ?? throw new NullReferenceException("Could not construct context"));
+        }
 
         //------------------------------------------------------------------------------------------------------------------------
     }

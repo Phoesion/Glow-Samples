@@ -8,6 +8,8 @@ using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Logging;
 using Phoesion.Glow.SDK.Client.REST;
+using Phoesion.Glow.SDK.Client.Logging;
+using Microsoft.Extensions.Logging;
 
 namespace Foompany.Services.UI.BlazorApp
 {
@@ -22,6 +24,12 @@ namespace Foompany.Services.UI.BlazorApp
 
             //create app
             builder.RootComponents.Add<App>("#app");
+
+            //add logging configuration
+            builder.Logging.AddConfiguration(builder.Configuration.GetSection("Logging"));
+
+            //add glow client-side logging
+            logging.AddGlowRestClientLogger();
 
             //add generic http client
             services.AddScoped(sp => new HttpClient { BaseAddress = getRootUri(builder.HostEnvironment.BaseAddress) });
