@@ -27,7 +27,7 @@ Each sample has a readme.md file with quick sample-specific instructions of how 
 
 ### How to run
 - Build the **Sample_{SampleName}_.sln** solution in the samples folder
-- Deploy the **project** (*Project.pgproject*) to your glow cloud using Phoesion Glow **Blaze**. For more information how to setup you cloud you can [read the getting started guide](https://glow-docs.phoesion.com/getting_started/DevMachine_Setup.html)
+- Run the services from Visual Studio or deploy the **project** (*Project.pgproject*) to your glow cloud using Phoesion Glow **Blaze**. For more information how to setup you cloud you can [read the getting started guide](https://glow-docs.phoesion.com/getting_started/DevMachine_Setup.html)
 
 
 ### How to test

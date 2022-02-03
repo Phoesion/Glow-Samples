@@ -1,6 +1,7 @@
 using Microsoft.Extensions.Logging;
 using Phoesion.Glow.SDK;
 using Phoesion.Glow.SDK.Firefly;
+using System.ComponentModel.DataAnnotations;
 using System.Linq;
 
 
@@ -44,7 +45,7 @@ namespace Foompany.Services.SampleService1.Modules
         public string Action2()
         {
             return $"Called Action2 from ip {Context.ConnectionInfo.RemoteIpAddress} " +
-                   $"with Path='{JoinStrings("/", RestRequest.ParamPath)}' " +
+                   $"with Path='{JoinStrings("/", RestRequest.Params)}' " +
                    $"and QueryString='{string.Join("/", RestRequest.Query.Select(kv => kv.Key + "=" + kv.Value))}'";
         }
 
@@ -67,6 +68,21 @@ namespace Foompany.Services.SampleService1.Modules
             }
             else
                 return $"Called Service 1, Action 3! got value1={value1}, value2={value2}, value3={value3}, value4={value4} and value5={value5}";
+        }
+
+        //----------------------------------------------------------------------------------------------------------------------------------------------
+
+        /* Example of an Action that maps Uri parameterized path segments (Params property) to variables
+         * eg. for the uri http://localhost:16000/SampleService1/SampleModule1/Action4/Customer/3/Booking/123ABC?order=asc
+         *     the parameters will have the value customerId:3 and bookingId:123ABC
+         */
+        [ActionBody(Methods.GET)]
+        [ParamMap("/Customer/{customerId}/Booking/{bookingId}")]
+        public string Action4([FromParams] int customerId, [FromParams] string bookingId, [FromQuery] string order)
+        {
+            return $"Called Action4 with \r\n" +
+                   $"uri params -> customerId:{customerId}, bookingId:{bookingId} \r\n" +
+                   $"query params -> order:{order} \r\n";
         }
 
         //----------------------------------------------------------------------------------------------------------------------------------------------

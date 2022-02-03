@@ -1,5 +1,6 @@
 using System;
 using System.Diagnostics;
+using System.IO;
 using System.Net.Http;
 using System.Threading.Tasks;
 using Microsoft.Extensions.Options;
@@ -41,6 +42,8 @@ namespace BasicTests
         }
 
         //helper method to build assembly file path
-        static string buildFilePath(string asmName) => @$"..\..\..\..\..\Services\{asmName}\bin\Debug\net6.0\win-x64\{asmName}.dll";
+        static string buildFilePath(string asmName)
+            => Path.Combine("..", "..", "..", "..", "..", "Services", asmName, "bin", "Debug", "net6.0", $"{asmName}.dll");
+        //     plain-text path : "..\..\..\..\..\Services\{asmName}\bin\Debug\net6.0\{asmName}.dll"
     }
 }
