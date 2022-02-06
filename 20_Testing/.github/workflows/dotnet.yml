@@ -20,7 +20,7 @@ jobs:
     - name: Setup Phoesion Glow Reactor
       uses: phoesion/Actions-Phoesion.Glow.Reactor-Setup@0.0.2
       with:
-        version: 0.0.297
+        version: 0.0.298
 
     - name: Restore dependencies
       run: dotnet restore
