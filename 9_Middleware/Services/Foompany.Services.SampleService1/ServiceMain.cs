@@ -1,4 +1,4 @@
-﻿using Foompany.Middleware.Profiler;
+using Foompany.Middleware.Profiler;
 using Phoesion.Glow.SDK.Firefly;
 using System.Threading.Tasks;
 

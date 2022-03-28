@@ -1,0 +1,1 @@
+﻿This is SomeFile.txt that is in the wwwroot folder!

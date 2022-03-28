@@ -16,7 +16,7 @@ namespace BasicTests
             //declares
             var expectation = "Interop sample service up and running!";
             //create client
-            using var client = GlowClient.FromBaseUri(Tester.BaseUri);
+            using var client = GlowRestClient.FromBaseUri(Tester.BaseUri);
             //call action
             var res = await client.Call(actions.Default).InvokeAsync();
             //check response
@@ -31,7 +31,7 @@ namespace BasicTests
             var input = "John";
             var expectation = $"Service 2 said 'Hi {input}'";
             //create client
-            using var client = GlowClient.FromBaseUri(Tester.BaseUri);
+            using var client = GlowRestClient.FromBaseUri(Tester.BaseUri);
             //call action
             var res = await client.Call(actions.Action1, input).InvokeAsync();
             //check response
@@ -45,7 +45,7 @@ namespace BasicTests
             //declares
             var expectation = "This is a stream!";
             //create client
-            using var client = GlowClient.FromBaseUri(Tester.BaseUri);
+            using var client = GlowRestClient.FromBaseUri(Tester.BaseUri);
             //send request
             var stream = await client.Call(actions.StreamingInteropAction).InvokeAsync();
             using (var reader = new StreamReader(stream))

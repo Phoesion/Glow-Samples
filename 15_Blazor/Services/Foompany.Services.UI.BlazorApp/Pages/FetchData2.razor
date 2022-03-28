@@ -36,7 +36,7 @@ else
 }
 
 @code {
-	[Inject] IGlowClientFactory GlowClientFactory { get; set; }
+	[Inject] IGlowRestClientFactory GlowClientFactory { get; set; }
 	[Inject] ILogger<FetchData2> logger { get; set; }
 
 	private WeatherForecast[] forecasts;

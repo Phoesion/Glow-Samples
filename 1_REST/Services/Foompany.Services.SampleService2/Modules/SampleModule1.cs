@@ -26,6 +26,7 @@ namespace Foompany.Services.SampleService2.Modules
         //----------------------------------------------------------------------------------------------------------------------------------------------
 
         [ActionBody(Methods.GET)]
+        [ResponseCache(Duration = 35)] // cache responses for 35 seconds
         public string Action1()
         {
             return $"This is Service2! Called Action1 of SampleModule1 \n" +

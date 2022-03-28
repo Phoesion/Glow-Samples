@@ -20,7 +20,7 @@ namespace Foompany.Services.SampleService2.Tests
             var expectation = $"Hi {input.InputName}";
 
             //create service provider builder
-            using var services = TestingServiceProviderBuilder
+            using var services = TestContainerBuilder
                 .CreateDefault<ServiceMain>()
                 .Build();
 
@@ -83,7 +83,7 @@ namespace Foompany.Services.SampleService2.Tests
             var expectation = $"Hi {input.Firstname} {input.Surname}";
 
             //create service provider builder
-            using var services = TestingServiceProviderBuilder
+            using var services = TestContainerBuilder
                 .CreateDefault<ServiceMain>()
                 .Build();
 
@@ -110,7 +110,7 @@ namespace Foompany.Services.SampleService2.Tests
             var expectation = "This is a stream!";
 
             //create service provider builder
-            using var services = TestingServiceProviderBuilder
+            using var services = TestContainerBuilder
                 .CreateDefault<ServiceMain>()
                 .Build();
 

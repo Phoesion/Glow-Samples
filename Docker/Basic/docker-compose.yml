@@ -68,7 +68,7 @@ services:
     restart: unless-stopped
     environment:
       FIREFLY_KaleidoscopeConnectionString: "Host=kaleidoscope"
-      #PRISM_IsEphemeral: "true" # Uncomment to enable a state-less operation mode,
+      #FIREFLY_IsEphemeral: "true" # Uncomment to enable a state-less operation mode,
     volumes:
       - fireflyVol:/data/firefly
     networks:

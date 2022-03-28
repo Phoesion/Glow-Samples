@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 using System.Text;
 using System.Linq;
 using System.Threading.Tasks;
@@ -20,7 +20,7 @@ namespace Foompany.Services.SampleService1
         {
             // add health check services
             services.AddHealthChecks()
-                .AddCheck<HealthChecks.ExampleHealthCheck>("example_health_check");
+                    .AddCheck<HealthChecks.ExampleHealthCheck>("example_health_check");
         }
 
         protected override void Configure(IGlowApplicationBuilder app)

@@ -14,7 +14,7 @@ namespace DesktopAppClient
 {
     public partial class MainFrm : Form
     {
-        public Phoesion.Glow.SDK.Client.SignalR.GlowClient Client;
+        public Phoesion.Glow.SDK.Client.SignalR.GlowSignalRClient Client;
 
         public MainFrm()
         {
@@ -27,13 +27,13 @@ namespace DesktopAppClient
             groupBox_ConnectionSetup.Enabled = false;
 
             //create client
-            var options = new GlowClientOptions()
+            var options = new GlowSignalRClientOptions()
             {
                 ServerUrl = txt_ServerUrl.Text,
                 AutoReconnect = true,
                 //UseMessagePackProtocol = true,
             };
-            Client = new GlowClient(Options.Create(options), null);
+            Client = new GlowSignalRClient(Options.Create(options), null);
 
             //setup registration handler
             Client.Registration = registrationHandler;
@@ -71,7 +71,7 @@ namespace DesktopAppClient
             }));
         }
 
-        async Task registrationHandler(GlowClient client, CancellationToken cancellationToken)
+        async Task registrationHandler(GlowSignalRClient client, CancellationToken cancellationToken)
         {
             var req = new msg.RegistrationRequest() { Username = txt_Username.Text };
             var rsp = await client.RegisterAsync(api.Register, req, cancellationToken);

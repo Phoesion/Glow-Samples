@@ -1,0 +1,7 @@
+﻿This is a 'protected' static file..
+
+Unlike other static files that will be directly served by Prism,
+this folder/file using the [assembly: RunMiddlewareForStaticFiles] in AssemblyInfo.cs, 
+will force the middleware in the Firefly service to run (and in this case check for a special querystring value).
+
+If the Firefly service returns a 200 OK response, the Prism will serve the actual file.

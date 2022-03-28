@@ -1,4 +1,4 @@
-﻿using Phoesion.Glow.SDK.Firefly;
+using Phoesion.Glow.SDK.Firefly;
 using System;
 using System.Collections.Generic;
 using System.Diagnostics;
@@ -10,14 +10,22 @@ namespace Foompany.Middleware.Profiler
     {
         public async ValueTask InvokeAsync(IMiddlewareChain chain, IActionContext context, IReadOnlyList<IMiddlewareMetadata> metadata)
         {
+            //start timer
             Console.WriteLine($"Staring execution for {context.RestRequest.Url}");
             var timer = new Stopwatch();
             timer.Restart();
 
-            await chain.InvokeNextAsync();
-
-            timer.Stop();
-            Console.WriteLine($"Finished execution for {context.RestRequest.Url}, took {timer.ElapsedMilliseconds} milliseconds");
+            try
+            {
+                //invoke next middleware in the pipeline
+                await chain.InvokeNextAsync();
+            }
+            finally
+            {
+                //stop timer and report results
+                timer.Stop();
+                Console.WriteLine($"Finished execution for {context.RestRequest.Url}, took {timer.ElapsedMilliseconds} milliseconds");
+            }
         }
     }
 }

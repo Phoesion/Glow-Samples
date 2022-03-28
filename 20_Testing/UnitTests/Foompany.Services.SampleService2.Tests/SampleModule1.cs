@@ -19,7 +19,7 @@ namespace Foompany.Services.SampleService2.Tests
             var expectation = "SampleModule1 up and running!";
 
             //create service provider builder
-            using var services = TestingServiceProviderBuilder
+            using var services = TestContainerBuilder
                 .CreateDefault<ServiceMain>()
                 .Build();
 
@@ -54,7 +54,7 @@ namespace Foompany.Services.SampleService2.Tests
                        .Returns($"Hi {input.Firstname} {input.Surname}");
 
             //create service provider builder
-            using var services = TestingServiceProviderBuilder
+            using var services = TestContainerBuilder
                 .CreateDefault<ServiceMain>()
                 .AddInteropInvoker(interopMock.Object)
                 .Build();
