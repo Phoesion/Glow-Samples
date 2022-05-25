@@ -3,6 +3,7 @@
     <PropertyGroup>
         <OutputType>Exe</OutputType>
         <TargetFramework>net6.0</TargetFramework>
+        <RuntimeIdentifiers>win-x64;win-x86;linux-x64;alpine-x64</RuntimeIdentifiers>
     </PropertyGroup>
 
     <ItemGroup>
@@ -17,7 +18,7 @@
 
     
       <ItemGroup>
-        <PackageReference Include="Phoesion.Glow.SDK.Client.REST" Version="*" />
+        <PackageReference Include="Phoesion.Glow.SDK.Client.REST" Version="0.0.300" />
       </ItemGroup>
     
 

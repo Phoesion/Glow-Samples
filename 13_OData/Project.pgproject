@@ -5,6 +5,8 @@
       "IsEnabled": true,
       "CSProjectFile": "Foompany.Services.BookStore\\Foompany.Services.BookStore.csproj",
       "ServiceHost": "DotNet",
+      "Containerization": "None",
+      "ContainerOptions": {},
       "Builds": [
         {
           "Build": "AnyCpu",

@@ -5,13 +5,12 @@
         <ServiceWorkerAssetsManifest>service-worker-assets.js</ServiceWorkerAssetsManifest>
         <UseBlazorWebAssembly>true</UseBlazorWebAssembly>
         <RuntimeIdentifier>browser-wasm</RuntimeIdentifier>
-        <RuntimeIdentifiers>browser-wasm</RuntimeIdentifiers>
     </PropertyGroup>
 
     <!-- Other packages -->
     <ItemGroup>
-        <PackageReference Include="Microsoft.AspNetCore.Components.WebAssembly" Version="6.0.3" />
-        <PackageReference Include="Microsoft.AspNetCore.Components.WebAssembly.DevServer" Version="6.0.3" PrivateAssets="all" />
+        <PackageReference Include="Microsoft.AspNetCore.Components.WebAssembly" Version="6.0.5" />
+        <PackageReference Include="Microsoft.AspNetCore.Components.WebAssembly.DevServer" Version="6.0.5" PrivateAssets="all" />
     </ItemGroup>
 
     <!-- Glow packages -->
@@ -19,8 +18,8 @@
 
     
     <ItemGroup>
-        <PackageReference Include="Phoesion.Glow.SDK.Blazor.WebAssembly" Version="*" />
-        <PackageReference Include="Phoesion.Glow.SDK.Client.REST" Version="*" />
+        <PackageReference Include="Phoesion.Glow.SDK.Blazor.WebAssembly" Version="0.0.300" />
+        <PackageReference Include="Phoesion.Glow.SDK.Client.REST" Version="0.0.300" />
     </ItemGroup>
     
 

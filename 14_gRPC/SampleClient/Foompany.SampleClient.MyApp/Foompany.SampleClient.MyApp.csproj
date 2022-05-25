@@ -1,21 +1,22 @@
 <Project Sdk="Microsoft.NET.Sdk">
 
-  <PropertyGroup>
-    <OutputType>WinExe</OutputType>
-    <TargetFramework>net6.0-windows</TargetFramework>
-    <UseWindowsForms>true</UseWindowsForms>
-  </PropertyGroup>
+    <PropertyGroup>
+        <OutputType>WinExe</OutputType>
+        <TargetFramework>net6.0-windows</TargetFramework>
+        <UseWindowsForms>true</UseWindowsForms>
+        <RuntimeIdentifiers>win-x64;win-x86;linux-x64;alpine-x64</RuntimeIdentifiers>
+    </PropertyGroup>
 
-  <ItemGroup>
-    <PackageReference Include="Google.Protobuf" Version="3.19.4" />
-    <PackageReference Include="Grpc.Net.Client" Version="2.44.0" />
-    <PackageReference Include="Grpc.Tools" Version="2.45.0">
-      <PrivateAssets>all</PrivateAssets>
-      <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
-    </PackageReference>
-  </ItemGroup>
+    <ItemGroup>
+        <PackageReference Include="Google.Protobuf" Version="3.20.1" />
+        <PackageReference Include="Grpc.Net.Client" Version="2.46.0" />
+        <PackageReference Include="Grpc.Tools" Version="2.46.3">
+            <PrivateAssets>all</PrivateAssets>
+            <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
+        </PackageReference>
+    </ItemGroup>
 
-  <ItemGroup>
-    <Protobuf Include="Protos\SampleService1.SampleModule1.proto" GrpcServices="Client" />
-  </ItemGroup>
+    <ItemGroup>
+        <Protobuf Include="Protos\SampleService1.SampleModule1.proto" GrpcServices="Client" />
+    </ItemGroup>
 </Project>

@@ -1,6 +1,7 @@
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Net.Http.Headers;
+using System.Collections.Generic;
 using System.IO;
 using System.Text;
 using System.Threading.Tasks;
@@ -53,5 +54,28 @@ namespace Foompany.AspHostingSample.Controllers
         [Route(nameof(StreamLargeFile))]
         public IActionResult StreamLargeFile() => File("LargeFile.zip", "application/zip", "LargeFile.zip");
 
+        [HttpGet]
+        [Route(nameof(StreamEvenLargerFile))]
+        public IActionResult StreamEvenLargerFile() => File("EvenLargerFile.zip", "application/zip", "EvenLargerFile.zip");
+
+        [HttpGet]
+        [Route(nameof(Streaming))]
+        public async Task Streaming()
+        {
+            using var fs = new FileStream(@"wwwroot\EvenLargerFile.zip", FileMode.Open, FileAccess.Read, FileShare.Read);
+            await fs.CopyToAsync(HttpContext.Response.Body);
+        }
+
+        [HttpGet]
+        [Route(nameof(EnumerableStreaming))]
+        public async IAsyncEnumerable<string> EnumerableStreaming()
+        {
+            for (var i = 0; i < 100000; i++)
+            {
+                yield return $"the next value is : {i}\r\n";
+                if (i % 1000 == 0)
+                    await Task.Delay(1);
+            }
+        }
     }
 }

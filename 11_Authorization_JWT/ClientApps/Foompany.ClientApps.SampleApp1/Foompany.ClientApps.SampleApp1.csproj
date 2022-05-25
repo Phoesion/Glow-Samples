@@ -1,18 +1,23 @@
 <Project Sdk="Microsoft.NET.Sdk">
 
-  <PropertyGroup>
-    <OutputType>WinExe</OutputType>
-    <TargetFramework>net6.0-windows</TargetFramework>
-    <UseWindowsForms>true</UseWindowsForms>
-  </PropertyGroup>
+    <PropertyGroup>
+        <OutputType>WinExe</OutputType>
+        <TargetFramework>net6.0-windows</TargetFramework>
+        <UseWindowsForms>true</UseWindowsForms>
+        <RuntimeIdentifiers>win-x64;win-x86;linux-x64;alpine-x64</RuntimeIdentifiers>
+    </PropertyGroup>
 
-  <ItemGroup>
-    <ProjectReference Include="..\..\API\Foompany.Services.API.Authorization\Foompany.Services.API.Authorization.csproj" />
-    <ProjectReference Include="..\..\API\Foompany.Services.API.SampleService1\Foompany.Services.API.SampleService1.csproj" />
-  </ItemGroup>
+    <ItemGroup>
+        <ProjectReference Include="..\..\API\Foompany.Services.API.Authorization\Foompany.Services.API.Authorization.csproj" />
+        <ProjectReference Include="..\..\API\Foompany.Services.API.SampleService1\Foompany.Services.API.SampleService1.csproj" />
+    </ItemGroup>
 
-  <ItemGroup>
-    <PackageReference Include="Phoesion.Glow.SDK.Client.REST" Version="*" />
-  </ItemGroup>
+    
+
+    
+    <ItemGroup>
+        <PackageReference Include="Phoesion.Glow.SDK.Client.REST" Version="0.0.300" />
+    </ItemGroup>
+    
 
 </Project>

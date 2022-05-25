@@ -6,6 +6,8 @@ using Microsoft.AspNetCore.OData.Query;
 using System.Linq;
 using System.Threading.Tasks;
 
+using Microsoft.EntityFrameworkCore;
+
 namespace Foompany.Services.BookStore.Modules
 {
     public class Inventory : FireflyModule
@@ -46,7 +48,7 @@ namespace Foompany.Services.BookStore.Modules
 
         [Action(Methods.GET)]
         [EnableQuery]       // <-- Enable OData functionality
-        public IEnumerable<Models.Book> GetBooksFromDB()
+        public IQueryable<Models.Book> GetBooksFromDB()
         {
             /*
              * You can perform filters on this results using eg :

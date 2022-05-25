@@ -5,6 +5,8 @@
       "IsEnabled": true,
       "CSProjectFile": "Services\\Foompany.Services.SampleService1\\Foompany.Services.SampleService1.csproj",
       "ServiceHost": "DotNet",
+      "Containerization": "None",
+      "ContainerOptions": {},
       "Builds": [
         {
           "Build": "AnyCpu",
@@ -33,6 +35,8 @@
       "IsEnabled": true,
       "CSProjectFile": "Services\\Foompany.Services.SampleService2\\Foompany.Services.SampleService2.csproj",
       "ServiceHost": "DotNet",
+      "Containerization": "None",
+      "ContainerOptions": {},
       "Builds": [
         {
           "Build": "AnyCpu",

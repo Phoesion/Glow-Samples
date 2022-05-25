@@ -1,27 +1,31 @@
 <Project Sdk="Microsoft.NET.Sdk">
 
-  <PropertyGroup>
-    <TargetFramework>net6.0</TargetFramework>
-<RuntimeIdentifier>win-x64</RuntimeIdentifier>
-  </PropertyGroup>
+    <PropertyGroup>
+        <TargetFramework>net6.0</TargetFramework>
+        <RuntimeIdentifier>win-x64</RuntimeIdentifier>
+    </PropertyGroup>
 
-  <ItemGroup>
-    <PackageReference Include="Microsoft.AspNetCore.Authentication.JwtBearer" Version="6.0.3" />
-    <PackageReference Include="System.IdentityModel.Tokens.Jwt" Version="6.16.0" />
-  </ItemGroup>
+    <ItemGroup>
+        <PackageReference Include="Microsoft.AspNetCore.Authentication.JwtBearer" Version="6.0.5" />
+        <PackageReference Include="System.IdentityModel.Tokens.Jwt" Version="6.18.0" />
+    </ItemGroup>
 
-  <ItemGroup>
-    <ProjectReference Include="..\..\API\Foompany.Services.API.SampleService1\Foompany.Services.API.SampleService1.csproj" />
-  </ItemGroup>
+    <ItemGroup>
+        <ProjectReference Include="..\..\API\Foompany.Services.API.SampleService1\Foompany.Services.API.SampleService1.csproj" />
+    </ItemGroup>
 
-  <ItemGroup>
-    <PackageReference Include="Phoesion.Glow.SDK.Firefly" Version="*" />
-    <PackageReference Include="Phoesion.Glow.SDK.Authorization" Version="*" />
-    <PackageReference Include="Phoesion.Glow.SDK.Authentication" Version="*" />
-  </ItemGroup>
+    
 
-  <ItemGroup>
-    <Compile Include="..\Constants.cs" Link="Constants.cs" />
-  </ItemGroup>
+    
+    <ItemGroup>
+        <PackageReference Include="Phoesion.Glow.SDK.Firefly" Version="0.0.300" />
+        <PackageReference Include="Phoesion.Glow.SDK.Authorization" Version="0.0.300" />
+        <PackageReference Include="Phoesion.Glow.SDK.Authentication" Version="0.0.300" />
+    </ItemGroup>
+    
+
+    <ItemGroup>
+        <Compile Include="..\Constants.cs" Link="Constants.cs" />
+    </ItemGroup>
 
 </Project>

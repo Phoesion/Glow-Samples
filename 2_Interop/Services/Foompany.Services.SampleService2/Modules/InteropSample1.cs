@@ -6,11 +6,13 @@ using System.ComponentModel.DataAnnotations;
 using System.IO;
 using System.Text;
 using System.Threading.Tasks;
+
 using models = Foompany.Services.API.SampleService2.Modules.InteropSample1.DataModels;
 
 namespace Foompany.Services.SampleService2.Modules
 {
-    /* This is the implementation of the firefly service module.
+    /* 
+     * This is the implementation of the firefly service module.
      * It must implement all static methods specified in the api assembly
      */
     [API(typeof(API.SampleService2.Modules.InteropSample1.Actions))]

@@ -5,11 +5,16 @@
         <NoWarn>1701;1702;1998</NoWarn>
     </PropertyGroup>
 
+    <ItemGroup>
+      <PackageReference Include="System.ComponentModel.Annotations" Version="5.0.0" />
+    </ItemGroup>
+
     
 
     
-  <ItemGroup>
-    <PackageReference Include="Phoesion.Glow.SDK.Firefly.Abstractions" Version="*" />
-  </ItemGroup>
+    <ItemGroup>
+        <PackageReference Include="Phoesion.Glow.SDK.Firefly.Abstractions" Version="0.0.300" />
+    </ItemGroup>
+    
 
 </Project>

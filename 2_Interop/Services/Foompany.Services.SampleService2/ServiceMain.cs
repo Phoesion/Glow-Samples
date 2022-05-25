@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 using System.Text;
 using System.Linq;
 using System.Threading.Tasks;
@@ -6,7 +6,8 @@ using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Logging;
 using Phoesion.Glow.SDK;
 using Phoesion.Glow.SDK.Firefly;
-
+using Microsoft.EntityFrameworkCore;
+using System.Threading;
 
 namespace Foompany.Services.SampleService2
 {
@@ -15,12 +16,26 @@ namespace Foompany.Services.SampleService2
     {
         protected override void ConfigureServices(IServiceCollection services)
         {
-            //TODO: Configure services..
+            //setup in-memory db context
+            services.AddDbContext<MyDBContext>((o) => o.UseInMemoryDatabase(databaseName: "Test"));
         }
 
         protected override void Configure(IGlowApplicationBuilder app)
         {
             //TODO: Configure middleware..
+        }
+
+        protected override async Task StartAsync(CancellationToken cancellationToken)
+        {
+            //call base
+            await base.StartAsync(cancellationToken);
+
+            //seed in-memory db
+            await using (var scope = Services.CreateAsyncScope())
+            {
+                var dbContext = scope.ServiceProvider.GetService<MyDBContext>();
+                MyDBContext.SeedDB(dbContext);
+            }
         }
     }
 }

@@ -6,7 +6,7 @@
     </PropertyGroup>
 
     <ItemGroup>
-        <PackageReference Include="Hangfire" Version="1.7.28" />
+        <PackageReference Include="Hangfire" Version="1.7.29" />
         <PackageReference Include="Hangfire.MemoryStorage" Version="1.7.0" />
     </ItemGroup>
 
@@ -17,9 +17,10 @@
     
 
     
-  <ItemGroup>
-    <PackageReference Include="Phoesion.Glow.SDK.Firefly" Version="*" />
-    <PackageReference Include="Phoesion.Glow.SDK.AspAdapter" Version="*" />
-  </ItemGroup>
+    <ItemGroup>
+        <PackageReference Include="Phoesion.Glow.SDK.Firefly" Version="0.0.300" />
+        <PackageReference Include="Phoesion.Glow.SDK.AspAdapter" Version="0.0.300" />
+    </ItemGroup>
+    
 
 </Project>

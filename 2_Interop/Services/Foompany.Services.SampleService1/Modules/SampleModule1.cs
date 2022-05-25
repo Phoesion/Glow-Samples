@@ -27,7 +27,9 @@ namespace Foompany.Services.SampleService1.Modules
             {
                 InputName = "George",
             };
-            var result = await Call(API.SampleService2.Modules.InteropSample1.Actions.InteropAction1, req).InvokeAsync();
+            var result = await Call(API.SampleService2.Modules.InteropSample1.Actions.InteropAction1, req)
+                                .WithCancellationToken(Context.CancellationToken) // chain cancellation request to remote service
+                                .InvokeAsync();
             return $"Service 2 said '{result}'";
         }
 
@@ -41,7 +43,9 @@ namespace Foompany.Services.SampleService1.Modules
         {
             var firstName = "John";
             var surName = "Doe";
-            var result = await Call(API.SampleService2.Modules.InteropSample1.Actions.InteropAction2, firstName, surName).InvokeAsync();
+            var result = await Call(API.SampleService2.Modules.InteropSample1.Actions.InteropAction2, firstName, surName)
+                                .WithCancellationToken(Context.CancellationToken) // chain cancellation request to remote service
+                                .InvokeAsync();
             return $"Service 2 said '{result}'";
         }
 
@@ -50,7 +54,9 @@ namespace Foompany.Services.SampleService1.Modules
         [ActionBody(Methods.GET)]
         public async Task<string> Action3()
         {
-            var result = await Call(API.SampleService2.Modules.InteropSample1.Actions.HybridAction3).InvokeAsync();
+            var result = await Call(API.SampleService2.Modules.InteropSample1.Actions.HybridAction3)
+                                .WithCancellationToken(Context.CancellationToken) // chain cancellation request to remote service
+                                .InvokeAsync();
             return $"Service 2 said '{result?.Result}'";
         }
 
@@ -116,6 +122,7 @@ namespace Foompany.Services.SampleService1.Modules
             {
                 var result = await Call(API.SampleService2.Modules.InteropSample1.Actions.ExceptionSample)
                                         .IncludeRemoteExceptions(AllowExceptions)
+                                        .WithCancellationToken(Context.CancellationToken) // chain cancellation request to remote service
                                         .InvokeAsync();
                 return result ?? "got null result";
             }
@@ -133,7 +140,9 @@ namespace Foompany.Services.SampleService1.Modules
         [ActionBody(Methods.GET)]
         public async Task<string> StreamingInteropAction()
         {
-            var stream = await Call(API.SampleService2.Modules.InteropSample1.Actions.StreamingSample).InvokeAsync();
+            var stream = await Call(API.SampleService2.Modules.InteropSample1.Actions.StreamingSample)
+                                .WithCancellationToken(Context.CancellationToken) // chain cancellation request to remote service
+                                .InvokeAsync();
             if (stream == null)
                 throw PhotonException.InternalServerError;
             var reader = new StreamReader(stream);
@@ -146,7 +155,9 @@ namespace Foompany.Services.SampleService1.Modules
         public async IAsyncEnumerable<string> AsyncEnumerableSampleAction()
         {
             //invoke service
-            var results = await Call(API.SampleService2.Modules.InteropSample1.Actions.AsyncEnumerableSample).InvokeAsync();
+            var results = await Call(API.SampleService2.Modules.InteropSample1.Actions.AsyncEnumerableSample)
+                                .WithCancellationToken(Context.CancellationToken) // chain cancellation request to remote service
+                                .InvokeAsync();
             if (results == null)
                 throw PhotonException.InternalServerError;
             //enumerate results as they come, back to user
@@ -159,7 +170,9 @@ namespace Foompany.Services.SampleService1.Modules
         [ActionBody(Methods.GET)]
         public async Task<Stream> StreamingInteropAction2()
         {
-            var stream = await Call(API.SampleService2.Modules.InteropSample1.Actions.StreamingSample).InvokeAsync();
+            var stream = await Call(API.SampleService2.Modules.InteropSample1.Actions.StreamingSample)
+                                .WithCancellationToken(Context.CancellationToken) // chain cancellation request to remote service
+                                .InvokeAsync();
             return stream;
         }
 

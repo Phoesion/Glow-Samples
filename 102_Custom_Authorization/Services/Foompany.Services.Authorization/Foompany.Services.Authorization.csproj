@@ -6,7 +6,7 @@
     </PropertyGroup>
 
     <ItemGroup>
-        <PackageReference Include="System.IdentityModel.Tokens.Jwt" Version="6.16.0" />
+        <PackageReference Include="System.IdentityModel.Tokens.Jwt" Version="6.18.0" />
     </ItemGroup>
 
     <ItemGroup>
@@ -17,8 +17,9 @@
     
 
     
-  <ItemGroup>
-    <PackageReference Include="Phoesion.Glow.SDK.Firefly" Version="*" />
-  </ItemGroup>
+    <ItemGroup>
+        <PackageReference Include="Phoesion.Glow.SDK.Firefly" Version="0.0.300" />
+    </ItemGroup>
+    
 
 </Project>

@@ -9,10 +9,11 @@
     
 
     
-  <ItemGroup>
-    <PackageReference Include="Phoesion.Glow.SDK.Firefly" Version="*" />
-    <PackageReference Include="Phoesion.Glow.SDK.Firefly.Components" Version="*" />
-    <PackageReference Include="Phoesion.Glow.SDK.DistributedMemoryCache" Version="*" />
-  </ItemGroup>
+    <ItemGroup>
+        <PackageReference Include="Phoesion.Glow.SDK.Firefly" Version="0.0.300" />
+        <PackageReference Include="Phoesion.Glow.SDK.Firefly.Components" Version="0.0.300" />
+        <PackageReference Include="Phoesion.Glow.SDK.DistributedMemoryCache" Version="0.0.300" />
+    </ItemGroup>
+    
 
 </Project>

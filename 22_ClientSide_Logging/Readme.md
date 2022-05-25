@@ -1,7 +1,7 @@
 # Phoesion Glow Sample - Client-Side Logging
 
 
-#### [Documentation : Read the full tutorial here](https://glow-docs.phoesion.com/tutorials/Tutorials_ClientSide_Logging.html)
+#### [Documentation : Read the full tutorial here](https://glow-docs.phoesion.com/tutorials/ClientSide_Logging.html)
 
 
 ### Introduction
