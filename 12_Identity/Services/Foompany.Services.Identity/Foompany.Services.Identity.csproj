@@ -24,8 +24,8 @@
 
     
     <ItemGroup>
-        <PackageReference Include="Phoesion.Glow.SDK.Firefly" Version="0.0.300" />
-        <PackageReference Include="Phoesion.Glow.SDK.Firefly.AspHost" Version="0.0.300" />
+        <PackageReference Include="Phoesion.Glow.SDK.Firefly" Version="0.0.301" />
+        <PackageReference Include="Phoesion.Glow.SDK.Firefly.AspHost" Version="0.0.301" />
     </ItemGroup>
     
 
