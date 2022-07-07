@@ -7,16 +7,16 @@
 
     <ItemGroup>
         <PackageReference Include="Microsoft.AspNetCore.OData" Version="8.0.10" />
-        <PackageReference Include="Microsoft.EntityFrameworkCore.InMemory" Version="6.0.5" />
+        <PackageReference Include="Microsoft.EntityFrameworkCore.InMemory" Version="6.0.6" />
     </ItemGroup>
 
     
 
     
     <ItemGroup>
-        <PackageReference Include="Phoesion.Glow.SDK.Firefly" Version="0.0.301" />
-        <PackageReference Include="Phoesion.Glow.SDK.AspAdapter" Version="0.0.301" />
-        <PackageReference Include="Phoesion.Glow.SDK.Firefly.OData" Version="0.0.301" />
+        <PackageReference Include="Phoesion.Glow.SDK.Firefly" Version="0.0.302" />
+        <PackageReference Include="Phoesion.Glow.SDK.AspAdapter" Version="0.0.302" />
+        <PackageReference Include="Phoesion.Glow.SDK.Firefly.OData" Version="0.0.302" />
     </ItemGroup>
     
 

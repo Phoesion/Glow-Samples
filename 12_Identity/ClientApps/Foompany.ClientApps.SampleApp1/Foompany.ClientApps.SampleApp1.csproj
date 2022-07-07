@@ -4,7 +4,7 @@
         <OutputType>WinExe</OutputType>
         <TargetFramework>net6.0-windows</TargetFramework>
         <UseWindowsForms>true</UseWindowsForms>
-        <RuntimeIdentifiers>win-x64;win-x86;linux-x64;alpine-x64</RuntimeIdentifiers>
+        <RuntimeIdentifiers>win-x64;win-x86;linux-x64;alpine-x64;osx-x64</RuntimeIdentifiers>
     </PropertyGroup>
 
     <ItemGroup>
@@ -19,7 +19,7 @@
 
     
     <ItemGroup>
-        <PackageReference Include="Phoesion.Glow.SDK.Client.REST" Version="0.0.301" />
+        <PackageReference Include="Phoesion.Glow.SDK.Client.REST" Version="0.0.302" />
     </ItemGroup>
     
 
