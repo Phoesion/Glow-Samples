@@ -23,7 +23,7 @@ namespace Foompany.Services.AspCoreMvc
                 .AddCookie("Cookies")
                 .AddOpenIdConnect("oidc", options =>
                 {
-                    options.Authority = "http://localhost:16000/Identity";  //!! Replace with your host info (with https) !!
+                    options.Authority = "http://localhost/Identity";  //!! Replace with your host info (with https) !!
                     options.RequireHttpsMetadata = false;
 
                     options.ClientId = "mvc";

@@ -22,7 +22,7 @@ namespace Foompany.Services.SampleService2
         [ActionBody(Methods.GET | Methods.POST)]
         public string Action2()
         {
-            return $"Called Action2 using {RestRequest.Method} in PostSamples module.";
+            return $"Called Action2 using {Request.Method} in PostSamples module.";
         }
 
         //----------------------------------------------------------------------------------------------------------------------------------------------

@@ -1,0 +1,20 @@
+{
+  "ProjectReferences": [],
+  "Services": [
+    {
+      "IsEnabled": true,
+      "CSProjectFile": "Foompany.Services.HelloWorld\\Foompany.Services.HelloWorld.csproj",
+      "IgnoreDeploymentVersion": false,
+      "ServiceHost": "Self_Hosted",
+      "Containerization": "None",
+      "ContainerOptions": {},
+      "Builds": [
+        {
+          "Build": "AnyCpu",
+          "AssemblyFilePath": "Foompany.Services.HelloWorld\\bin\\Debug\\publish\\linux-x64\\Foompany.Services.HelloWorld.dll"
+        }
+      ]
+    }
+  ],
+  "UrlRewriteRules": []
+}

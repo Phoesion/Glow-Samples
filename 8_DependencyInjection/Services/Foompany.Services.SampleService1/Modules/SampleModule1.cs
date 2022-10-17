@@ -22,7 +22,7 @@ namespace Foompany.Services.SampleService1.Modules
         public string Action1()
         {
             //add report
-            IncidentReporter?.AddReport(Context.ConnectionInfo.RemoteIpAddress, RestRequest.Url, "Called Action1!");
+            IncidentReporter?.AddReport(Context.ConnectionInfo.RemoteIpAddress, Request.Url, "Called Action1!");
 
             //return response
             return "Hello world!";

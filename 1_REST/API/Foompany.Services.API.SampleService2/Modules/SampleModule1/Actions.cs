@@ -1,4 +1,4 @@
-﻿using Phoesion.Glow.SDK;
+using Phoesion.Glow.SDK;
 using Phoesion.Glow.SDK.Firefly;
 using System;
 using System.IO;
@@ -14,7 +14,7 @@ namespace Foompany.Services.API.SampleService2.Modules.SampleModule1
         public static string Action1() => null;
 
         [Action(Methods.GET)]
-        public static object RedirectMe() => null;
+        public static object RedirectMe(string search = null) => null;
 
         [Action(Methods.GET)]
         public static string SampleStatusCode(string command) => null;

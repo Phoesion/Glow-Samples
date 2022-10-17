@@ -18,8 +18,8 @@
 
     
     <ItemGroup>
-        <PackageReference Include="Phoesion.Glow.SDK.Firefly" Version="0.0.302" />
-        <PackageReference Include="Phoesion.Glow.SDK.Session" Version="0.0.302" />
+        <PackageReference Include="Phoesion.Glow.SDK.Firefly" Version="0.0.303" />
+        <PackageReference Include="Phoesion.Glow.SDK.Session" Version="0.0.303" />
     </ItemGroup>
     
 

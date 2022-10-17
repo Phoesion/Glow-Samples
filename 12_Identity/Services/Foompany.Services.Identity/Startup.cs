@@ -46,7 +46,8 @@ namespace Foompany.Services.Identity
                     options.Events.RaiseSuccessEvents = true;
                 })
                 .AddInMemoryIdentityResources(Config.Ids)
-                .AddInMemoryApiResources(Config.Apis)
+                .AddInMemoryApiResources(Config.ApiResources)
+                .AddInMemoryApiScopes(Config.ApiScopes)
                 .AddInMemoryClients(Config.Clients)
                 .AddAspNetIdentity<ApplicationUser>();
 

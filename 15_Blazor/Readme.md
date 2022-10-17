@@ -9,6 +9,7 @@ This sample demonstrated the basic concepts of writing a **Blazor WebAssembly ap
 
 
 ### How to run
+- Make sure you have the web-assembly workload installed on your system ( `dotnet workload install wasm-tools` )
 - Build the **Sample.sln** solution
 - Deploy the **project** (*Project.pgproject*) to your glow cloud using Phoesion Glow **Blaze**. For more information how to setup you cloud you can [read the getting started guide](https://glow-docs.phoesion.com/getting_started/DevMachine_Setup.html)
 

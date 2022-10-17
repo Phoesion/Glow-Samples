@@ -1,0 +1,20 @@
+{
+  "profiles": {
+    "Foompany.Services.Example (Local)": {
+      "commandName": "Executable",
+      "executablePath": "Phoesion.Glow.Reactor.Debugger.exe",
+      "commandLineArgs": "-QuantumSpace:Default \"$(TargetPath)\""
+    },
+    "Foompany.Services.Example (Remote Debugger)": {
+      "commandName": "Executable",
+      "executablePath": "Phoesion.Glow.Debugger.FireflySrv.exe",
+      "commandLineArgs": "\"$(TargetPath)\""
+    },
+    "Foompany.Services.Example": {
+      "commandName": "Executable",
+      "executablePath": "Phoesion.Glow.Reactor.Debugger.exe",
+      "commandLineArgs": "-QuantumSpace:Default \"$(TargetPath)\"",
+      "applicationUrl": "http://localhost:16000"
+    }
+  }
+}

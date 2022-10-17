@@ -13,7 +13,7 @@ namespace Foompany.Services.HelloWorld.Middleware
         public ValueTask InvokeAsync(IMiddlewareChain chain, IActionContext context, IReadOnlyList<IMiddlewareMetadata> metadata)
         {
             //check for 'password'
-            if (context.RestRequest.Query["pass"] != "abc")
+            if (context.Request.Query["pass"] != "abc")
                 throw PhotonException.Forbidden;
 
             //continue

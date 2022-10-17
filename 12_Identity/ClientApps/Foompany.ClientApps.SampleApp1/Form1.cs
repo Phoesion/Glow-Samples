@@ -26,11 +26,13 @@ namespace Foompany.ClientApps.SampleApp2
                 {
                     Address = $"http://{txt_Hostname.Text}/Identity",   //NOTE: use https in production!
                     //for development purpose, disable HTTPS enforce and validations
+#if DEBUG
                     Policy =
                     {
                         ValidateIssuerName= false,
                         RequireHttps = false,
                     },
+#endif
                 });
                 if (disco.IsError)
                 {

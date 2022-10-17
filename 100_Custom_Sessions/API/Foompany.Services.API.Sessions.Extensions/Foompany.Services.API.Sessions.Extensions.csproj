@@ -1,20 +1,23 @@
 <Project Sdk="Microsoft.NET.Sdk">
 
-  <PropertyGroup>
-    <TargetFramework>netstandard2.0</TargetFramework>
-    <NoWarn>1701;1702;1998</NoWarn>
-  </PropertyGroup>
+    <PropertyGroup>
+        <TargetFramework>netstandard2.0</TargetFramework>
+        <NoWarn>1701;1702;1998</NoWarn>
+    </PropertyGroup>
 
-  <ItemGroup>
-    <PackageReference Include="Phoesion.MsgPack" Version="2.3.1120" />
-  </ItemGroup>
+    <ItemGroup>
+        <PackageReference Include="Phoesion.MsgPack" Version="2.3.1121" />
+    </ItemGroup>
 
-  <ItemGroup>
-    <ProjectReference Include="..\Foompany.Services.API.Sessions\Foompany.Services.API.Sessions.csproj" />
-  </ItemGroup>
+    <ItemGroup>
+        <ProjectReference Include="..\Foompany.Services.API.Sessions\Foompany.Services.API.Sessions.csproj" />
+    </ItemGroup>
 
+    
+
+    
   <ItemGroup>
-    <PackageReference Include="Phoesion.Glow.SDK.Firefly" Version="0.0.302" />
+    <PackageReference Include="Phoesion.Glow.SDK.Firefly" Version="0.0.303" />
   </ItemGroup>
 
 </Project>

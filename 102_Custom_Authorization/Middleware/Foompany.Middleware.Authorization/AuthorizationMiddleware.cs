@@ -14,7 +14,7 @@ namespace Foompany.Middleware.Authorization
         public ValueTask InvokeAsync(IMiddlewareChain chain, IActionContext context, IReadOnlyList<IMiddlewareMetadata> metadata)
         {
             //get bearer
-            var restReq = context.RestRequest;
+            var restReq = context.Request;
             if (restReq != null)
             {
                 //get valid bearer value

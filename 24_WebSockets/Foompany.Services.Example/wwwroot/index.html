@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <title>Example</title>
+
+    <style>
+        html, body, form, input {
+            margin: 0px;
+            padding: 0px;
+            width: 100%;
+            height: 100%;
+            overflow: hidden;
+        }
+
+        form {
+            height: 40px;
+            border-width: 2px;
+            border-color: black;
+            border-style: solid;
+            margin:;
+            width: 50%;
+        }
+
+        input {
+            display: block;
+            text-align: center;
+            font-size: 24px;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+    </style>
+</head>
+
+<body>
+    <div>
+        <br />
+        <span>Enter some text and press enter :</span>
+        <form id="form">
+            <input id="message" autocomplete="off" />
+        </form>
+        <br />
+        <span>Server :</span>
+        <div id="serverResponses" />
+    </div>
+
+    <script>
+        (function () {
+            var webSocketProtocol = location.protocol == "https:" ? "wss:" : "ws:";
+            var webSocketURI = webSocketProtocol + "//" + location.host + "/Example/WebSocket/Connect";
+            var srvLog = document.getElementById('serverResponses');
+            socket = new WebSocket(webSocketURI);
+
+            socket.onopen = function () {
+                console.log("Connected.");
+                srvLog.innerHTML += "<span>Connected to server!</span><br/>";
+            };
+
+            socket.onclose = function (event) {
+                if (event.wasClean) {
+                    console.log('Disconnected.');
+                } else {
+                    console.log('Connection lost.'); // for example if server processes is killed
+                }
+                console.log('Code: ' + event.code + '. Reason: ' + event.reason);
+                //var srvLog = document.getElementById('serverResponses');
+                srvLog.innerHTML += "<span>Disconnected from server!</span><br/>";
+            };
+
+            socket.onmessage = function (event) {
+                console.log("Data received: " + event.data);
+                //var srvLog = document.getElementById('serverResponses');
+                srvLog.innerHTML += "<span>" + event.data + "</span><br/>";
+            };
+
+            socket.onerror = function (error) {
+                console.log("Error: " + error.message);
+                srvLog.innerHTML += "<span>Error : " + error.message +"</span><br/>";
+            };
+
+            var form = document.getElementById('form');
+            var message = document.getElementById('message');
+            form.onsubmit = function () {
+                socket.send(message.value);
+                message.value = '';
+                return false;
+            };
+        })();
+    </script>
+</body>
+</html>

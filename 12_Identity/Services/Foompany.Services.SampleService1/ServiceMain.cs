@@ -1,4 +1,4 @@
-﻿using Microsoft.AspNetCore.Authentication.JwtBearer;
+using Microsoft.AspNetCore.Authentication.JwtBearer;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.IdentityModel.Tokens;
 using Phoesion.Glow.SDK.Authentication;
@@ -23,11 +23,11 @@ namespace Foompany.Services.SampleService1
                    .AddJwtBearer(options =>
                    {
                        // set authority service
-                       options.Authority = "http://localhost:16000/Identity";
-
+                       options.Authority = "http://localhost/identity";
+#if DEBUG
                        //disable for development purposes
                        options.RequireHttpsMetadata = false;
-
+#endif
                        //set audience
                        options.Audience = "api1";
 

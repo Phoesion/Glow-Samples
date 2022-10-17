@@ -8,7 +8,7 @@
     </PropertyGroup>
 
     <ItemGroup>
-        <PackageReference Include="Microsoft.AspNetCore.Authentication.JwtBearer" Version="6.0.6" />
+        <PackageReference Include="Microsoft.AspNetCore.Authentication.JwtBearer" Version="6.0.10" />
     </ItemGroup>
 
     <ItemGroup>
@@ -19,9 +19,9 @@
 
     
     <ItemGroup>
-        <PackageReference Include="Phoesion.Glow.SDK.Firefly" Version="0.0.302" />
-        <PackageReference Include="Phoesion.Glow.SDK.Authorization" Version="0.0.302" />
-        <PackageReference Include="Phoesion.Glow.SDK.Authentication" Version="0.0.302" />
+        <PackageReference Include="Phoesion.Glow.SDK.Firefly" Version="0.0.303" />
+        <PackageReference Include="Phoesion.Glow.SDK.Authorization" Version="0.0.303" />
+        <PackageReference Include="Phoesion.Glow.SDK.Authentication" Version="0.0.303" />
     </ItemGroup>
     
 

@@ -1,0 +1,18 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+    <PropertyGroup>
+        <TargetFramework>net6.0</TargetFramework>
+        <NoWarn>1701;1702;1998</NoWarn>
+    </PropertyGroup>
+
+    
+
+    
+    <ItemGroup>
+        <PackageReference Include="Phoesion.Glow.SDK.Firefly" Version="0.0.303" />
+        <PackageReference Include="Phoesion.Glow.SDK.AspAdapter" Version="0.0.303" />
+        <PackageReference Include="Phoesion.Glow.SDK.Firefly.OData" Version="0.0.303" />
+    </ItemGroup>
+    
+
+</Project>

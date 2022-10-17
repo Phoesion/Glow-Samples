@@ -9,13 +9,13 @@
 
     
     <ItemGroup>
-        <PackageReference Include="Phoesion.Glow.SDK.Firefly" Version="0.0.302" />
-        <PackageReference Include="Phoesion.Glow.SDK.AspAdapter" Version="0.0.302" />
+        <PackageReference Include="Phoesion.Glow.SDK.Firefly" Version="0.0.303" />
+        <PackageReference Include="Phoesion.Glow.SDK.AspAdapter" Version="0.0.303" />
     </ItemGroup>
     
 
     <ItemGroup>
-        <PackageReference Include="Swashbuckle.AspNetCore" Version="6.3.1" />
+        <PackageReference Include="Swashbuckle.AspNetCore" Version="6.4.0" />
     </ItemGroup>
 
 </Project>

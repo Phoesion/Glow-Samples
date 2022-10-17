@@ -14,4 +14,4 @@ using Phoesion.Glow.SDK.Firefly;
 //[assembly: EnableCORS("Default")]
 
 // Enable Client-side logging for all service actions
-//[assembly: EnableClientLogging()]
+[assembly: EnableClientLogging()]

@@ -11,7 +11,7 @@ namespace Foompany.Middleware.Profiler
         public async ValueTask InvokeAsync(IMiddlewareChain chain, IActionContext context, IReadOnlyList<IMiddlewareMetadata> metadata)
         {
             //start timer
-            Console.WriteLine($"Staring execution for {context.RestRequest.Url}");
+            Console.WriteLine($"Staring execution for {context.Request.Url}");
             var timer = new Stopwatch();
             timer.Restart();
 
@@ -24,7 +24,7 @@ namespace Foompany.Middleware.Profiler
             {
                 //stop timer and report results
                 timer.Stop();
-                Console.WriteLine($"Finished execution for {context.RestRequest.Url}, took {timer.ElapsedMilliseconds} milliseconds");
+                Console.WriteLine($"Finished execution for {context.Request.Url}, took {timer.ElapsedMilliseconds} milliseconds");
             }
         }
     }

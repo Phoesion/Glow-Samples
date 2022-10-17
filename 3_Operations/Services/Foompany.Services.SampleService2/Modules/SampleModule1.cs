@@ -23,7 +23,7 @@ namespace Foompany.Services.SampleService2.Modules
                 return "Could not start wizard";
             else
             {
-                var uri = RestRequest.Url;
+                var uri = Request.Url;
                 var baseUri = $"{uri.Scheme}://{uri.Host}{(uri.IsDefaultPort ? "" : ":" + uri.Port)}";
                 return $"Wizard started, with operation id : " + operation.ID + Environment.NewLine +
                        $"Get status uri = {baseUri}/SampleService2/SampleModule1/GetWizardStatus/" + operation.ID;

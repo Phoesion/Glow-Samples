@@ -4,7 +4,10 @@
     {
       "IsEnabled": true,
       "CSProjectFile": "Services\\Foompany.Services.AspCoreMvc\\Foompany.Services.AspCoreMvc.csproj",
+      "IgnoreDeploymentVersion": false,
       "ServiceHost": "DotNet",
+      "Containerization": "None",
+      "ContainerOptions": {},
       "Builds": [
         {
           "Build": "AnyCpu",
@@ -32,7 +35,10 @@
     {
       "IsEnabled": true,
       "CSProjectFile": "Services\\Foompany.Services.FireflyMvc\\Foompany.Services.FireflyMvc.csproj",
+      "IgnoreDeploymentVersion": false,
       "ServiceHost": "DotNet",
+      "Containerization": "None",
+      "ContainerOptions": {},
       "Builds": [
         {
           "Build": "AnyCpu",
@@ -60,7 +66,10 @@
     {
       "IsEnabled": true,
       "CSProjectFile": "Services\\Foompany.Services.Identity\\Foompany.Services.Identity.csproj",
+      "IgnoreDeploymentVersion": false,
       "ServiceHost": "DotNet",
+      "Containerization": "None",
+      "ContainerOptions": {},
       "Builds": [
         {
           "Build": "AnyCpu",
@@ -88,7 +97,10 @@
     {
       "IsEnabled": true,
       "CSProjectFile": "Services\\Foompany.Services.JavaScriptClient\\Foompany.Services.JavaScriptClient.csproj",
+      "IgnoreDeploymentVersion": false,
       "ServiceHost": "DotNet",
+      "Containerization": "None",
+      "ContainerOptions": {},
       "Builds": [
         {
           "Build": "AnyCpu",
@@ -116,7 +128,10 @@
     {
       "IsEnabled": true,
       "CSProjectFile": "Services\\Foompany.Services.SampleService1\\Foompany.Services.SampleService1.csproj",
+      "IgnoreDeploymentVersion": false,
       "ServiceHost": "DotNet",
+      "Containerization": "None",
+      "ContainerOptions": {},
       "Builds": [
         {
           "Build": "AnyCpu",
@@ -137,6 +152,25 @@
           "AssemblyFilePath": "Services\\Foompany.Services.SampleService1\\bin\\%BUILD%\\publish\\linux-x64\\Foompany.Services.SampleService1.dll",
           "BuildCommands": [
             "dotnet publish --configuration %BUILD% --runtime linux-x64 --no-self-contained -o \"bin\\%BUILD%\\publish\\linux-x64\""
+          ]
+        }
+      ]
+    },
+    {
+      "IsEnabled": true,
+      "CSProjectFile": "Services\\Foompany.Services.UI.BlazorApp\\Foompany.Services.UI.BlazorApp.csproj",
+      "IgnoreDeploymentVersion": false,
+      "ServiceHost": "DotNet",
+      "Containerization": "None",
+      "ContainerOptions": {},
+      "Builds": [
+        {
+          "Build": "AnyCpu",
+          "AssemblyFilePath": "Services\\Foompany.Services.UI.BlazorApp\\bin\\%BUILD%\\publish\\browser-wasm\\Foompany.Services.UI.BlazorApp.dll",
+          "BuildCommands": [
+            "dotnet publish --configuration %BUILD%  --runtime browser-wasm --self-contained true -o \"bin\\%BUILD%\\publish\\browser-wasm\" \"$ProjectFilePath$\"",
+            "glow_copy \"bin\\%BUILD%\\publish\\browser-wasm\\wwwroot\\_framework\\Foompany.Services.UI.BlazorApp.*\" \"bin\\%BUILD%\\publish\\browser-wasm\\\"",
+            "glow_fix_basehref \"bin\\%BUILD%\\publish\\browser-wasm\\wwwroot\\index.html\""
           ]
         }
       ]

@@ -1,0 +1,105 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: prism
+  labels:
+    app: GlowApp
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      service: prism
+  template:
+    metadata:
+      labels:
+        app: GlowApp
+        service: prism
+    spec:
+      containers:
+        - name: prism
+          image: phoesion/phoesion.glow.prism
+          ports:
+            - containerPort: 80
+              protocol: TCP
+              name: http
+            - containerPort: 443
+              protocol: TCP
+              name: https
+            - containerPort: 14000
+              protocol: TCP
+              name: p2p
+            - containerPort: 15000
+              protocol: TCP
+              name: lhspchanrv  #Lighthouse spchannel reverse tcp proxy
+            - containerPort: 15001
+              protocol: TCP
+              name: lhwebuirv   #Lighthouse WebUI http reverse tcp proxy
+            - containerPort: 15002
+              protocol: TCP
+              name: lhwebui2rv  #Lighthouse WebUI https reverse tcp proxy
+          resources:
+            requests:
+              ephemeral-storage: "4Gi"
+            limits:
+              ephemeral-storage: "16Gi"
+          env:
+            - name: PRISM_KaleidoscopeConnectionString
+              value: "Host=kaleidoscope"
+            # instruct prism to act as a tcp reverse proxy to lighthouse service spchannel
+            - name: PRISM_TCP_ReverseProxies__0__Port
+              value: "15000"
+            - name: PRISM_TCP_ReverseProxies__0__Destinations__0
+              value: "lighthouse:15000"
+            # instruct prism to act as a tcp reverse proxy to lighthouse service webui (http)
+            - name: PRISM_TCP_ReverseProxies__1__Port
+              value: "15001"
+            - name: PRISM_TCP_ReverseProxies__1__Destinations__0
+              value: "lighthouse:15001"
+            # instruct prism to act as a tcp reverse proxy to lighthouse service webui (https)
+            - name: PRISM_TCP_ReverseProxies__2__Port
+              value: "15002"
+            - name: PRISM_TCP_ReverseProxies__2__Destinations__0
+              value: "lighthouse:15002"
+            #- name: PRISM_EntityAuthKey
+            #  value: "" #CONFIG: Add prism auth key (or get from secrets. like bellow)
+          envFrom:
+            - secretRef:
+                name: prism-authkey
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: prism
+  labels:
+    app: GlowApp
+    service: prism
+spec:
+  type: LoadBalancer
+  ports:
+    # HTTP Port
+    - port: 80
+      targetPort: http
+      protocol: TCP
+      name: http
+    # HTTPS Port
+    - port: 443
+      targetPort: https
+      protocol: TCP
+      name: https
+    # Lighthouse reverce tcp proxy
+    - port: 15000
+      targetPort: lhspchanrv
+      protocol: TCP
+      name: lhspchanrv  
+    # Lighthouse webui http reverce tcp proxy
+    - port: 15001
+      targetPort: lhwebuirv
+      protocol: TCP
+      name: lhwebuirv  
+    # Lighthouse webui https reverce tcp proxy
+    - port: 15002
+      targetPort: lhwebui2rv
+      protocol: TCP
+      name: lhwebui2rv
+  selector:
+    service: prism

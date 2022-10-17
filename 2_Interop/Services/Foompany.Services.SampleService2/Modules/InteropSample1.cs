@@ -43,10 +43,10 @@ namespace Foompany.Services.SampleService2.Modules
         [InteropBody]
         public models.MyDataModel.Response HybridAction3()
         {
-            if (Request is PhotonRestRequest)
-                return new models.MyDataModel.Response() { Result = $"I was called from REST!" };
-            else if (Request is PhotonInteropRequest)
-                return new models.MyDataModel.Response() { Result = $"I was called from Interop!" };
+            if (Request != null)
+                return new models.MyDataModel.Response() { Result = $"I was called from the outside world! (eg HTTP/REST)!" };
+            else if (InteropRequest != null)
+                return new models.MyDataModel.Response() { Result = $"I was called from Interop! (another internal service)" };
             else
                 throw new Exception("Unknown source");
         }

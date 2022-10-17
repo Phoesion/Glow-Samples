@@ -1,0 +1,83 @@
+version: "3.8"
+
+# Define services
+services:
+  kaleidoscope:
+    build: ./kaleidoscope
+    restart: unless-stopped
+    ports:
+      - "15010:15010"
+      - "15011:15011"
+    volumes:
+      - kaleidoscopeVol:/data
+    networks:
+      - backend
+    secrets:
+      - KALEIDOSCOPE_EntityAuthKey
+
+  lighthouse:
+    build: ./lighthouse
+    restart: unless-stopped
+    ports:
+      - "15000:15000"
+    volumes:
+      - lighthouseVol:/data
+    networks:
+      - backend
+    depends_on:
+      - kaleidoscope
+    secrets:
+      - LIGHTHOUSE_EntityAuthKey
+
+  prism:
+    build: ./prism
+    restart: unless-stopped
+    ports:
+      - "80:80"
+      - "443:443"
+      - "16000:16000"
+      - "16001:16001"
+    volumes:
+      - prismVol:/data
+    networks:
+      - backend
+    depends_on:
+      - kaleidoscope
+      - lighthouse
+    secrets:
+      - PRISM_EntityAuthKey
+
+  firefly:
+    build: ./firefly
+    restart: unless-stopped
+    volumes:
+      - fireflyVol:/data
+    networks:
+      - backend
+    depends_on:
+      - kaleidoscope
+      - lighthouse
+    secrets:
+      - FIREFLY_EntityAuthKey
+
+# Persistent volumes for entities
+volumes:
+  kaleidoscopeVol:
+  lighthouseVol:
+  prismVol:
+  fireflyVol:
+
+# Shared networks
+networks:
+  backend:
+
+# AuthKeys for sample. Replace with your own!
+secrets:
+  FIREFLY_EntityAuthKey:
+    file: ./firefly/EntityAuthKey.txt
+  PRISM_EntityAuthKey:
+    file: ./prism/EntityAuthKey.txt
+  LIGHTHOUSE_EntityAuthKey:
+    file: ./lighthouse/EntityAuthKey.txt
+  KALEIDOSCOPE_EntityAuthKey:
+    file: ./kaleidoscope/EntityAuthKey.txt

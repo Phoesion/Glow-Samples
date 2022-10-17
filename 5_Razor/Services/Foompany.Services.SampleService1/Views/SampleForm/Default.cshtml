@@ -1,4 +1,4 @@
-﻿@inherits Phoesion.Glow.SDK.Firefly.RazorPage
+@inherits Phoesion.Glow.SDK.Firefly.RazorPage<Foompany.Services.SampleService1.InputModels.UserInput>
 @{
     ViewData["Title"] = "Sample Form";
     Layout = "Layout";
@@ -9,10 +9,24 @@
 <br />
 
 <div>
-    <form method="post" action="~/SampleForm">
-        @Html.AntiForgeryToken()
-        <label for="fname">Username : </label>
-        <input type="text" id="username" name="username" value="John">
-        <input type="submit" value="Submit">
-    </form>
+
+	@if(!ModelState.IsValid)
+	{
+		<div>Error summary : </div>
+		@foreach (var error in ModelState.Errors)
+		{
+			<div style="color:red;" >@error.Message</div>
+		}
+		<br />
+	}
+
+	<br />
+
+	<form method="post" action="~/SampleForm">
+		@Html.AntiForgeryToken()
+		<label for="fname">Username : </label>
+		<input type="text" id="username" name="username" value="John">
+		@Html.ValidationMessageFor(model => model.Username)
+		<input type="submit" value="Submit">
+	</form>
 </div>

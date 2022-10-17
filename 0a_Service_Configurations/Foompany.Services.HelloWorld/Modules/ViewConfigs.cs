@@ -23,6 +23,10 @@ namespace Foompany.Services.HelloWorld.Modules
         [Configuration]
         ContactInfoOptions ContactInfo { get; set; }
 
+        // Auto-bind configuration in module. (using a specific section name)
+        [Configuration(SectionName = "Other:AdminInfo")]
+        ContactInfoOptions ContactInfoInSubKey { get; set; }
+
         //----------------------------------------------------------------------------------------------------------------------------------------------
 
         [Action(Methods.GET)]
@@ -36,7 +40,9 @@ namespace Foompany.Services.HelloWorld.Modules
             return $"ValueFromAppSettings = {Configurations["ValueFromAppSettings"]} \r\n\r\n" +
                    $"Configs_MyKey2 = {Configurations["MyKey2"]} \r\n\r\n" +
                    $"ContactInfo.Name = {Configurations["ContactInfo:Name"]} \r\n\r\n" +
-                   $"ContactInfo.Email = {Configurations["ContactInfo:Email"]} \r\n\r\n";
+                   $"ContactInfo.Email = {Configurations["ContactInfo:Email"]} \r\n\r\n" +
+                   $"Other:ContactInfo.Name = {Configurations["Other:AdminInfo:Name"]} \r\n\r\n" +
+                   $"Other:ContactInfo.Email = {Configurations["Other:AdminInfo:Email"]} \r\n\r\n";
         }
 
         //----------------------------------------------------------------------------------------------------------------------------------------------
@@ -52,7 +58,8 @@ namespace Foompany.Services.HelloWorld.Modules
         public string FromAutoBind()
         {
             return $"ValueFromAppSettings = {ValueFromAppSettings} \r\n\r\n" +
-                   $"ContactInfo auto-bind = {ToJson(ContactInfo)} \r\n\r\n";
+                   $"ContactInfo auto-bind = {ToJson(ContactInfo)} \r\n\r\n" +
+                   $"Other:AdminInfo auto-bind = {ToJson(ContactInfoInSubKey)} \r\n\r\n";
         }
 
         //----------------------------------------------------------------------------------------------------------------------------------------------

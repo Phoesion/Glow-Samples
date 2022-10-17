@@ -36,10 +36,13 @@ namespace Foompany.Services.SampleService2.Modules
         //----------------------------------------------------------------------------------------------------------------------------------------------
 
         [ActionBody(Methods.GET)]
-        public void RedirectMe()
+        public void RedirectMe(string search = null)
         {
             //Apply redirect to REST-specific response
-            RestResponse.AsRedirect("https://www.google.com");
+            if (search == null)
+                RestResponse.AsRedirect($"https://www.google.com");
+            else
+                RestResponse.AsRedirect($"https://www.google.com/search?q={Uri.EscapeDataString(search)}");
         }
 
         //----------------------------------------------------------------------------------------------------------------------------------------------
@@ -61,8 +64,9 @@ namespace Foompany.Services.SampleService2.Modules
                 throw PhotonException.BadRequest.WithMessage("command value must be 'hi'");
                 //return BadRequest("command value must be 'hi'");  //<-- same as above, without throwing exception
             }
-            else
-                return "Hello!";
+
+            //all good
+            return "Hello!";
         }
 
         //----------------------------------------------------------------------------------------------------------------------------------------------

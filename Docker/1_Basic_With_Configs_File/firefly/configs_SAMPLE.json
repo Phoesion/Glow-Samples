@@ -1,0 +1,65 @@
+{
+    // Persistent data store path. Will store holograms and app executable/runtime/log data.
+    //"DataPath": "%Home%/.phoesion/glow/firefly",
+
+    // Path to save service persistent data storage path.
+    //"ServicePersistentDataDir": "%DataPath%/data/%QuantumSpace%/%Service%",
+
+    // Path to save log files
+    //"ServiceLogFilesDir": @"%DataPath%/logs/%QuantumSpace%/%Service%",
+
+    // Kaleidoscope connection string. "auto" enables auto-discovery services
+    //"KaleidoscopeConnectionString": "Host=auto",
+
+    // Key generated for Firefly entity to authenticate to broker (kaleidoscope).
+    //"EntityAuthKey": null,
+
+    // The tags for this entity
+    //"Tags": null,
+
+    // Setup any QuantumSpaces rules and options for this entity instance (leave null for default)
+    //"QuantumSpaces": null,
+    // Example :
+    /* "QuantumSpaces": {
+            // Setup default global rules
+            "*": {
+                "IsEnabled": false, // by-default disable all QuantumSpaces
+                //Setup docker options for all spaces
+                "DockerOptions" : {
+                    "CPU" : { "Min": 0.5, "Max": 1.5 }.
+                    "Memory" : { "Max":"500mb" },
+                    //"Arguments": "--gpus",  //set arbitrary arguments to docker
+                }
+            },
+            // Setup specific rules for QuantumSpace 'myQSpace1'
+            "myQSpace1": {
+                "IsEnabled": true, // enable this QuantumSpace
+                "ServiceGroups": [ "mygroup" ] //add this entity in service groups (useful for ephemeral entities)
+            },
+            // Get only a specific service from QuantumSpace 'myQSpace2' 
+            "myQSpace2": {
+                "Services": {
+                    // by-default disable all services in this space
+                    "*": {
+                        "IsEnabled": false,
+                    },
+                    //enable only this service
+                    "MyService": {
+                        "IsEnabled": true,
+                    }
+                }
+            }
+       },
+    */
+
+    // Set IsEphemeral true to enable a state-less operation mode, if you don't want to have a state-full persistent volume when running in a container.
+    //    In this case EntitySeed/EntityId will be generated on the fly and all files will be re-synced when service starts
+    //"IsEphemeral": false,
+
+    // EntityGroups to automatically register this entity, useful when entity is ephemeral (IsEphemeral=true) in containers. Leave null to register in Default Group (*) only.
+    //    * is the default group
+    //"EntityGroups": [ "*", "groupA", "myOtherGroup"  ],
+
+    // Log file backups to keep ( each file will be about 1mb )
+    //"LogFiles": 10,
+}

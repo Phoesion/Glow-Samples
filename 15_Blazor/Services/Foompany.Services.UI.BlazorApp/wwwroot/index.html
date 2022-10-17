@@ -4,11 +4,21 @@
 <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+    <meta name="description" content="My blazor wasm project">
+    <meta name="keywords" content="myproject, sample, wasm">
+    <meta name="author" content="My Name Or Company">
+
     <title>BlazorApp1</title>
-    <base href="/UI.BlazorApp/" /> <!-- Set service name as the base -->
+
+    <!-- Will be replaced by glow with proper service name as the base (during hologram build) -->
+    <!-- Using the default root path (without any service name) so it can also be used by aspcore WebAssembly.DevServer -->
+    <base href="/" />
+
     <link href="css/bootstrap/bootstrap.min.css" rel="stylesheet" />
     <link href="css/app.css" rel="stylesheet" />
+
     <link href="Foompany.Services.UI.BlazorApp.styles.css" rel="stylesheet" />
+
     <link href="manifest.json" rel="manifest" />
     <link rel="apple-touch-icon" sizes="512x512" href="icon-512.png" />
 </head>
@@ -21,6 +31,7 @@
         <a href="" class="reload">Reload</a>
         <a class="dismiss">🗙</a>
     </div>
+
     <script src="_framework/blazor.webassembly.js"></script>
     <!-- register worker 
     <script>navigator.serviceWorker.register('service-worker.js');</script>

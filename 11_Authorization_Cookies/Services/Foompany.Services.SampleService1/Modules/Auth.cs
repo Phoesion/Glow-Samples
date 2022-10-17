@@ -26,17 +26,17 @@ namespace Foompany.Services.SampleService1.Modules
         public async Task<HtmlString> Login(string ReturnUrl)
         {
             //return Login view
-            if (RestRequest.Method == Methods.GET)
+            if (Request.Method == Methods.GET)
                 return await View("Login", new
                 {
-                    HasError = RestRequest.Query.ContainsKey("error"),
+                    HasError = Request.Query.ContainsKey("error"),
                     ReturnUrl = ReturnUrl,
                 });
 
             //get params
-            var username = ((string)RestRequest.Form["username"])?.Trim();
-            var password = ((string)RestRequest.Form["password"])?.Trim();
-            var rememberMe = (string)RestRequest.Form["RememberMe"];
+            var username = ((string)Request.Form["username"])?.Trim();
+            var password = ((string)Request.Form["password"])?.Trim();
+            var rememberMe = (string)Request.Form["RememberMe"];
 
             //Actual authentication check
             if (!string.Equals(s_Username, username, StringComparison.OrdinalIgnoreCase) ||

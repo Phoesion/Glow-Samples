@@ -29,7 +29,7 @@ namespace Foompany.Services.AspCoreMvc.Controllers
 
             var client = new HttpClient();
             client.DefaultRequestHeaders.Authorization = new AuthenticationHeaderValue("Bearer", accessToken);
-            var result = await client.PostAsync("http://localhost:16000/SampleService1/SampleModule1/DoTheThing?input=SomeData", null);
+            var result = await client.PostAsync("http://localhost/SampleService1/SampleModule1/DoTheThing?input=SomeData", null);
             var content = await result.Content.ReadAsStringAsync();
 
             ViewBag.Json = content;

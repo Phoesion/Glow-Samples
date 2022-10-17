@@ -5,6 +5,7 @@
     {
       "IsEnabled": true,
       "CSProjectFile": "Services\\Foompany.Services.Backend\\Foompany.Services.Backend.csproj",
+      "IgnoreDeploymentVersion": false,
       "ServiceHost": "DotNet",
       "Containerization": "None",
       "ContainerOptions": {},
@@ -35,16 +36,18 @@
     {
       "IsEnabled": true,
       "CSProjectFile": "Services\\Foompany.Services.UI.BlazorApp\\Foompany.Services.UI.BlazorApp.csproj",
+      "IgnoreDeploymentVersion": false,
       "ServiceHost": "DotNet",
       "Containerization": "None",
       "ContainerOptions": {},
       "Builds": [
         {
           "Build": "AnyCpu",
-          "AssemblyFilePath": "Services\\Foompany.Services.UI.BlazorApp\\bin\\%BUILD%\\publish\\anycpu\\Foompany.Services.UI.BlazorApp.dll",
+          "AssemblyFilePath": "Services\\Foompany.Services.UI.BlazorApp\\bin\\%BUILD%\\publish\\browser-wasm\\Foompany.Services.UI.BlazorApp.dll",
           "BuildCommands": [
-            "dotnet publish --configuration %BUILD%  --runtime any --self-contained true -o \"bin\\%BUILD%\\publish\\anycpu\" \"$ProjectName$\"",
-            "glow_copy \"bin\\%BUILD%\\publish\\anycpu\\wwwroot\\_framework\\Foompany.Services.UI.BlazorApp.*\" \"bin\\%BUILD%\\publish\\anycpu\\\""
+            "dotnet publish --configuration %BUILD%  --runtime browser-wasm --self-contained true -o \"bin\\%BUILD%\\publish\\browser-wasm\" \"$ProjectFilePath$\"",
+            "glow_copy \"bin\\%BUILD%\\publish\\browser-wasm\\wwwroot\\_framework\\Foompany.Services.UI.BlazorApp.*\" \"bin\\%BUILD%\\publish\\browser-wasm\\\"",
+            "glow_fix_basehref \"bin\\%BUILD%\\publish\\browser-wasm\\wwwroot\\index.html\""
           ]
         }
       ]

@@ -1,5 +1,15 @@
 {
   "profiles": {
+    "Foompany.Services.UI.BlazorApp (WebAssembly DevServer)": {
+      "commandName": "Project",
+      "dotnetRunMessages": true,
+      "launchBrowser": true,
+      "inspectUri": "{wsProtocol}://{url.hostname}:{url.port}/_framework/debug/ws-proxy?browser={browserInspectUri}",
+      "applicationUrl": "http://localhost:5000;https://localhost:5001",
+      "environmentVariables": {
+        "ASPNETCORE_ENVIRONMENT": "Development"
+      }
+    },
     "Foompany.Services.UI.BlazorApp": {
       "commandName": "Executable",
       "executablePath": "Phoesion.Glow.Reactor.Debugger.exe",

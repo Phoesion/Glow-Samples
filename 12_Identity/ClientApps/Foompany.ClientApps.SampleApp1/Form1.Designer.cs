@@ -77,7 +77,7 @@
             this.txt_Hostname.Name = "txt_Hostname";
             this.txt_Hostname.Size = new System.Drawing.Size(152, 20);
             this.txt_Hostname.TabIndex = 4;
-            this.txt_Hostname.Text = "localhost:16000";
+            this.txt_Hostname.Text = "localhost";
             // 
             // Form1
             // 

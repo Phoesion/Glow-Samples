@@ -1,0 +1,36 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.3.32922.545
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution Items", "{02BB37FE-7DA3-4BDB-B751-E03A700E3E90}"
+	ProjectSection(SolutionItems) = preProject
+		Project.pgproject = Project.pgproject
+	EndProjectSection
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Foompany.Services.Example", "Foompany.Services.Example\Foompany.Services.Example.csproj", "{644AD8A6-D9A9-4C81-B8B1-0C43858AA7AF}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "StarWars", "StarWars\StarWars.csproj", "{08A8501E-7853-4B7B-BF8F-5B0E01A2D185}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{644AD8A6-D9A9-4C81-B8B1-0C43858AA7AF}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{644AD8A6-D9A9-4C81-B8B1-0C43858AA7AF}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{644AD8A6-D9A9-4C81-B8B1-0C43858AA7AF}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{644AD8A6-D9A9-4C81-B8B1-0C43858AA7AF}.Release|Any CPU.Build.0 = Release|Any CPU
+		{08A8501E-7853-4B7B-BF8F-5B0E01A2D185}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{08A8501E-7853-4B7B-BF8F-5B0E01A2D185}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{08A8501E-7853-4B7B-BF8F-5B0E01A2D185}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{08A8501E-7853-4B7B-BF8F-5B0E01A2D185}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {2196C506-F876-467B-9C1A-CE822F0A4AE8}
+	EndGlobalSection
+EndGlobal

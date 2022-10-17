@@ -45,8 +45,8 @@ namespace Foompany.Services.SampleService1.Modules
         public string Action2()
         {
             return $"Called Action2 from ip {Context.ConnectionInfo.RemoteIpAddress} " +
-                   $"with Path='{JoinStrings("/", RestRequest.Params)}' " +
-                   $"and QueryString='{string.Join("/", RestRequest.Query.Select(kv => kv.Key + "=" + kv.Value))}'";
+                   $"with Path='{JoinStrings("/", Request.Params)}' " +
+                   $"and QueryString='{string.Join("/", Request.Query.Select(kv => kv.Key + "=" + kv.Value))}'";
         }
 
         //----------------------------------------------------------------------------------------------------------------------------------------------

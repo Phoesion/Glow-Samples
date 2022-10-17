@@ -1,13 +1,24 @@
-﻿@inherits Phoesion.Glow.SDK.Firefly.RazorPage
+@inherits Phoesion.Glow.SDK.Firefly.RazorPage
 
 <!DOCTYPE html>
-
 <html lang="en" xmlns="http://www.w3.org/1999/xhtml">
+
 <head>
     <meta charset="utf-8" />
+
     <title>@ViewData["Title"]</title>
+
+	<style>
+		.input-validation-error
+		{
+			color:red;
+		}
+	</style>
+
 </head>
+
 <body>
     @RenderBody()
 </body>
+
 </html>

@@ -16,7 +16,7 @@ namespace Foompany.Services.API.Sessions
 
             //get session context
             string sessionIdCookie;
-            if (!ActionContext.RestRequest.GetCookieValue(CookieName, out sessionIdCookie))
+            if (!ActionContext.Request.GetCookieValue(CookieName, out sessionIdCookie))
                 return null;
             if (string.IsNullOrWhiteSpace(sessionIdCookie))
                 return null;
@@ -34,17 +34,17 @@ namespace Foompany.Services.API.Sessions
         public static async Task<bool> SaveSession<T>(this IActionContext ActionContext, T Session) where T : class, new()
         {
             //get photon contexts
-            if (ActionContext == null || ActionContext.RestResponse == null || ActionContext.Module == null)
+            if (ActionContext == null || ActionContext.Response == null || ActionContext.Module == null)
                 return false;
 
             //get session context
             string sessionIdCookie;
-            if (!ActionContext.RestRequest.GetCookieValue(CookieName, out sessionIdCookie) || string.IsNullOrWhiteSpace(sessionIdCookie))
+            if (!ActionContext.Request.GetCookieValue(CookieName, out sessionIdCookie) || string.IsNullOrWhiteSpace(sessionIdCookie))
             {
                 //create new session id
                 sessionIdCookie = Guid.NewGuid().ToString();
                 //set cookie
-                ActionContext.RestResponse.SetCookie(CookieName, sessionIdCookie);
+                ActionContext.Response.SetCookie(CookieName, sessionIdCookie);
             }
 
             //Serialize

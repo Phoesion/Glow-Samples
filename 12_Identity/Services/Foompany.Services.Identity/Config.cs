@@ -1,4 +1,4 @@
-﻿// Copyright (c) Brock Allen & Dominick Baier. All rights reserved.
+// Copyright (c) Brock Allen & Dominick Baier. All rights reserved.
 // Licensed under the Apache License, Version 2.0. See LICENSE in the project root for license information.
 
 
@@ -18,11 +18,16 @@ namespace Foompany.Services.Identity
                 new IdentityResources.Profile(),
             };
 
-
-        public static IEnumerable<ApiResource> Apis =>
+        public static IEnumerable<ApiResource> ApiResources =>
             new List<ApiResource>
             {
                 new ApiResource("api1", "My API")
+            };
+
+        public static IEnumerable<ApiScope> ApiScopes =>
+            new List<ApiScope>
+            {
+                new ApiScope("api1", "My API")
             };
 
         public static IEnumerable<Client> Clients =>
@@ -51,18 +56,14 @@ namespace Foompany.Services.Identity
                     // where to redirect to after login
                     RedirectUris =
                     {
-                        "http://localhost:16000/AspCoreMvc/signin-oidc",
                         "http://localhost/AspCoreMvc/signin-oidc",
-                        "http://localhost:16000/FireflyMvc/signin-oidc",
                         "http://localhost/FireflyMvc/signin-oidc",
                     },
 
                     // where to redirect to after logout
                     PostLogoutRedirectUris =
                     {
-                        "http://localhost:16000/AspCoreMvc/signout-callback-oidc",
                         "http://localhost/AspCoreMvc/signout-callback-oidc",
-                        "http://localhost:16000/FireflyMvc/signin-oidc",
                         "http://localhost/FireflyMvc/signin-oidc",
                     },
 
@@ -84,9 +85,29 @@ namespace Foompany.Services.Identity
                     RequirePkce = true,
                     RequireClientSecret = false,
 
-                    RedirectUris =           { "http://localhost:16000/JavaScriptClient/callback.html" },
-                    PostLogoutRedirectUris = { "http://localhost:16000/JavaScriptClient/index.html" },
-                    AllowedCorsOrigins =     { "http://localhost:16000" },
+                    RedirectUris =           { "http://localhost/JavaScriptClient/callback.html" },
+                    PostLogoutRedirectUris = { "http://localhost/JavaScriptClient/index.html" },
+                    AllowedCorsOrigins =     { "http://localhost" },
+
+                    AllowedScopes =
+                    {
+                        IdentityServerConstants.StandardScopes.OpenId,
+                        IdentityServerConstants.StandardScopes.Profile,
+                        "api1"
+                    }
+                },
+                // Blazor Client
+                new Client
+                {
+                    ClientId = "blazor",
+                    ClientName = "Blazor Client",
+                    AllowedGrantTypes = GrantTypes.Code,
+                    RequirePkce = true,
+                    RequireClientSecret = false,
+
+                    RedirectUris =           { "http://localhost/UI.BlazorApp/authentication/login-callback" },
+                    PostLogoutRedirectUris = { "http://localhost/UI.BlazorApp/authentication/logout-callback" },
+                    AllowedCorsOrigins =     { "http://localhost" },
 
                     AllowedScopes =
                     {

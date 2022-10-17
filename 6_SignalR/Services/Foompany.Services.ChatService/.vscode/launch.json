@@ -1,0 +1,32 @@
+{
+    "version": "0.2.0",
+    "configurations": [
+        {
+            "name": "Foompany.Services.ChatService",
+            "type": "coreclr",
+            "request": "launch",
+            "preLaunchTask": "build",
+            "program": "Phoesion.Glow.Reactor.Debugger.exe",
+            "args": [ 
+                "-QuantumSpace:Default",
+                "${workspaceFolder}/bin/Debug/net6.0/win-x64/Foompany.Services.ChatService.dll" 
+            ],
+            "cwd": "${workspaceFolder}",
+            "console": "integratedTerminal",
+            "stopAtEntry": false
+        },
+        {
+            "name": "Foompany.Services.ChatService (Remote Debugger)",
+            "type": "coreclr",
+            "request": "launch",
+            "preLaunchTask": "build",
+            "program": "Phoesion.Glow.Debugger.FireflySrv.exe",
+            "args": [
+                "${workspaceFolder}/bin/Debug/net6.0/win-x64/Foompany.Services.ChatService.dll" 
+            ],
+            "cwd": "${workspaceFolder}",
+            "console": "integratedTerminal",
+            "stopAtEntry": false
+        }
+    ]
+}
