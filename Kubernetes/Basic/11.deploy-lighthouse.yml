@@ -22,7 +22,13 @@ spec:
           ports:
             - containerPort: 15000
               protocol: TCP
-              name: lh-spchannel              
+              name: lh-spchannel
+            - containerPort: 15001
+              protocol: TCP
+              name: lh-webui
+            - containerPort: 15002
+              protocol: TCP
+              name: lh-webui2         
             - containerPort: 14000
               protocol: TCP
               name: p2p
@@ -77,5 +83,15 @@ spec:
       targetPort: lh-spchannel
       protocol: TCP
       name: lh-spchannel
+    # Lighthouse WebUI port (http)
+    - port: 15001
+      name: lh-webui
+      targetPort: lh-webui
+      protocol: TCP
+    # Lighthouse WebUI port (https)
+    - port: 15002
+      name: lh-webui2
+      targetPort: lh-webui2
+      protocol: TCP
   selector:
     service: lighthouse

@@ -1,14 +1,13 @@
 {
-  "profiles": {
-    "Foompany.Services.EmailService (Local)": {
-      "commandName": "Executable",
-      "executablePath": "Phoesion.Glow.Reactor.Debugger.exe",
-      "commandLineArgs": "-QuantumSpace:Default \"$(TargetPath)\""
-    },
-    "Foompany.Services.EmailService (Remote Debugger)": {
-      "commandName": "Executable",
-      "executablePath": "Phoesion.Glow.Debugger.FireflySrv.exe",
-      "commandLineArgs": "\"$(TargetPath)\""
+    "profiles": {
+        "Foompany.Services.EmailService": {
+            "commandName": "Project",
+            "commandLineArgs": "-QuantumSpace:Default"
+        },
+        "Foompany.Services.EmailService (External Debugger)": {
+            "commandName": "Executable",
+            "executablePath": "Phoesion.Glow.Reactor.Debugger.exe",
+            "commandLineArgs": "-QuantumSpace:Default \"$(TargetPath)\""
+        }
     }
-  }
 }

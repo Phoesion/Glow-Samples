@@ -1,14 +1,13 @@
 {
-  "profiles": {
-    "Foompany.Services.ChatService (Local)": {
-      "commandName": "Executable",
-      "executablePath": "Phoesion.Glow.Reactor.Debugger.exe",
-      "commandLineArgs": "-QuantumSpace:Default \"$(TargetPath)\""
-    },
-    "Foompany.Services.ChatService (Remote Debugger)": {
-      "commandName": "Executable",
-      "executablePath": "Phoesion.Glow.Debugger.FireflySrv.exe",
-      "commandLineArgs": "\"$(TargetPath)\""
+    "profiles": {
+        "Foompany.Services.ChatService": {
+            "commandName": "Project",
+            "commandLineArgs": "-QuantumSpace:Default"
+        },
+        "Foompany.Services.ChatService (External Debugger)": {
+            "commandName": "Executable",
+            "executablePath": "Phoesion.Glow.Reactor.Debugger.exe",
+            "commandLineArgs": "-QuantumSpace:Default \"$(TargetPath)\""
+        }
     }
-  }
 }

@@ -4,7 +4,6 @@
         <TargetFramework>net6.0</TargetFramework>
         <NoWarn>1701;1702;1998</NoWarn>
         <CopyLocalLockFileAssemblies>true</CopyLocalLockFileAssemblies>
-        <RuntimeIdentifier>win-x64</RuntimeIdentifier>
     </PropertyGroup>
 
     <ItemGroup>
@@ -19,9 +18,11 @@
 
     
     <ItemGroup>
-        <PackageReference Include="Phoesion.Glow.SDK.Firefly" Version="0.0.303" />
-        <PackageReference Include="Phoesion.Glow.SDK.Authorization" Version="0.0.303" />
-        <PackageReference Include="Phoesion.Glow.SDK.Authentication" Version="0.0.303" />
+        <PackageReference Include="Phoesion.Glow.SDK.ReactorDebugger" Version="0.0.304" Condition="'$(GlowPublishing)'!='true'"/>
+        <PackageReference Include="Phoesion.Glow.SDK.Authorization" Version="0.0.304" />
+        <PackageReference Include="Phoesion.Glow.SDK.Authentication" Version="0.0.304" />
+        <PackageReference Include="Phoesion.Glow.SDK.Firefly" Version="0.0.304" />
+        <PackageReference Include="Phoesion.Glow.SDK.Firefly.SrvHost.DotNet.AppHost" Version="0.0.304"/>
     </ItemGroup>
     
 

@@ -1,16 +1,13 @@
 {
     "profiles": {
         "Foompany.Services.Backend": {
+            "commandName": "Project",
+            "commandLineArgs": "-QuantumSpace:Default"
+        },
+        "Foompany.Services.Backend (External Debugger)": {
             "commandName": "Executable",
             "executablePath": "Phoesion.Glow.Reactor.Debugger.exe",
-            "commandLineArgs": "-QuantumSpace:Default \"$(TargetPath)\"",
-            "applicationUrl": "http://localhost:16000"
-        },
-        "Foompany.Services.Backend (Remote Debugger)": {
-            "commandName": "Executable",
-            "executablePath": "Phoesion.Glow.Debugger.FireflySrv.exe",
-            "commandLineArgs": "\"$(TargetPath)\"",
-            "applicationUrl": "http://localhost:16000"
+            "commandLineArgs": "-QuantumSpace:Default \"$(TargetPath)\""
         }
     }
 }

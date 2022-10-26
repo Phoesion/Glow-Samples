@@ -1,14 +1,13 @@
 {
-  "profiles": {
-    "Foompany.Services.BookStore (Local)": {
-      "commandName": "Executable",
-      "executablePath": "Phoesion.Glow.Reactor.Debugger.exe",
-      "commandLineArgs": "-QuantumSpace:Default \"$(TargetPath)\""
-    },
-    "Foompany.Services.BookStore (Remote Debugger)": {
-      "commandName": "Executable",
-      "executablePath": "Phoesion.Glow.Debugger.FireflySrv.exe",
-      "commandLineArgs": "\"$(TargetPath)\""
+    "profiles": {
+        "Foompany.Services.BookStore": {
+            "commandName": "Project",
+            "commandLineArgs": "-QuantumSpace:Default"
+        },
+        "Foompany.Services.BookStore (External Debugger)": {
+            "commandName": "Executable",
+            "executablePath": "Phoesion.Glow.Reactor.Debugger.exe",
+            "commandLineArgs": "-QuantumSpace:Default \"$(TargetPath)\""
+        }
     }
-  }
 }

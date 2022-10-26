@@ -1,14 +1,13 @@
 {
-  "profiles": {
-    "Foompany.Services.JavaScriptClient (Local)": {
-      "commandName": "Executable",
-      "executablePath": "Phoesion.Glow.Reactor.Debugger.exe",
-      "commandLineArgs": "-QuantumSpace:Default \"$(TargetPath)\""
-    },
-    "Foompany.Services.JavaScriptClient (Remote Debugger)": {
-      "commandName": "Executable",
-      "executablePath": "Phoesion.Glow.Debugger.FireflySrv.exe",
-      "commandLineArgs": "\"$(TargetPath)\""
+    "profiles": {
+        "Foompany.Services.JavaScriptClient": {
+            "commandName": "Project",
+            "commandLineArgs": "-QuantumSpace:Default"
+        },
+        "Foompany.Services.JavaScriptClient (External Debugger)": {
+            "commandName": "Executable",
+            "executablePath": "Phoesion.Glow.Reactor.Debugger.exe",
+            "commandLineArgs": "-QuantumSpace:Default \"$(TargetPath)\""
+        }
     }
-  }
 }

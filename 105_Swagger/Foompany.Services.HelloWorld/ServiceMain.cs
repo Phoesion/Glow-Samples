@@ -8,6 +8,8 @@ using Phoesion.Glow.SDK;
 using Phoesion.Glow.SDK.Firefly;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.Builder;
+using System.IO;
+using System.Reflection;
 
 namespace Foompany.Services.HelloWorld
 {
@@ -17,7 +19,15 @@ namespace Foompany.Services.HelloWorld
         protected override void ConfigureServices(IServiceCollection services)
         {
             // Register the Swagger generator
-            services.AddSwaggerGen(config => config.CustomSchemaIds(x => x.FullName));
+            services.AddSwaggerGen(options =>
+            {
+                //full name schemas (to avoid conflicts)
+                options.CustomSchemaIds(x => x.FullName);
+
+                //use documentation xml
+                var xmlFilename = $"{typeof(ServiceMain).Assembly.GetName().Name}.xml";
+                options.IncludeXmlComments(xmlFilename);
+            });
         }
 
         protected override void Configure(IGlowApplicationBuilder app)

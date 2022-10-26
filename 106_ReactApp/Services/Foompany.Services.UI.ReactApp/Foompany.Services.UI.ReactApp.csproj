@@ -2,8 +2,6 @@
 
     <PropertyGroup>
         <TargetFramework>net6.0</TargetFramework>
-        <RuntimeIdentifier>win-x64</RuntimeIdentifier>
-        <RuntimeIdentifiers>win-x64;win-x86;linux-x64</RuntimeIdentifiers>
         <SpaRoot>app</SpaRoot>
         <DefaultItemExcludes>$(DefaultItemExcludes);$(SpaRoot)node_modules\**</DefaultItemExcludes>
     </PropertyGroup>
@@ -13,7 +11,7 @@
 
     
     <ItemGroup>
-        <PackageReference Include="Phoesion.Glow.SDK.Firefly.StaticFileService" Version="0.0.303" />
+        <PackageReference Include="Phoesion.Glow.SDK.Firefly.StaticFileService" Version="0.0.304" />
     </ItemGroup>
     
 

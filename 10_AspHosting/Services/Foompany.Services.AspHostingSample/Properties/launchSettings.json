@@ -1,16 +1,15 @@
 {
-  "profiles": {
-    "Foompany.Services.AspHostingSample (Local)": {
-      "commandName": "Executable",
-      "executablePath": "Phoesion.Glow.Reactor.Debugger.exe",
-      "commandLineArgs": "-QuantumSpace:Default \"$(TargetPath)\"",
-	  "applicationUrl": "http://localhost:16000",
-    },
-    "Foompany.Services.AspHostingSample (Remote Debugger)": {
-      "commandName": "Executable",
-      "executablePath": "Phoesion.Glow.Debugger.FireflySrv.exe",
-      "commandLineArgs": "\"$(TargetPath)\"",
-	  "applicationUrl": "http://localhost:16000",
+    "profiles": {
+        "Foompany.Services.AspHostingSample": {
+            "commandName": "Project",
+            "commandLineArgs": "-QuantumSpace:Default",
+            "applicationUrl": "http://localhost:16000"
+        },
+        "Foompany.Services.AspHostingSample (External Debugger)": {
+            "commandName": "Executable",
+            "executablePath": "Phoesion.Glow.Reactor.Debugger.exe",
+            "commandLineArgs": "-QuantumSpace:Default \"$(TargetPath)\"",
+            "applicationUrl": "http://localhost:16000"
+        }
     }
-  }
 }

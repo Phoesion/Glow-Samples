@@ -10,21 +10,21 @@
           "Build": "AnyCpu",
           "AssemblyFilePath": "Services\\Foompany.Services.MyGame\\bin\\%BUILD%\\publish\\anycpu\\Foompany.Services.MyGame.dll",
           "BuildCommands": [
-            "dotnet publish --configuration %BUILD% --runtime any --no-self-contained -o \"bin\\%BUILD%\\publish\\anycpu\""
+            "dotnet publish --configuration %BUILD% --no-self-contained -p:GlowPublishing=true -o \"bin\\%BUILD%\\publish\\anycpu\""
           ]
         },
         {
           "Build": "Win_x64",
           "AssemblyFilePath": "Services\\Foompany.Services.MyGame\\bin\\%BUILD%\\publish\\win-x64\\Foompany.Services.MyGame.dll",
           "BuildCommands": [
-            "dotnet publish --configuration %BUILD% --runtime win-x64 --no-self-contained -o \"bin\\%BUILD%\\publish\\win-x64\""
+            "dotnet publish --configuration %BUILD% --runtime win-x64 --no-self-contained -p:GlowPublishing=true -o \"bin\\%BUILD%\\publish\\win-x64\""
           ]
         },
         {
           "Build": "Linux_x64",
           "AssemblyFilePath": "Services\\Foompany.Services.MyGame\\bin\\%BUILD%\\publish\\linux-x64\\Foompany.Services.MyGame.dll",
           "BuildCommands": [
-            "dotnet publish --configuration %BUILD% --runtime linux-x64 --no-self-contained -o \"bin\\%BUILD%\\publish\\linux-x64\""
+            "dotnet publish --configuration %BUILD% --runtime linux-x64 --no-self-contained -p:GlowPublishing=true -o \"bin\\%BUILD%\\publish\\linux-x64\""
           ]
         }
       ]
@@ -38,21 +38,21 @@
           "Build": "AnyCpu",
           "AssemblyFilePath": "Services\\Foompany.Services.SampleService1\\bin\\%BUILD%\\publish\\anycpu\\Foompany.Services.SampleService1.dll",
           "BuildCommands": [
-            "dotnet publish --configuration %BUILD% --runtime any --no-self-contained -o \"bin\\%BUILD%\\publish\\anycpu\""
+            "dotnet publish --configuration %BUILD% --no-self-contained -p:GlowPublishing=true -o \"bin\\%BUILD%\\publish\\anycpu\""
           ]
         },
         {
           "Build": "Win_x64",
           "AssemblyFilePath": "Services\\Foompany.Services.SampleService1\\bin\\%BUILD%\\publish\\win-x64\\Foompany.Services.SampleService1.dll",
           "BuildCommands": [
-            "dotnet publish --configuration %BUILD% --runtime win-x64 --no-self-contained -o \"bin\\%BUILD%\\publish\\win-x64\""
+            "dotnet publish --configuration %BUILD% --runtime win-x64 --no-self-contained -p:GlowPublishing=true -o \"bin\\%BUILD%\\publish\\win-x64\""
           ]
         },
         {
           "Build": "Linux_x64",
           "AssemblyFilePath": "Services\\Foompany.Services.SampleService1\\bin\\%BUILD%\\publish\\linux-x64\\Foompany.Services.SampleService1.dll",
           "BuildCommands": [
-            "dotnet publish --configuration %BUILD% --runtime linux-x64 --no-self-contained -o \"bin\\%BUILD%\\publish\\linux-x64\""
+            "dotnet publish --configuration %BUILD% --runtime linux-x64 --no-self-contained -p:GlowPublishing=true -o \"bin\\%BUILD%\\publish\\linux-x64\""
           ]
         }
       ]

@@ -12,21 +12,21 @@
           "Build": "AnyCpu",
           "AssemblyFilePath": "Foompany.Services.BookStore\\bin\\%BUILD%\\publish\\anycpu\\Foompany.Services.BookStore.dll",
           "BuildCommands": [
-            "dotnet publish --configuration %BUILD% --runtime any --no-self-contained -o \"bin\\%BUILD%\\publish\\anycpu\""
+            "dotnet publish --configuration %BUILD% --no-self-contained -p:GlowPublishing=true -o \"bin\\%BUILD%\\publish\\anycpu\""
           ]
         },
         {
           "Build": "Win_x64",
           "AssemblyFilePath": "Foompany.Services.BookStore\\bin\\%BUILD%\\publish\\win-x64\\Foompany.Services.BookStore.dll",
           "BuildCommands": [
-            "dotnet publish --configuration %BUILD% --runtime win-x64 --no-self-contained -o \"bin\\%BUILD%\\publish\\win-x64\""
+            "dotnet publish --configuration %BUILD% --runtime win-x64 --no-self-contained -p:GlowPublishing=true -o \"bin\\%BUILD%\\publish\\win-x64\""
           ]
         },
         {
           "Build": "Linux_x64",
           "AssemblyFilePath": "Foompany.Services.BookStore\\bin\\%BUILD%\\publish\\linux-x64\\Foompany.Services.BookStore.dll",
           "BuildCommands": [
-            "dotnet publish --configuration %BUILD% --runtime linux-x64 --no-self-contained -o \"bin\\%BUILD%\\publish\\linux-x64\""
+            "dotnet publish --configuration %BUILD% --runtime linux-x64 --no-self-contained -p:GlowPublishing=true -o \"bin\\%BUILD%\\publish\\linux-x64\""
           ]
         }
       ]

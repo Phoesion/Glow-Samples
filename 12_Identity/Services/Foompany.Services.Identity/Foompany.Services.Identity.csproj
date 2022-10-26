@@ -1,7 +1,6 @@
 <Project Sdk="Microsoft.NET.Sdk.Web">
 
     <PropertyGroup>
-        <OutputType>Library</OutputType>
         <TargetFramework>net6.0</TargetFramework>
         <CopyLocalLockFileAssemblies>true</CopyLocalLockFileAssemblies>
     </PropertyGroup>
@@ -24,8 +23,10 @@
 
     
     <ItemGroup>
-        <PackageReference Include="Phoesion.Glow.SDK.Firefly" Version="0.0.303" />
-        <PackageReference Include="Phoesion.Glow.SDK.Firefly.AspHost" Version="0.0.303" />
+        <PackageReference Include="Phoesion.Glow.SDK.Firefly" Version="0.0.304" />        
+        <PackageReference Include="Phoesion.Glow.SDK.Firefly.AspHost" Version="0.0.304" />
+        <PackageReference Include="Phoesion.Glow.SDK.Firefly.SrvHost.DotNet.AppHost" Version="0.0.304"/>
+        <PackageReference Include="Phoesion.Glow.SDK.ReactorDebugger" Version="0.0.304" Condition="'$(GlowPublishing)'!='true'"/>
     </ItemGroup>
     
 
