@@ -19,7 +19,7 @@ spec:
       serviceAccountName: glow-operator
       containers:
         - name: firefly-operator
-          image: phoesion/firefly.k8s.operator
+          image: phoesion/phoesion.glow.firefly.k8s.operator
           env:
             - name: POD_NAMESPACE
               valueFrom:

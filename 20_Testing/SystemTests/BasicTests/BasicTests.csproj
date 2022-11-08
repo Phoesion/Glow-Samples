@@ -9,7 +9,7 @@
     <ItemGroup>
         <PackageReference Include="Microsoft.NET.Test.Sdk" Version="17.3.2" />
         <PackageReference Include="nunit" Version="3.13.3" />
-        <PackageReference Include="NUnit3TestAdapter" Version="4.2.1">
+        <PackageReference Include="NUnit3TestAdapter" Version="4.3.0">
             <PrivateAssets>all</PrivateAssets>
             <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
         </PackageReference>
@@ -24,8 +24,8 @@
 
     
     <ItemGroup>
-        <PackageReference Include="Phoesion.Glow.SDK.Testing" Version="0.0.304" />
-        <PackageReference Include="Phoesion.Glow.SDK.Client.REST" Version="0.0.304" />
+        <PackageReference Include="Phoesion.Glow.SDK.Testing" Version="0.1.0-preview2" />
+        <PackageReference Include="Phoesion.Glow.SDK.Client.REST" Version="0.1.0-preview2" />
     </ItemGroup>
     
 

@@ -26,6 +26,14 @@ rules:
   - configmaps
   verbs:
   - '*'
+- apiGroups:
+  - ""
+  resources:
+  - pods
+  - pods/log
+  - pods/exec
+  verbs:
+  - '*'
 
 ---
 

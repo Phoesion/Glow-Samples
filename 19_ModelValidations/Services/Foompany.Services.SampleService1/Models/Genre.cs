@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 using System.Text;
@@ -9,5 +9,7 @@ namespace Foompany.Services.SampleService1.Models
     {
         None = 0,
         Classic = 1,
+        Romantic = 2,
+        Scifi = 3,
     }
 }

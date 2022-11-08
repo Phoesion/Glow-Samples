@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 using System.Text;
@@ -19,7 +19,7 @@ namespace Foompany.Services.SampleService1.Models
     ///            
     ///     - For custom validation you can use the IValidatableObject interface, or IValidatableObjectAsync if validation will have IO operations (eg. querying a database)
     /// </summary>
-    public class Movie
+    public class Movie : IValidatableObject
     {
         public int Id { get; set; }
 
@@ -42,5 +42,12 @@ namespace Foompany.Services.SampleService1.Models
         public Genre Genre { get; set; }
 
         public bool Preorder { get; set; }
+
+
+        public IEnumerable<ValidationResult> Validate(ValidationContext validationContext)
+        {
+            if (Preorder && Genre == Genre.None)
+                yield return new ValidationResult("You can only pre-order for specific Genre");
+        }
     }
 }
