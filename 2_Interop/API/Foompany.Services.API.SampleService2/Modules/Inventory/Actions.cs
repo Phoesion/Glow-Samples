@@ -7,12 +7,12 @@ using System.Threading.Tasks;
 
 namespace Foompany.Services.API.SampleService2.Modules.Inventory
 {
-    public static class Actions
+    public interface Actions
     {
         [Action(Methods.GET), Interop]
-        public static IEnumerable<Models.Book> GetBooks() => default;
+        static IEnumerable<Models.Book> GetBooks() => default;
 
         [Action(Methods.GET), Interop]
-        public static IQueryable<Models.Book> GetBooksFromDB() => default;
+        static IQueryable<Models.Book> GetBooksFromDB() => default;
     }
 }

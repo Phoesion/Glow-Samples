@@ -5,7 +5,7 @@ using Phoesion.Glow.SDK.Firefly;
 
 namespace Foompany.Services.Backend.API.Modules
 {
-    public static class WeatherForecast
+    public abstract class WeatherForecast
     {
         [Action(Methods.GET)]
         public static API.Dto.WeatherForecast GetTodayForecast() => default;

@@ -9,7 +9,7 @@
             "program": "Phoesion.Glow.Reactor.Debugger.exe",
             "args": [ 
                 "-QuantumSpace:Default",
-                "${workspaceFolder}/bin/Debug/net6.0/win-x64/Foompany.Services.HelloWorld.dll" 
+                "${workspaceFolder}/bin/Debug/net7.0/win-x64/Foompany.Services.HelloWorld.dll" 
             ],
             "cwd": "${workspaceFolder}",
             "console": "integratedTerminal",
@@ -22,7 +22,7 @@
             "preLaunchTask": "build",
             "program": "Phoesion.Glow.Debugger.FireflySrv.exe",
             "args": [
-                "${workspaceFolder}/bin/Debug/net6.0/win-x64/Foompany.Services.HelloWorld.dll" 
+                "${workspaceFolder}/bin/Debug/net7.0/win-x64/Foompany.Services.HelloWorld.dll" 
             ],
             "cwd": "${workspaceFolder}",
             "console": "integratedTerminal",

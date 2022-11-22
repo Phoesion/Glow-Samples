@@ -12,7 +12,7 @@ namespace Foompany.Services.SampleService2.Modules
     /*
      * Sample module that returns an IEnumerable<> and an IQueryable<> that can be further filtered by the other services
      */
-    [API(typeof(api.Modules.Inventory.Actions))]
+    [API<api.Modules.Inventory.Actions>]
     public class Inventory : FireflyModule
     {
         [Autowire]

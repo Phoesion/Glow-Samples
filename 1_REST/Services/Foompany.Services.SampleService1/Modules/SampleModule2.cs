@@ -5,7 +5,7 @@ using models = Foompany.Services.API.SampleService1.Modules.SampleModule2.Models
 
 namespace Foompany.Services.SampleService1.Modules
 {
-    [API(typeof(API.SampleService1.Modules.SampleModule2.Actions))]
+    [API<API.SampleService1.Modules.SampleModule2.Actions>]
     public class SampleModule2 : Phoesion.Glow.SDK.Firefly.FireflyModule
     {
         //----------------------------------------------------------------------------------------------------------------------------------------------

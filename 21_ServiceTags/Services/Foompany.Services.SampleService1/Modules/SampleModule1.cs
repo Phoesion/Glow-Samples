@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace Foompany.Services.SampleService1.Modules
 {
-    [API(typeof(API.SampleService1.Modules.SampleModule1.Actions))]
+    [API<API.SampleService1.Modules.SampleModule1.Actions>]
     public class SampleModule1 : Phoesion.Glow.SDK.Firefly.FireflyModule
     {
         //----------------------------------------------------------------------------------------------------------------------------------------------

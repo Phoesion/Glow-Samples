@@ -12,35 +12,35 @@ namespace Foompany.Services.API.SampleService2.Modules.InteropSample1
      * Do not write any code in this module, static functions in this module will NEVER be called.
      * They are used only as prototypes to declare the api.
      */
-    public abstract class Actions
+    public interface Actions
     {
         [Interop]
-        public static string InteropAction1(DataModels.MyDataModel.Request req) => null;
+        static string InteropAction1(DataModels.MyDataModel.Request req) => null;
 
         [Interop]
-        public static string InteropAction2(string firstname, string surname) => null;
+        static string InteropAction2(string firstname, string surname) => null;
 
         [Action(Methods.GET)]
         [Interop]
-        public static DataModels.MyDataModel.Response HybridAction3() => null;
+        static DataModels.MyDataModel.Response HybridAction3() => null;
 
         [Interop]
-        public static string InteropAction4() => null;
+        static string InteropAction4() => null;
 
         [Action(Methods.GET | Methods.POST)]
         [Interop]
-        public static string HybridAction5([Required, FromBody] IList<string> data) => null;
+        static string HybridAction5([Required, FromBody] IList<string> data) => null;
 
         [Interop]
-        public static string ExceptionSample() => null;
+        static string ExceptionSample() => null;
 
         [Interop]
-        public static Stream StreamingSample() => null;
+        static Stream StreamingSample() => null;
 
         [Interop]
-        public static IAsyncEnumerable<DataModels.MyDataModel.Response> AsyncEnumerableSample() => null;
+        static IAsyncEnumerable<DataModels.MyDataModel.Response> AsyncEnumerableSample() => null;
 
         [Interop]
-        public static string CancellableSample(string input) => null;
+        static string CancellableSample(string input) => null;
     }
 }

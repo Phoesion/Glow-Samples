@@ -9,7 +9,7 @@ using Foompany.Services.API.MyGame;
 
 namespace Foompany.Services.MyGame.Modules
 {
-    [API(typeof(API.MyGame.Modules.GameRooms.Actions))]
+    [API<API.MyGame.Modules.GameRooms.Actions>]
     public class GameRooms : FireflyModule
     {
         //----------------------------------------------------------------------------------------------------------------------------------------------

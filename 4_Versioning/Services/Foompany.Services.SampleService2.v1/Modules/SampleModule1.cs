@@ -1,10 +1,10 @@
-﻿using Phoesion.Glow.SDK;
+using Phoesion.Glow.SDK;
 using Phoesion.Glow.SDK.Firefly;
 
 
 namespace Foompany.Services.SampleService2.v1.Modules
 {
-    [API(typeof(API.SampleService2.v1.Modules.SampleModule1.Actions))]
+    [API<API.SampleService2.v1.Modules.SampleModule1.Actions>]
     public class SampleModule1 : Phoesion.Glow.SDK.Firefly.FireflyModule
     {
         //----------------------------------------------------------------------------------------------------------------------------------------------
@@ -21,6 +21,14 @@ namespace Foompany.Services.SampleService2.v1.Modules
         public string Action1()
         {
             return "Hello from SampleService2 v1";
+        }
+
+        //----------------------------------------------------------------------------------------------------------------------------------------------
+
+        [ActionBody(Methods.GET)]
+        public string Action2(string name)
+        {
+            return $"Hello from SampleService2 v1, you name is name={name}";
         }
 
         //----------------------------------------------------------------------------------------------------------------------------------------------

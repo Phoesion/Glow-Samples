@@ -43,7 +43,7 @@ namespace BasicTests
 
         //helper method to build assembly file path
         static string buildFilePath(string asmName)
-            => Path.Combine("..", "..", "..", "..", "..", "Services", asmName, "bin", "Debug", "net6.0", $"{asmName}.dll");
-        //     plain-text path : "..\..\..\..\..\Services\{asmName}\bin\Debug\net6.0\{asmName}.dll"
+            => Path.Combine("..", "..", "..", "..", "..", "Services", asmName, "bin", "Debug", "net7.0", $"{asmName}.dll");
+        //     plain-text path : "..\..\..\..\..\Services\{asmName}\bin\Debug\net7.0\{asmName}.dll"
     }
 }

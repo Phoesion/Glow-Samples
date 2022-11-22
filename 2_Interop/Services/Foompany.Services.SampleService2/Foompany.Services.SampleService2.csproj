@@ -1,12 +1,12 @@
 <Project Sdk="Microsoft.NET.Sdk">
 
     <PropertyGroup>
-        <TargetFramework>net6.0</TargetFramework>
+        <TargetFramework>net7.0</TargetFramework>
         <NoWarn>1701;1702;1998</NoWarn>
     </PropertyGroup>
 
     <ItemGroup>
-        <PackageReference Include="Microsoft.EntityFrameworkCore.InMemory" Version="6.0.10" />
+        <PackageReference Include="Microsoft.EntityFrameworkCore.InMemory" Version="7.0.0" />
     </ItemGroup>
 
     <ItemGroup>
@@ -17,9 +17,9 @@
 
     
     <ItemGroup>
-        <PackageReference Include="Phoesion.Glow.SDK.Firefly" Version="0.1.0-preview2" />
-        <PackageReference Include="Phoesion.Glow.SDK.Firefly.SrvHost.DotNet.AppHost" Version="0.1.0-preview2"/>
-        <PackageReference Include="Phoesion.Glow.SDK.ReactorDebugger" Version="0.1.0-preview2" Condition="'$(GlowPublishing)'!='true'"/>
+        <PackageReference Include="Phoesion.Glow.SDK.Firefly" Version="0.2.0-preview4" />
+        <PackageReference Include="Phoesion.Glow.SDK.Firefly.SrvHost.DotNet.AppHost" Version="0.2.0-preview4"/>
+        <PackageReference Include="Phoesion.Glow.SDK.ReactorDebugger" Version="0.2.0-preview4" Condition="'$(GlowPublishing)'!='true'"/>
     </ItemGroup>
     
 

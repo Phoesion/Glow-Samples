@@ -10,6 +10,7 @@ using Microsoft.Extensions.Logging;
 using Phoesion.Glow.SDK.Client.REST;
 using Phoesion.Glow.SDK.Client.Logging;
 using Microsoft.Extensions.Logging;
+using Microsoft.AspNetCore.Components.Web;
 
 namespace Foompany.Services.UI.BlazorApp
 {
@@ -24,6 +25,7 @@ namespace Foompany.Services.UI.BlazorApp
 
             //create app
             builder.RootComponents.Add<App>("#app");
+            builder.RootComponents.Add<HeadOutlet>("head::after");
 
             //add logging configuration
             builder.Logging.AddConfiguration(builder.Configuration.GetSection("Logging"));

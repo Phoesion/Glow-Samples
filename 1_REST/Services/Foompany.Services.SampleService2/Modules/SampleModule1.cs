@@ -8,7 +8,7 @@ using System.Threading.Tasks;
 
 namespace Foompany.Services.SampleService2.Modules
 {
-    [API(typeof(API.SampleService2.Modules.SampleModule1.Actions))]
+    [API<API.SampleService2.Modules.SampleModule1.Actions>]
     public class SampleModule1 : Phoesion.Glow.SDK.Firefly.FireflyModule
     {
         //----------------------------------------------------------------------------------------------------------------------------------------------
@@ -31,6 +31,14 @@ namespace Foompany.Services.SampleService2.Modules
         {
             return $"This is Service2! Called Action1 of SampleModule1 \n" +
                    $"File contents are : {File.ReadAllText(Path.Combine("OtherFiles", "SomeFile.txt"))}";
+        }
+
+        //----------------------------------------------------------------------------------------------------------------------------------------------
+
+        [ActionBody(Methods.GET)]
+        public string ByteArrayParameter(string arg1, byte[] buf)   // <-- byte[] will be binded/decoded from base64
+        {
+            return $"Called ByteArrayParameter with arg1={arg1} and buf[]=({(buf == null ? "[null]" : string.Join(",", buf))})";
         }
 
         //----------------------------------------------------------------------------------------------------------------------------------------------

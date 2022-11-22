@@ -1,4 +1,4 @@
-﻿using Microsoft.IdentityModel.Tokens;
+using Microsoft.IdentityModel.Tokens;
 using Phoesion.Glow.SDK;
 using Phoesion.Glow.SDK.Firefly;
 using System;
@@ -10,7 +10,7 @@ using Configs = Foompany.Middleware.Authorization.Constants;
 
 namespace Foompany.Services.SampleService1.Modules
 {
-    [API(typeof(API.Authorization.Modules.TokenGenerator.Actions))]
+    [API<API.Authorization.Modules.TokenGenerator.Actions>]
     public class TokenGenerator : FireflyModule
     {
         //----------------------------------------------------------------------------------------------------------------------------------------------

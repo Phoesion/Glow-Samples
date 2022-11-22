@@ -14,6 +14,9 @@ namespace Foompany.Services.API.SampleService2.Modules.SampleModule1
         public static string Action1() => null;
 
         [Action(Methods.GET)]
+        public static string ByteArrayParameter(string arg1, byte[] buf) => null;
+
+        [Action(Methods.GET)]
         public static object RedirectMe(string search = null) => null;
 
         [Action(Methods.GET)]

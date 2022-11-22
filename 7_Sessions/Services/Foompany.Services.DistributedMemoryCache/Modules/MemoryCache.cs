@@ -5,7 +5,7 @@ using System.Threading.Tasks;
 
 namespace Foompany.Services.DistributedMemoryCache.Modules
 {
-    [API(typeof(Phoesion.Glow.SDK.DistributedMemoryCache.API.Actions))]
+    [API<Phoesion.Glow.SDK.DistributedMemoryCache.API.Actions>]
     public class MemoryCache : FireflyModule
     {
         //Keep data in-memory using a distributed dictionary for replication (in real world this could be stored in a database)

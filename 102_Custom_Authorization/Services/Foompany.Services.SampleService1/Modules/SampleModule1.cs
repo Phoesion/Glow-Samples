@@ -1,11 +1,11 @@
-﻿using Foompany.Middleware.Authorization;
+using Foompany.Middleware.Authorization;
 using Phoesion.Glow.SDK;
 using Phoesion.Glow.SDK.Firefly;
 using System;
 
 namespace Foompany.Services.SampleService1.Modules
 {
-    [API(typeof(API.SampleService1.Modules.SampleModule1.Actions))]
+    [API<API.SampleService1.Modules.SampleModule1.Actions>]
     public class SampleModule1 : FireflyModule
     {
         //----------------------------------------------------------------------------------------------------------------------------------------------

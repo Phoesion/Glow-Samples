@@ -8,7 +8,7 @@ using System.Text;
 
 namespace Foompany.Services.SampleService2.Modules
 {
-    [API(typeof(API.SampleService1.Modules.SampleModule1.Events))]
+    [API<API.SampleService1.Modules.SampleModule1.Events>]
     public class InteropSample1 : FireflyModule
     {
         //----------------------------------------------------------------------------------------------------------------------------------------------

@@ -1,4 +1,4 @@
-﻿using Phoesion.Glow.SDK;
+using Phoesion.Glow.SDK;
 using Phoesion.Glow.SDK.Firefly;
 using System;
 using System.IO;
@@ -9,7 +9,7 @@ using Microsoft.Extensions.Logging;
 
 namespace Foompany.Services.EmailService.Modules
 {
-    [API(typeof(API.EmailService.Modules.SendEmail.Actions))]
+    [API<API.EmailService.Modules.SendEmail.Actions>]
     public class SendEmail : FireflyModule
     {
         [Autowire]

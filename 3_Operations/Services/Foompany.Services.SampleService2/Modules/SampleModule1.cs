@@ -5,7 +5,7 @@ using System.Threading.Tasks;
 
 namespace Foompany.Services.SampleService2.Modules
 {
-    [API(typeof(API.SampleService2.Modules.SampleModule1.Actions))]
+    [API<API.SampleService2.Modules.SampleModule1.Actions>]
     public class SampleModule1 : FireflyModule
     {
         //----------------------------------------------------------------------------------------------------------------------------------------------

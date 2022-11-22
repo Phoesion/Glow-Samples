@@ -13,7 +13,7 @@ using topic = Foompany.Services.API.ChatService.Modules.Chat.PushTopics;
 namespace Foompany.Services.ChatService.Modules
 {
     //[PushHubOptions(RequiresRegistration=true, RestrictToService=true)] // <--- Optional attribute to configure hub behavior
-    [API(typeof(API.ChatService.Modules.Chat.Actions))]
+    [API<API.ChatService.Modules.Chat.Actions>]
     public class Chat : PushHubModule
     {
         [Autowire]

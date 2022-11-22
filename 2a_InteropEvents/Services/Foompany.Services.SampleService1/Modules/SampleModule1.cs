@@ -8,7 +8,7 @@ using api = Foompany.Services.API.SampleService1.Modules.SampleModule1;
 
 namespace Foompany.Services.SampleService1.Modules
 {
-    [API(typeof(api.Actions))]
+    [API<api.Actions>]
     [DependsOnAPI(typeof(api.Events))]  // <--- We depend on this api to be implemented by a service, since we will be invoking its actions.
     public class SampleModule1 : FireflyModule
     {

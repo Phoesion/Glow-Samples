@@ -1,11 +1,11 @@
 <Project Sdk="Microsoft.NET.Sdk">
 
     <PropertyGroup>
-        <TargetFramework>net6.0</TargetFramework>
+        <TargetFramework>net7.0</TargetFramework>
     </PropertyGroup>
 
     <ItemGroup>
-        <PackageReference Include="Hangfire" Version="1.7.31" />
+        <PackageReference Include="Hangfire" Version="1.7.32" />
         <PackageReference Include="Hangfire.MemoryStorage" Version="1.7.0" />
     </ItemGroup>
 
@@ -17,10 +17,10 @@
 
     
     <ItemGroup>
-        <PackageReference Include="Phoesion.Glow.SDK.AspAdapter" Version="0.1.0-preview2" />
-        <PackageReference Include="Phoesion.Glow.SDK.Firefly" Version="0.1.0-preview2" />
-        <PackageReference Include="Phoesion.Glow.SDK.Firefly.SrvHost.DotNet.AppHost" Version="0.1.0-preview2"/>
-        <PackageReference Include="Phoesion.Glow.SDK.ReactorDebugger" Version="0.1.0-preview2" Condition="'$(GlowPublishing)'!='true'"/>
+        <PackageReference Include="Phoesion.Glow.SDK.AspAdapter" Version="0.2.0-preview4" />
+        <PackageReference Include="Phoesion.Glow.SDK.Firefly" Version="0.2.0-preview4" />
+        <PackageReference Include="Phoesion.Glow.SDK.Firefly.SrvHost.DotNet.AppHost" Version="0.2.0-preview4"/>
+        <PackageReference Include="Phoesion.Glow.SDK.ReactorDebugger" Version="0.2.0-preview4" Condition="'$(GlowPublishing)'!='true'"/>
     </ItemGroup>
     
 

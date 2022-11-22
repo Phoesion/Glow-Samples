@@ -5,7 +5,7 @@ using System.Linq;
 
 namespace Foompany.Services.Backend.Modules
 {
-    [API(typeof(API.Modules.WeatherForecast))]
+    [API<API.Modules.WeatherForecast>]
     public class WeatherForecast : FireflyModule
     {
         private static readonly string[] Summaries = new[]

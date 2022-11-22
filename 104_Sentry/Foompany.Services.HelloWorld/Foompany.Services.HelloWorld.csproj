@@ -1,22 +1,22 @@
 <Project Sdk="Microsoft.NET.Sdk">
 
     <PropertyGroup>
-        <TargetFramework>net6.0</TargetFramework>
+        <TargetFramework>net7.0</TargetFramework>
     </PropertyGroup>
 
     
 
     
     <ItemGroup>
-        <PackageReference Include="Phoesion.Glow.SDK.Firefly" Version="0.1.0-preview2" />
-        <PackageReference Include="Phoesion.Glow.SDK.AspAdapter" Version="0.1.0-preview2" />
-        <PackageReference Include="Phoesion.Glow.SDK.Firefly.SrvHost.DotNet.AppHost" Version="0.1.0-preview2"/>
-        <PackageReference Include="Phoesion.Glow.SDK.ReactorDebugger" Version="0.1.0-preview2" Condition="'$(GlowPublishing)'!='true'"/>
+        <PackageReference Include="Phoesion.Glow.SDK.Firefly" Version="0.2.0-preview4" />
+        <PackageReference Include="Phoesion.Glow.SDK.AspAdapter" Version="0.2.0-preview4" />
+        <PackageReference Include="Phoesion.Glow.SDK.Firefly.SrvHost.DotNet.AppHost" Version="0.2.0-preview4"/>
+        <PackageReference Include="Phoesion.Glow.SDK.ReactorDebugger" Version="0.2.0-preview4" Condition="'$(GlowPublishing)'!='true'"/>
     </ItemGroup>
     
 
     <ItemGroup>
-        <PackageReference Include="Sentry.AspNetCore" Version="3.23.1" />
+        <PackageReference Include="Sentry.AspNetCore" Version="3.24.0" />
     </ItemGroup>
 
 </Project>
