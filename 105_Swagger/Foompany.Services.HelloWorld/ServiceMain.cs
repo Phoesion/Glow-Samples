@@ -22,7 +22,7 @@ namespace Foompany.Services.HelloWorld
             services.AddSwaggerGen(options =>
             {
                 //full name schemas (to avoid conflicts)
-                options.CustomSchemaIds(x => x.FullName);
+                options.CustomSchemaIds(x => x.FullName.Replace("+", "."));
 
                 //use documentation xml
                 var xmlFilename = $"{typeof(ServiceMain).Assembly.GetName().Name}.xml";

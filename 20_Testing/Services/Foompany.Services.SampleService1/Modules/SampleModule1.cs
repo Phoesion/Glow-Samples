@@ -11,10 +11,13 @@ namespace Foompany.Services.SampleService1.Modules
     [API<API.SampleService1.Modules.SampleModule1.Actions>]
     public class SampleModule1 : Phoesion.Glow.SDK.Firefly.FireflyModule
     {
+        [Configuration]
+        string RuntimeConfigValue;
+
         //----------------------------------------------------------------------------------------------------------------------------------------------
 
         [ActionBody(Methods.GET)]
-        public string Default() => "Interop sample service up and running!";
+        public string Default() => "SampleService1 up and running! configValue:" + RuntimeConfigValue;
 
         //----------------------------------------------------------------------------------------------------------------------------------------------
 

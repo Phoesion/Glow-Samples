@@ -14,7 +14,7 @@ namespace BasicTests
         public async Task Default()
         {
             //declares
-            var expectation = "Interop sample service up and running!";
+            var expectation = "SampleService1 up and running! configValue:from tester!";
             //create client
             using var client = GlowRestClient.FromBaseUri(Tester.BaseUri);
             //call action

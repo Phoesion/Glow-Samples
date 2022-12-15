@@ -30,6 +30,9 @@ using Foompany.Services.SampleService1.Modules;
 // Define a Concurrency Rate-Limit policy
 [assembly: ConcurrencyRateLimitPolicy("concurrency", 2, 10)]
 
+// Define Fixed-Window Rate-Limit policy
+[assembly: FixedWindowRateLimitPolicy("fixed_window_per_ip", 5, 1, 1, PartitionKeySources = RateLimitPartitionKeySources.IP)]
+
 // . . . . . . . . .//
 
 // Enable the 'Default' policy for this service (can be overridden from modules or actions)

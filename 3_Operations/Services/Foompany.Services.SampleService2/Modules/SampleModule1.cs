@@ -18,16 +18,19 @@ namespace Foompany.Services.SampleService2.Modules
         [ActionBody(Methods.GET), InteropBody]
         public async Task<string> StartSimpleWizard()
         {
+            //start new operation
             var operation = await StartOperation<Operations.SimpleWizard>(null);
             if (operation == null)
                 return "Could not start wizard";
-            else
-            {
-                var uri = Request.Url;
-                var baseUri = $"{uri.Scheme}://{uri.Host}{(uri.IsDefaultPort ? "" : ":" + uri.Port)}";
-                return $"Wizard started, with operation id : " + operation.ID + Environment.NewLine +
-                       $"Get status uri = {baseUri}/SampleService2/SampleModule1/GetWizardStatus/" + operation.ID;
-            }
+
+            //set operation TTL (timeout)
+            operation.TimeToLive = TimeSpan.FromMinutes(15);
+
+            //inform user.
+            var uri = Request.Url;
+            var baseUri = $"{uri.Scheme}://{uri.Host}{(uri.IsDefaultPort ? "" : ":" + uri.Port)}";
+            return $"Wizard started, with operation id : " + operation.Id + Environment.NewLine +
+                   $"Get status uri = {baseUri}/SampleService2/SampleModule1/GetWizardStatus/" + operation.Id;
         }
 
         //----------------------------------------------------------------------------------------------------------------------------------------------
@@ -73,8 +76,7 @@ namespace Foompany.Services.SampleService2.Modules
                 throw PhotonException.InternalServerError.WithMessage("Operation not found");
 
             //finish wizard
-            if (!await wizard.End())
-                throw PhotonException.InternalServerError.WithMessage("Wizard End() failed");
+            await wizard.End();
 
             //done!
             return "success";

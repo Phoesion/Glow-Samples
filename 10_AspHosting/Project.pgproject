@@ -7,24 +7,17 @@
       "ServiceHost": "DotNet",
       "Builds": [
         {
-          "Build": "AnyCpu",
-          "AssemblyFilePath": "Services\\Foompany.Services.AspHostingSample\\bin\\%BUILD%\\publish\\anycpu\\Foompany.Services.AspHostingSample.dll",
-          "BuildCommands": [
-            "dotnet publish --configuration %BUILD% --no-self-contained -p:GlowPublishing=true -o \"bin\\%BUILD%\\publish\\anycpu\""
-          ]
-        },
-        {
           "Build": "Win_x64",
           "AssemblyFilePath": "Services\\Foompany.Services.AspHostingSample\\bin\\%BUILD%\\publish\\win-x64\\Foompany.Services.AspHostingSample.dll",
           "BuildCommands": [
-            "dotnet publish --configuration %BUILD% --runtime win-x64 --no-self-contained -p:GlowPublishing=true -o \"bin\\%BUILD%\\publish\\win-x64\""
+            "dotnet publish --framework net7.0 --configuration %BUILD% --runtime win-x64 --self-contained -p:GlowPublishing=true -o \"bin\\%BUILD%\\publish\\win-x64\""
           ]
         },
         {
           "Build": "Linux_x64",
           "AssemblyFilePath": "Services\\Foompany.Services.AspHostingSample\\bin\\%BUILD%\\publish\\linux-x64\\Foompany.Services.AspHostingSample.dll",
           "BuildCommands": [
-            "dotnet publish --configuration %BUILD% --runtime linux-x64 --no-self-contained -p:GlowPublishing=true -o \"bin\\%BUILD%\\publish\\linux-x64\""
+            "dotnet publish --framework net7.0 --configuration %BUILD% --runtime linux-x64 --self-contained -p:GlowPublishing=true -o \"bin\\%BUILD%\\publish\\linux-x64\""
           ]
         }
       ]

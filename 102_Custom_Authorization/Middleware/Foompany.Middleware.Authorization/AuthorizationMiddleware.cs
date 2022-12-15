@@ -51,6 +51,9 @@ namespace Foompany.Middleware.Authorization
                 //check expiration
                 if (DateTime.UtcNow > token.ValidTo)
                     throw Phoesion.Glow.SDK.PhotonException.Forbidden.WithMessage("Access token expired");
+
+                //setup user identity
+                context.User = claims;
             }
 
             return chain.InvokeNextAsync();

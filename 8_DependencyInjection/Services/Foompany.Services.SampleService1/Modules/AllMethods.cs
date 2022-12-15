@@ -30,10 +30,12 @@ namespace Foompany.Services.SampleService1.Modules
 
         // Demonstrate that we got valid instances for all Dependency Injection methods
         [Action(Methods.GET)]
-        public string Default() => $"PublicMember : {(PublicMember != null)} \r\n" +
-                                   $"PrivateMember : {(PrivateMember != null)} \r\n" +
-                                   $"ReadonlyMember : {(ReadonlyMember != null)} \r\n" +
-                                   $"StaticMember : {(StaticMember != null)} \r\n" +
-                                   $"FromConstructor : {(FromConstructor != null)} \r\n";
+        public string Default([FromServices] IIncidentReporter fromServices) //get service instance from parameter binding
+            => $"PublicMember : {(PublicMember != null)} \r\n" +
+               $"PrivateMember : {(PrivateMember != null)} \r\n" +
+               $"ReadonlyMember : {(ReadonlyMember != null)} \r\n" +
+               $"StaticMember : {(StaticMember != null)} \r\n" +
+               $"FromConstructor : {(FromConstructor != null)} \r\n" +
+               $"FromBinding : {(fromServices != null)} \r\n";
     }
 }

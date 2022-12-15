@@ -79,7 +79,7 @@ namespace Foompany.Services.SampleService1.Modules
                     Message = "Returning an object",
                 };
             else if (retType == 2)
-                return RestResponse.AsBinary(new byte[] { 1, 2, 3, 4 });
+                return Response.AsBinary(new byte[] { 1, 2, 3, 4 });
             else
                 throw PhotonException.BadRequest;
         }

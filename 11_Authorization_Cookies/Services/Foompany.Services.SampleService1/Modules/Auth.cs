@@ -62,7 +62,7 @@ namespace Foompany.Services.SampleService1.Modules
             //sign in
             await Context.SignInAsync(CookieAuthenticationDefaults.AuthenticationScheme, userPrincipal, authProperties);
 
-            RestResponse.AsRedirect($"/{ReturnUrl}");
+            Response.AsRedirect($"/{ReturnUrl}");
             return null;
         }
 

@@ -52,5 +52,16 @@ namespace Foompany.Services.SampleService1.Modules
             "eg. http://localhost/SampleService1/SampleModule1/ASP_Dynamic?token=2";
 
         //----------------------------------------------------------------------------------------------------------------------------------------------
+
+        /// <summary>
+        /// This action is rate limited per-I.
+        /// </summary>
+        [Action(Methods.GET)]
+        [EnableRateLimit("fixed_window_per_ip")]
+        public string Glow_FixedWindow_Per_IP_Sample()
+            => "This action is rate limited from PRISM using the Fixed-Window policy 'fixed_window' and clients IP as the partition key.";
+
+
+        //----------------------------------------------------------------------------------------------------------------------------------------------
     }
 }

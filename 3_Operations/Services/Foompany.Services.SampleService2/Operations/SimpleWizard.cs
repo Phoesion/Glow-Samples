@@ -35,11 +35,17 @@ namespace Foompany.Services.SampleService2.Operations
             //input check
             if (string.IsNullOrWhiteSpace(key))
                 throw PhotonException.BadRequest.WithMessage("Key cannot be null or whitespace");
+
+            //update/reset TTL (timeout)
+            TimeToLive = TimeSpan.FromMinutes(15);
+
             //add parameter
             lock (Parameters)
                 Parameters[key] = value;
+
             //save
             await SaveStateAsync();
+
             //done!
             return true;
         }

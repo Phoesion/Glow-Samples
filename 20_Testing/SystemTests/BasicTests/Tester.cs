@@ -18,12 +18,17 @@ namespace BasicTests
         public const string BaseUri = "http://localhost:16000/";
 
         //reactor debuggers
-        readonly ReactorDebugger Debugger_SampleService1 = new ReactorDebugger(buildFilePath("Foompany.Services.SampleService1"));
-        readonly ReactorDebugger Debugger_SampleService2 = new ReactorDebugger(buildFilePath("Foompany.Services.SampleService2"));
+        ReactorDebugger Debugger_SampleService1;
+        ReactorDebugger Debugger_SampleService2;
 
         [OneTimeSetUp]
         public async Task Init()
         {
+            //create reactor debugger instance
+            Debugger_SampleService2 = new ReactorDebugger(buildFilePath("Foompany.Services.SampleService2"));
+            Debugger_SampleService1 = new ReactorDebugger(buildFilePath("Foompany.Services.SampleService1"))
+                                                .WithConfiguration("RuntimeConfigValue", "from tester!");
+
             //start Services
             Debug.WriteLine("Starting services...");
             await Task.WhenAll(Debugger_SampleService1.StartService(),

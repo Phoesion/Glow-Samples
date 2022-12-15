@@ -48,9 +48,9 @@ namespace Foompany.Services.SampleService2.Modules
         {
             //Apply redirect to REST-specific response
             if (search == null)
-                RestResponse.AsRedirect($"https://www.google.com");
+                Response.AsRedirect($"https://www.google.com");
             else
-                RestResponse.AsRedirect($"https://www.google.com/search?q={Uri.EscapeDataString(search)}");
+                Response.AsRedirect($"https://www.google.com/search?q={Uri.EscapeDataString(search)}");
         }
 
         //----------------------------------------------------------------------------------------------------------------------------------------------
@@ -137,6 +137,18 @@ namespace Foompany.Services.SampleService2.Modules
             var stream = new FileStream(Path.Combine("Content", "TextFile.txt"), FileMode.Open, FileAccess.Read, FileShare.Read);
             return new StreamWithMetadata(stream, "text/plain").AsAttachment(fileName: "SampleTextFile.txt");
         }
+
+        //----------------------------------------------------------------------------------------------------------------------------------------------
+
+        /// <summary> 
+        /// Start a stream directly from PRSIM.
+        /// When receiving a StreamFromPrism result, Prism will start streaming from the specified source.
+        /// Using this you can stream results to clients from external sources, without putting pressure on other elements like Firefly,Kaleidoscope
+        /// </summary>
+        [Action(Methods.GET)]
+        public StreamFromPrism StreamFromPrismSample()
+            => new StreamFromPrism("https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js", "text/js")
+                        .AsAttachment(fileName: "jquery.1.12.4.js");
 
         //----------------------------------------------------------------------------------------------------------------------------------------------
 
