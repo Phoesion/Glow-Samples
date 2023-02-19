@@ -25,7 +25,7 @@ namespace Foompany.Services.SampleService2.Modules
 
         //----------------------------------------------------------------------------------------------------------------------------------------------
 
-        [ActionBody(Methods.GET), InteropBody]
+        [ActionBody(Methods.GET), InteropBody, Profile]
         public IEnumerable<api.Models.Book> GetBooks()
         {
             //return as IEnumerable

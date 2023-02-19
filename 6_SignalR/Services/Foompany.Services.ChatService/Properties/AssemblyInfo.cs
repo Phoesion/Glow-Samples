@@ -15,3 +15,9 @@ using Phoesion.Glow.SDK.Firefly;
 
 // Enable Client-side logging for all service actions
 //[assembly: EnableClientLogging()]
+
+//---------------------------------------------------
+//   Rate-Limiting Policies
+//---------------------------------------------------
+// Define a per-IP, Fixed-Window Rate-Limit policy
+[assembly: FixedWindowRateLimitPolicy("API_LImit", 5, 1, 1, PartitionKeySources = RateLimitPartitionKeySources.IP)]

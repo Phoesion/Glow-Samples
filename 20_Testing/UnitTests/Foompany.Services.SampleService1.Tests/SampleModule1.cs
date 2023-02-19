@@ -18,7 +18,7 @@ namespace Foompany.Services.SampleService1.Tests
         public async Task Default()
         {
             //declares
-            var expectation = "Interop sample service up and running!";
+            var expectation = "SampleService1 up and running! configValue:";
 
             //create service provider builder
             using var services = TestContainerBuilder

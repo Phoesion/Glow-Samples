@@ -6,7 +6,7 @@
     </PropertyGroup>
 
     <ItemGroup>
-        <PackageReference Include="Google.Protobuf" Version="3.21.11" />
+        <PackageReference Include="Google.Protobuf" Version="3.22.0" />
         <PackageReference Include="Grpc.Tools" Version="2.51.0">
             <PrivateAssets>all</PrivateAssets>
             <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
@@ -21,7 +21,7 @@
 
     
     <ItemGroup>
-        <PackageReference Include="Phoesion.Glow.SDK.Firefly.Abstractions" Version="0.3.0" />
+        <PackageReference Include="Phoesion.Glow.SDK.Firefly.Abstractions" Version="1.0.0-preview8" />
     </ItemGroup>
     
 

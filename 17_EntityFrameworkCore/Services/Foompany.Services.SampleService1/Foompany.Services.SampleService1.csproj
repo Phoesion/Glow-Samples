@@ -8,16 +8,16 @@
 
     
     <ItemGroup>
-        <PackageReference Include="Phoesion.Glow.SDK.Firefly" Version="0.3.0" />
-        <PackageReference Include="Phoesion.Glow.SDK.Firefly.SrvHost.DotNet.AppHost" Version="0.3.0" Condition="'$(GlowPublishing)'!=='true'"/>
-        <PackageReference Include="Phoesion.Glow.SDK.ReactorDebugger" Version="0.3.0" Condition="'$(GlowPublishing)'!='true'"/>
+        <PackageReference Include="Phoesion.Glow.SDK.Firefly" Version="1.0.0-preview8" />
+        <PackageReference Include="Phoesion.Glow.SDK.Firefly.SrvHost.DotNet.AppHost" Version="1.0.0-preview8" Condition="'$(GlowPublishing)'=='true'"/>
+        <PackageReference Include="Phoesion.Glow.SDK.ReactorDebugger" Version="1.0.0-preview8" Condition="'$(GlowPublishing)'!='true'"/>
     </ItemGroup>
     
 
     <!-- Entity Framework Core dependencies-->
     <ItemGroup>
-        <PackageReference Include="Pomelo.EntityFrameworkCore.MySql" Version="7.0.0-alpha.1" />
-        <PackageReference Include="Microsoft.EntityFrameworkCore.Tools" Version="7.0.1">
+        <PackageReference Include="Pomelo.EntityFrameworkCore.MySql" Version="7.0.0" />
+        <PackageReference Include="Microsoft.EntityFrameworkCore.Tools" Version="7.0.3">
             <PrivateAssets>all</PrivateAssets>
             <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
         </PackageReference>

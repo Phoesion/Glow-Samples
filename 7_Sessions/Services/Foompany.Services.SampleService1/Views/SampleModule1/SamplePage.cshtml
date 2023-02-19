@@ -1,4 +1,4 @@
-﻿<!DOCTYPE html>
+<!DOCTYPE html>
 
 <html lang="en" xmlns="http://www.w3.org/1999/xhtml">
 <head>
@@ -12,6 +12,7 @@
     <br /><br />
 
     <form action="UpdateUsername" method="post">
+        @Html.AntiForgeryToken()
         Set name :<input type="text" name="username" value="John"><br>
         <input type="submit" value="Submit">
     </form>

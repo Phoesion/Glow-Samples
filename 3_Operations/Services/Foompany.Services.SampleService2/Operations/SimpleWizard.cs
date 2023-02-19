@@ -46,6 +46,9 @@ namespace Foompany.Services.SampleService2.Operations
             //save
             await SaveStateAsync();
 
+            //reset timeout for another 5 minutes
+            TimeToLive = TimeSpan.FromMinutes(5);
+
             //done!
             return true;
         }

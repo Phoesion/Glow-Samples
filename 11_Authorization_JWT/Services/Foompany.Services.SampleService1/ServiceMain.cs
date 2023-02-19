@@ -1,6 +1,5 @@
-﻿using Microsoft.AspNetCore.Authentication.JwtBearer;
+using Microsoft.AspNetCore.Authentication.JwtBearer;
 using Microsoft.Extensions.DependencyInjection;
-using Microsoft.IdentityModel.Tokens;
 using Phoesion.Glow.SDK.Authentication;
 using Phoesion.Glow.SDK.Authorization;
 using Phoesion.Glow.SDK.Firefly;
@@ -14,27 +13,12 @@ namespace Foompany.Services.SampleService1
     {
         protected override void ConfigureServices(IServiceCollection services)
         {
-            // Add authentication
-            services.AddAuthentication(options =>
-                    {
-                        options.DefaultAuthenticateScheme = JwtBearerDefaults.AuthenticationScheme;
-                        options.DefaultChallengeScheme = JwtBearerDefaults.AuthenticationScheme;
-                    })
-                   .AddJwtBearer(options =>
-                   {
-                       options.TokenValidationParameters = new TokenValidationParameters()
-                       {
-                           ValidIssuer = Constants.Issuer,
-                           ValidAudience = Constants.Audience,
-                           IssuerSigningKey = new SymmetricSecurityKey(Encoding.UTF8.GetBytes(Constants.SecretKey)),
-                           ValidateAudience = true,
-                           ValidateIssuer = true,
-                           ValidateLifetime = true,
-                       };
-                   });
-
             // Add authorization services
             services.AddAuthorization();
+
+            // Add and configure authentication services
+            services.AddAuthentication(JwtBearerDefaults.AuthenticationScheme)
+                    .AddJwtBearer();
         }
 
         protected override void Configure(IGlowApplicationBuilder app)

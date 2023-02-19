@@ -80,6 +80,20 @@ namespace Foompany.Services.SampleService2.Modules
         //----------------------------------------------------------------------------------------------------------------------------------------------
 
         /// <summary>
+        /// This action uses the Context.CancellationToken to cancel/stop an ongoing request processing.
+        /// The Context.CancellationToken will be canceled when the client/browser closes the connection (eg. user presses the Stop button from the browser)
+        /// </summary>
+        [ActionBody(Methods.GET)]
+        public async Task<string> CancellationSample()
+        {
+            //wait for 20 seconds to simulate a long-operation (like db query), but provide the cancellation token to the async method
+            await Task.Delay(20 * 1000, Context.CancellationToken);
+            return "operation completed";
+        }
+
+        //----------------------------------------------------------------------------------------------------------------------------------------------
+
+        /// <summary>
         /// Simple sample to demonstrate an action alias
         /// This action can be hit by both uris
         ///     - http://localhost/SampleService2/SampleModule1/ActionAliasSample

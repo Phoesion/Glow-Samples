@@ -26,7 +26,7 @@ namespace Foompany.Services.SampleService2.Modules
             //set operation TTL (timeout)
             operation.TimeToLive = TimeSpan.FromMinutes(15);
 
-            //inform user.
+            //inform user
             var uri = Request.Url;
             var baseUri = $"{uri.Scheme}://{uri.Host}{(uri.IsDefaultPort ? "" : ":" + uri.Port)}";
             return $"Wizard started, with operation id : " + operation.Id + Environment.NewLine +

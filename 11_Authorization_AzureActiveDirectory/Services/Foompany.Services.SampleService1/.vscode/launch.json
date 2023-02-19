@@ -1,0 +1,32 @@
+{
+    "version": "0.2.0",
+    "configurations": [
+        {
+            "name": "Foompany.Services.SampleService1",
+            "type": "coreclr",
+            "request": "launch",
+            "preLaunchTask": "build",
+            "program": "Phoesion.Glow.Reactor.Debugger.exe",
+            "args": [ 
+                "-QuantumSpace:Default",
+                "${workspaceFolder}/bin/Debug/net7.0/win-x64/Foompany.Services.SampleService1.dll" 
+            ],
+            "cwd": "${workspaceFolder}",
+            "console": "integratedTerminal",
+            "stopAtEntry": false
+        },
+        {
+            "name": "Foompany.Services.SampleService1 (Remote Debugger)",
+            "type": "coreclr",
+            "request": "launch",
+            "preLaunchTask": "build",
+            "program": "Phoesion.Glow.Debugger.FireflySrv.exe",
+            "args": [
+                "${workspaceFolder}/bin/Debug/net7.0/win-x64/Foompany.Services.SampleService1.dll" 
+            ],
+            "cwd": "${workspaceFolder}",
+            "console": "integratedTerminal",
+            "stopAtEntry": false
+        }
+    ]
+}

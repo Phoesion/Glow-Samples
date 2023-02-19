@@ -8,24 +8,27 @@ namespace Foompany.Services.API.SampleService2.Modules.SampleModule1
     public abstract class Actions
     {
         [Action(Methods.GET)]
-        public static string Default() => null;
+        public static string Default() => default;
 
         [Action(Methods.GET)]
-        public static string Action1() => null;
+        public static string Action1() => default;
 
         [Action(Methods.GET)]
-        public static string ByteArrayParameter(string arg1, byte[] buf) => null;
+        public static string ByteArrayParameter(string arg1, byte[] buf) => default;
 
         [Action(Methods.GET)]
-        public static object RedirectMe(string search = null) => null;
+        public static object RedirectMe(string search = null) => default;
 
         [Action(Methods.GET)]
-        public static string SampleStatusCode(string command) => null;
+        public static string SampleStatusCode(string command) => default;
 
         [Action(Methods.GET)]
-        public static string ActionAliasSample() => null;
+        public static string CancellationSample() => default;
 
         [Action(Methods.GET)]
-        public static Stream StreamingSample1() => null;
+        public static string ActionAliasSample() => default;
+
+        [Action(Methods.GET)]
+        public static Stream StreamingSample1() => default;
     }
 }

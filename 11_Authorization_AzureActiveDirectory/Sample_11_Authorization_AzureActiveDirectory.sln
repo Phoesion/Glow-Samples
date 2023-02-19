@@ -1,0 +1,33 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.4.33205.214
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Services", "Services", "{225BDB28-05F3-4CE9-B2DB-23AECC5DB2B6}"
+	ProjectSection(SolutionItems) = preProject
+		Project.pgproject = Project.pgproject
+	EndProjectSection
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Foompany.Services.SampleService1.v1", "Services\Foompany.Services.SampleService1\Foompany.Services.SampleService1.v1.csproj", "{1D7C579F-7C81-4827-9C01-97A7789894DC}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{1D7C579F-7C81-4827-9C01-97A7789894DC}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{1D7C579F-7C81-4827-9C01-97A7789894DC}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{1D7C579F-7C81-4827-9C01-97A7789894DC}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{1D7C579F-7C81-4827-9C01-97A7789894DC}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{1D7C579F-7C81-4827-9C01-97A7789894DC} = {225BDB28-05F3-4CE9-B2DB-23AECC5DB2B6}
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {3AEBB254-FF1E-4C67-92B2-F6C7F253C175}
+	EndGlobalSection
+EndGlobal

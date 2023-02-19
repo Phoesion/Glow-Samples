@@ -16,14 +16,12 @@ namespace Foompany.ClientApps.SampleApp2
             using (var client = Phoesion.Glow.SDK.Client.REST.GlowRestClient.FromBaseUri($"http://{txt_Hostname.Text}"))
             {
                 //get access token
-                var accessToken = await client.Call(Foompany.Services.API.Authorization.Modules.TokenGenerator.Actions.GetAccessToken, "george", 2).InvokeAsync();
-                if (string.IsNullOrWhiteSpace(accessToken))
+                var accessToken = txt_BearerToken.Text;
+                if (string.IsNullOrWhiteSpace(accessToken) || accessToken == "[ Paste your token here ]")
                 {
-                    MessageBox.Show($"Could not get access token");
+                    MessageBox.Show($"Invalid access token");
                     return;
                 }
-                else
-                    MessageBox.Show($"Got Access Token : {accessToken}");
 
                 //call service/module action using anonymous api
                 var rsp = await client.Call(Foompany.Services.API.SampleService1.Modules.SampleModule1.Actions.DoTheThing, txt_SampleInput.Text)

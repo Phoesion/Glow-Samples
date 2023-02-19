@@ -35,8 +35,8 @@ namespace Foompany.Services.ChatService.Modules
         [ActionBody(Methods.PUSH_EVENT_REGISTER)]
         public async Task<string> Register(msg.RegistrationRequest request)
         {
-            //check for valid clientid. (eg. A POST request from a browser (not signalR or websockets) will have null ClientId)
-            var clientId = Context?.ClientId;
+            //check for valid PushClientId. (eg. A POST request from a browser (not signalR or websockets) will have null PushClientId)
+            var clientId = Context?.PushClientId;
             if (clientId == null)
                 throw PhotonException.BadRequest;
 
@@ -65,7 +65,7 @@ namespace Foompany.Services.ChatService.Modules
         protected override async Task OnDisconnected()
         {
             //get client id
-            var clientId = Context?.ClientId;
+            var clientId = Context?.PushClientId;
             if (clientId == null)
                 throw PhotonException.BadRequest;
 
@@ -90,7 +90,7 @@ namespace Foompany.Services.ChatService.Modules
         public async Task<string> SendMessage(msg.ChatMsg request, string toUser)
         {
             //get client id
-            var clientId = Context?.ClientId;
+            var clientId = Context?.PushClientId;
             if (clientId == null)
                 throw PhotonException.BadRequest;
 
@@ -153,7 +153,7 @@ namespace Foompany.Services.ChatService.Modules
         public async Task<string> Ping(string toUser, [MaxLength(8)] string nonce)
         {
             //get client id
-            var clientId = Context?.ClientId;
+            var clientId = Context?.PushClientId;
             if (clientId == null)
                 throw PhotonException.BadRequest;
 
@@ -195,7 +195,9 @@ namespace Foompany.Services.ChatService.Modules
         //----------------------------------------------------------------------------------------------------------------------------------------------
 
         [ActionBody(Methods.GET | Methods.PUSH_CALL)]
-        public async Task<string> GetUsers() => string.Join("\r\n", await userStore.GetUsernames());
+        [EnableRateLimit("API_LImit")] // Rate-Limit will apply for both Http and Push_Call requests
+        public async Task<string> GetUsers()
+            => string.Join("\r\n", await userStore.GetUsernames());
 
         //----------------------------------------------------------------------------------------------------------------------------------------------
     }

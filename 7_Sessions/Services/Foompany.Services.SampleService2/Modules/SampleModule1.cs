@@ -1,4 +1,4 @@
-﻿using Phoesion.Glow.SDK;
+using Phoesion.Glow.SDK;
 using Phoesion.Glow.SDK.Firefly;
 using Phoesion.Glow.SDK.Session;
 using System;
@@ -37,8 +37,8 @@ namespace Foompany.Services.SampleService2.Modules
 
         //----------------------------------------------------------------------------------------------------------------------------------------------
 
-        [Action(Methods.POST)]
-        public async Task<HtmlString> UpdateUserData(string data)
+        [Action(Methods.POST), ValidateAntiForgeryToken]
+        public async Task<HtmlString> UpdateUserData([FromForm] string data)
         {
             //get session data
             var session = await Context.GetSessionData<API.DataModels.UserSession>();

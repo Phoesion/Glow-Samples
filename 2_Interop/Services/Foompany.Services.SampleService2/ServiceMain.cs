@@ -25,6 +25,14 @@ namespace Foompany.Services.SampleService2
             //TODO: Configure middleware..
         }
 
+        protected override void ConfigureInterop(IGlowApplicationInteropBuilder app)
+        {
+            //Configure interop middleware pipeline
+
+            //add profiling middleware for interop (enables when using [Profile])
+            app.UseMiddleware<Middleware.Profiler.ProfilerMiddleware, ProfileAttribute>();
+        }
+
         protected override async Task StartAsync(CancellationToken cancellationToken)
         {
             //call base

@@ -1,4 +1,4 @@
-﻿<!DOCTYPE html>
+<!DOCTYPE html>
 
 <html lang="en" xmlns="http://www.w3.org/1999/xhtml">
 <head>
@@ -12,6 +12,7 @@
     <br /><br />
 
     <form action="UpdateUserData" method="post">
+        @Html.AntiForgeryToken()
         Set data for service 2 :<input type="text" name="data" value="Some Data!"><br>
         <input type="submit" value="Submit">
     </form>

@@ -8,6 +8,7 @@ using models = Foompany.Services.API.SampleService2.Modules.InteropSample1.DataM
 namespace Foompany.Services.SampleService1.Modules
 {
     [API<API.SampleService1.Modules.SampleModule1.Actions>]
+    [DependsOnAPI<API.SampleService2.Modules.InteropSample1.Actions>] // Optional attribute to check that a firefly service in the QuantumSpace is serving this API (at compile time)
     public class SampleModule1 : Phoesion.Glow.SDK.Firefly.FireflyModule
     {
         //----------------------------------------------------------------------------------------------------------------------------------------------

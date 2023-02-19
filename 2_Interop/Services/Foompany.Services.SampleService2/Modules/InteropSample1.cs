@@ -15,7 +15,7 @@ namespace Foompany.Services.SampleService2.Modules
      * This is the implementation of the firefly service module.
      * It must implement all static methods specified in the api assembly
      */
-    [API<API.SampleService2.Modules.InteropSample1.Actions>]
+    [API<API.SampleService2.Modules.InteropSample1.Actions>, Profile]
     public class InteropSample1 : FireflyModule
     {
         //----------------------------------------------------------------------------------------------------------------------------------------------

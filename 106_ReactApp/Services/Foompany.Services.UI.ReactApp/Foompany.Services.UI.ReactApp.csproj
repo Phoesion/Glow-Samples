@@ -11,7 +11,7 @@
 
     
     <ItemGroup>
-        <PackageReference Include="Phoesion.Glow.SDK.Firefly.StaticFileService" Version="0.3.0" />
+        <PackageReference Include="Phoesion.Glow.SDK.Firefly.StaticFileService" Version="1.0.0-preview8" />
     </ItemGroup>
     
 
