@@ -24,8 +24,8 @@
 
     
     <ItemGroup>
-        <PackageReference Include="Phoesion.Glow.SDK.Testing" Version="1.0.2" />
-        <PackageReference Include="Phoesion.Glow.SDK.Client.REST" Version="1.0.2" />
+        <PackageReference Include="Phoesion.Glow.SDK.Testing" Version="1.0.3" />
+        <PackageReference Include="Phoesion.Glow.SDK.Client.REST" Version="1.0.3" />
     </ItemGroup>
     
 
