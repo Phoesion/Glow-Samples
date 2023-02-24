@@ -18,11 +18,11 @@
 
     
     <ItemGroup>
-        <PackageReference Include="Phoesion.Glow.SDK.ReactorDebugger" Version="1.0.3" Condition="'$(GlowPublishing)'!='true'"/>
-        <PackageReference Include="Phoesion.Glow.SDK.Authorization" Version="1.0.3" />
-        <PackageReference Include="Phoesion.Glow.SDK.Authentication" Version="1.0.3" />
-        <PackageReference Include="Phoesion.Glow.SDK.Firefly" Version="1.0.3" />
-        <PackageReference Include="Phoesion.Glow.SDK.Firefly.SrvHost.DotNet.AppHost" Version="1.0.3" Condition="'$(GlowPublishing)'=='true'"/>
+        <PackageReference Include="Phoesion.Glow.SDK.ReactorDebugger" Version="1.0.4" Condition="'$(GlowPublishing)'!='true'"/>
+        <PackageReference Include="Phoesion.Glow.SDK.Authorization" Version="1.0.4" />
+        <PackageReference Include="Phoesion.Glow.SDK.Authentication" Version="1.0.4" />
+        <PackageReference Include="Phoesion.Glow.SDK.Firefly" Version="1.0.4" />
+        <PackageReference Include="Phoesion.Glow.SDK.Firefly.SrvHost.DotNet.AppHost" Version="1.0.4" />
     </ItemGroup>
     
 
