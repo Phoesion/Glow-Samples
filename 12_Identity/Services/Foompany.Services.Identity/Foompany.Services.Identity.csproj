@@ -23,10 +23,10 @@
 
     
     <ItemGroup>
-        <PackageReference Include="Phoesion.Glow.SDK.Firefly" Version="1.0.4" />        
-        <PackageReference Include="Phoesion.Glow.SDK.Firefly.AspHost" Version="1.0.4" />
-        <PackageReference Include="Phoesion.Glow.SDK.Firefly.SrvHost.DotNet.AppHost" Version="1.0.4" />
-        <PackageReference Include="Phoesion.Glow.SDK.ReactorDebugger" Version="1.0.4" Condition="'$(GlowPublishing)'!='true'"/>
+        <PackageReference Include="Phoesion.Glow.SDK.Firefly" Version="1.0.5" />        
+        <PackageReference Include="Phoesion.Glow.SDK.Firefly.AspHost" Version="1.0.5" />
+        <PackageReference Include="Phoesion.Glow.SDK.Firefly.SrvHost.DotNet.AppHost" Version="1.0.5" />
+        <PackageReference Include="Phoesion.Glow.SDK.ReactorDebugger" Version="1.0.5" Condition="'$(GlowPublishing)'!='true'"/>
     </ItemGroup>
     
 
