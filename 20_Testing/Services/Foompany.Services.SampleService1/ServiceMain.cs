@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 using System.Text;
 using System.Linq;
 using System.Threading.Tasks;
@@ -15,7 +15,8 @@ namespace Foompany.Services.SampleService1
     {
         protected override void ConfigureServices(IServiceCollection services)
         {
-            //TODO: Configure services..
+            //add a sample service
+            services.AddSingleton<IMultiplyNumbersService, SampleService1.Services.MultiplyNumbersImplementation>();
         }
 
         protected override void Configure(IGlowApplicationBuilder app)

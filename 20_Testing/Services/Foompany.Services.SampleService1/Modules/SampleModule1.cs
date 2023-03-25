@@ -1,3 +1,4 @@
+using Microsoft.Extensions.Logging;
 using Phoesion.Glow.SDK;
 using Phoesion.Glow.SDK.Firefly;
 using System.Collections.Generic;
@@ -14,10 +15,27 @@ namespace Foompany.Services.SampleService1.Modules
         [Configuration]
         string RuntimeConfigValue;
 
+        [Autowire]
+        IMultiplyNumbersService multiplyNumbersService;
+
         //----------------------------------------------------------------------------------------------------------------------------------------------
 
         [ActionBody(Methods.GET)]
         public string Default() => "SampleService1 up and running! configValue:" + RuntimeConfigValue;
+
+        //----------------------------------------------------------------------------------------------------------------------------------------------
+
+        [ActionBody(Methods.GET)]
+        public string MultiplyNumbers(int v1, int v2)
+        {
+            if (v1 == 0 || v2 == 0)
+            {
+                logger.LogInformation("Received zero value");
+                return NotAcceptable("Multiplying with zero is not allowed in this sample!");
+            }
+            else
+                return "Result is " + multiplyNumbersService.Multiply(v1, v2);
+        }
 
         //----------------------------------------------------------------------------------------------------------------------------------------------
 

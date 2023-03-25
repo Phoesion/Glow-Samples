@@ -1,4 +1,5 @@
 using Microsoft.Extensions.DependencyInjection;
+using Microsoft.VisualStudio.OLE.Interop;
 using Moq;
 using NUnit.Framework;
 using Phoesion.Glow.SDK.Firefly;
@@ -28,6 +29,9 @@ namespace Foompany.Services.SampleService1.Tests
             //begin a test request scope
             using (var scope = services.CreateRequestScope())
             {
+                //get action context (prepare if needed)
+                var ctx = scope.Context;
+
                 //instantiate module in the request scope/context
                 var module = scope.GetFireflyModule<Modules.SampleModule1>();
 
@@ -37,12 +41,64 @@ namespace Foompany.Services.SampleService1.Tests
                 //check response
                 if (res != expectation)
                     Assert.Fail("Response did not match expectation");
+                else if (ctx.Response.StatusCode != Phoesion.Glow.SDK.HttpStatusCode.OK)
+                    Assert.Fail("Response did not return OK");
+            }
+        }
+
+        [Test]
+        public async Task Test_MultiplyNumbers()
+        {
+            //declares
+            var expectation = "Result is 15";
+
+            //multiplier service mock
+            var multiplerService = new Mock<IMultiplyNumbersService>();
+            multiplerService.Setup(repo => repo.Multiply(It.Is<int>(x => x == 3), It.Is<int>(x => x == 5)))
+                            .Returns(15);
+
+            //create service provider builder
+            using var services = TestContainerBuilder
+                .CreateDefault<ServiceMain>()
+                .ConfigureServices(s =>
+                {
+                    //----------------------------------------------
+                    // Configure our services for this run here.
+                    //----------------------------------------------
+                    //add mocked multiplier service
+                    s.AddSingleton<IMultiplyNumbersService>(multiplerService.Object);
+                })
+                .Build();
+
+            //begin a test request scope
+            using (var scope = services.CreateRequestScope())
+            {
+                //get action context (prepare if needed)
+                var ctx = scope.Context;
+
+                //instantiate module in the request scope/context
+                var module = scope.GetFireflyModule<Modules.SampleModule1>();
+
+                //invoke action with correct input
+                var res = module.MultiplyNumbers(3, 5);
+                //check response
+                if (res != expectation)
+                    Assert.Fail("Response did not match expectation");
+                else if (scope.Context.Response.StatusCode != Phoesion.Glow.SDK.HttpStatusCode.OK)
+                    Assert.Fail("Response did not return OK");
+
+                //invoke action with incorrect input
+                res = module.MultiplyNumbers(0, 1);
+                if (res != "Multiplying with zero is not allowed in this sample!")
+                    Assert.Fail("Response did not match expectation");
+                else if (ctx.Response.StatusCode != Phoesion.Glow.SDK.HttpStatusCode.NotAcceptable)
+                    Assert.Fail("Response did not return NotAcceptable");
             }
         }
 
 
         [Test]
-        public async Task Action1()
+        public async Task Test_Action1()
         {
             //declares
             var input = "John";
