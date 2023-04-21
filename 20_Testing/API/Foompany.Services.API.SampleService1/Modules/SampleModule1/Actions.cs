@@ -8,12 +8,15 @@ namespace Foompany.Services.API.SampleService1.Modules.SampleModule1
     public abstract class Actions
     {
         [Action(Methods.GET)]
-        public static string Default() => null;
+        public static string Default() => default;
 
         [Action(Methods.GET)]
-        public static string Action1(string name) => null;
+        public static string Action1(string name) => default;
 
         [Action(Methods.GET)]
-        public static Stream StreamingInteropAction() => null;
+        public static Stream StreamingInteropAction() => default;
+
+        [Action(Methods.GET)]
+        public static string MultiplyNumbers(int v1, int v2) => default;
     }
 }

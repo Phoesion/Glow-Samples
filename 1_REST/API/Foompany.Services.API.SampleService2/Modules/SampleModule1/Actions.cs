@@ -26,6 +26,9 @@ namespace Foompany.Services.API.SampleService2.Modules.SampleModule1
         public static string CancellationSample() => default;
 
         [Action(Methods.GET)]
+        public static OneOf<string, int> OneOfSample(int returnType) => default;
+
+        [Action(Methods.GET)]
         public static string ActionAliasSample() => default;
 
         [Action(Methods.GET)]

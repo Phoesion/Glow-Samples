@@ -18,6 +18,8 @@ namespace Foompany.Services.SampleService1.Modules
 
         //----------------------------------------------------------------------------------------------------------------------------------------------
 
+        /* Return raw html using HtmlString 
+         */
         [ActionBody(Methods.GET)]
         public HtmlString Action1()
         {

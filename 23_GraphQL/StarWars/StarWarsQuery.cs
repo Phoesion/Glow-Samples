@@ -1,7 +1,10 @@
-using GraphQL.StarWars.Types;
+using System;
+using System.Threading.Tasks;
+using GraphQL;
 using GraphQL.Types;
+using StarWars.Types;
 
-namespace GraphQL.StarWars;
+namespace StarWars;
 
 public class StarWarsQuery : ObjectGraphType<object>
 {
@@ -9,15 +12,23 @@ public class StarWarsQuery : ObjectGraphType<object>
     {
         Name = "Query";
 
-        Field<CharacterInterface>("hero").ResolveAsync(async context => await data.GetDroidByIdAsync("3").ConfigureAwait(false));
-        Field<HumanType>("human")
-            .Argument<NonNullGraphType<StringGraphType>>("id", "id of the human")
-            .ResolveAsync(async context => await data.GetHumanByIdAsync(context.GetArgument<string>("id")).ConfigureAwait(false));
+        FieldAsync<CharacterInterface>("hero", resolve: async context => await data.GetDroidByIdAsync("3"));
+        FieldAsync<HumanType>(
+            "human",
+            arguments: new QueryArguments(
+                new QueryArgument<NonNullGraphType<StringGraphType>> { Name = "id", Description = "id of the human" }
+            ),
+            resolve: async context => await data.GetHumanByIdAsync(context.GetArgument<string>("id"))
+        );
 
         Func<IResolveFieldContext, string, Task<Droid>> func = (context, id) => data.GetDroidByIdAsync(id);
 
-        Field<DroidType, string>("droid")
-            .Argument<NonNullGraphType<StringGraphType>>("id", "id of the droid")
-            .ResolveDelegate(func);
+        FieldDelegate<DroidType>(
+            "droid",
+            arguments: new QueryArguments(
+                new QueryArgument<NonNullGraphType<StringGraphType>> { Name = "id", Description = "id of the droid" }
+            ),
+            resolve: func
+        );
     }
 }

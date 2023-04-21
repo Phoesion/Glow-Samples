@@ -10,7 +10,7 @@ using GraphQL.MicrosoftDI;
 using GraphQL.Server;
 using GraphQL.SystemTextJson;
 using GraphQL.Types;
-using GraphQL.StarWars;
+using StarWars;
 using System.IO;
 
 namespace Foompany.Services.Example
@@ -27,8 +27,6 @@ namespace Foompany.Services.Example
                         .AddGraphTypes(typeof(StarWarsSchema).Assembly));
 
             services.AddSingleton<StarWarsData>();
-            services.AddLogging(builder => builder.AddConsole());
-            services.AddHttpContextAccessor();
         }
 
         protected override void Configure(IGlowApplicationBuilder app)

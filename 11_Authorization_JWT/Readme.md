@@ -11,7 +11,7 @@ This sample demonstrates the basic of Authorization using JWT in Phoesion Glow.
 - Build the **Sample.sln** solution
 - Run the **Foompany.Services.SampleService1** service.
 - Open a console and go to the **Service's project path** _( Samples\11_Authorization_JWT\Services\Foompany.Services.SampleService1 )_
-- Create a **developer jwt token** by running `dotnet user-jwts create --name "glow_demo" --audience "myApi"`
+- Create a **developer jwt token** by running `dotnet user-jwts create --name "glow_demo" --audience "myApi" --valid-for "365d"`
 - **Use** the **generated token** for testing your api
 
 ### How to test

@@ -1,47 +1,48 @@
-using GraphQL.StarWars.Types;
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Threading.Tasks;
+using StarWars.Types;
 
-namespace GraphQL.StarWars;
+namespace StarWars;
 
 public class StarWarsData
 {
-    private readonly List<StarWarsCharacter> _characters = new();
+    private readonly List<Human> _humans = new List<Human>();
+    private readonly List<Droid> _droids = new List<Droid>();
 
     public StarWarsData()
     {
-        _characters.Add(new Human
+        _humans.Add(new Human
         {
             Id = "1",
             Name = "Luke",
-            Friends = new List<string> { "3", "4" },
+            Friends = new[] { "3", "4" },
             AppearsIn = new[] { 4, 5, 6 },
-            HomePlanet = "Tatooine",
-            Cursor = "MQ=="
+            HomePlanet = "Tatooine"
         });
-        _characters.Add(new Human
+        _humans.Add(new Human
         {
             Id = "2",
             Name = "Vader",
             AppearsIn = new[] { 4, 5, 6 },
-            HomePlanet = "Tatooine",
-            Cursor = "Mg=="
+            HomePlanet = "Tatooine"
         });
 
-        _characters.Add(new Droid
+        _droids.Add(new Droid
         {
             Id = "3",
             Name = "R2-D2",
-            Friends = new List<string> { "1", "4" },
+            Friends = new[] { "1", "4" },
             AppearsIn = new[] { 4, 5, 6 },
-            PrimaryFunction = "Astromech",
-            Cursor = "Mw=="
+            PrimaryFunction = "Astromech"
         });
-        _characters.Add(new Droid
+        _droids.Add(new Droid
         {
             Id = "4",
             Name = "C-3PO",
             AppearsIn = new[] { 4, 5, 6 },
-            PrimaryFunction = "Protocol",
-            Cursor = "NA=="
+            PrimaryFunction = "Protocol"
         });
     }
 
@@ -56,31 +57,28 @@ public class StarWarsData
         var lookup = character.Friends;
         if (lookup != null)
         {
-            foreach (var c in _characters.Where(h => lookup.Contains(h.Id)))
-                friends.Add(c);
+            foreach (var h in _humans.Where(h => lookup.Contains(h.Id)))
+                friends.Add(h);
+            foreach (var d in _droids.Where(d => lookup.Contains(d.Id)))
+                friends.Add(d);
         }
         return friends;
     }
 
-    public StarWarsCharacter AddCharacter(StarWarsCharacter character)
-    {
-        character.Id = _characters.Count.ToString();
-        _characters.Add(character);
-        return character;
-    }
-
     public Task<Human> GetHumanByIdAsync(string id)
     {
-        return Task.FromResult(_characters.FirstOrDefault(h => h.Id == id && h is Human) as Human);
+        return Task.FromResult(_humans.FirstOrDefault(h => h.Id == id));
     }
 
     public Task<Droid> GetDroidByIdAsync(string id)
     {
-        return Task.FromResult(_characters.FirstOrDefault(h => h.Id == id && h is Droid) as Droid);
+        return Task.FromResult(_droids.FirstOrDefault(h => h.Id == id));
     }
 
-    public Task<List<StarWarsCharacter>> GetCharactersAsync(List<string> guids)
+    public Human AddHuman(Human human)
     {
-        return Task.FromResult(_characters.Where(c => guids.Contains(c.Id)).ToList());
+        human.Id = Guid.NewGuid().ToString();
+        _humans.Add(human);
+        return human;
     }
 }

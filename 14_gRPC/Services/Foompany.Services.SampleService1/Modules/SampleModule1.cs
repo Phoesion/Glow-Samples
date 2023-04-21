@@ -4,7 +4,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 
-using dataModels = Foompany.Services.API.SampleService1.Modules.SampleModule1.DataModels;
+using dto = Foompany.Services.API.SampleService1.Modules.SampleModule1.Dto;
 
 namespace Foompany.Services.SampleService1.Modules
 {
@@ -17,9 +17,9 @@ namespace Foompany.Services.SampleService1.Modules
 
 
         [ActionBody(Methods.gRPC)]
-        public dataModels.HelloReply DoTheThing(dataModels.HelloRequest request)
+        public dto.HelloReply DoTheThing(dto.HelloRequest request)
         {
-            return new dataModels.HelloReply()
+            return new dto.HelloReply()
             {
                 Result = $"Hello {request.InputName}, i did the thing!"
             };
@@ -27,11 +27,11 @@ namespace Foompany.Services.SampleService1.Modules
 
 
         [ActionBody(Methods.gRPC)]
-        public async IAsyncEnumerable<dataModels.HelloReply> StreamResultsSample(dataModels.HelloRequest request)
+        public async IAsyncEnumerable<dto.HelloReply> StreamResultsSample(dto.HelloRequest request)
         {
             for (int n = 0; n < 10; n++)
             {
-                yield return new dataModels.HelloReply()
+                yield return new dto.HelloReply()
                 {
                     Result = $"Hello {request.InputName}, this is result {n}!",
                 };

@@ -1,11 +1,10 @@
-using GraphQL.StarWars.Types;
+using StarWars;
 using GraphQL.Types;
+using StarWars.Types;
+using GraphQL;
 
-namespace GraphQL.StarWars;
+namespace StarWars;
 
-/// <summary>
-/// Mutation for StarWars schema.
-/// </summary>
 /// <example>
 /// This is an example JSON request for a mutation
 /// {
@@ -17,18 +16,21 @@ namespace GraphQL.StarWars;
 ///   }
 /// }
 /// </example>
-public class StarWarsMutation : ObjectGraphType<object>
+public class StarWarsMutation : ObjectGraphType
 {
     public StarWarsMutation(StarWarsData data)
     {
         Name = "Mutation";
 
-        Field<HumanType>("createHuman")
-            .Argument<NonNullGraphType<HumanInputType>>("human")
-            .Resolve(context =>
+        Field<HumanType>(
+            "createHuman",
+            arguments: new QueryArguments(
+                new QueryArgument<NonNullGraphType<HumanInputType>> { Name = "human" }
+            ),
+            resolve: context =>
             {
                 var human = context.GetArgument<Human>("human");
-                return data.AddCharacter(human);
+                return data.AddHuman(human);
             });
     }
 }

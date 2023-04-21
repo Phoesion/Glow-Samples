@@ -24,11 +24,17 @@ For example :
 
 Each sample has a readme.md file with quick sample-specific instructions of how to setup/test the sample, and a link to a full tutorial to the documentation site.
 
-
-### How to run
+### How to without Blaze installed (using containers)
 - Build the **Sample_{SampleName}_.sln** solution in the samples folder
-- Run the services from Visual Studio or deploy the **project** (*Project.pgproject*) to your glow cloud using Phoesion Glow **Blaze**. For more information how to setup you cloud you can [read the getting started guide](https://glow-docs.phoesion.com/getting_started/DevMachine_Setup.html)
+- Start the Reactor container using 
+```
+docker run --name reactor -d -p 80:80 -p 443:443 -p 15000-15010:15000-15010 -p 16000:16000 phoesion/phoesion.glow.reactor-dev:1.0.9
+```
+- Run the sample services projects from Visual Studio
 
+### How to run with Blaze installed
+- Build the **Sample_{SampleName}_.sln** solution in the samples folder
+- Run the sample services projects from Visual Studio.
 
 ### How to test
 After you deploy your **glow project** you can test it using the following paths *(assuming local deployment)* :

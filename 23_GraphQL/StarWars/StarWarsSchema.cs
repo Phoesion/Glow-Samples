@@ -1,16 +1,17 @@
+using System;
+using GraphQL.Instrumentation;
 using GraphQL.Types;
-using Microsoft.Extensions.DependencyInjection;
 
-namespace GraphQL.StarWars;
+namespace StarWars;
 
 public class StarWarsSchema : Schema
 {
-    public StarWarsSchema(IServiceProvider serviceProvider)
-        : base(serviceProvider)
+    public StarWarsSchema(IServiceProvider provider)
+        : base(provider)
     {
-        Query = serviceProvider.GetRequiredService<StarWarsQuery>();
-        Mutation = serviceProvider.GetRequiredService<StarWarsMutation>();
+        Query = (StarWarsQuery)provider.GetService(typeof(StarWarsQuery)) ?? throw new InvalidOperationException();
+        Mutation = (StarWarsMutation)provider.GetService(typeof(StarWarsMutation)) ?? throw new InvalidOperationException();
 
-        Description = "Example StarWars universe schema";
+        FieldMiddleware.Use(new InstrumentFieldsMiddleware());
     }
 }

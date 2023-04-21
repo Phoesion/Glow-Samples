@@ -2,6 +2,7 @@ using Phoesion.Glow.SDK;
 using Phoesion.Glow.SDK.Firefly;
 using System;
 using System.Collections.Generic;
+using System.Diagnostics;
 using System.IO;
 using System.Text;
 using System.Threading.Tasks;
@@ -89,6 +90,22 @@ namespace Foompany.Services.SampleService2.Modules
             //wait for 20 seconds to simulate a long-operation (like db query), but provide the cancellation token to the async method
             await Task.Delay(20 * 1000, Context.CancellationToken);
             return "operation completed";
+        }
+
+        //----------------------------------------------------------------------------------------------------------------------------------------------
+
+        /// <summary>
+        /// This action uses the OneOf<> type to return multiple types.
+        /// </summary>
+        [ActionBody(Methods.GET)]
+        public async Task<OneOf<string, int>> OneOfSample(int returnType)
+        {
+            if (returnType == 0)
+                return "This is a string";
+            else if (returnType == 1)
+                return 42;
+            else
+                throw PhotonException.BadRequest.WithMessage("Invalid returnType specified");
         }
 
         //----------------------------------------------------------------------------------------------------------------------------------------------

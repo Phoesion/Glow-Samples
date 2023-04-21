@@ -1,6 +1,6 @@
 syntax = "proto3";
 
-package Foompany.Services.API.SampleService1.Modules.SampleModule1.DataModels;
+package Foompany.Services.API.SampleService1.Modules.SampleModule1.Dto;
 
 // The request message containing the user's name.
 message HelloRequest {

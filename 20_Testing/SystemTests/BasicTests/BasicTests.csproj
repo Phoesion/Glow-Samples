@@ -15,18 +15,33 @@
         </PackageReference>
     </ItemGroup>
 
-    <ItemGroup>
-        <ProjectReference Include="..\..\Services\Foompany.Services.SampleService1\Foompany.Services.SampleService1.csproj" />
-        <ProjectReference Include="..\..\Services\Foompany.Services.SampleService2\Foompany.Services.SampleService2.csproj" />
-    </ItemGroup>
-
     
 
     
     <ItemGroup>
-        <PackageReference Include="Phoesion.Glow.SDK.Testing" Version="1.0.8" />
-        <PackageReference Include="Phoesion.Glow.SDK.Client.REST" Version="1.0.8" />
+        <PackageReference Include="Phoesion.Glow.SDK.Testing" Version="1.0.9" />
+        <PackageReference Include="Phoesion.Glow.SDK.Client.REST" Version="1.0.9" />
     </ItemGroup>
     
+
+    <!-- Reference API projects to use in testing -->
+    <ItemGroup>
+        <ProjectReference Include="..\..\API\Foompany.Services.API.SampleService1\Foompany.Services.API.SampleService1.csproj" />
+        <ProjectReference Include="..\..\API\Foompany.Services.API.SampleService2\Foompany.Services.API.SampleService2.csproj" />
+    </ItemGroup>
+
+    <!-- Reference service project to force a build (but not include final output) -->
+    <ItemGroup>
+        <ProjectReference Include="..\..\Services\Foompany.Services.SampleService1\Foompany.Services.SampleService1.csproj">
+            <Private>false</Private>
+            <ExcludeAssets>all</ExcludeAssets>
+            <ReferenceOutputAssembly>False</ReferenceOutputAssembly>
+        </ProjectReference>
+        <ProjectReference Include="..\..\Services\Foompany.Services.SampleService2\Foompany.Services.SampleService2.csproj">
+            <Private>false</Private>
+            <ExcludeAssets>all</ExcludeAssets>
+            <ReferenceOutputAssembly>False</ReferenceOutputAssembly>
+        </ProjectReference>
+    </ItemGroup>
 
 </Project>

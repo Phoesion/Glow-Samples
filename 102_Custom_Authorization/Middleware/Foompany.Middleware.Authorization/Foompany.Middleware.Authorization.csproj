@@ -6,14 +6,14 @@
     </PropertyGroup>
 
     <ItemGroup>
-        <PackageReference Include="System.IdentityModel.Tokens.Jwt" Version="6.27.0" />
+        <PackageReference Include="System.IdentityModel.Tokens.Jwt" Version="6.29.0" />
     </ItemGroup>
 
     
 
     
     <ItemGroup>
-        <PackageReference Include="Phoesion.Glow.SDK.Firefly.Abstractions" Version="1.0.8" />
+        <PackageReference Include="Phoesion.Glow.SDK.Firefly.Abstractions" Version="1.0.9" />
     </ItemGroup>
     
 

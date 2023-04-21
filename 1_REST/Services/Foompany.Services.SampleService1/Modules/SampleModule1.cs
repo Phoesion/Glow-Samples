@@ -66,6 +66,8 @@ namespace Foompany.Services.SampleService1.Modules
                 throw PhotonException.BadRequest.WithMessage("value3 cannot be 100");
                 //return NotFound("value3 cannot be 100");  //<-- same as above, without throwing exception
             }
+            else if (value3 == 101)
+                throw new System.Exception("a sample unhandled exception"); //simulate an unhandled exception
             else
                 return $"Called Service 1, Action 3! got value1={value1}, value2={value2}, value3={value3}, value4={value4} and value5={value5}";
         }
