@@ -16,7 +16,7 @@ namespace Foompany.Services.SampleService1.Tests
     public class Test_SampleModule1
     {
         [Test]
-        public async Task Default()
+        public async Task Test_Default()
         {
             //declares
             var expectation = "SampleService1 up and running! configValue:";
@@ -112,7 +112,7 @@ namespace Foompany.Services.SampleService1.Tests
             //create a mock of ITesterInteropInvoker to intercept and mock interop requests
             var interopMock = new Mock<ITesterInteropInvoker>();
             interopMock.Setup(repo => repo.Intercept(API.SampleService2.Modules.InteropSample1.Actions.InteropAction1,
-                                                     It.Is<dataModels.MyDataModel.Request>(m => m.InputName == input)))   /* Capture request whose InputName matches "John" */
+                                                     It.Is<dataModels.MyDataModel.Request>(m => m.InputName == input)))   // Capture request whose InputName matches "John"
                        .Returns($"Hi {input}");
 
             //create service provider builder

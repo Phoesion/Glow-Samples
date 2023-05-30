@@ -10,10 +10,10 @@ using System.Threading.Tasks;
 namespace Foompany.Services.SampleService2.Tests
 {
     [TestFixture]
-    public class SampleModule1
+    public class Test_SampleModule1
     {
         [Test]
-        public async Task Default()
+        public async Task Test_Default()
         {
             //declares
             var expectation = "SampleModule1 up and running!";
@@ -40,7 +40,7 @@ namespace Foompany.Services.SampleService2.Tests
 
 
         [Test]
-        public async Task Action1()
+        public async Task Test_Action1()
         {
             //declares
             var input = new { Firstname = "John", Surname = "Doe" };

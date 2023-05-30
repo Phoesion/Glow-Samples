@@ -10,10 +10,10 @@ using System.Threading.Tasks;
 namespace Foompany.Services.SampleService2.Tests
 {
     [TestFixture]
-    public class InteropSample1
+    public class Test_InteropSample1
     {
         [Test]
-        public async Task InteropAction1()
+        public async Task Test_InteropAction1()
         {
             //declares
             var input = new { InputName = "John" };
@@ -76,7 +76,7 @@ namespace Foompany.Services.SampleService2.Tests
         }
 
         [Test]
-        public async Task InteropAction2()
+        public async Task Test_InteropAction2()
         {
             //declares
             var input = new { Firstname = "John", Surname = "Doe" };
@@ -104,7 +104,7 @@ namespace Foompany.Services.SampleService2.Tests
 
 
         [Test]
-        public async Task StreamingSample()
+        public async Task Test_StreamingSample()
         {
             //declares
             var expectation = "This is a stream!";

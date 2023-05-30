@@ -13,10 +13,10 @@ using dataModels = Foompany.Services.API.SampleService2.Modules.InteropSample1.D
 namespace Foompany.Services.SampleService1.Tests
 {
     [TestFixture]
-    public class Test_ServiceWithInterop
+    public class Test_DIServiceWithInterop
     {
         [Test]
-        public async Task Test1()
+        public async Task Test_DI_Service()
         {
             //declares
             var input1 = "This i";
@@ -26,8 +26,8 @@ namespace Foompany.Services.SampleService1.Tests
             //create a mock of ITesterInteropInvoker to intercept and mock interop requests
             var interopMock = new Mock<ITesterInteropInvoker>();
             interopMock.Setup(repo => repo.Intercept(API.SampleService2.Modules.InteropSample1.Actions.ConcatStrings,
-                                                       It.Is<string>(m => m == input1),    /* Capture request whose InputName matches input1 */
-                                                       It.Is<string>(m => m == input2)))   /* Capture request whose InputName matches input2 */
+                                                       It.Is<string>(m => m == input1),    // Capture request whose InputName matches input1
+                                                       It.Is<string>(m => m == input2)))   // Capture request whose InputName matches input2
                        .Returns(expectation);
 
             //create service provider builder
