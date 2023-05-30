@@ -5,6 +5,7 @@ using System.ComponentModel.DataAnnotations;
 
 namespace Foompany.Services.HelloWorld.Modules
 {
+    [API<API.Modules.Greeter>]
     public class Greeter : FireflyModule
     {
         //----------------------------------------------------------------------------------------------------------------------------------------------
@@ -14,7 +15,10 @@ namespace Foompany.Services.HelloWorld.Modules
 
         //----------------------------------------------------------------------------------------------------------------------------------------------
 
-        [Action(Methods.GET)]
+        // Note: This action has an API declared (this is the body).
+        // The documentation used will be from the API prototype
+
+        [ActionBody(Methods.GET)]
         public string SayHello(string FirstName, string LastName)
             => $"Hello {FirstName} {LastName}!";
 
@@ -37,10 +41,9 @@ namespace Foompany.Services.HelloWorld.Modules
         /// </remarks>
         /// <response code="200">Returns the sample response</response>
         [Action(Methods.POST)]
-        public Dto.SampleDto.Response SayHello2([Required] Dto.SampleDto.Request req)
-            => new Dto.SampleDto.Response()
+        public API.Dto.SampleDto.Response SayHello2([Required] API.Dto.SampleDto.Request req)
+            => new API.Dto.SampleDto.Response()
             {
-                IsSuccess = true,
                 Message = $"Hello {req.FirstName} {req.LastName}!",
             };
 

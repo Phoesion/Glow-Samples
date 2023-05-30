@@ -1,4 +1,4 @@
-﻿using Microsoft.AspNetCore.Authentication;
+using Microsoft.AspNetCore.Authentication;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Logging;
 using Foompany.Services.AspCoreMvc.Models;
@@ -6,6 +6,9 @@ using System.Diagnostics;
 using System.Net.Http;
 using System.Net.Http.Headers;
 using System.Threading.Tasks;
+
+using ResponseCacheAttribute = Microsoft.AspNetCore.Mvc.ResponseCacheAttribute;
+using ResponseCacheLocation = Microsoft.AspNetCore.Mvc.ResponseCacheLocation;
 
 namespace Foompany.Services.AspCoreMvc.Controllers
 {

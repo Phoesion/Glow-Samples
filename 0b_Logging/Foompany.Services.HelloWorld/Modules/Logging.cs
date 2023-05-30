@@ -18,21 +18,21 @@ namespace Foompany.Services.HelloWorld.Modules
         [Action(Methods.GET)]
         public string LogDebug()
         {
-            logger.LogDebug("This is a simple DEBUG message");
+            logger.Debug("This is a simple DEBUG message");
             return "done!";
         }
 
         [Action(Methods.GET)]
         public string LogInformation()
         {
-            logger.LogInformation("This is a simple INFORMATION message");
+            logger.Information("This is a simple INFORMATION message");
             return "done!";
         }
 
         [Action(Methods.GET)]
         public string LogWarning()
         {
-            logger.LogInformation("This is a simple WARNING message");
+            logger.Information("This is a simple WARNING message");
             return "done!";
         }
 
@@ -41,7 +41,7 @@ namespace Foompany.Services.HelloWorld.Modules
         [Action(Methods.GET)]
         public string LogWithContext(string username, string someValue)
         {
-            logger.LogInformation("User {user} said {text} ", username, someValue);
+            logger.Information("User {user} said {text} ", username, someValue);
             return "done!";
         }
 
@@ -57,7 +57,7 @@ namespace Foompany.Services.HelloWorld.Modules
             }
             catch (Exception ex)
             {
-                logger.LogError(ex, "Exception caught!");
+                logger.Error(ex, "Exception caught!");
             }
             return "done!";
         }
@@ -67,34 +67,34 @@ namespace Foompany.Services.HelloWorld.Modules
         [Action(Methods.GET)]
         public string CreateScopedLog()
         {
-            logger.LogInformation("Entering CreateScopedLog()");
+            logger.Information("Entering CreateScopedLog()");
 
             //create a scope
             using (logger.BeginScope("Performing migrations on user {username}", "john"))
             {
-                logger.LogInformation("Log within the scope");
-                logger.LogInformation("Another log within the scope");
+                logger.Information("Log within the scope");
+                logger.Information("Another log within the scope");
 
                 //create a inner scope
                 using (logger.BeginScope("Converting user files"))
                 {
-                    logger.LogInformation("converting file 1");
-                    logger.LogInformation("converting file 2");
-                    logger.LogInformation("converting completed");
+                    logger.Information("converting file 1");
+                    logger.Information("converting file 2");
+                    logger.Information("converting completed");
                 }
 
                 //create a inner scope
                 using (logger.BeginScope("Converting user emails"))
                 {
-                    logger.LogInformation("converting email 1");
-                    logger.LogInformation("converting email 2");
-                    logger.LogInformation("converting completed");
+                    logger.Information("converting email 1");
+                    logger.Information("converting email 2");
+                    logger.Information("converting completed");
                 }
 
-                logger.LogInformation("Another log within the first scope");
+                logger.Information("Another log within the first scope");
             }
 
-            logger.LogInformation("Finished CreateScopedLog()");
+            logger.Information("Finished CreateScopedLog()");
             return "done!";
         }
 

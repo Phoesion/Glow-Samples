@@ -8,7 +8,7 @@ using System.Threading.Tasks;
 
 namespace Foompany.Services.SampleService2.Middleware.Profiler
 {
-    class ProfilerMiddleware : IMiddleware
+    sealed class ProfilerMiddleware : IMiddleware
     {
         [Autowire]
         ILogger<ProfilerMiddleware> logger;
@@ -17,7 +17,7 @@ namespace Foompany.Services.SampleService2.Middleware.Profiler
         {
             var req = context.InteropRequest;
             //start timer
-            logger.LogDebug($"Staring execution for interop {req.ModuleName}/{req.ActionName}");
+            logger.Debug($"Staring execution for interop {req.ModuleName}/{req.ActionName}");
             var timer = new Stopwatch();
             timer.Restart();
 
@@ -30,7 +30,7 @@ namespace Foompany.Services.SampleService2.Middleware.Profiler
             {
                 //stop timer and report results
                 timer.Stop();
-                logger.LogDebug($"Finished execution for interop {req.ModuleName}/{req.ActionName}, took {timer.ElapsedMilliseconds} milliseconds");
+                logger.Debug($"Finished execution for interop {req.ModuleName}/{req.ActionName}, took {timer.ElapsedMilliseconds} milliseconds");
             }
         }
     }

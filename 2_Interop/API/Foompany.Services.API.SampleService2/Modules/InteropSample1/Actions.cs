@@ -15,32 +15,35 @@ namespace Foompany.Services.API.SampleService2.Modules.InteropSample1
     public interface Actions
     {
         [Interop]
-        static string InteropAction1(DataModels.MyDataModel.Request req) => null;
+        static void InteropAction(string input) { }
 
         [Interop]
-        static string InteropAction2(string firstname, string surname) => null;
+        static string InteropAction1(DataModels.MyDataModel.Request req) => default;
+
+        [Interop]
+        static string InteropAction2(string firstname, string surname) => default;
 
         [Action(Methods.GET)]
         [Interop]
-        static DataModels.MyDataModel.Response HybridAction3() => null;
+        static DataModels.MyDataModel.Response HybridAction3() => default;
 
         [Interop]
-        static string InteropAction4() => null;
+        static string InteropAction4() => default;
 
         [Action(Methods.GET | Methods.POST)]
         [Interop]
-        static string HybridAction5([Required, FromBody] IList<string> data) => null;
+        static string HybridAction5([Required, FromBody] IList<string> data) => default;
 
         [Interop]
-        static string ExceptionSample() => null;
+        static string ExceptionSample() => default;
 
         [Interop]
-        static Stream StreamingSample() => null;
+        static Stream StreamingSample() => default;
 
         [Interop]
-        static IAsyncEnumerable<DataModels.MyDataModel.Response> AsyncEnumerableSample() => null;
+        static IAsyncEnumerable<DataModels.MyDataModel.Response> AsyncEnumerableSample() => default;
 
         [Interop]
-        static string CancellableSample(string input) => null;
+        static string CancellableSample(string input) => default;
     }
 }

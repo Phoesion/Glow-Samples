@@ -32,6 +32,13 @@ namespace Foompany.Services.SampleService2.Modules
 
         //----------------------------------------------------------------------------------------------------------------------------------------------
 
+        [InteropBody]
+        public string ConcatStrings(string left, string right)
+        {
+            return left + right;
+        }
+        //----------------------------------------------------------------------------------------------------------------------------------------------
+
         /// <summary> 
         /// Simple streaming sample. Return a Stream object and it will be consumed by the remote endpoint
         /// WARNING : The stream will be automatically consumed and disposed! Do not keep a reference of it, or use it in any other way after function returns!

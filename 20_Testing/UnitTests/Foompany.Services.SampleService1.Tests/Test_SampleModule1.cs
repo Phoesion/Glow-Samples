@@ -13,7 +13,7 @@ using dataModels = Foompany.Services.API.SampleService2.Modules.InteropSample1.D
 namespace Foompany.Services.SampleService1.Tests
 {
     [TestFixture]
-    public class SampleModule1
+    public class Test_SampleModule1
     {
         [Test]
         public async Task Default()
@@ -24,6 +24,11 @@ namespace Foompany.Services.SampleService1.Tests
             //create service provider builder
             using var services = TestContainerBuilder
                 .CreateDefault<ServiceMain>()
+                .ConfigureServices(srv =>
+                {
+                    //add dependency (empty mock)
+                    srv.AddSingleton<IMultiplyNumbersService>(new Mock<IMultiplyNumbersService>().Object);
+                })
                 .Build();
 
             //begin a test request scope
@@ -106,13 +111,18 @@ namespace Foompany.Services.SampleService1.Tests
 
             //create a mock of ITesterInteropInvoker to intercept and mock interop requests
             var interopMock = new Mock<ITesterInteropInvoker>();
-            interopMock.Setup(repo => repo.InvokeAsync(API.SampleService2.Modules.InteropSample1.Actions.InteropAction1,
-                                                       It.Is<dataModels.MyDataModel.Request>(m => m.InputName == input)))   /* Capture request whose InputName matches "John" */
+            interopMock.Setup(repo => repo.Intercept(API.SampleService2.Modules.InteropSample1.Actions.InteropAction1,
+                                                     It.Is<dataModels.MyDataModel.Request>(m => m.InputName == input)))   /* Capture request whose InputName matches "John" */
                        .Returns($"Hi {input}");
 
             //create service provider builder
             using var services = TestContainerBuilder
                 .CreateDefault<ServiceMain>()
+                .ConfigureServices(srv =>
+                {
+                    //add dependency (empty mock)
+                    srv.AddSingleton<IMultiplyNumbersService>(new Mock<IMultiplyNumbersService>().Object);
+                })
                 .AddInteropInvoker(interopMock.Object)
                 .Build();
 

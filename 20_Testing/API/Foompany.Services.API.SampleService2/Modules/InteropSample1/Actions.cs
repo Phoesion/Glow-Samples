@@ -20,6 +20,9 @@ namespace Foompany.Services.API.SampleService2.Modules.InteropSample1
         public static string InteropAction2(string firstname, string surname) => null;
 
         [Interop]
+        public static string ConcatStrings(string left, string right) => null;
+
+        [Interop]
         public static Stream StreamingSample() => null;
     }
 }

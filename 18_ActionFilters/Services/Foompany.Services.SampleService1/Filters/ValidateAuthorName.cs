@@ -7,7 +7,7 @@ using Phoesion.Glow.SDK.Firefly;
 
 namespace Foompany.Services.SampleService1.Filters
 {
-    class ValidateAuthorName : ActionFilter
+    sealed class ValidateAuthorName : ActionFilter
     {
         public string FieldToCheck = null;
 

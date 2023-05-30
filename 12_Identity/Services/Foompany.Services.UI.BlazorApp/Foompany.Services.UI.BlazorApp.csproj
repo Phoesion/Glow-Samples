@@ -18,8 +18,8 @@
 
     
     <ItemGroup>
-        <PackageReference Include="Phoesion.Glow.SDK.Blazor.WebAssembly" Version="1.0.9" />
-        <PackageReference Include="Phoesion.Glow.SDK.Client.REST" Version="1.0.9" />
+        <PackageReference Include="Phoesion.Glow.SDK.Blazor.WebAssembly" Version="1.1.0" />
+        <PackageReference Include="Phoesion.Glow.SDK.Client.REST" Version="1.1.0" />
     </ItemGroup>
     
 

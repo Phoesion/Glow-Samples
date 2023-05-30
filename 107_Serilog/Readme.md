@@ -19,6 +19,8 @@ and they will not be _visible_ to the Glow Firefly service _(and thus not visibl
 After you deploy your **glow project** you can test it using the following paths *(assuming local deployment)* :
 
 - [http://localhost:16000/HelloWorld/](http://localhost:16000/HelloWorld/)
+- [http://localhost:16000/HelloWorld/Action1?name=george&age=21](http://localhost:16000/HelloWorld/Action1?name=george&age=21)
+- 
 
 See logs in the console (when debugging) or in Blaze (for deployed service)
 

@@ -24,9 +24,12 @@ namespace Foompany.Services.HelloWorld
                 //full name schemas (to avoid conflicts)
                 options.CustomSchemaIds(x => x.FullName.Replace("+", "."));
 
-                //use documentation xml
+                //use documentation xml for this service (optional)
                 var xmlFilename = $"{typeof(ServiceMain).Assembly.GetName().Name}.xml";
                 options.IncludeXmlComments(xmlFilename);
+
+                //use documentation xml for API project
+                options.IncludeXmlComments("Foompany.Services.HelloWorld.API.xml");
             });
         }
 

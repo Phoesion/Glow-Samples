@@ -1,8 +1,11 @@
 using Phoesion.Glow.SDK;
 using Phoesion.Glow.SDK.Firefly;
+using Polly;
+using System;
 using System.Collections.Generic;
 using System.IO;
 using System.Threading.Tasks;
+
 using models = Foompany.Services.API.SampleService2.Modules.InteropSample1.DataModels;
 
 namespace Foompany.Services.SampleService1.Modules
@@ -176,6 +179,41 @@ namespace Foompany.Services.SampleService1.Modules
                                 .InvokeAsync();
             return stream;
         }
+
+        //----------------------------------------------------------------------------------------------------------------------------------------------
+
+        /// <summary>
+        /// Call another service with a strong-typed api without response data.
+        /// This is still an RPC call that will return when the remove method finished executing.
+        /// </summary>
+        [ActionBody(Methods.GET)]
+        public async Task<string> Action(string input)
+        {
+            await Call(API.SampleService2.Modules.InteropSample1.Actions.InteropAction, input)
+                    .WithCancellationToken(Context.CancellationToken)
+                    .InvokeAsync();
+            return $"Service 2 finished processing request (check logs)";
+        }
+
+        //----------------------------------------------------------------------------------------------------------------------------------------------
+
+        /// <summary>
+        /// Specify a custom resilience policy (using Polly) to use for invoking method.
+        /// </summary>
+        [ActionBody(Methods.GET)]
+        public async Task<string> ActionWithCustomResiliencePolicy(string firstName, string lastName)
+        {
+            var res = await Call(API.SampleService2.Modules.InteropSample1.Actions.InteropAction2, firstName, lastName)
+                            .WithResiliencePolicy(customPolicy) // Apply custom resilience policy
+                            .InvokeAsync();
+            return $"Service 2 said : " + res;
+        }
+
+        //create a custom circuit-breaking policy
+        static readonly IAsyncPolicy<string> customPolicy =
+            InteropResiliencePolicy<string> // <-- create policy that handles fiber transport exceptions
+                .New
+                .CircuitBreakerAsync(10, TimeSpan.FromSeconds(5));
 
         //----------------------------------------------------------------------------------------------------------------------------------------------
     }

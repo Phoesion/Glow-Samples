@@ -16,7 +16,7 @@ namespace Foompany.Services.SampleService1.Modules
         [InteropBody]
         public string SomethingHappened(string someData)
         {
-            logger.LogInformation("Received event with data : " + someData);
+            logger.Information("Received event with data : " + someData);
             return $"SampleService1 received the event! (data='{someData}')";
         }
 

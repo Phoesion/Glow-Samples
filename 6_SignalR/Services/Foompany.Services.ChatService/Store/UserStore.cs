@@ -15,7 +15,7 @@ namespace Foompany.Services.ChatService.Store
         Task<IEnumerable<string>> GetUsernames();
     }
 
-    class InMemoryUserStore : IUserStore
+    sealed class InMemoryUserStore : IUserStore
     {
         //keep track of connected clients' clientId and username in (static) memory
         // NOTE: in real-world production application you should probably use a database or a distributed cache

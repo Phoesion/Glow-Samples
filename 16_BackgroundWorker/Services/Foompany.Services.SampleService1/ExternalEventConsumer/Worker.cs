@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 using System.Collections.Generic;
 using System.Text;
 using System.Threading;
@@ -15,7 +15,7 @@ namespace Foompany.Services.SampleService1.ExternalEventConsumer
     /// This is worker implementation emulates receiving external request. (eg. Listening to an external broker)
     /// We need to create a Service scope for the request to be handled as well as a Logging scope.
     /// </summary>
-    class Worker : BackgroundService
+    sealed class Worker : BackgroundService
     {
         readonly IServiceProvider services;
         readonly ILogger logger;

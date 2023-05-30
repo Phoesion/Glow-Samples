@@ -57,7 +57,7 @@ namespace Foompany.Services.SampleService2.Operations
         #region Save / Load operation state
 
         //class to hold state data when serialized
-        class OperationState
+        sealed class OperationState
         {
             public Dictionary<string, string> Parameters { get; set; }
         }

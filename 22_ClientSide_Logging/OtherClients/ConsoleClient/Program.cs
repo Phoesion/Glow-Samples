@@ -8,7 +8,7 @@ using Phoesion.Glow.SDK.Client.Logging;
 
 namespace Foompany.ConsoleClient
 {
-    class Program
+    sealed class Program
     {
         //---------------------
         // Constants

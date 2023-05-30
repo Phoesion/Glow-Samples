@@ -11,8 +11,15 @@ namespace Foompany.Services.HelloWorld.Modules
         [Action(Methods.GET)]
         public string Default()
         {
-            logger.LogInformation("This is a sample log message!");
+            logger.Information("This is a sample log message!");
             return "HelloWorld service up and running!";
+        }
+
+        [Action(Methods.GET)]
+        public string Action1(string name, int age)
+        {
+            logger.Information("Sample structured logging. User's name is {name} and age is {age}!", name, age);
+            return $"Hello {name}!";
         }
     }
 }

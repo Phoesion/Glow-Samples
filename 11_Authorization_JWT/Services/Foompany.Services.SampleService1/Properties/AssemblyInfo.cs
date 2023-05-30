@@ -15,3 +15,7 @@ using Phoesion.Glow.SDK.Firefly;
 
 // Enable Client-side logging for all service actions
 //[assembly: EnableClientLogging()]
+
+
+//allow override from Blaze UI
+[assembly: ExposeConfiguration("Authority")]

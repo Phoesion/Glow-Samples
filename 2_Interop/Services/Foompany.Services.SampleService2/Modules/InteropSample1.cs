@@ -1,3 +1,4 @@
+using Microsoft.Extensions.Logging;
 using Phoesion.Glow.SDK;
 using Phoesion.Glow.SDK.Firefly;
 using System;
@@ -18,6 +19,12 @@ namespace Foompany.Services.SampleService2.Modules
     [API<API.SampleService2.Modules.InteropSample1.Actions>, Profile]
     public class InteropSample1 : FireflyModule
     {
+        [InteropBody]
+        public void InteropAction(string input)
+        {
+            logger.Information("called with input " + input);
+        }
+
         //----------------------------------------------------------------------------------------------------------------------------------------------
 
         [InteropBody]

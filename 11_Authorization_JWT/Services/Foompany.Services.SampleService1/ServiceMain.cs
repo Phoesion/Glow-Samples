@@ -18,7 +18,11 @@ namespace Foompany.Services.SampleService1
 
             // Add and configure authentication services
             services.AddAuthentication(JwtBearerDefaults.AuthenticationScheme)
-                    .AddJwtBearer();
+                    .AddJwtBearer(o =>
+                    {
+                        //specify the authority
+                        o.Authority = Configurations["Authority"];
+                    });
         }
 
         protected override void Configure(IGlowApplicationBuilder app)

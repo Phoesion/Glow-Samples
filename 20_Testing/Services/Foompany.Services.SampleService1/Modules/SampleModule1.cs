@@ -30,7 +30,7 @@ namespace Foompany.Services.SampleService1.Modules
         {
             if (v1 == 0 || v2 == 0)
             {
-                logger.LogInformation("Received zero value");
+                logger.Information("Received zero value");
                 return NotAcceptable("Multiplying with zero is not allowed in this sample!");
             }
             else

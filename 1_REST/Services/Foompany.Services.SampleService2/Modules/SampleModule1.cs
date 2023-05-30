@@ -96,6 +96,8 @@ namespace Foompany.Services.SampleService2.Modules
 
         /// <summary>
         /// This action uses the OneOf<> type to return multiple types.
+        /// The id of the type will be added to the response Headers.
+        /// Use the [DoNotCollapseOneOfResult] on the action to preserve the entire structure and not reduce the result to only the active type.
         /// </summary>
         [ActionBody(Methods.GET)]
         public async Task<OneOf<string, int>> OneOfSample(int returnType)
@@ -106,6 +108,27 @@ namespace Foompany.Services.SampleService2.Modules
                 return 42;
             else
                 throw PhotonException.BadRequest.WithMessage("Invalid returnType specified");
+        }
+
+        //----------------------------------------------------------------------------------------------------------------------------------------------
+
+        /// <summary>
+        /// This action uses the ResultOf<> type to return multiple types, or exception without throw.
+        /// The id of the type will be added to the response Headers.
+        /// Use the [DoNotCollapseResultOf] on the action to preserve the entire structure and not reduce the result to only the active type.
+        /// </summary>
+        [ActionBody(Methods.GET)]
+        public async Task<ResultOf<string, int>> ResultOfSample(int returnType)
+        {
+            if (returnType == 0)
+                return "This is a string";
+            else if (returnType == 1)
+                return 42;
+            else
+            {
+                //NOTE : we are **RETURING** the exception, **NOT** throwing it!
+                return PhotonException.BadRequest.WithMessage("Invalid returnType specified");
+            }
         }
 
         //----------------------------------------------------------------------------------------------------------------------------------------------
@@ -187,14 +210,16 @@ namespace Foompany.Services.SampleService2.Modules
         /// Simple result streaming sample by asynchronously yielding results back to caller.
         /// </summary>
         /// <returns></returns>
-        [Action(Methods.GET)]
+        [ActionBody(Methods.GET)]
         public async IAsyncEnumerable<string> YieldReturnResults()
         {
-            for (int n = 0; n < 10; n++)
+            for (int n = 0; n < 20; n++)
             {
                 yield return $"value is " + n + Environment.NewLine;
                 await Task.Delay(1000);  //simulate processing or IO operations
             }
+            //done
+            yield return "Finished!";
         }
 
         //----------------------------------------------------------------------------------------------------------------------------------------------

@@ -14,6 +14,9 @@ using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Logging;
 
+using FromQueryAttribute = Microsoft.AspNetCore.Mvc.FromQueryAttribute;
+using ValidateAntiForgeryTokenAttribute = Microsoft.AspNetCore.Mvc.ValidateAntiForgeryTokenAttribute;
+
 namespace IdentityServer4.Quickstart.UI.Device
 {
     [Authorize]

@@ -21,18 +21,12 @@ namespace Foompany.Services.HelloWorld
             base.ConfigureHost(hostBuilder);
 
             //Add Serilog
-            hostBuilder.UseSerilog((context, loggerConfiguration) =>
+            hostBuilder.UseSerilog((context, services, loggerConfiguration) =>
             {
-                loggerConfiguration
-                    .WriteTo.Console()
-                    //.WriteTo.File(@"C:\SomeValidPath\log.txt")
-                    .ReadFrom.Configuration(context.Configuration);
-            },
-            writeToProviders: true); // <-- IMPORTANT !!
-                                     //     Instruct Serilog to write to ILoggerProviders also, so Glow Firefly loggers will
-                                     //     receive the logs and can then be viewed from Blaze.
-                                     //
-                                     // Note : we also disable default Console Logger from appsettings (since we use Serilog's console sink)
+                loggerConfiguration.ReadFrom.Configuration(context.Configuration)
+                                   .WriteTo.GlowLighthouse(services);  // <-- IMPORTANT !!
+                                                                       //     Add Glow Lighthouse sink so logs can then be viewed from Blaze.
+            });
         }
     }
 }

@@ -8,7 +8,7 @@ using Phoesion.Glow.SDK.Firefly;
 
 namespace Foompany.Services.HelloWorld.Middleware
 {
-    internal class CustomAuthorizationMiddleware : IMiddleware
+    sealed class CustomAuthorizationMiddleware : IMiddleware
     {
         public ValueTask InvokeAsync(IMiddlewareChain chain, IActionContext context, IReadOnlyList<IMiddlewareMetadata> metadata)
         {

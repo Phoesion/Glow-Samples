@@ -5,7 +5,7 @@ using System.Threading.Tasks;
 namespace Foompany.IncidentReport
 {
     // The implementation of IIncidentReport
-    class IncidentReportService : IIncidentReporter
+    sealed class IncidentReportService : IIncidentReporter
     {
         readonly IReportFormatter Formatter;
         readonly IReportStore Store;

@@ -1,8 +1,9 @@
-﻿using Microsoft.Extensions.Logging;
+using Microsoft.Extensions.Logging;
 using System;
 using System.Collections.Generic;
 using System.Text;
 using System.Threading.Tasks;
+using Phoesion.Glow.SDK;
 
 namespace Foompany.Services.EmailService
 {
@@ -14,7 +15,7 @@ namespace Foompany.Services.EmailService
 
 namespace Foompany.Services.EmailService.ServiceImplementations
 {
-    class EmailSenderServiceImpl : IEmailSenderService
+    sealed class EmailSenderServiceImpl : IEmailSenderService
     {
         readonly ILogger<EmailSenderServiceImpl> logger;
 
@@ -26,7 +27,7 @@ namespace Foompany.Services.EmailService.ServiceImplementations
         public async Task<bool> SendAsync(string from, string to, string subject, string body)
         {
             //Do work here...
-            logger.LogInformation("Sending email {from}-{to} with subject {subject}", from, to, subject);
+            logger.Information("Sending email {from}-{to} with subject {subject}", from, to, subject);
             await Task.Delay(2000);
             return true;
         }

@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 using System.Collections.Generic;
 using System.Text;
 using System.Threading;
@@ -7,13 +7,14 @@ using Microsoft.Extensions.Hosting;
 using Microsoft.Extensions.Logging;
 using Microsoft.Extensions.DependencyInjection;
 using Phoesion.Glow.SDK.Firefly;
+using Phoesion.Glow.SDK;
 
 namespace Foompany.Services.SampleService1.ExternalEventConsumer
 {
     /// <summary>
     /// This is a scoped service that will handle the incoming request
     /// </summary>
-    class Handler
+    sealed class Handler
     {
         readonly IServiceProvider services;
         readonly ILogger logger;
@@ -27,7 +28,7 @@ namespace Foompany.Services.SampleService1.ExternalEventConsumer
         //emulate the handling of the incoming request
         public async Task HandleRequest(int req)
         {
-            logger.LogInformation($"Handling request with id {req}");
+            logger.Information($"Handling request with id {req}");
         }
     }
 }

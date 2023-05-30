@@ -1,4 +1,4 @@
-﻿using Microsoft.Extensions.Primitives;
+using Microsoft.Extensions.Primitives;
 using Microsoft.IdentityModel.Tokens;
 using Phoesion.Glow.SDK.Firefly;
 using System;
@@ -39,7 +39,7 @@ namespace Foompany.Middleware.Authorization
                         ValidateAudience = true,
                         ValidateIssuer = true,
                         ValidateLifetime = true,
-                        IssuerSigningKey = new SymmetricSecurityKey(Encoding.UTF8.GetBytes("thiskeyisverylargetobreak")),
+                        IssuerSigningKey = new SymmetricSecurityKey(Encoding.UTF8.GetBytes(Foompany.Middleware.Authorization.Constants.SecretKey)),
                         ValidIssuer = "ThisIsMe",
                         ValidAudience = "ThisIsYou",
                     },

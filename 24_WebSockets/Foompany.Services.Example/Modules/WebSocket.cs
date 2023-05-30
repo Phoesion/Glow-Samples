@@ -19,7 +19,7 @@ namespace Foompany.Services.Example.Modules
         [Action(Methods.GET), IsUpgradableConnection]
         public async Task<IWebSocketConnection> Connect()
         {
-            logger.LogInformation($"Received a websocket connection request!");
+            logger.Information($"Received a websocket connection request!");
 
             //upgrade connection to websockets
             var connection = await Context.UpgradeWebSocketAsync();
@@ -62,14 +62,14 @@ namespace Foompany.Services.Example.Modules
                         //receive some data
                         var rec = await socket.ReceiveAsync(recbuffer, ct);
                         var recMsg = Encoding.UTF8.GetString(recbuffer.AsSpan().Slice(0, rec.Count));
-                        logger.LogInformation($"Received data. length={rec.Count}, message={recMsg}");
+                        logger.Information($"Received data. length={rec.Count}, message={recMsg}");
 
                         //spin delay
                         await Task.Delay(1000);
                     }
-                    logger.LogInformation($"Connection closed!");
+                    logger.Information($"Connection closed!");
                 }
-                catch (Exception ex) { logger.LogError(ex, "Connection handler error"); }
+                catch (Exception ex) { logger.Error(ex, "Connection handler error"); }
         }
     }
 }

@@ -1,7 +1,9 @@
 using Phoesion.Glow.SDK;
 using Phoesion.Glow.SDK.Firefly;
 using System;
+using System.Collections.Generic;
 using System.IO;
+using System.Threading.Tasks;
 
 namespace Foompany.Services.API.SampleService2.Modules.SampleModule1
 {
@@ -29,9 +31,15 @@ namespace Foompany.Services.API.SampleService2.Modules.SampleModule1
         public static OneOf<string, int> OneOfSample(int returnType) => default;
 
         [Action(Methods.GET)]
+        public static ResultOf<string, int> ResultOfSample(int returnType) => default;
+
+        [Action(Methods.GET)]
         public static string ActionAliasSample() => default;
 
         [Action(Methods.GET)]
         public static Stream StreamingSample1() => default;
+
+        [Action(Methods.GET)]
+        public static IAsyncEnumerable<string> YieldReturnResults() => default;
     }
 }

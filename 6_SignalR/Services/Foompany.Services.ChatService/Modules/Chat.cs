@@ -52,7 +52,7 @@ namespace Foompany.Services.ChatService.Modules
             await PushBroadcastMessage(topic.Notification, $"{username} connected");
 
             //accept connection (no exception is thrown and we return a 200 OK response)
-            logger.LogInformation("New PushClient connected with id {clientId}", clientId);
+            logger.Information("New PushClient connected with id {clientId}", clientId);
             return "ok";
         }
 
@@ -77,7 +77,7 @@ namespace Foompany.Services.ChatService.Modules
                 await PushBroadcastMessage(topic.Notification, $"{removedUsername} disconnected");
 
             //log it
-            logger.LogInformation("PushClient with id {clientId} has disconnected", clientId);
+            logger.Information("PushClient with id {clientId} has disconnected", clientId);
         }
 
         //----------------------------------------------------------------------------------------------------------------------------------------------
@@ -187,10 +187,10 @@ namespace Foompany.Services.ChatService.Modules
         // Simple void methods (with no result)
 
         [ActionBody(Methods.PUSH_CALL)]
-        public void Void(string test) => logger.LogInformation("hit void");
+        public void Void(string test) => logger.Information("hit void");
 
         [ActionBody(Methods.PUSH_CALL)]
-        public async Task VoidAsync(string test) => logger.LogInformation("hit void");
+        public async Task VoidAsync(string test) => logger.Information("hit void");
 
         //----------------------------------------------------------------------------------------------------------------------------------------------
 

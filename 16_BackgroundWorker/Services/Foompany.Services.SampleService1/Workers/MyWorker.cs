@@ -1,10 +1,11 @@
-﻿using System;
+using System;
 using System.Collections.Generic;
 using System.Text;
 using System.Threading;
 using System.Threading.Tasks;
 using Microsoft.Extensions.Hosting;
 using Microsoft.Extensions.Logging;
+using Phoesion.Glow.SDK;
 
 namespace Foompany.Services.SampleService1.Workers
 {
@@ -12,7 +13,7 @@ namespace Foompany.Services.SampleService1.Workers
     /// This is the worker implementation.
     /// You can use BackgroundService class instead of IHostedService for a basic Start->Execute->Stop implementation
     /// </summary>
-    class MyWorker : IHostedService
+    sealed class MyWorker : IHostedService
     {
         readonly ILogger logger;
         readonly CancellationTokenSource cancellationSource = new CancellationTokenSource();
@@ -26,7 +27,7 @@ namespace Foompany.Services.SampleService1.Workers
 
         public async Task StartAsync(CancellationToken cancellationToken)
         {
-            logger.LogInformation("My worker started");
+            logger.Information("My worker started");
 
             //start worker logic in a separate task (and do not await it)
             _ = Task.Run(heartbeat);
@@ -35,9 +36,9 @@ namespace Foompany.Services.SampleService1.Workers
         public async Task StopAsync(CancellationToken cancellationToken)
         {
             //stop worker
-            logger.LogInformation("My worker is stopping");
-            cancellationSource.Cancel();
-            logger.LogInformation("My worker stopped");
+            logger.Information("My worker is stopping");
+            try { cancellationSource.Cancel(); } catch { }
+            logger.Information("My worker stopped");
         }
 
         async Task heartbeat()
@@ -48,7 +49,7 @@ namespace Foompany.Services.SampleService1.Workers
                 //count up
                 Counter++;
                 //print value
-                logger.LogInformation($"Counter = {Counter}");
+                logger.Information($"Counter = {Counter}");
                 //sleep a bit
                 await Task.Delay(1000, cancellationToken);
             }

@@ -48,9 +48,9 @@ namespace Foompany.Services.SampleService2.Tests
 
             //create a mock of ITesterInteropInvoker to intercept and mock interop requests
             var interopMock = new Mock<ITesterInteropInvoker>();
-            interopMock.Setup(repo => repo.InvokeAsync(API.SampleService2.Modules.InteropSample1.Actions.InteropAction2,
-                                                       It.Is<string>(v => v == input.Firstname),
-                                                       It.Is<string>(v => v == input.Surname)))
+            interopMock.Setup(repo => repo.Intercept(API.SampleService2.Modules.InteropSample1.Actions.InteropAction2,
+                                                     It.Is<string>(v => v == input.Firstname),
+                                                     It.Is<string>(v => v == input.Surname)))
                        .Returns($"Hi {input.Firstname} {input.Surname}");
 
             //create service provider builder
