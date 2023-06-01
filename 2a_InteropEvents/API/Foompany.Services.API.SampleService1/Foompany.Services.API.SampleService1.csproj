@@ -9,7 +9,7 @@
 
     
     <ItemGroup>
-        <PackageReference Include="Phoesion.Glow.SDK.Firefly.Annotations" Version="1.1.1" />
+        <PackageReference Include="Phoesion.Glow.SDK.Firefly.Annotations" Version="1.1.2" />
     </ItemGroup>
     
 

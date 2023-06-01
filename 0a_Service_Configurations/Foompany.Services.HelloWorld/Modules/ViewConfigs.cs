@@ -19,13 +19,18 @@ namespace Foompany.Services.HelloWorld.Modules
         [Configuration]
         string ValueFromAppSettings;
 
+        // Auto-bind simple string configuration in module. (using a specific section name)
+        [Configuration("Other:AdminInfo:Name")]
+        string AdministratorName;
+
         // Auto-bind configuration in module.
         [Configuration]
         ContactInfoOptions ContactInfo { get; set; }
 
         // Auto-bind configuration in module. (using a specific section name)
-        [Configuration(SectionName = "Other:AdminInfo")]
+        [Configuration("Other:AdminInfo")]
         ContactInfoOptions ContactInfoInSubKey { get; set; }
+
 
         //----------------------------------------------------------------------------------------------------------------------------------------------
 
@@ -41,8 +46,8 @@ namespace Foompany.Services.HelloWorld.Modules
                    $"Configs_MyKey2 = {Configurations["MyKey2"]} \r\n\r\n" +
                    $"ContactInfo.Name = {Configurations["ContactInfo:Name"]} \r\n\r\n" +
                    $"ContactInfo.Email = {Configurations["ContactInfo:Email"]} \r\n\r\n" +
-                   $"Other:ContactInfo.Name = {Configurations["Other:AdminInfo:Name"]} \r\n\r\n" +
-                   $"Other:ContactInfo.Email = {Configurations["Other:AdminInfo:Email"]} \r\n\r\n";
+                   $"Other:AdminInfo.Name = {Configurations["Other:AdminInfo:Name"]} \r\n\r\n" +
+                   $"Other:AdminInfo.Email = {Configurations["Other:AdminInfo:Email"]} \r\n\r\n";
         }
 
         //----------------------------------------------------------------------------------------------------------------------------------------------
@@ -59,7 +64,8 @@ namespace Foompany.Services.HelloWorld.Modules
         {
             return $"ValueFromAppSettings = {ValueFromAppSettings} \r\n\r\n" +
                    $"ContactInfo auto-bind = {ToJson(ContactInfo)} \r\n\r\n" +
-                   $"Other:AdminInfo auto-bind = {ToJson(ContactInfoInSubKey)} \r\n\r\n";
+                   $"Other:AdminInfo auto-bind = {ToJson(ContactInfoInSubKey)} \r\n\r\n" +
+                   $"AdministratorName  = {AdministratorName} \r\n\r\n";
         }
 
         //----------------------------------------------------------------------------------------------------------------------------------------------
