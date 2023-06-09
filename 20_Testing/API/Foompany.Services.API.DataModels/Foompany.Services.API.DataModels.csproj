@@ -13,7 +13,7 @@
 
     
     <ItemGroup>
-        <PackageReference Include="Phoesion.Glow.SDK.Firefly.Abstractions" Version="1.1.2" />
+        <PackageReference Include="Phoesion.Glow.SDK.Firefly.Abstractions" Version="1.1.3" />
     </ItemGroup>
     
 
