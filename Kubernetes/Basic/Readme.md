@@ -8,6 +8,14 @@
 This sample demonstrated how setup a complete **Glow** ecosystem in Kubernetes.
 
 
+### How does it work
+To setup Phoesion Glow in Kubernetes, you need the four entity types *(as Kubernetes deployments)* :
+1) **Kaleidoscope** : The service-bus that connects all the entities together.
+2) **Lighthouse** : The command-and-control service. It **MUST** have only **1 replica** and be **kind: StatefulSet**
+3) **Prism** : It is the **Ingress** service of **type: LoadBalancer**. It will receive external traffic and forward _(load-balance)_ it to the appropriate _(Firefly)_ service
+4) **Firefly.k8s.operator** : The **Firefly [operator](https://kubernetes.io/docs/concepts/extend-kubernetes/operator/)** will live in the **[control plane](https://kubernetes.io/docs/concepts/overview/components/#control-plane-components)** and be responsible for creating new **Kubernetes deployments** for your **quantum-space services**.
+
+
 ### How to run
 - Generate **Entity AuthKey** from **Blaze** tools for each entity and copy-paste them in to its respective entry in the **02.deploy-secrets.yaml** file.
 - Run the commands to apply deployments
