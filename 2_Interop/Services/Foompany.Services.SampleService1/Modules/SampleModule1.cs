@@ -32,8 +32,7 @@ namespace Foompany.Services.SampleService1.Modules
                 InputName = "George",
             };
             var result = await Call(API.SampleService2.Modules.InteropSample1.Actions.InteropAction1, req)
-                                .WithCancellationToken(Context.CancellationToken) // chain cancellation request to remote service
-                                .InvokeAsync();
+                                .WithCancellationToken(Context.CancellationToken); // chain cancellation request to remote service                                
             return $"Service 2 said '{result}'";
         }
 
@@ -48,8 +47,7 @@ namespace Foompany.Services.SampleService1.Modules
             var firstName = "John";
             var surName = "Doe";
             var result = await Call(API.SampleService2.Modules.InteropSample1.Actions.InteropAction2, firstName, surName)
-                                .WithCancellationToken(Context.CancellationToken) // chain cancellation request to remote service
-                                .InvokeAsync();
+                                .WithCancellationToken(Context.CancellationToken); // chain cancellation request to remote service                                
             return $"Service 2 said '{result}'";
         }
 
@@ -59,8 +57,7 @@ namespace Foompany.Services.SampleService1.Modules
         public async Task<string> Action3()
         {
             var result = await Call(API.SampleService2.Modules.InteropSample1.Actions.HybridAction3)
-                                .WithCancellationToken(Context.CancellationToken) // chain cancellation request to remote service
-                                .InvokeAsync();
+                                .WithCancellationToken(Context.CancellationToken); // chain cancellation request to remote service
             return $"Service 2 said '{result?.Result}'";
         }
 
@@ -73,7 +70,7 @@ namespace Foompany.Services.SampleService1.Modules
         [ActionBody(Methods.GET)]
         public async Task<string> Action4()
         {
-            var results = await BroadcastCall(API.SampleService2.Modules.InteropSample1.Actions.InteropAction4).InvokeAsync();
+            var results = await BroadcastCall(API.SampleService2.Modules.InteropSample1.Actions.InteropAction4);
             if (results == null)
                 return "Could not call services";
             else
@@ -87,19 +84,18 @@ namespace Foompany.Services.SampleService1.Modules
         [ActionBody(Methods.GET)]
         public async Task<string> Action4_1()
         {
-            var results = await BroadcastMessage(API.SampleService2.Modules.InteropSample1.Actions.InteropAction4).InvokeAsync();
+            var results = await BroadcastMessage(API.SampleService2.Modules.InteropSample1.Actions.InteropAction4);
             if (results)
                 return "Message has been broadcast!";
             else
                 return "Message broadcast failed!";
         }
 
-
         //----------------------------------------------------------------------------------------------------------------------------------------------
 
         /// <summary> Pass a data set to another service </summary>
         [ActionBody(Methods.GET)]
-        public Task<string> Action5()
+        public async Task<string> Action5()
         {
             var data = new List<string>
             {
@@ -107,7 +103,7 @@ namespace Foompany.Services.SampleService1.Modules
                 "item 2",
                 "item 3",
             };
-            return Call(API.SampleService2.Modules.InteropSample1.Actions.HybridAction5, data).InvokeAsync();
+            return await Call(API.SampleService2.Modules.InteropSample1.Actions.HybridAction5, data);
         }
 
         //----------------------------------------------------------------------------------------------------------------------------------------------
@@ -126,8 +122,7 @@ namespace Foompany.Services.SampleService1.Modules
             {
                 var result = await Call(API.SampleService2.Modules.InteropSample1.Actions.ExceptionSample)
                                         .IncludeRemoteExceptions(AllowExceptions)
-                                        .WithCancellationToken(Context.CancellationToken) // chain cancellation request to remote service
-                                        .InvokeAsync();
+                                        .WithCancellationToken(Context.CancellationToken); // chain cancellation request to remote service                                        
                 return result ?? "got null result";
             }
             catch (PhotonRemoteException ex)
@@ -145,8 +140,7 @@ namespace Foompany.Services.SampleService1.Modules
         public async Task<string> StreamingInteropAction()
         {
             var stream = await Call(API.SampleService2.Modules.InteropSample1.Actions.StreamingSample)
-                                .WithCancellationToken(Context.CancellationToken) // chain cancellation request to remote service
-                                .InvokeAsync();
+                                .WithCancellationToken(Context.CancellationToken); // chain cancellation request to remote service
             if (stream == null)
                 throw PhotonException.InternalServerError;
             var reader = new StreamReader(stream);
@@ -160,8 +154,7 @@ namespace Foompany.Services.SampleService1.Modules
         {
             //invoke service
             var results = await Call(API.SampleService2.Modules.InteropSample1.Actions.AsyncEnumerableSample)
-                                .WithCancellationToken(Context.CancellationToken) // chain cancellation request to remote service
-                                .InvokeAsync();
+                                .WithCancellationToken(Context.CancellationToken); // chain cancellation request to remote service
             if (results == null)
                 throw PhotonException.InternalServerError;
             //enumerate results as they come, back to user
@@ -175,8 +168,7 @@ namespace Foompany.Services.SampleService1.Modules
         public async Task<Stream> StreamingInteropAction2()
         {
             var stream = await Call(API.SampleService2.Modules.InteropSample1.Actions.StreamingSample)
-                                .WithCancellationToken(Context.CancellationToken) // chain cancellation request to remote service
-                                .InvokeAsync();
+                                .WithCancellationToken(Context.CancellationToken); // chain cancellation request to remote service
             return stream;
         }
 
@@ -190,8 +182,7 @@ namespace Foompany.Services.SampleService1.Modules
         public async Task<string> Action(string input)
         {
             await Call(API.SampleService2.Modules.InteropSample1.Actions.InteropAction, input)
-                    .WithCancellationToken(Context.CancellationToken)
-                    .InvokeAsync();
+                    .WithCancellationToken(Context.CancellationToken);
             return $"Service 2 finished processing request (check logs)";
         }
 
@@ -204,8 +195,7 @@ namespace Foompany.Services.SampleService1.Modules
         public async Task<string> ActionWithCustomResiliencePolicy(string firstName, string lastName)
         {
             var res = await Call(API.SampleService2.Modules.InteropSample1.Actions.InteropAction2, firstName, lastName)
-                            .WithResiliencePolicy(customPolicy) // Apply custom resilience policy
-                            .InvokeAsync();
+                            .WithResiliencePolicy(customPolicy); // Apply custom resilience policy
             return $"Service 2 said : " + res;
         }
 
@@ -214,6 +204,23 @@ namespace Foompany.Services.SampleService1.Modules
             InteropResiliencePolicy<string> // <-- create policy that handles fiber transport exceptions
                 .New
                 .CircuitBreakerAsync(10, TimeSpan.FromSeconds(5));
+
+
+        //----------------------------------------------------------------------------------------------------------------------------------------------
+
+        /// <summary> Use Json serializer with custom converter for interop requests </summary>
+        [ActionBody(Methods.GET)]
+        public async Task<string> JsonSerializerSample()
+        {
+            var req = new models.JsonDto()
+            {
+                NormalData = "John",
+                Data = "John",
+            };
+            var rsp = await Call(API.SampleService2.Modules.InteropSample1.Actions.JsonSerializerSample, req);
+            return "remote endpoint received : " + rsp.NormalData + Environment.NewLine +
+                   "response data received : " + rsp.Data;
+        }
 
         //----------------------------------------------------------------------------------------------------------------------------------------------
     }

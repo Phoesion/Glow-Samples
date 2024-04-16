@@ -20,8 +20,7 @@ namespace Foompany.Services.SampleService1
             services.AddAuthentication(JwtBearerDefaults.AuthenticationScheme)
                     .AddJwtBearer(o =>
                     {
-                        //specify the authority
-                        o.Authority = Configurations["Authority"];
+                        //configure JWT auth ..
                     });
         }
 

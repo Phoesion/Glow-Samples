@@ -26,8 +26,7 @@ namespace Foompany.Services.SampleService1.Modules
             try
             {
                 var result = await Call(API.MyGame.Modules.GameRooms.Actions.CreateGameRoom, room_name)
-                                    .WithServiceTag<ServerLocationTag>(region)
-                                    .InvokeAsync();
+                                    .WithServiceTag<ServerLocationTag>(region);
                 return $"MyGame service said '{result}'";
             }
             catch (PhotonException ex)

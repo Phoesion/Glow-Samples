@@ -17,11 +17,10 @@ namespace Foompany.ClientApps.SampleApp2
             {
                 //call service/module action using anonymous api
                 var rsp = await client.Call(Foompany.Services.API.SampleService1.Modules.SampleModule1.Actions.DoTheThing, txt_SampleInput.Text)
-                                      .WithApiKey("this-is-my-api-key")
-                                      .InvokeAsync();
+                                      .WithApiKey(txt_ApiKey.Text);
                 if (rsp == null)
                 {
-                    MessageBox.Show($"Could not reached firefly service");
+                    MessageBox.Show($"Could not reach firefly service");
                     return;
                 }
                 else

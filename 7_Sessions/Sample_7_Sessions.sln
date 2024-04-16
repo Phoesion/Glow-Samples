@@ -1,7 +1,7 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
-# Visual Studio Version 16
-VisualStudioVersion = 16.0.29306.81
+# Visual Studio Version 17
+VisualStudioVersion = 17.9.34701.34
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Foompany.Services.SampleService1", "Services\Foompany.Services.SampleService1\Foompany.Services.SampleService1.csproj", "{5DBC60B9-7661-41FF-9A88-E4A64167FDCD}"
 EndProject
@@ -13,8 +13,6 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Services", "Services", "{22
 	EndProjectSection
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Foompany.Services.API.DataModels", "API\Foompany.Services.API.DataModels\Foompany.Services.API.DataModels.csproj", "{D7E2EFA4-AF78-42CD-B479-71A9F88B7DFA}"
-EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Foompany.Services.DistributedMemoryCache", "Services\Foompany.Services.DistributedMemoryCache\Foompany.Services.DistributedMemoryCache.csproj", "{444FC9FA-F28C-4C5D-9235-6F320888E110}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -30,10 +28,6 @@ Global
 		{D7E2EFA4-AF78-42CD-B479-71A9F88B7DFA}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{D7E2EFA4-AF78-42CD-B479-71A9F88B7DFA}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{D7E2EFA4-AF78-42CD-B479-71A9F88B7DFA}.Release|Any CPU.Build.0 = Release|Any CPU
-		{444FC9FA-F28C-4C5D-9235-6F320888E110}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{444FC9FA-F28C-4C5D-9235-6F320888E110}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{444FC9FA-F28C-4C5D-9235-6F320888E110}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{444FC9FA-F28C-4C5D-9235-6F320888E110}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -41,7 +35,6 @@ Global
 	GlobalSection(NestedProjects) = preSolution
 		{5DBC60B9-7661-41FF-9A88-E4A64167FDCD} = {225BDB28-05F3-4CE9-B2DB-23AECC5DB2B6}
 		{D7E2EFA4-AF78-42CD-B479-71A9F88B7DFA} = {9B590C81-8A88-4E57-AFB8-28F0596BE085}
-		{444FC9FA-F28C-4C5D-9235-6F320888E110} = {225BDB28-05F3-4CE9-B2DB-23AECC5DB2B6}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {3AEBB254-FF1E-4C67-92B2-F6C7F253C175}

@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 using System.Text;
 using System.Linq;
 using System.Threading.Tasks;
@@ -15,7 +15,8 @@ namespace Foompany.Services.SampleService1
     {
         protected override void ConfigureServices(IServiceCollection services)
         {
-            //TODO: Configure services..
+            //add razor services
+            services.AddGlowRazor();
         }
 
         protected override void Configure(IGlowApplicationBuilder app)

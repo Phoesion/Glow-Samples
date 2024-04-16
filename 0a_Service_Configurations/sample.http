@@ -1,0 +1,13 @@
+### Get configurations from IConfiguration 
+
+GET http://localhost/HelloWorld/ViewConfigs/FromIConfiguration
+
+
+### Get configuration from binded Options
+
+GET http://localhost/HelloWorld/ViewConfigs/FromIOptions
+
+
+### Get configuration from [Configuration] binding
+
+GET http://localhost/HelloWorld/ViewConfigs/FromAutoBind

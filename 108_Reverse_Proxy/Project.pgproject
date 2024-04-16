@@ -1,0 +1,74 @@
+{
+  "DefaultService": "[NONE]",
+  "ProjectReferences": [],
+  "Services": [
+    {
+      "IsEnabled": true,
+      "CSProjectFile": "Foompany.Services.HelloWorld\\Foompany.Services.HelloWorld.csproj",
+      "IgnoreDeploymentVersion": false,
+      "IsPrivateService": false,
+      "ServiceHost": "DotNet_Portable",
+      "Containerization": "None",
+      "ContainerOptions": {},
+      "DockerOptions": {},
+      "KubernetesOptions": {},
+      "ImageOptions": {
+        "Build": false,
+        "Push": false
+      },
+      "Builds": [
+        {
+          "Build": "Win_x64",
+          "AssemblyFilePath": "Foompany.Services.HelloWorld\\bin\\%BUILD%\\publish\\win-x64\\Foompany.Services.HelloWorld.dll",
+          "BuildCommands": [
+            "dotnet publish --framework net8.0 --configuration %BUILD% --runtime win-x64 --self-contained -p:GlowPublishing=true -o \"bin\\%BUILD%\\publish\\win-x64\""
+          ]
+        },
+        {
+          "Build": "Linux_x64",
+          "AssemblyFilePath": "Foompany.Services.HelloWorld\\bin\\%BUILD%\\publish\\linux-x64\\Foompany.Services.HelloWorld.dll",
+          "BuildCommands": [
+            "dotnet publish --framework net8.0 --configuration %BUILD% --runtime linux-x64 --self-contained -p:GlowPublishing=true -o \"bin\\%BUILD%\\publish\\linux-x64\""
+          ]
+        }
+      ]
+    }
+  ],
+  "UrlRewriteRules": [],
+  "ReverseProxy": {
+    "Routes": {
+      "minimumroute": {
+        "Match": {
+          "Path": "/test/{*any}"
+        },
+        "ClusterId": "minimumcluster"
+      },
+      "route2": {
+        "Match": {
+          "Path": "/something/{*any}"
+        },
+        "ClusterId": "cluster2"
+      }
+    },
+    "Clusters": {
+      "minimumcluster": {
+        "Destinations": {
+          "example.com": {
+            "Address": "http://www.google.com/"
+          }
+        }
+      },
+      "cluster2": {
+        "LoadBalancingPolicy": "PowerOfTwoChoices",
+        "Destinations": {
+          "first_destination": {
+            "Address": "https://microsoft.com"
+          },
+          "second_destination": {
+            "Address": "https://www.yahoo.com"
+          }
+        }
+      }
+    }
+  }
+}

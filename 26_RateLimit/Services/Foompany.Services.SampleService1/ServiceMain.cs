@@ -16,21 +16,22 @@ namespace Foompany.Services.SampleService1
     [ServiceName("SampleService1")]
     public class ServiceMain : FireflyService
     {
-        protected override void Configure(IGlowApplicationBuilder app)
+        protected override void ConfigureServices(IServiceCollection services)
         {
-            // Enable the ASP.NET rate-limiting middleware for custom/dynamic limit filtering
+            // Add ASP.NET rate-limiting services for custom/dynamic limit filtering
             // This limits will be applied at the Firefly-side, meaning the request will be received by prism an send to us (firefly) through kaleidoscope
             // Global (static) limit policies, declared with the [RateLimitPolicy] and [EnableRateLimit] attributes (see AssemblyInfo.cs) will be applied on the Prism directly.
             // ASP.NET Rate-Limit middleware documentation : https://learn.microsoft.com/en-us/aspnet/core/performance/rate-limit
             // DevBog about Rate-Limiting : https://devblogs.microsoft.com/dotnet/announcing-rate-limiting-for-dotnet/
-            app.UseRateLimiter(new RateLimiterOptions()
-                .AddFixedWindowLimiter(policyName: "asp_fixed_limit", o =>
-                {
-                    o.Window = TimeSpan.FromSeconds(1);
-                    o.PermitLimit = 2;
-                    o.QueueLimit = 1;
-                    o.QueueProcessingOrder = QueueProcessingOrder.OldestFirst;
-                })
+            services.AddRateLimiter(o =>
+            {
+                o.AddFixedWindowLimiter(policyName: "asp_fixed_limit", o =>
+                 {
+                     o.Window = TimeSpan.FromSeconds(1);
+                     o.PermitLimit = 2;
+                     o.QueueLimit = 1;
+                     o.QueueProcessingOrder = QueueProcessingOrder.OldestFirst;
+                 })
                 .AddPolicy(policyName: "asp_dynamic", partitioner: httpContext =>
                 {
                     //apply different rate-limit policies dynamically per-request
@@ -55,7 +56,14 @@ namespace Foompany.Services.SampleService1
                             Window = TimeSpan.FromSeconds(5),
                             AutoReplenishment = true,
                         });
-                }));
+                });
+            });
+        }
+
+        protected override void Configure(IGlowApplicationBuilder app)
+        {
+            // Enable the ASP.NET rate-limiting middleware for custom/dynamic limit filtering
+            app.UseRateLimiter();
         }
     }
 }

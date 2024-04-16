@@ -25,11 +25,10 @@ namespace Foompany.ClientApps.SampleApp2
 
                 //call service/module action using anonymous api
                 var rsp = await client.Call(Foompany.Services.API.SampleService1.Modules.SampleModule1.Actions.DoTheThing, txt_SampleInput.Text)
-                                      .WithHeader("Authorization", $"Bearer {accessToken}")
-                                      .InvokeAsync();
+                                      .WithHeader("Authorization", $"Bearer {accessToken}");
                 if (rsp == null)
                 {
-                    MessageBox.Show($"Could not reached firefly service");
+                    MessageBox.Show($"Could not reach firefly service");
                     return;
                 }
                 else

@@ -22,17 +22,17 @@ namespace Foompany.Services.BookStore
         {
         }
 
-        protected override async Task StartAsync(CancellationToken cancellationToken)
+        protected override async Task OnStartingAsync(CancellationToken cancellationToken)
         {
-            //call base
-            await base.StartAsync(cancellationToken);
-
             //seed in-memory db
             await using (var scope = Services.CreateAsyncScope())
             {
                 var dbContext = scope.ServiceProvider.GetService<MyDBContext>();
                 MyDBContext.SeedDB(dbContext);
             }
+
+            //call base
+            await base.OnStartingAsync(cancellationToken);
         }
     }
 }

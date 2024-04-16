@@ -8,3 +8,4 @@ resources:
 - ./11.deploy-lighthouse.yml
 - ./12.deploy-prism.yml
 - ./13.deploy-firefly.k8s.operator.yaml
+#- ./14.deploy-firefly.k8s.operator-MyGroup.yaml

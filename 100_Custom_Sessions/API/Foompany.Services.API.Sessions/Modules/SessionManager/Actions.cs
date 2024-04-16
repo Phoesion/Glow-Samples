@@ -1,5 +1,4 @@
 using Phoesion.Glow.SDK;
-using Phoesion.Glow.SDK.Firefly;
 
 namespace Foompany.Services.API.Sessions.Modules.SessionManager
 {
@@ -9,6 +8,6 @@ namespace Foompany.Services.API.Sessions.Modules.SessionManager
         public static byte[] GetSession(string sessionId) => default;
 
         [Interop]
-        public static bool SaveSession(string sessionId, byte[] session) => default;
+        public static void SaveSession(string sessionId, byte[] session) { }
     }
 }

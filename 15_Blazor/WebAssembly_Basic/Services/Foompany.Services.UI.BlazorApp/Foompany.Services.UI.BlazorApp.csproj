@@ -1,0 +1,34 @@
+<Project Sdk="Microsoft.NET.Sdk.BlazorWebAssembly">
+
+    <PropertyGroup>
+        <TargetFramework>net8.0</TargetFramework>
+        <ServiceWorkerAssetsManifest>service-worker-assets.js</ServiceWorkerAssetsManifest>
+    </PropertyGroup>
+
+    <!-- Other packages -->
+    <ItemGroup>
+        <PackageReference Include="Microsoft.AspNetCore.Components.WebAssembly" Version="8.0.4" />
+        <PackageReference Include="Microsoft.AspNetCore.Components.WebAssembly.DevServer" Version="8.0.4" PrivateAssets="all" />
+    </ItemGroup>
+
+    <!-- Glow packages -->
+    
+
+    
+    <ItemGroup>
+        <PackageReference Include="Phoesion.Glow.SDK.Blazor.WebAssembly" Version="2.0.0" />
+        <PackageReference Include="Phoesion.Glow.SDK.Client.REST" Version="2.0.0" />
+    </ItemGroup>
+    
+
+    <!-- Project references -->
+    <ItemGroup>
+        <ProjectReference Include="..\..\API\Foompany.Services.Backend.API\Foompany.Services.Backend.API.csproj" />
+    </ItemGroup>
+
+    <!-- ServiceWorker -->
+    <ItemGroup>
+        <ServiceWorker Include="wwwroot\service-worker.js" PublishedContent="wwwroot\service-worker.published.js" />
+    </ItemGroup>
+
+</Project>

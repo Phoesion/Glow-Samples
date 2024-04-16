@@ -1,5 +1,4 @@
-﻿using Phoesion.Glow.SDK;
-using Phoesion.Glow.SDK.Firefly;
+using Phoesion.Glow.SDK;
 using System;
 
 namespace Foompany.Services.API.Authorization.Modules.TokenGenerator

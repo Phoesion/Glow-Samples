@@ -10,7 +10,7 @@ namespace Foompany.Services.SampleService1.Modules
     public class DefaultModule : Phoesion.Glow.SDK.Firefly.FireflyModule
     {
         [Autowire]
-        Workers.MyWorker worker;
+        Workers.MyPeriodicWorker worker;
 
         //----------------------------------------------------------------------------------------------------------------------------------------------
 

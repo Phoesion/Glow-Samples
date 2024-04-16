@@ -22,12 +22,12 @@ namespace Foompany.Services.API.Sessions
                 return null;
 
             //request session data
-            var buffer = await ActionContext.Module.Call(API.Sessions.Modules.SessionManager.Actions.GetSession, sessionIdCookie).InvokeAsync();
+            var buffer = await ActionContext.Module.Call(API.Sessions.Modules.SessionManager.Actions.GetSession, sessionIdCookie);
             if (buffer == null)
                 return null;
 
             //deserialize
-            try { return Phoesion.MsgPack.MessagePackSerializer.Deserialize<T>(buffer, options: Phoesion.MsgPack.MessagePackSerializerOptions.Standard.WithResolver(Phoesion.MsgPack.Resolvers.ContractlessStandardResolver.Instance)); }
+            try { return MessagePack.MessagePackSerializer.Deserialize<T>(buffer, options: MessagePack.MessagePackSerializerOptions.Standard.WithResolver(MessagePack.Resolvers.ContractlessStandardResolver.Instance)); }
             catch { return null; }
         }
 
@@ -49,14 +49,18 @@ namespace Foompany.Services.API.Sessions
 
             //Serialize
             byte[] buffer;
-            try { buffer = Session == null ? null : Phoesion.MsgPack.MessagePackSerializer.Serialize<T>(Session, options: Phoesion.MsgPack.MessagePackSerializerOptions.Standard.WithResolver(Phoesion.MsgPack.Resolvers.ContractlessStandardResolver.Instance)); }
+            try { buffer = Session == null ? null : MessagePack.MessagePackSerializer.Serialize<T>(Session, options: MessagePack.MessagePackSerializerOptions.Standard.WithResolver(MessagePack.Resolvers.ContractlessStandardResolver.Instance)); }
             catch { return false; }
 
-            //update session data
-            var res = await ActionContext.Module.Call(API.Sessions.Modules.SessionManager.Actions.SaveSession, sessionIdCookie, buffer).InvokeAsync();
+            try
+            {
+                //update session data
+                await ActionContext.Module.Call(API.Sessions.Modules.SessionManager.Actions.SaveSession, sessionIdCookie, buffer);
 
-            //return result
-            return res;
+                //return result
+                return true;
+            }
+            catch (Exception ex) { return false; }
         }
     }
 }

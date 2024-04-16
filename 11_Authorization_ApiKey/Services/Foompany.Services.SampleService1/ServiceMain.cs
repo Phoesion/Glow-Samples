@@ -33,17 +33,11 @@ namespace Foompany.Services.SampleService1
                                 if (_key != "this-is-my-api-key")
                                     return null;    /* return null claims for invalid authentication */
                                 else
-                                {
-                                    //Setup user claims to indicate a valid authentication
-                                    return ApiKeyDefaults.EmptyClaims;
-                                    /* Or create user claims like so :
-                                        return new List<Claim>()
-                                        {
-                                            //Add any 
-                                            new Claim(ClaimTypes.Name, "KeyOwnerName"),
-                                        };
-                                    */
-                                }
+                                    return new List<Claim>()
+                                    {
+                                        //Setup user claims
+                                        new Claim(ClaimTypes.Name, "KeyOwnerName"),
+                                    };
                             };
                     });
 

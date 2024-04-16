@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 using System.Collections.Generic;
 using System.Text;
 using System.Threading;
@@ -18,7 +18,7 @@ namespace Foompany.Services.SampleService1
             services.AddScoped<ExternalEventConsumer.Handler>();
 
             //add hosted service that will run in the background listening for incoming requests
-            services.AddHostedService<ExternalEventConsumer.Worker>();
+            services.AddBackgroundWorker<ExternalEventConsumer.Worker>();
 
             return services;
         }

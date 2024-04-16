@@ -2,14 +2,14 @@
 
     <PropertyGroup>
         <TargetFramework>netstandard2.1</TargetFramework>
-        <NoWarn>1701;1702;1998</NoWarn>
+        <NoWarn>$(NoWarn),1701;1702;1998</NoWarn>
     </PropertyGroup>
 
     
 
     
     <ItemGroup>
-        <PackageReference Include="Phoesion.Glow.SDK.Firefly.Abstractions" Version="1.1.4" />
+        <PackageReference Include="Phoesion.Glow.SDK.Firefly.Abstractions" Version="2.0.0" />
     </ItemGroup>
     
 

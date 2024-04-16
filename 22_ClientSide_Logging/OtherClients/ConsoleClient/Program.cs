@@ -46,7 +46,7 @@ namespace Foompany.ConsoleClient
                 {
                     //call service/module action
                     logger.LogInformation($"Sending request...");
-                    var rsp = await client.Call(Foompany.Services.Backend.API.Modules.WeatherForecast.GetTodayForecast).InvokeAsync();
+                    var rsp = await client.Call(Foompany.Services.Backend.API.Modules.WeatherForecast.GetTodayForecast);
                     if (rsp == null)
                         logger.LogError($"Could not reach service");
                     else

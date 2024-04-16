@@ -5,6 +5,14 @@
     // Key generated for Kaleidoscope entity
     //"EntityAuthKey": null,
 
+    /*
+    // Load configs from Secrets Providers (eg AWS Secrets Manager, Azure, etc)
+    "SecretsProvider": {
+        "Provider": "AWS", // Load from AWS
+        "SecretName": "my_secret" // <-- secret is a json string of the configs
+    }
+    */
+
     // List of ip/domains that make up the cluster to connect to. "auto" enables auto-discovery services
     //"ClusterNodes": [ "auto" ],
 

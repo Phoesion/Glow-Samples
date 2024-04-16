@@ -18,7 +18,7 @@ namespace BasicTests
             //create client
             using var client = GlowRestClient.FromBaseUri(Tester.BaseUri);
             //call action
-            var res = await client.Call(actions.Default).InvokeAsync();
+            var res = await client.Call(actions.Default);
             //check response
             if (res != expectation)
                 Assert.Fail("Response did not match expectation");
@@ -33,7 +33,7 @@ namespace BasicTests
             //create client
             using var client = GlowRestClient.FromBaseUri(Tester.BaseUri);
             //call action
-            var res = await client.Call(actions.Action1, input).InvokeAsync();
+            var res = await client.Call(actions.Action1, input);
             //check response
             if (res != expectation)
                 Assert.Fail("Response did not match expectation");
@@ -47,7 +47,7 @@ namespace BasicTests
             //create client
             using var client = GlowRestClient.FromBaseUri(Tester.BaseUri);
             //send request
-            var stream = await client.Call(actions.StreamingInteropAction).InvokeAsync();
+            var stream = await client.Call(actions.StreamingInteropAction);
             using (var reader = new StreamReader(stream))
             {
                 var res = await reader.ReadToEndAsync();

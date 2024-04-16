@@ -65,6 +65,7 @@ services:
       FIREFLY_KaleidoscopeConnectionString: "Host=kaleidoscope"
       FIREFLY_QuantumSpace: "MySampleSpace"  # enable only for 'MySampleSpace' quantum space
       FIREFLY_ServiceName: "SampleService1"  # enable hosting for service "SampleService1"
+      #FIREFLY_ServiceGroup: "myGroup"  # optionaly instead of specifing the ServiceName, you can add the entity in a service group
     volumes:
       - fireflyVol_MySampleSpace_SampleService1:/data
     networks:
@@ -82,6 +83,7 @@ services:
       FIREFLY_KaleidoscopeConnectionString: "Host=kaleidoscope"
       FIREFLY_QuantumSpace: "MySampleSpace"  # enable only for 'MySampleSpace' quantum space
       FIREFLY_ServiceName: "SampleService2"  # enable hosting for service "SampleService2"
+      #FIREFLY_ServiceGroup: "myGroup"  # optionaly instead of specifing the ServiceName, you can add the entity in a service group
     volumes:
       - fireflyVol_MySampleSpace_SampleService2:/data
     networks:

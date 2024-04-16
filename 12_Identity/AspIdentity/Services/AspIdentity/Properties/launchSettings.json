@@ -1,0 +1,9 @@
+{
+    "$schema": "http://json.schemastore.org/launchsettings.json",
+    "profiles": {
+        "AspIdentity": {
+            "commandName": "Project",
+            "applicationUrl": "http://localhost/AspIdentity"
+        }
+    },
+}

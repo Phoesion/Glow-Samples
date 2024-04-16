@@ -1,5 +1,5 @@
 using Microsoft.Extensions.DependencyInjection;
-using Moq;
+using NSubstitute;
 using NUnit.Framework;
 using Phoesion.Glow.SDK.Firefly;
 using Phoesion.Glow.SDK.Testing;
@@ -47,16 +47,16 @@ namespace Foompany.Services.SampleService2.Tests
             var expectation = $"SampleService2 said 'Hi {input.Firstname} {input.Surname}'";
 
             //create a mock of ITesterInteropInvoker to intercept and mock interop requests
-            var interopMock = new Mock<ITesterInteropInvoker>();
-            interopMock.Setup(repo => repo.Intercept(API.SampleService2.Modules.InteropSample1.Actions.InteropAction2,
-                                                     It.Is<string>(v => v == input.Firstname),
-                                                     It.Is<string>(v => v == input.Surname)))
+            var interopMock = Substitute.For<ITesterInteropInvoker>();
+            interopMock.Intercept(API.SampleService2.Modules.InteropSample1.Actions.InteropAction2,
+                                        Arg.Is<string>(v => v == input.Firstname),
+                                        Arg.Is<string>(v => v == input.Surname))
                        .Returns($"Hi {input.Firstname} {input.Surname}");
 
             //create service provider builder
             using var services = TestContainerBuilder
                 .CreateDefault<ServiceMain>()
-                .AddInteropInvoker(interopMock.Object)
+                .AddInteropInvoker(interopMock)
                 .Build();
 
             //begin a test request scope

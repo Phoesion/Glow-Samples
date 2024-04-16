@@ -13,19 +13,10 @@ namespace Foompany.Services.SampleService1.ExternalEventConsumer
 {
     /// <summary>
     /// This is worker implementation emulates receiving external request. (eg. Listening to an external broker)
-    /// We need to create a Service scope for the request to be handled as well as a Logging scope.
+    /// We need to create a Service/Logging scope for the request to be handled in their own context.
     /// </summary>
-    sealed class Worker : BackgroundService
+    sealed class Worker : FireflyBackgroundWorker
     {
-        readonly IServiceProvider services;
-        readonly ILogger logger;
-
-        public Worker(IServiceProvider services, ILogger<Worker> logger)
-        {
-            this.services = services;
-            this.logger = logger;
-        }
-
         // The ExecuteAsync() implements the consumer that handles the requests one at a time.
         protected override async Task ExecuteAsync(CancellationToken stoppingToken)
         {
@@ -35,11 +26,10 @@ namespace Foompany.Services.SampleService1.ExternalEventConsumer
                 var req = await readRequest();
 
                 //create a Service/Logging scope to handle request
-                using (var scope = services.CreateScope())
-                using (logger.CreateRayScope(out PhotonId photonId))
+                await using (CreateScope(out var services))
                 {
                     //we can now get a Scoped service like so
-                    var handler = scope.ServiceProvider.GetRequiredService<Handler>();
+                    var handler = services.GetRequiredService<Handler>();
 
                     //handle request in the proper scope
                     await handler.HandleRequest(req);

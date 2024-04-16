@@ -1,5 +1,4 @@
 using Phoesion.Glow.SDK;
-using Phoesion.Glow.SDK.Firefly;
 using System;
 
 namespace Foompany.Services.API.SampleService1.Modules.SampleModule1

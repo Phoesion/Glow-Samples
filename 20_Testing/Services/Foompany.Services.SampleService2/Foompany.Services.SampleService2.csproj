@@ -1,8 +1,8 @@
 <Project Sdk="Microsoft.NET.Sdk">
 
     <PropertyGroup>
-        <TargetFramework>net7.0</TargetFramework>
-        <NoWarn>1701;1702;1998</NoWarn>
+        <TargetFramework>net8.0</TargetFramework>
+        <NoWarn>$(NoWarn),1701;1702;1998</NoWarn>
     </PropertyGroup>
 
     <ItemGroup>
@@ -13,9 +13,9 @@
 
     
   <ItemGroup>
-    <PackageReference Include="Phoesion.Glow.SDK.Firefly" Version="1.1.4" />
-    <PackageReference Include="Phoesion.Glow.SDK.Firefly.SrvHost.DotNet.AppHost" Version="1.1.4" />
-    <PackageReference Include="Phoesion.Glow.SDK.ReactorDebugger" Version="1.1.4" Condition="'$(GlowPublishing)'!='true'"/>
+    <PackageReference Include="Phoesion.Glow.SDK.Firefly" Version="2.0.0" />
+    <PackageReference Include="Phoesion.Glow.SDK.Firefly.SrvHost.DotNet.AppHost" Version="2.0.0" />
+    <PackageReference Include="Phoesion.Glow.SDK.ReactorDebugger" Version="2.0.0" Condition="'$(GlowPublishing)'!='true'"/>
   </ItemGroup>
 
 </Project>

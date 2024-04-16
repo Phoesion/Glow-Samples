@@ -1,0 +1,62 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: kaleidoscope
+  labels:
+    app: GlowApp
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      service: kaleidoscope
+  template:
+    metadata:
+      labels:
+        app: GlowApp
+        service: kaleidoscope
+    spec:
+      containers:
+        - name: kaleidoscope
+          image: phoesion/phoesion.glow.kaleidoscope
+          ports:
+            - containerPort: 15010
+              protocol: TCP
+              name: ks-clients
+            - containerPort: 15011
+              protocol: TCP
+              name: ks-cluster
+          resources:
+            requests:
+              ephemeral-storage: "4Gi"
+            limits:
+              ephemeral-storage: "16Gi"
+          env:
+            - name: KALEIDOSCOPE_ClusterNodes__0
+              value: "kaleidoscope"
+            #- name: KALEIDOSCOPE_EntityAuthKey
+            #  value: "" #CONFIG: Add kaleidoscope auth key (or get from secrets. like bellow)
+          envFrom:
+            - secretRef:
+                name: kaleidoscope-authkey
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: kaleidoscope
+  labels:
+    app: GlowApp
+    service: kaleidoscope
+spec:
+  ports:
+    # Kaleidoscope Client Port
+    - port: 15010
+      targetPort: 15010
+      protocol: TCP
+      name: ks-clients
+    # Kaleidoscope Cluster Port
+    - port: 15011
+      targetPort: 15011
+      protocol: TCP
+      name: ks-cluster
+  selector:
+    service: kaleidoscope

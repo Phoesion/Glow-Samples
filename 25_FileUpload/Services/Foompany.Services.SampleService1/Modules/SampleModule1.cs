@@ -19,10 +19,12 @@ namespace Foompany.Services.SampleService1.Modules
 
         [Action(Methods.POST)]
         [RequestSizeLimit(100 * (1024 * 1024))] // <- Set the maximum upload size allowed (100mb)
-        public async Task<string> UploadFile()
+        public async Task<string> UploadFile([FromFormFile(Key = "filename")] IFormFile file)
         {
-            //get file
-            var file = Request.Files["filename"];
+            //Optionally, you can get file from code using
+            ///var file = Request.Files[filename"];
+
+            //check file
             if (file == null || file.FileName == null)
                 return "Failed to upload file!";
 
@@ -34,7 +36,7 @@ namespace Foompany.Services.SampleService1.Modules
             await dataStream.CopyToAsync(memStream);
 
             //show results
-            return "File uploaded. Size:" + memStream.Length;
+            return $"File '{file.FileName}' uploaded. Size: {memStream.Length}";
         }
 
         //----------------------------------------------------------------------------------------------------------------------------------------------

@@ -49,8 +49,7 @@ namespace Foompany.Services.SampleService1.Modules
                 {
                     var result = await Call(API.SampleService2.Modules.InteropSample1.Actions.CancellableSample, "SomeData")
                                         .WithCancellationToken(cts.Token)   // wire cancellation token
-                                        .WithProgressReportCB((progress, state, status) => logger.Debug("progress report : progress={progress}, state={state}, status={status}", progress, state, status))
-                                        .InvokeAsync();
+                                        .WithProgressReportCB((progress, state, status) => logger.Debug("progress report : progress={progress}, state={state}, status={status}", progress, state, status));
                     return $"Service 2 said '{result}'";
                 }
                 catch (OperationCanceledException)

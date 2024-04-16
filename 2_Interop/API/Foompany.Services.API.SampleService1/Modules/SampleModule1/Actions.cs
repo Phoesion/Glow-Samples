@@ -1,5 +1,4 @@
 using Phoesion.Glow.SDK;
-using Phoesion.Glow.SDK.Firefly;
 using System;
 using System.Collections.Generic;
 using System.IO;
@@ -47,5 +46,8 @@ namespace Foompany.Services.API.SampleService1.Modules.SampleModule1
 
         [Action(Methods.GET)]
         static string ActionWithCustomResiliencePolicy(string firstName, string lastName) => default;
+
+        [Action(Methods.GET)]
+        static string JsonSerializerSample() => default;
     }
 }

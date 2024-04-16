@@ -25,7 +25,7 @@ namespace Foompany.Services.SampleService2.Modules
         public async Task<string> Action1(string surName)
         {
             var firstName = "John";
-            var result = await Call(API.SampleService2.Modules.InteropSample1.Actions.InteropAction2, firstName, surName).InvokeAsync();
+            var result = await Call(API.SampleService2.Modules.InteropSample1.Actions.InteropAction2, firstName, surName);
             return $"SampleService2 said '{result}'";
         }
 

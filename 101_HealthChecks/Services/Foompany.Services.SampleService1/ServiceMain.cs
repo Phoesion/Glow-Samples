@@ -19,6 +19,7 @@ namespace Foompany.Services.SampleService1
         protected override void ConfigureServices(IServiceCollection services)
         {
             // add health check services
+            // health check results can also be viewed from Blaze UI (in QuantumSpace dashboard->Health Checks)
             services.AddHealthChecks()
                     .AddCheck<HealthChecks.ExampleHealthCheck>("example_health_check");
         }

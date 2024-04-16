@@ -28,8 +28,7 @@ namespace Foompany.Services.SampleService1.Services
         public async Task<string> Concat(string left, string right)
         {
             //ask the other service to concat our strings
-            var result = await interopService.Call(API.SampleService2.Modules.InteropSample1.Actions.ConcatStrings, left, right)
-                                             .InvokeAsync();
+            var result = await interopService.Call(API.SampleService2.Modules.InteropSample1.Actions.ConcatStrings, left, right);
             return result;
         }
     }

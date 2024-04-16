@@ -1,6 +1,6 @@
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.VisualStudio.OLE.Interop;
-using Moq;
+using NSubstitute;
 using NUnit.Framework;
 using Phoesion.Glow.SDK.Firefly;
 using Phoesion.Glow.SDK.Testing;
@@ -22,23 +22,23 @@ namespace Foompany.Services.SampleService1.Tests
             var expectation = "SampleService1 up and running! configValue:";
 
             //create service provider builder
-            using var services = TestContainerBuilder
+            await using var services = TestContainerBuilder
                 .CreateDefault<ServiceMain>()
                 .ConfigureServices(srv =>
                 {
                     //add dependency (empty mock)
-                    srv.AddSingleton<IMultiplyNumbersService>(new Mock<IMultiplyNumbersService>().Object);
+                    srv.AddSingleton<IMultiplyNumbersService>(Substitute.For<IMultiplyNumbersService>());
                 })
                 .Build();
 
             //begin a test request scope
-            using (var scope = services.CreateRequestScope())
+            await using (var scope = services.CreateRequestScope())
             {
                 //get action context (prepare if needed)
                 var ctx = scope.Context;
 
                 //instantiate module in the request scope/context
-                var module = scope.GetFireflyModule<Modules.SampleModule1>();
+                await using var module = scope.GetFireflyModule<Modules.SampleModule1>();
 
                 //invoke action
                 var res = module.Default();
@@ -58,12 +58,12 @@ namespace Foompany.Services.SampleService1.Tests
             var expectation = "Result is 15";
 
             //multiplier service mock
-            var multiplerService = new Mock<IMultiplyNumbersService>();
-            multiplerService.Setup(repo => repo.Multiply(It.Is<int>(x => x == 3), It.Is<int>(x => x == 5)))
+            var multiplerService = Substitute.For<IMultiplyNumbersService>();
+            multiplerService.Multiply(3, 5)
                             .Returns(15);
 
             //create service provider builder
-            using var services = TestContainerBuilder
+            await using var services = TestContainerBuilder
                 .CreateDefault<ServiceMain>()
                 .ConfigureServices(s =>
                 {
@@ -71,18 +71,18 @@ namespace Foompany.Services.SampleService1.Tests
                     // Configure our services for this run here.
                     //----------------------------------------------
                     //add mocked multiplier service
-                    s.AddSingleton<IMultiplyNumbersService>(multiplerService.Object);
+                    s.AddSingleton<IMultiplyNumbersService>(multiplerService);
                 })
                 .Build();
 
             //begin a test request scope
-            using (var scope = services.CreateRequestScope())
+            await using (var scope = services.CreateRequestScope())
             {
                 //get action context (prepare if needed)
                 var ctx = scope.Context;
 
                 //instantiate module in the request scope/context
-                var module = scope.GetFireflyModule<Modules.SampleModule1>();
+                await using var module = scope.GetFireflyModule<Modules.SampleModule1>();
 
                 //invoke action with correct input
                 var res = module.MultiplyNumbers(3, 5);
@@ -110,27 +110,28 @@ namespace Foompany.Services.SampleService1.Tests
             var expectation = $"Service 2 said 'Hi {input}'";
 
             //create a mock of ITesterInteropInvoker to intercept and mock interop requests
-            var interopMock = new Mock<ITesterInteropInvoker>();
-            interopMock.Setup(repo => repo.Intercept(API.SampleService2.Modules.InteropSample1.Actions.InteropAction1,
-                                                     It.Is<dataModels.MyDataModel.Request>(m => m.InputName == input)))   // Capture request whose InputName matches "John"
+            var interopMock = Substitute.For<ITesterInteropInvoker>();
+
+            interopMock.Intercept(API.SampleService2.Modules.InteropSample1.Actions.InteropAction1,
+                                    Arg.Is<dataModels.MyDataModel.Request>(m => m.InputName == input))  // Capture request whose InputName matches "John"
                        .Returns($"Hi {input}");
 
             //create service provider builder
-            using var services = TestContainerBuilder
+            await using var services = TestContainerBuilder
                 .CreateDefault<ServiceMain>()
                 .ConfigureServices(srv =>
                 {
                     //add dependency (empty mock)
-                    srv.AddSingleton<IMultiplyNumbersService>(new Mock<IMultiplyNumbersService>().Object);
+                    srv.AddSingleton<IMultiplyNumbersService>(Substitute.For<IMultiplyNumbersService>());
                 })
-                .AddInteropInvoker(interopMock.Object)
+                .AddInteropInvoker(interopMock)
                 .Build();
 
             //begin a test request scope
-            using (var scope = services.CreateRequestScope())
+            await using (var scope = services.CreateRequestScope())
             {
                 //instantiate module in the request scope/context
-                var module = scope.GetFireflyModule<Modules.SampleModule1>();
+                await using var module = scope.GetFireflyModule<Modules.SampleModule1>();
 
                 //invoke action
                 var res = await module.Action1(input);

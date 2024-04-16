@@ -1,7 +1,6 @@
 using System;
 using System.Linq;
 using Phoesion.Glow.SDK;
-using Phoesion.Glow.SDK.Firefly;
 
 namespace Foompany.Services.Backend.API.Modules
 {

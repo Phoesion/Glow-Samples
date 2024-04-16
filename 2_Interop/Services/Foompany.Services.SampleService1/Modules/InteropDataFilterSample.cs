@@ -26,8 +26,7 @@ namespace Foompany.Services.SampleService1.Modules
                                 .WithDataFilter(x => x.Where(x => x.Price > 5)
                                                       .OrderBy(v => v.Id)
                                                       .Skip(1)
-                                                      .Take(3))
-                                .InvokeAsync();
+                                                      .Take(3));
 
             return books;
         }
@@ -41,8 +40,7 @@ namespace Foompany.Services.SampleService1.Modules
             var books = await Call(inventoryApi.Modules.Inventory.Actions.GetBooksFromDB)
                                 .WithDataFilter(x => x.Where(v => v.Title.Contains("another"))
                                                       .Skip(1)
-                                                      .Take(2))
-                                .InvokeAsync();
+                                                      .Take(2));
             return books;
         }
 

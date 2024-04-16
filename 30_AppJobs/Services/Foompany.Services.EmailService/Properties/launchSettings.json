@@ -1,0 +1,13 @@
+{
+    "profiles": {
+        "Foompany.Services.EmailService": {
+            "commandName": "Project",
+            "commandLineArgs": "-QuantumSpace:Default"
+        },
+        "Foompany.Services.EmailService (External Debugger)": {
+            "commandName": "Executable",
+            "executablePath": "Phoesion.Glow.Reactor.Debugger.exe",
+            "commandLineArgs": "-QuantumSpace:Default \"$(TargetPath)\""
+        }
+    }
+}

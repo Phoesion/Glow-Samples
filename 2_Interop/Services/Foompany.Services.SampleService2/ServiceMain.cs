@@ -33,10 +33,10 @@ namespace Foompany.Services.SampleService2
             app.UseMiddleware<Middleware.Profiler.ProfilerMiddleware, ProfileAttribute>();
         }
 
-        protected override async Task StartAsync(CancellationToken cancellationToken)
+        protected override async Task OnStartingAsync(CancellationToken cancellationToken)
         {
             //call base
-            await base.StartAsync(cancellationToken);
+            await base.OnStartingAsync(cancellationToken);
 
             //seed in-memory db
             await using (var scope = Services.CreateAsyncScope())

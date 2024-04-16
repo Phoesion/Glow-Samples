@@ -13,9 +13,11 @@ namespace Foompany.Services.Example.Modules
         [Action(Methods.GET)]
         public string Default() => "Default method!";
 
-        //
-        // Notes : mark this action as [IsUpgradableConnection] to instruct PRISM this connection may be upgraded.
-        //
+        // *****************************************************************************************************
+        // Notes :
+        //  Mark this action as [IsUpgradableConnection] to instruct PRISM this connection may be upgraded.
+        // *****************************************************************************************************
+
         [Action(Methods.GET), IsUpgradableConnection]
         public async Task<IWebSocketConnection> Connect()
         {
@@ -24,7 +26,7 @@ namespace Foompany.Services.Example.Modules
             //upgrade connection to websockets
             var connection = await Context.UpgradeWebSocketAsync();
 
-            //start handler (in another task, since this method needs to return)
+            //start handler (in another task, since this method needs to return the connection object)
             _ = Task.Run(() => connectionHandler(connection));
 
             //return connection to client

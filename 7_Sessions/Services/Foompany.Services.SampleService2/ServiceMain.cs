@@ -1,5 +1,4 @@
-﻿using Microsoft.Extensions.DependencyInjection;
-using Phoesion.Glow.SDK.DistributedMemoryCache;
+using Microsoft.Extensions.DependencyInjection;
 using Phoesion.Glow.SDK.Firefly;
 using Phoesion.Glow.SDK.Session;
 using System.Threading.Tasks;
@@ -11,34 +10,8 @@ namespace Foompany.Services.SampleService2
     {
         protected override void ConfigureServices(IServiceCollection services)
         {
-            // Uncomment the following line to use the dummy in-memory implementation of IDistributedCache
-            // This should only be used in single server scenarios as this cache stores items in memory and doesn't expand across multiple machines.
-            // For those scenarios it is recommended to use a proper distributed cache that can expand across multiple machines.
-            //services.AddDistributedMemoryCache();
-
-            // Uncomment the following line to use the firefly distributed in-memory implementation of IDistributedCache
-            // This is a simplistic implementation of a distributed memory cache that replicates the data across all running instances.
-            // This not a database replacement cache and should not be used in production for anything more that caching ephemeral data that can tolerate data loss and inconsistencies.
-            // This will override any previously registered IDistributedCache service.
-            services.AddFireflyDistributedMemoryCache();
-
-            // Uncomment the following line to use the Microsoft SQL Server implementation of IDistributedCache.
-            // Note that this would require setting up the session state database.
-            // This will override any previously registered IDistributedCache service.
-            //services.AddDistributedSqlServerCache(o =>
-            //{
-            //    o.ConnectionString = "ConnectionString";
-            //    o.SchemaName = "dbo";
-            //    o.TableName = "Sessions";
-            //});
-
-            // Uncomment the following line to use the Redis implementation of IDistributedCache.
-            // This will override any previously registered IDistributedCache service.
-            //services.AddStackExchangeRedisCache(o =>
-            //{
-            //    o.Configuration = "localhost";
-            //    o.InstanceName = "SampleInstance";
-            //});
+            //add razor services
+            services.AddGlowRazor();
 
             //Add session services
             services.AddSession();

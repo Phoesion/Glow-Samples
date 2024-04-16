@@ -28,7 +28,7 @@ namespace Foompany.Services.SampleService1.Modules
         public async Task<string> Action1(string data = "myData")
         {
             //raising/invoking event is just a normal interop call
-            var rsp = await Call(api.Events.SomethingHappened, data).InvokeAsync();
+            var rsp = await Call(api.Events.SomethingHappened, data);
             if (rsp == null)
                 return "Event failed";
             else
@@ -44,7 +44,7 @@ namespace Foompany.Services.SampleService1.Modules
         public async Task<string> Action2(string data = "myData")
         {
             //raising/invoking event is just a normal interop call
-            var rsp = await Message(api.Events.SomethingHappened, data).InvokeAsync();
+            var rsp = await Message(api.Events.SomethingHappened, data);
             return rsp ? "Event was sent" : "Event failed";
         }
 
@@ -57,7 +57,7 @@ namespace Foompany.Services.SampleService1.Modules
         public async Task<string> Action3(string data = "myData")
         {
             //raising/invoking event is just a normal interop call
-            var rsp = await BroadcastCall(api.Events.SomethingHappened, data).InvokeAsync();
+            var rsp = await BroadcastCall(api.Events.SomethingHappened, data);
             if (rsp == null)
                 return "Event failed";
             else
@@ -73,7 +73,7 @@ namespace Foompany.Services.SampleService1.Modules
         public async Task<string> Action4(string data = "myData")
         {
             //raising/invoking event is just a normal interop call
-            var rsp = await BroadcastMessage(api.Events.SomethingHappened, data).InvokeAsync();
+            var rsp = await BroadcastMessage(api.Events.SomethingHappened, data);
             return rsp ? "Event was broadcast" : "Event failed";
         }
 

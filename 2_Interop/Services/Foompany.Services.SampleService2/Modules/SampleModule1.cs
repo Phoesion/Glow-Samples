@@ -27,8 +27,7 @@ namespace Foompany.Services.SampleService2.Modules
             var firstName = "John";
             var surName = "Doe";
             var result = await Call(API.SampleService2.Modules.InteropSample1.Actions.InteropAction2, firstName, surName)
-                                .WithCancellationToken(Context.CancellationToken) // chain cancellation request to remote service
-                                .InvokeAsync();
+                                .WithCancellationToken(Context.CancellationToken); // chain cancellation request to remote service
             return $"SampleService2 said '{result}'";
         }
 

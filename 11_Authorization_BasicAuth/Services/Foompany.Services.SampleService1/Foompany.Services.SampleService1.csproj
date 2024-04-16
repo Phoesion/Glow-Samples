@@ -1,0 +1,29 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+    <PropertyGroup>
+        <TargetFramework>net8.0</TargetFramework>
+    </PropertyGroup>
+
+    <ItemGroup>
+        <ProjectReference Include="..\..\API\Foompany.Services.API.SampleService1\Foompany.Services.API.SampleService1.csproj" />
+    </ItemGroup>
+
+    
+
+    
+    <ItemGroup>
+        <PackageReference Include="Phoesion.Glow.SDK.Authentication" Version="2.0.0" />
+        <PackageReference Include="Phoesion.Glow.SDK.Authentication.BasicAuth" Version="2.0.0" />
+        <PackageReference Include="Phoesion.Glow.SDK.Authorization" Version="2.0.0" />
+        <PackageReference Include="Phoesion.Glow.SDK.Firefly" Version="2.0.0" />
+        <PackageReference Include="Phoesion.Glow.SDK.Firefly.SrvHost.DotNet.AppHost" Version="2.0.0" />
+        <PackageReference Include="Phoesion.Glow.SDK.ReactorDebugger" Version="2.0.0" Condition="'$(GlowPublishing)'!='true'"/>
+    </ItemGroup>
+    
+
+    <ItemGroup>
+        <PackageReference Include="Swashbuckle.AspNetCore" Version="6.5.0" />
+        <PackageReference Include="Swashbuckle.AspNetCore.Filters" Version="8.0.1" />
+    </ItemGroup>
+
+</Project>

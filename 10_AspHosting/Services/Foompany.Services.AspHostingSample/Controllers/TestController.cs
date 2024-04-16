@@ -1,3 +1,4 @@
+using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Net.Http.Headers;
@@ -77,5 +78,14 @@ namespace Foompany.AspHostingSample.Controllers
                     await Task.Delay(1);
             }
         }
+
+        [HttpGet]
+        [Route(nameof(Exception))]
+        public async Task<string> Exception()
+        {
+            await Task.Delay(1000);
+            throw new System.Exception("Unhandled exp!");
+        }
+
     }
 }

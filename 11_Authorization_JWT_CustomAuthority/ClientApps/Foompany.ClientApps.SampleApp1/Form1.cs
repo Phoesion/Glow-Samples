@@ -16,7 +16,7 @@ namespace Foompany.ClientApps.SampleApp2
             using (var client = Phoesion.Glow.SDK.Client.REST.GlowRestClient.FromBaseUri($"http://{txt_Hostname.Text}"))
             {
                 //get access token
-                var accessToken = await client.Call(Foompany.Services.API.Authorization.Modules.TokenGenerator.Actions.GetAccessToken, "george", 2).InvokeAsync();
+                var accessToken = await client.Call(Foompany.Services.API.Authorization.Modules.TokenGenerator.Actions.GetAccessToken, "george", 2);
                 if (string.IsNullOrWhiteSpace(accessToken))
                 {
                     MessageBox.Show($"Could not get access token");
@@ -27,11 +27,10 @@ namespace Foompany.ClientApps.SampleApp2
 
                 //call service/module action using anonymous api
                 var rsp = await client.Call(Foompany.Services.API.SampleService1.Modules.SampleModule1.Actions.DoTheThing, txt_SampleInput.Text)
-                                      .WithHeader("Authorization", $"Bearer {accessToken}")
-                                      .InvokeAsync();
+                                      .WithHeader("Authorization", $"Bearer {accessToken}");
                 if (rsp == null)
                 {
-                    MessageBox.Show($"Could not reached firefly service");
+                    MessageBox.Show($"Could not reach firefly service");
                     return;
                 }
                 else

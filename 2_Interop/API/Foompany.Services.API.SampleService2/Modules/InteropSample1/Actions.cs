@@ -1,5 +1,4 @@
 using Phoesion.Glow.SDK;
-using Phoesion.Glow.SDK.Firefly;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
@@ -45,5 +44,8 @@ namespace Foompany.Services.API.SampleService2.Modules.InteropSample1
 
         [Interop]
         static string CancellableSample(string input) => default;
+
+        [Interop(InputSerializer = InteropSerializers.Json, OutputSerializer = InteropSerializers.Json)]
+        static DataModels.JsonDto JsonSerializerSample(DataModels.JsonDto req) => default;
     }
 }

@@ -1,0 +1,27 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+    <PropertyGroup>
+        <TargetFramework>net8.0</TargetFramework>
+    </PropertyGroup>
+
+    <ItemGroup>
+        <PackageReference Include="Hangfire" Version="1.8.12" />
+        <PackageReference Include="Hangfire.MemoryStorage" Version="1.8.0" />
+    </ItemGroup>
+
+    <ItemGroup>
+        <ProjectReference Include="..\..\API\Foompany.Services.API.EmailService\Foompany.Services.API.EmailService.csproj" />
+    </ItemGroup>
+
+    
+
+    
+    <ItemGroup>
+        <PackageReference Include="Phoesion.Glow.SDK.AspAdapter" Version="2.0.0" />
+        <PackageReference Include="Phoesion.Glow.SDK.Firefly" Version="2.0.0" />
+        <PackageReference Include="Phoesion.Glow.SDK.Firefly.SrvHost.DotNet.AppHost" Version="2.0.0" />
+        <PackageReference Include="Phoesion.Glow.SDK.ReactorDebugger" Version="2.0.0" Condition="'$(GlowPublishing)'!='true'"/>
+    </ItemGroup>
+    
+
+</Project>

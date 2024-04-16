@@ -30,7 +30,7 @@ namespace Foompany.Services.SampleService1.Modules
         [ActionBody(Methods.GET)]
         public string Action1()
         {
-            return "Called Action1 of SampleModule1";
+            return "Called Action1 of SampleModule1 2";
         }
 
         //----------------------------------------------------------------------------------------------------------------------------------------------

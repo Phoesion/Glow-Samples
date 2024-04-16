@@ -17,9 +17,9 @@ namespace Foompany.SampleClient.MyApp
             using (var client = Phoesion.Glow.SDK.Client.REST.GlowRestClient.FromBaseUri(targetBase))
             {
                 //call service/module action
-                var rsp = await client.Call(Foompany.Services.API.SampleService1.Modules.SampleModule1.Actions.DoTheThing, txt_SampleInput.Text).InvokeAsync();
+                var rsp = await client.Call(Foompany.Services.API.SampleService1.Modules.SampleModule1.Actions.DoTheThing, txt_SampleInput.Text);
                 if (rsp == null)
-                    MessageBox.Show($"Could not reached firefly service");
+                    MessageBox.Show($"Could not reach firefly service");
                 else
                     MessageBox.Show($"Got Response : {rsp}");
             }

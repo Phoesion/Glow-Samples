@@ -9,7 +9,7 @@ using Foompany.Services.SampleService1.Modules;
 // Define CORS schemes to be used in service/assembly
 [assembly: CORS_Policy("Default")]
 //[assembly: CORS_Policy("MyScheme", Origins = new[] { "https://*.mydomain.com" })]
-//[assembly: CORS_Policy("MySchemeWithMacro", Origins = new[] { "https://*.${qsdomain}" })]  //${qsdomain} is a macro that will be replace with all binded domains of the quantum space
+//[assembly: CORS_Policy("MySchemeWithMacro", Origins = new[] { "https://*.${qsdomain}" })]  //${qsdomain} is a macro that will be replaced with all binded domains of the quantum space
 
 // Uncomment to enable 'Default' scheme for this service (can also be applied per-module or per-action)
 //[assembly: EnableCORS("Default")]

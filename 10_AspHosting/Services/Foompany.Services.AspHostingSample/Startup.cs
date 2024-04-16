@@ -3,6 +3,8 @@ using Microsoft.AspNetCore.Hosting;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
+using OpenTelemetry.Logs;
+using OpenTelemetry.Trace;
 using System;
 
 namespace Foompany.AspHostingSample
@@ -21,6 +23,11 @@ namespace Foompany.AspHostingSample
         {
             services.AddControllers();
 
+            // Add auth services
+            services.AddAuthentication();
+            services.AddAuthorization();
+
+            //add swagger
             services.AddSwaggerGen(options =>
             {
                 options.SwaggerDoc("v1", new Microsoft.OpenApi.Models.OpenApiInfo
@@ -30,6 +37,14 @@ namespace Foompany.AspHostingSample
                     Description = "AspHostingSample Web API"
                 });
             });
+
+            //add open telemetry
+            services.AddOpenTelemetry()
+                    .WithTracing(b =>
+                    {
+                        b.AddAspNetCoreInstrumentation();
+                        b.AddHttpClientInstrumentation();
+                    });
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
@@ -44,13 +59,13 @@ namespace Foompany.AspHostingSample
                 {
                     c.SwaggerEndpoint("/AspHostingSample/swagger/v1/swagger.json", "v1");
                 });
-
             }
 
             //app.UseStaticFiles(); //all files in wwwroot are treated as Static Content by default and will be copied to the Prism's local cache
 
             app.UseRouting();
 
+            app.UseAuthentication();
             app.UseAuthorization();
 
             app.UseEndpoints(endpoints =>

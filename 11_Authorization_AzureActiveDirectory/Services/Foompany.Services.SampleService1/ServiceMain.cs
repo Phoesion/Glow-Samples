@@ -19,7 +19,7 @@ namespace Foompany.Services.SampleService1.v1
 
             // Add and configure authentication services
             services.AddAuthentication(OpenIdConnectDefaults.AuthenticationScheme)
-                    .AddMicrosoftIdentityWebApp(Configurations.GetSection("AzureAd"));
+                    .AddMicrosoftIdentityWebApp(Configuration.GetSection("AzureAd"));
         }
 
         protected override void Configure(IGlowApplicationBuilder app)

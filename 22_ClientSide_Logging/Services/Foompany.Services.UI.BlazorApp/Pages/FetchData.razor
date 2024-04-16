@@ -55,7 +55,7 @@ else
 
 				//send request
 				logger.LogInformation($"Requesting forecast for the next {days2fetch} days..");
-				forecasts = await client.Call(api.GetNextDaysForecast, days2fetch).InvokeAsync();
+				forecasts = await client.Call(api.GetNextDaysForecast, days2fetch);
 				logger.LogInformation($"Response received, forecast has {(forecasts?.Length ?? 0)} entries.");
 
 				//logging scope example

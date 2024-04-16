@@ -29,7 +29,7 @@ namespace Foompany.Services.HelloWorld
         protected override void ConfigureServices(IServiceCollection services)
         {
             //configure ContactInfo using IOptions pattern
-            services.Configure<Options.ContactInfoOptions>(Configurations.GetSection("ContactInfo"));
+            services.Configure<Options.ContactInfoOptions>(Configuration.GetSection("ContactInfo"));
         }
     }
 }

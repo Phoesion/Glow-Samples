@@ -6,6 +6,7 @@ using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 using System.IO;
 using System.Text;
+using System.Threading;
 using System.Threading.Tasks;
 
 using models = Foompany.Services.API.SampleService2.Modules.InteropSample1.DataModels;
@@ -141,6 +142,16 @@ namespace Foompany.Services.SampleService2.Modules
 
             return $"finished! (input='{input}')";
         }
+
+        //----------------------------------------------------------------------------------------------------------------------------------------------
+
+        [InteropBody]
+        public models.JsonDto JsonSerializerSample(models.JsonDto req)
+            => new models.JsonDto()
+            {
+                NormalData = "Data with custom JsonConverter received : " + req.Data,
+                Data = "Hello " + req.NormalData,
+            };
 
         //----------------------------------------------------------------------------------------------------------------------------------------------
     }

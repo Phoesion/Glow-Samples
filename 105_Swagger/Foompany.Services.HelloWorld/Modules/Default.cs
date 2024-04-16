@@ -10,7 +10,7 @@ namespace Foompany.Services.HelloWorld.Modules
         [Action(Methods.GET)]
         public string Default()
         {
-            return "HelloWorld service up and running!";
+            return "HelloWorld service up and running, go to /HelloWorld/swagger/index.html to see available API!";
         }
     }
 }

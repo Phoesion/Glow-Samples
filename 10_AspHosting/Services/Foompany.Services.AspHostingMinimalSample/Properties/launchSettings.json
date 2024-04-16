@@ -1,11 +1,11 @@
 {
     "profiles": {
-        "Foompany.Services.AspHostingSample": {
+        "Foompany.Services.AspHostingMinimalSample": {
             "commandName": "Project",
             "commandLineArgs": "-QuantumSpace:Default",
             "applicationUrl": "http://localhost:16000"
         },
-        "Foompany.Services.AspHostingSample (External Debugger)": {
+        "Foompany.Services.AspHostingMinimalSample (External Debugger)": {
             "commandName": "Executable",
             "executablePath": "Phoesion.Glow.Reactor.Debugger.exe",
             "commandLineArgs": "-QuantumSpace:Default \"$(TargetPath)\"",

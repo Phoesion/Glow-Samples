@@ -42,12 +42,12 @@ namespace Foompany.Services.HelloWorld.Modules
         [Action(Methods.GET)]
         public string FromIConfiguration()
         {
-            return $"ValueFromAppSettings = {Configurations["ValueFromAppSettings"]} \r\n\r\n" +
-                   $"Configs_MyKey2 = {Configurations["MyKey2"]} \r\n\r\n" +
-                   $"ContactInfo.Name = {Configurations["ContactInfo:Name"]} \r\n\r\n" +
-                   $"ContactInfo.Email = {Configurations["ContactInfo:Email"]} \r\n\r\n" +
-                   $"Other:AdminInfo.Name = {Configurations["Other:AdminInfo:Name"]} \r\n\r\n" +
-                   $"Other:AdminInfo.Email = {Configurations["Other:AdminInfo:Email"]} \r\n\r\n";
+            return $"ValueFromAppSettings = {Configuration["ValueFromAppSettings"]} \r\n\r\n" +
+                   $"Configs_MyKey2 = {Configuration["MyKey2"]} \r\n\r\n" +
+                   $"ContactInfo.Name = {Configuration["ContactInfo:Name"]} \r\n\r\n" +
+                   $"ContactInfo.Email = {Configuration["ContactInfo:Email"]} \r\n\r\n" +
+                   $"Other:AdminInfo.Name = {Configuration["Other:AdminInfo:Name"]} \r\n\r\n" +
+                   $"Other:AdminInfo.Email = {Configuration["Other:AdminInfo:Email"]} \r\n\r\n";
         }
 
         //----------------------------------------------------------------------------------------------------------------------------------------------

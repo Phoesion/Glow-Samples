@@ -14,13 +14,33 @@
     // Key generated for Firefly entity to authenticate to broker (kaleidoscope).
     //"EntityAuthKey": null,
 
-    // The tags for this entity
-    //"Tags": null,
+    // Load configs from Secrets Providers (eg AWS Secrets Manager, Azure, etc)
+    /*
+      "SecretsProvider": {
+        "Provider": "AWS", // Load from AWS
+        "SecretName": "my_secret" // <-- secret is a json string of the configs
+    }
+    */
+
+    // Set IsEphemeral true to enable a state-less operation mode, if you don't want to have a state-full persistent volume when running in a container.
+    //    In this case EntitySeed/EntityId will be generated on the fly and all files will be re-synced when service starts
+    //"IsEphemeral": false,
+
+    // EntityGroups to automatically register this entity, useful when entity is ephemeral (IsEphemeral=true) in containers. Leave null to register in Default Group (*) only.
+    //    * is the default group
+    // (they are only applied at entity first hail. remove entity from lighthouse when updating this config)
+    //"EntityGroups": [ "*", "groupA", "myOtherGroup" ],
+    // or for single entry you can use the simple config :
+    //"EntityGroup": "myOtherGroup",
+
+    // Log file backups to keep ( each file will be about 1mb )
+    //"LogFiles": 10,
 
     // Setup any QuantumSpaces rules and options for this entity instance (leave null for default)
     //"QuantumSpaces": null,
     // Example :
-    /* "QuantumSpaces": {
+    /*
+       "QuantumSpaces": {
             // Setup default global rules
             "*": {
                 "IsEnabled": false, // by-default disable all QuantumSpaces
@@ -34,7 +54,8 @@
             // Setup specific rules for QuantumSpace 'myQSpace1'
             "myQSpace1": {
                 "IsEnabled": true, // enable this QuantumSpace
-                "ServiceGroups": [ "mygroup" ] //add this entity in service groups (useful for ephemeral entities)
+                "ServiceGroups": [ "mygroup" ] // add this entity in service groups (useful for ephemeral entities)
+                                               // (they are only applied at entity first hail. remove entity from lighthouse when updating this config)
             },
             // Get only a specific service from QuantumSpace 'myQSpace2' 
             "myQSpace2": {
@@ -51,15 +72,4 @@
             }
        },
     */
-
-    // Set IsEphemeral true to enable a state-less operation mode, if you don't want to have a state-full persistent volume when running in a container.
-    //    In this case EntitySeed/EntityId will be generated on the fly and all files will be re-synced when service starts
-    //"IsEphemeral": false,
-
-    // EntityGroups to automatically register this entity, useful when entity is ephemeral (IsEphemeral=true) in containers. Leave null to register in Default Group (*) only.
-    //    * is the default group
-    //"EntityGroups": [ "*", "groupA", "myOtherGroup"  ],
-
-    // Log file backups to keep ( each file will be about 1mb )
-    //"LogFiles": 10,
 }

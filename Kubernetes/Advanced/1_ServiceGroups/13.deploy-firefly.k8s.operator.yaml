@@ -1,0 +1,48 @@
+apiVersion: apps/v1
+kind: StatefulSet
+metadata:
+  labels:
+    operator: glow-operator
+    entitytype: firefly-operator
+  name: firefly-operator
+spec:
+  serviceName: firefly-operator
+  replicas: 1
+  revisionHistoryLimit: 0
+  selector:
+    matchLabels:
+      operator: glow-operator
+  template:
+    metadata:
+      labels:
+        operator: glow-operator
+    spec:
+      serviceAccountName: glow-operator
+      containers:
+        - name: firefly-operator
+          image: phoesion/phoesion.glow.firefly.k8s.operator
+          env:
+            - name: POD_NAMESPACE
+              valueFrom:
+                fieldRef:
+                  fieldPath: metadata.namespace
+            - name: FIREFLY_KaleidoscopeConnectionString
+              value: "Host=kaleidoscope"
+            #- name: FIREFLY_EntityAuthKey
+            #  value: "" #CONFIG: Add firefly auth key (or get from secrets. like bellow)
+          envFrom:
+            - secretRef:
+                name: firefly-authkey
+          ports:
+            - containerPort: 14000
+              name: p2p
+          resources:
+            limits:
+              cpu: 100m
+              memory: 256Mi
+            requests:
+              cpu: 100m
+              memory: 64Mi              
+      terminationGracePeriodSeconds: 20
+      automountServiceAccountToken: true 
+

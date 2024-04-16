@@ -49,7 +49,7 @@ namespace Foompany.Services.SampleService1.Modules
             {
                 InputName = name,
             };
-            var result = await Call(API.SampleService2.Modules.InteropSample1.Actions.InteropAction1, req).InvokeAsync();
+            var result = await Call(API.SampleService2.Modules.InteropSample1.Actions.InteropAction1, req);
             return $"Service 2 said '{result}'";
         }
 
@@ -58,7 +58,7 @@ namespace Foompany.Services.SampleService1.Modules
         [ActionBody(Methods.GET)]
         public async Task<Stream> StreamingInteropAction()
         {
-            var stream = await Call(API.SampleService2.Modules.InteropSample1.Actions.StreamingSample).InvokeAsync();
+            var stream = await Call(API.SampleService2.Modules.InteropSample1.Actions.StreamingSample);
             return stream;
         }
 

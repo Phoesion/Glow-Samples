@@ -1,5 +1,4 @@
 using Microsoft.Extensions.DependencyInjection;
-using Moq;
 using NUnit.Framework;
 using Phoesion.Glow.SDK.Firefly;
 using Phoesion.Glow.SDK.Testing;

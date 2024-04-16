@@ -1,0 +1,37 @@
+{
+  "DefaultService": "[NONE]",
+  "ProjectReferences": [],
+  "Services": [
+    {
+      "IsEnabled": true,
+      "CSProjectFile": "Services\\AspIdentity\\AspIdentity.csproj",
+      "IgnoreDeploymentVersion": false,
+      "IsPrivateService": false,
+      "ServiceHost": "DotNet_Portable",
+      "Containerization": "None",
+      "ContainerOptions": {},
+      "DockerOptions": {},
+      "KubernetesOptions": {},
+      "ImageOptions": {
+        "Build": false,
+        "Push": false
+      },
+      "Builds": [
+        {
+          "Build": "Win_x64",
+          "AssemblyFilePath": "Services\\AspIdentity\\bin\\%BUILD%\\publish\\win-x64\\AspIdentity.dll",
+          "BuildCommands": [
+            "dotnet publish --framework net8.0 --configuration %BUILD% --runtime win-x64 --self-contained -p:GlowPublishing=true -o \"bin\\%BUILD%\\publish\\win-x64\""
+          ]
+        },
+        {
+          "Build": "Linux_x64",
+          "AssemblyFilePath": "Services\\AspIdentity\\bin\\%BUILD%\\publish\\linux-x64\\AspIdentity.dll",
+          "BuildCommands": [
+            "dotnet publish --framework net8.0 --configuration %BUILD% --runtime linux-x64 --self-contained -p:GlowPublishing=true -o \"bin\\%BUILD%\\publish\\linux-x64\""
+          ]
+        }
+      ]
+    }
+  ],
+}

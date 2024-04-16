@@ -1,7 +1,6 @@
 using System;
 using System.Collections.Generic;
 using Phoesion.Glow.SDK;
-using Phoesion.Glow.SDK.Firefly;
 using System.Linq;
 using System.Threading.Tasks;
 

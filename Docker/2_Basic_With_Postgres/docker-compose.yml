@@ -1,0 +1,115 @@
+version: "3.8"
+
+# Define services
+services:
+  kaleidoscope:
+    image: phoesion/phoesion.glow.kaleidoscope
+    restart: unless-stopped
+    ports:
+      - "15010:15010"
+      - "15011:15011"
+    volumes:
+      - kaleidoscopeVol:/data
+    networks:
+      - backend
+    secrets:
+      - KALEIDOSCOPE_EntityAuthKey
+
+  lighthouse:
+    image: phoesion/phoesion.glow.lighthouse
+    restart: unless-stopped
+    ports:
+      - "15000:15000"
+    environment:
+      LIGHTHOUSE_KaleidoscopeConnectionString: "Host=kaleidoscope"
+      LIGHTHOUSE_DefaultUser__Username: "admin"
+      LIGHTHOUSE_DefaultUser__Name: "Administrator"
+      LIGHTHOUSE_DefaultUser__Description: "Default administrator account created from configs"
+      LIGHTHOUSE_DefaultUser__Email: "admin@myOrganization.org"
+      LIGHTHOUSE_DefaultUser__Password: "123qweASD!"
+      #LIGHTHOUSE_DefaultUser__SshKey: "ssh-rsa AAAAB3NzaC1yc2EA........"
+      LIGHTHOUSE_DefaultUser__AllowedIP: "*"
+      #configure db connection strings
+      LIGHTHOUSE_Database__Provider: "PostgreSQL"
+      LIGHTHOUSE_Database__ConnectionString: "User ID=postgres;Password=root;Host=postgres;Port=5432;Database=Phoesion.Glow.Lighthouse;"
+      LIGHTHOUSE_LoggingDatabase__Provider: "PostgreSQL"
+      LIGHTHOUSE_LoggingDatabase__ConnectionString: "User ID=postgres;Password=root;Host=postgres;Port=5432;Database=Phoesion.Glow.Lighthouse.Logging;"
+      LIGHTHOUSE_MetricsDatabase__Provider: "PostgreSQL"
+      LIGHTHOUSE_MetricsDatabase__ConnectionString: "User ID=postgres;Password=root;Host=postgres;Port=5432;Database=Phoesion.Glow.Lighthouse.Metrics;"
+      LIGHTHOUSE_AppDataDatabase__Provider: "PostgreSQL"
+      LIGHTHOUSE_AppDataDatabase__ConnectionString: "User ID=postgres;Password=root;Host=postgres;Port=5432;Database=Phoesion.Glow.Lighthouse.AppData;"
+    volumes:
+      - lighthouseVol:/data
+    networks:
+      - backend
+    depends_on:
+      - kaleidoscope
+      - postgres
+    secrets:
+      - LIGHTHOUSE_EntityAuthKey
+
+  prism:
+    image: phoesion/phoesion.glow.prism
+    restart: unless-stopped
+    ports:
+      - "80:80"
+      - "443:443"
+      - "16000:16000"
+      - "16001:16001"
+    environment:
+      PRISM_KaleidoscopeConnectionString: "Host=kaleidoscope"
+    volumes:
+      - prismVol:/data
+    networks:
+      - backend
+    depends_on:
+      - kaleidoscope
+      - lighthouse
+    secrets:
+      - PRISM_EntityAuthKey
+
+  firefly:
+    image: phoesion/phoesion.glow.firefly
+    restart: unless-stopped
+    environment:
+      FIREFLY_KaleidoscopeConnectionString: "Host=kaleidoscope"
+    volumes:
+      - fireflyVol:/data
+    networks:
+      - backend
+    depends_on:
+      - kaleidoscope
+      - lighthouse
+    secrets:
+      - FIREFLY_EntityAuthKey
+
+  postgres:
+    image: postgres:latest
+    networks:
+      - backend
+    volumes:
+      - postgresVol:/var/lib/postgres
+    environment:
+      - POSTGRES_PASSWORD=root
+
+# Persistent volumes for entities
+volumes:
+  kaleidoscopeVol:
+  lighthouseVol:
+  prismVol:
+  fireflyVol:
+
+# Shared networks
+networks:
+  backend:
+
+# AuthKeys for sample. Replace with your own!
+secrets:
+  FIREFLY_EntityAuthKey:
+    file: ./firefly_EntityAuthKey.txt
+  PRISM_EntityAuthKey:
+    file: ./prism_EntityAuthKey.txt
+  LIGHTHOUSE_EntityAuthKey:
+    file: ./lighthouse_EntityAuthKey.txt
+  KALEIDOSCOPE_EntityAuthKey:
+    file: ./kaleidoscope_EntityAuthKey.txt

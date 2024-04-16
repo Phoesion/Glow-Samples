@@ -11,7 +11,8 @@ namespace Foompany.Services.AspHostingMinimalSample
     {
         protected override void ConfigureServices(IServiceCollection services)
         {
-            // Add services to the container.
+            // Add auth services
+            services.AddAuthentication();
             services.AddAuthorization();
 
             // Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
@@ -30,24 +31,35 @@ namespace Foompany.Services.AspHostingMinimalSample
 
             app.UseRouting();
 
+            app.UseAuthentication();
             app.UseAuthorization();
 
-            var summaries = new[]
-            {
-                "Freezing", "Bracing", "Chilly", "Cool", "Mild", "Warm", "Balmy", "Hot", "Sweltering", "Scorching"
-            };
+            app.MapGet("/ping", (HttpContext httpContext) => "pong from minimal api!");
 
-            app.MapGet("/weatherforecast", (HttpContext httpContext) =>
+            app.MapGet("/weatherforecast",
+                (HttpContext httpContext) =>
                 {
-                    var forecast = Enumerable.Range(1, 5).Select(index =>
-                        new WeatherForecast
-                        {
-                            Date = DateOnly.FromDateTime(DateTime.Now.AddDays(index)),
-                            TemperatureC = Random.Shared.Next(-20, 55),
-                            Summary = summaries[Random.Shared.Next(summaries.Length)]
-                        })
-                        .ToArray();
-                    return forecast;
+                    return new WeatherForecast[]
+                    {
+                            new WeatherForecast()
+                            {
+                                Date = new DateOnly(2020, 1, 20),
+                                TemperatureC = 25,
+                                Summary = "Warm",
+                            },
+                            new WeatherForecast()
+                            {
+                                Date = new DateOnly(2020, 1, 21),
+                                TemperatureC = 20,
+                                Summary =  "Mild",
+                            },
+                            new WeatherForecast()
+                            {
+                                Date = new DateOnly(2020, 1, 22),
+                                TemperatureC = 5,
+                                Summary =  "Chilly",
+                            },
+                    };
                 })
                 .WithName("GetWeatherForecast")
                 .WithOpenApi();

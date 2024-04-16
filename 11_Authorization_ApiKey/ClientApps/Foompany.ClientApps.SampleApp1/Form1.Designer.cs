@@ -28,73 +28,101 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.button1 = new System.Windows.Forms.Button();
-            this.label1 = new System.Windows.Forms.Label();
-            this.txt_SampleInput = new System.Windows.Forms.TextBox();
-            this.label2 = new System.Windows.Forms.Label();
-            this.txt_Hostname = new System.Windows.Forms.TextBox();
-            this.SuspendLayout();
+            button1 = new System.Windows.Forms.Button();
+            label1 = new System.Windows.Forms.Label();
+            txt_SampleInput = new System.Windows.Forms.TextBox();
+            label2 = new System.Windows.Forms.Label();
+            txt_Hostname = new System.Windows.Forms.TextBox();
+            txt_ApiKey = new System.Windows.Forms.TextBox();
+            label3 = new System.Windows.Forms.Label();
+            SuspendLayout();
             // 
             // button1
             // 
-            this.button1.Location = new System.Drawing.Point(36, 91);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(215, 50);
-            this.button1.TabIndex = 0;
-            this.button1.Text = "Do the thing!";
-            this.button1.UseVisualStyleBackColor = true;
-            this.button1.Click += new System.EventHandler(this.button1_Click);
+            button1.Location = new System.Drawing.Point(60, 175);
+            button1.Margin = new System.Windows.Forms.Padding(5, 6, 5, 6);
+            button1.Name = "button1";
+            button1.Size = new System.Drawing.Size(358, 96);
+            button1.TabIndex = 0;
+            button1.Text = "Do the thing!";
+            button1.UseVisualStyleBackColor = true;
+            button1.Click += button1_Click;
             // 
             // label1
             // 
-            this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(33, 54);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(64, 13);
-            this.label1.TabIndex = 1;
-            this.label1.Text = "Your name :";
+            label1.AutoSize = true;
+            label1.Location = new System.Drawing.Point(51, 126);
+            label1.Margin = new System.Windows.Forms.Padding(5, 0, 5, 0);
+            label1.Name = "label1";
+            label1.Size = new System.Drawing.Size(111, 25);
+            label1.TabIndex = 1;
+            label1.Text = "some input :";
             // 
             // txt_SampleInput
             // 
-            this.txt_SampleInput.Location = new System.Drawing.Point(99, 51);
-            this.txt_SampleInput.Name = "txt_SampleInput";
-            this.txt_SampleInput.Size = new System.Drawing.Size(152, 20);
-            this.txt_SampleInput.TabIndex = 2;
-            this.txt_SampleInput.Text = "John";
+            txt_SampleInput.Location = new System.Drawing.Point(167, 123);
+            txt_SampleInput.Margin = new System.Windows.Forms.Padding(5, 6, 5, 6);
+            txt_SampleInput.Name = "txt_SampleInput";
+            txt_SampleInput.Size = new System.Drawing.Size(251, 31);
+            txt_SampleInput.TabIndex = 2;
+            txt_SampleInput.Text = "test_data";
             // 
             // label2
             // 
-            this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(12, 12);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(87, 13);
-            this.label2.TabIndex = 3;
-            this.label2.Text = "Prism hostname :";
+            label2.AutoSize = true;
+            label2.Location = new System.Drawing.Point(20, 23);
+            label2.Margin = new System.Windows.Forms.Padding(5, 0, 5, 0);
+            label2.Name = "label2";
+            label2.Size = new System.Drawing.Size(149, 25);
+            label2.TabIndex = 3;
+            label2.Text = "Prism hostname :";
             // 
             // txt_Hostname
             // 
-            this.txt_Hostname.Location = new System.Drawing.Point(99, 9);
-            this.txt_Hostname.Name = "txt_Hostname";
-            this.txt_Hostname.Size = new System.Drawing.Size(152, 20);
-            this.txt_Hostname.TabIndex = 4;
-            this.txt_Hostname.Text = "localhost:16000";
+            txt_Hostname.Location = new System.Drawing.Point(165, 17);
+            txt_Hostname.Margin = new System.Windows.Forms.Padding(5, 6, 5, 6);
+            txt_Hostname.Name = "txt_Hostname";
+            txt_Hostname.Size = new System.Drawing.Size(251, 31);
+            txt_Hostname.TabIndex = 4;
+            txt_Hostname.Text = "localhost:16000";
+            // 
+            // txt_ApiKey
+            // 
+            txt_ApiKey.Location = new System.Drawing.Point(165, 60);
+            txt_ApiKey.Margin = new System.Windows.Forms.Padding(5, 6, 5, 6);
+            txt_ApiKey.Name = "txt_ApiKey";
+            txt_ApiKey.Size = new System.Drawing.Size(251, 31);
+            txt_ApiKey.TabIndex = 6;
+            txt_ApiKey.Text = "this-is-my-api-key";
+            // 
+            // label3
+            // 
+            label3.AutoSize = true;
+            label3.Location = new System.Drawing.Point(79, 66);
+            label3.Margin = new System.Windows.Forms.Padding(5, 0, 5, 0);
+            label3.Name = "label3";
+            label3.Size = new System.Drawing.Size(83, 25);
+            label3.TabIndex = 5;
+            label3.Text = "API-Key :";
             // 
             // Form1
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
-            this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(303, 153);
-            this.Controls.Add(this.txt_Hostname);
-            this.Controls.Add(this.label2);
-            this.Controls.Add(this.txt_SampleInput);
-            this.Controls.Add(this.label1);
-            this.Controls.Add(this.button1);
-            this.Name = "Form1";
-            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            this.Text = "Form1";
-            this.ResumeLayout(false);
-            this.PerformLayout();
-
+            AutoScaleDimensions = new System.Drawing.SizeF(10F, 25F);
+            AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            ClientSize = new System.Drawing.Size(505, 294);
+            Controls.Add(txt_ApiKey);
+            Controls.Add(label3);
+            Controls.Add(txt_Hostname);
+            Controls.Add(label2);
+            Controls.Add(txt_SampleInput);
+            Controls.Add(label1);
+            Controls.Add(button1);
+            Margin = new System.Windows.Forms.Padding(5, 6, 5, 6);
+            Name = "Form1";
+            StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
+            Text = "Form1";
+            ResumeLayout(false);
+            PerformLayout();
         }
 
         #endregion
@@ -104,6 +132,8 @@
         private System.Windows.Forms.TextBox txt_SampleInput;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.TextBox txt_Hostname;
+        private System.Windows.Forms.TextBox txt_ApiKey;
+        private System.Windows.Forms.Label label3;
     }
 }
 

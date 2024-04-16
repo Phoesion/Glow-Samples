@@ -20,7 +20,7 @@ namespace Foompany.Services.SampleService1
         protected override void ConfigureServices(IServiceCollection services)
         {
             // Add db context using MySql provider
-            var connectionString = Configurations.GetConnectionString("DefaultConnection");
+            var connectionString = Configuration.GetConnectionString("DefaultConnection");
             services.AddDbContext<dbSchemaContext>(options => options.UseMySql(connectionString, ServerVersion.AutoDetect(connectionString)));
         }
 
@@ -33,18 +33,22 @@ namespace Foompany.Services.SampleService1
 
         //------------------------------------------------------------------------------------------------------------------------
 
-        protected override async Task StartAsync(CancellationToken cancellationToken)
+        protected override async Task OnStartingAsync(CancellationToken cancellationToken)
         {
-            await base.StartAsync(cancellationToken);
+            await base.OnStartingAsync(cancellationToken);
 
 #if false
-            //Optionally, we can migrate the database during the startup process of the service
-            using (var scope = Services.GetRequiredService<IServiceScopeFactory>().CreateScope())
+            // Optionally, we can migrate the database during the startup process of the service
+            // (Get a QuantumSpace-wide mutex to ensure only 1 service is attempting to update database)
+            var mutex = Services.GetRequiredService<IAppMutexService>();
+            await using (await mutex.LockAsync("global-db-migration-mutex", scope: GlowAppScope.QuantumSpace))
+            await using (var scope = Services.GetRequiredService<IServiceScopeFactory>().CreateAsyncScope())
             {
                 var context = scope.ServiceProvider.GetService<dbSchemaContext>();
                 await context.Database.MigrateAsync();
             }
 #endif
+
             return;
         }
 

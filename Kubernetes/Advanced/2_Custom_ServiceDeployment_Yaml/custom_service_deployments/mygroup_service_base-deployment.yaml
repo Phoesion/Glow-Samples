@@ -1,0 +1,16 @@
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: mygroup-deployment.yaml
+data:
+  deployment.yaml: |
+    apiVersion: apps/v1
+    kind: Deployment
+    spec:
+      template:
+        spec:
+          containers:
+            - name: "$Service$" # Special Name to indicate that we are editing service's container (and not a new side-car container)
+              env:
+                - name: TEST_CONFIG_VALUE
+                  value: "some config value from base YAML"

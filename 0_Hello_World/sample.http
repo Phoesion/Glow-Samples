@@ -1,0 +1,5 @@
+### Say Hello endpoint
+
+GET http://localhost/HelloWorld/Greeter/SayHello
+
+###

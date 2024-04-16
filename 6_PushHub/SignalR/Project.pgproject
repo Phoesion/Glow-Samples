@@ -1,0 +1,27 @@
+{
+  "ProjectReferences": [],
+  "Services": [
+    {
+      "IsEnabled": true,
+      "CSProjectFile": "Services\\Foompany.Services.ChatService\\Foompany.Services.ChatService.csproj",
+      "ServiceHost": "DotNet",
+      "Builds": [
+        {
+          "Build": "Win_x64",
+          "AssemblyFilePath": "Services\\Foompany.Services.ChatService\\bin\\%BUILD%\\publish\\win-x64\\Foompany.Services.ChatService.dll",
+          "BuildCommands": [
+            "dotnet publish --framework net8.0 --configuration %BUILD% --runtime win-x64 --self-contained -p:GlowPublishing=true -o \"bin\\%BUILD%\\publish\\win-x64\""
+          ]
+        },
+        {
+          "Build": "Linux_x64",
+          "AssemblyFilePath": "Services\\Foompany.Services.ChatService\\bin\\%BUILD%\\publish\\linux-x64\\Foompany.Services.ChatService.dll",
+          "BuildCommands": [
+            "dotnet publish --framework net8.0 --configuration %BUILD% --runtime linux-x64 --self-contained -p:GlowPublishing=true -o \"bin\\%BUILD%\\publish\\linux-x64\""
+          ]
+        }
+      ]
+    }
+  ],
+  "UrlRewriteRules": []
+}
