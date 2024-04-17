@@ -55,7 +55,7 @@
 
     // Database store for AppData (caches, jobs, featureflags, etc...)
     /*
-    "MetricsDatabase": {
+    "AppDataDatabase": {
         "Provider": "SQLite",
         "ConnectionString": "Data Source=%DataPath%/Phoesion.Glow.Lighthouse.AppData.db;"
     },
