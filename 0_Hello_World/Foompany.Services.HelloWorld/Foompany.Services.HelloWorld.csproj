@@ -8,9 +8,9 @@
 
     
       <ItemGroup>
-        <PackageReference Include="Phoesion.Glow.SDK.Firefly" Version="2.0.0" />
-        <PackageReference Include="Phoesion.Glow.SDK.Firefly.SrvHost.DotNet.AppHost" Version="2.0.0" />
-        <PackageReference Include="Phoesion.Glow.SDK.ReactorDebugger" Version="2.0.0" Condition="'$(GlowPublishing)'!='true'"/>
+        <PackageReference Include="Phoesion.Glow.SDK.Firefly" Version="2.0.1" />
+        <PackageReference Include="Phoesion.Glow.SDK.Firefly.SrvHost.DotNet.AppHost" Version="2.0.1" />
+        <PackageReference Include="Phoesion.Glow.SDK.ReactorDebugger" Version="2.0.1" Condition="'$(GlowPublishing)'!='true'"/>
       </ItemGroup>
     
 
