@@ -1,0 +1,24 @@
+{
+  "ProjectReferences": [],
+  "Services": [],
+  "UrlRewriteRules": [],
+  "ReverseProxy": {
+    "Routes": {
+      "mainRoute": {
+        "Match": {
+          "Path": "{**catch-all}"
+        },
+        "ClusterId": "mainCluster"
+      }
+    },
+    "Clusters": {
+      "mainCluster": {
+        "Destinations": {
+          "local": {
+            "Address": "http://localhost:8080/"
+          }
+        }
+      }
+    }
+  }
+}

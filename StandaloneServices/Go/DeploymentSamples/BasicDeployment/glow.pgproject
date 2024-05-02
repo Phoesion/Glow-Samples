@@ -1,0 +1,56 @@
+{
+  "ProjectReferences": [],
+  "Services": [
+    {
+      "IsEnabled": true,
+      "ServiceNameOverride": "goservice",
+      "IgnoreDeploymentVersion": false,
+      "IsPrivateService": false,
+      "ServiceHost": "Standalone",
+      "Containerization": "None",
+      "ContainerOptions": {},
+      "DockerOptions": {
+        "Ports": "8080:8080"
+      },
+      "ImageOptions": {
+        "Build": false,
+        "Push": false
+      },
+      "ShutdownPolicy": {
+        "Timeout": 1,
+        "HostedServiceTimeout": 300,
+        "ActionDispatcherTimeout": 300
+      },
+      "Builds": [
+        {
+          "Build": "Win_x64",
+          "AssemblyFilePath": "server.exe"
+        },
+        {
+          "Build": "Linux_x64",
+          "AssemblyFilePath": "server"
+        }
+      ]
+    }
+  ],
+  "UrlRewriteRules": [],
+  "ReverseProxy": {
+    "Routes": {
+      "mainRoute": {
+        "Match": {
+          "Path": "{**catch-all}"
+        },
+        "ClusterId": "mainCluster"
+      }
+    },
+    "Clusters": {
+      "mainCluster": {
+        "Destinations": {
+          "local": {
+            "Address": "http://localhost:8080/"
+          }
+        }
+      }
+    }
+  }
+}
