@@ -10,10 +10,6 @@ var builder = GlowWebApplicationBuilder.CreateBuilder(args);
 var services = builder.Services;
 var configuration = builder.Configuration;
 
-// Add auth services
-services.AddAuthentication();
-services.AddAuthorization();
-
 // Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
 services.AddEndpointsApiExplorer();
 services.AddSwaggerGen();
@@ -29,11 +25,6 @@ if (app.Environment.IsDevelopment())
     app.UseSwagger();
     app.UseSwaggerUI();
 }
-
-app.UseRouting();
-
-app.UseAuthentication();
-app.UseAuthorization();
 
 app.MapGet("/ping", (HttpContext httpContext) => "pong from minimal api!");
 

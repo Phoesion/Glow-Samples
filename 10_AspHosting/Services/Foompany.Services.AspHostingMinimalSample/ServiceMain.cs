@@ -11,10 +11,6 @@ namespace Foompany.Services.AspHostingMinimalSample
     {
         protected override void ConfigureServices(IServiceCollection services)
         {
-            // Add auth services
-            services.AddAuthentication();
-            services.AddAuthorization();
-
             // Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
             services.AddEndpointsApiExplorer();
             services.AddSwaggerGen();
@@ -28,11 +24,6 @@ namespace Foompany.Services.AspHostingMinimalSample
                 app.UseSwagger();
                 app.UseSwaggerUI();
             }
-
-            app.UseRouting();
-
-            app.UseAuthentication();
-            app.UseAuthorization();
 
             app.MapGet("/ping", (HttpContext httpContext) => "pong from minimal api!");
 
