@@ -9,16 +9,16 @@
 
     
     <ItemGroup>
-        <PackageReference Include="Phoesion.Glow.SDK.Firefly" Version="2.0.3" />
-        <PackageReference Include="Phoesion.Glow.SDK.Firefly.AspHost.WebApplicationBuilder" Version="2.0.3" />
-        <PackageReference Include="Phoesion.Glow.SDK.Firefly.SrvHost.DotNet.AppHost" Version="2.0.3" />
-        <PackageReference Include="Phoesion.Glow.SDK.ReactorDebugger" Version="2.0.3" Condition="'$(GlowPublishing)'!='true'"/>
+        <PackageReference Include="Phoesion.Glow.SDK.Firefly" Version="2.0.4" />
+        <PackageReference Include="Phoesion.Glow.SDK.Firefly.AspHost.WebApplicationBuilder" Version="2.0.4" />
+        <PackageReference Include="Phoesion.Glow.SDK.Firefly.SrvHost.DotNet.AppHost" Version="2.0.4" />
+        <PackageReference Include="Phoesion.Glow.SDK.ReactorDebugger" Version="2.0.4" Condition="'$(GlowPublishing)'!='true'"/>
     </ItemGroup>
     
 
     <ItemGroup>
-        <PackageReference Include="Microsoft.AspNetCore.OpenApi" Version="8.0.4" />
-        <PackageReference Include="Swashbuckle.AspNetCore" Version="6.5.0" />
+        <PackageReference Include="Microsoft.AspNetCore.OpenApi" Version="8.0.5" />
+        <PackageReference Include="Swashbuckle.AspNetCore" Version="6.6.2" />
     </ItemGroup>
 
 </Project>

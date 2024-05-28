@@ -8,8 +8,8 @@
 
     <!-- Other packages -->
     <ItemGroup>
-        <PackageReference Include="Microsoft.AspNetCore.Components.WebAssembly" Version="8.0.4" />
-        <PackageReference Include="Microsoft.AspNetCore.Components.WebAssembly.DevServer" Version="8.0.4" PrivateAssets="all" />
+        <PackageReference Include="Microsoft.AspNetCore.Components.WebAssembly" Version="8.0.5" />
+        <PackageReference Include="Microsoft.AspNetCore.Components.WebAssembly.DevServer" Version="8.0.5" PrivateAssets="all" />
     </ItemGroup>
 
     <!-- Glow packages -->
@@ -17,8 +17,8 @@
 
     
     <ItemGroup>
-        <PackageReference Include="Phoesion.Glow.SDK.Blazor.WebAssembly" Version="2.0.3" />
-        <PackageReference Include="Phoesion.Glow.SDK.Client.REST" Version="2.0.3" />
+        <PackageReference Include="Phoesion.Glow.SDK.Blazor.WebAssembly" Version="2.0.4" />
+        <PackageReference Include="Phoesion.Glow.SDK.Client.REST" Version="2.0.4" />
     </ItemGroup>
     
 

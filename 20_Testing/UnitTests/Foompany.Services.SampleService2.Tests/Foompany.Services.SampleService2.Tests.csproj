@@ -8,7 +8,7 @@
 
     <ItemGroup>
         <PackageReference Include="NSubstitute" Version="5.1.0" />
-        <PackageReference Include="Microsoft.NET.Test.Sdk" Version="17.9.0" />
+        <PackageReference Include="Microsoft.NET.Test.Sdk" Version="17.10.0" />
         <PackageReference Include="nunit" Version="4.1.0" />
         <PackageReference Include="NUnit3TestAdapter" Version="4.5.0">
             <PrivateAssets>all</PrivateAssets>
@@ -24,7 +24,7 @@
 
     
     <ItemGroup>
-        <PackageReference Include="Phoesion.Glow.SDK.Testing" Version="2.0.3" />
+        <PackageReference Include="Phoesion.Glow.SDK.Testing" Version="2.0.4" />
     </ItemGroup>
     
 

@@ -50,7 +50,7 @@ namespace Foompany.Services.SampleService1.Modules
             };
 
             //this job will be scheduled to run 2 minutes from now
-            var runAt = DateTimeOffset.Now.AddMinutes(2);
+            var runAt = DateTimeOffset.UtcNow.AddMinutes(2);
 
             //send request to email service (scope is QuantumSpace, so cross-service job submission is available)
             var res = await AppJobService.ScheduleAsync(job, runAt, Context.CancellationToken, scope: GlowAppScope.QuantumSpace);

@@ -5,7 +5,7 @@
     </PropertyGroup>
 
     <ItemGroup>
-        <PackageReference Include="System.IdentityModel.Tokens.Jwt" Version="7.5.1" />
+        <PackageReference Include="System.IdentityModel.Tokens.Jwt" Version="7.5.2" />
     </ItemGroup>
 
     <ItemGroup>
@@ -17,9 +17,9 @@
 
     
     <ItemGroup>
-        <PackageReference Include="Phoesion.Glow.SDK.Firefly" Version="2.0.3" />
-        <PackageReference Include="Phoesion.Glow.SDK.Firefly.SrvHost.DotNet.AppHost" Version="2.0.3" />
-        <PackageReference Include="Phoesion.Glow.SDK.ReactorDebugger" Version="2.0.3" Condition="'$(GlowPublishing)'!='true'"/>
+        <PackageReference Include="Phoesion.Glow.SDK.Firefly" Version="2.0.4" />
+        <PackageReference Include="Phoesion.Glow.SDK.Firefly.SrvHost.DotNet.AppHost" Version="2.0.4" />
+        <PackageReference Include="Phoesion.Glow.SDK.ReactorDebugger" Version="2.0.4" Condition="'$(GlowPublishing)'!='true'"/>
     </ItemGroup>
     
 
