@@ -22,7 +22,8 @@ namespace Foompany.Services.SampleService1
         {
             // Add db context using MySql provider
             var connectionString = Configuration.GetConnectionString("DefaultConnection");
-            services.AddDbContext<dbSchemaContext>(options => options.UseMySql(connectionString, ServerVersion.AutoDetect(connectionString)));
+            var serverVersion = ServerVersion.AutoDetect(connectionString);
+            services.AddDbContext<dbSchemaContext>(options => options.UseMySql(connectionString, serverVersion));
         }
 
         //------------------------------------------------------------------------------------------------------------------------
@@ -64,7 +65,8 @@ namespace Foompany.Services.SampleService1
         protected override IEnumerable<object> GetDBContexts(string[] args)
         {
             var builder = new DbContextOptionsBuilder<dbSchemaContext>();
-            builder.UseMySql(args[0], ServerVersion.AutoDetect(args[0]), o => o.MigrationsAssembly(typeof(ServiceMain).Assembly.FullName));
+            var serverVersion = ServerVersion.AutoDetect(args[0]);
+            builder.UseMySql(args[0], serverVersion, o => o.MigrationsAssembly(typeof(ServiceMain).Assembly.FullName));
             yield return new dbSchemaContext(builder.Options);
         }
 #endif

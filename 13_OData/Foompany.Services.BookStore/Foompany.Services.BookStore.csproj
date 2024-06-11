@@ -7,18 +7,18 @@
 
     <ItemGroup>
         <PackageReference Include="Microsoft.AspNetCore.OData" Version="8.2.5" />
-        <PackageReference Include="Microsoft.EntityFrameworkCore.InMemory" Version="8.0.5" />
+        <PackageReference Include="Microsoft.EntityFrameworkCore.InMemory" Version="8.0.6" />
     </ItemGroup>
 
     
 
     
     <ItemGroup>
-        <PackageReference Include="Phoesion.Glow.SDK.Firefly" Version="2.0.4" />
-        <PackageReference Include="Phoesion.Glow.SDK.AspAdapter" Version="2.0.4" />
-        <PackageReference Include="Phoesion.Glow.SDK.Firefly.OData" Version="2.0.4" />
-        <PackageReference Include="Phoesion.Glow.SDK.Firefly.SrvHost.DotNet.AppHost" Version="2.0.4" />
-        <PackageReference Include="Phoesion.Glow.SDK.ReactorDebugger" Version="2.0.4" Condition="'$(GlowPublishing)'!='true'"/>
+        <PackageReference Include="Phoesion.Glow.SDK.Firefly" Version="2.0.5" />
+        <PackageReference Include="Phoesion.Glow.SDK.AspAdapter" Version="2.0.5" />
+        <PackageReference Include="Phoesion.Glow.SDK.Firefly.OData" Version="2.0.5" />
+        <PackageReference Include="Phoesion.Glow.SDK.Firefly.SrvHost.DotNet.AppHost" Version="2.0.5" />
+        <PackageReference Include="Phoesion.Glow.SDK.ReactorDebugger" Version="2.0.5" Condition="'$(GlowPublishing)'!='true'"/>
     </ItemGroup>
     
 

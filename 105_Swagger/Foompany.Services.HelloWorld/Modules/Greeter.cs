@@ -2,7 +2,6 @@ using Phoesion.Glow.SDK;
 using Phoesion.Glow.SDK.Firefly;
 using System;
 using System.ComponentModel.DataAnnotations;
-using System.Reflection.Metadata.Ecma335;
 using System.Threading.Tasks;
 
 namespace Foompany.Services.HelloWorld.Modules
