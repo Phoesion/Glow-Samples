@@ -9,10 +9,10 @@
 
     
     <ItemGroup>
-        <PackageReference Include="Phoesion.Glow.SDK.AspAdapter" Version="2.0.5" />
-        <PackageReference Include="Phoesion.Glow.SDK.Firefly" Version="2.0.5" />
-        <PackageReference Include="Phoesion.Glow.SDK.Firefly.SrvHost.DotNet.AppHost" Version="2.0.5" />
-        <PackageReference Include="Phoesion.Glow.SDK.ReactorDebugger" Version="2.0.5" Condition="'$(GlowPublishing)'!='true'"/>
+        <PackageReference Include="Phoesion.Glow.SDK.AspAdapter" Version="2.0.6" />
+        <PackageReference Include="Phoesion.Glow.SDK.Firefly" Version="2.0.6" />
+        <PackageReference Include="Phoesion.Glow.SDK.Firefly.SrvHost.DotNet.AppHost" Version="2.0.6" />
+        <PackageReference Include="Phoesion.Glow.SDK.ReactorDebugger" Version="2.0.6" Condition="'$(GlowPublishing)'!='true'"/>
     </ItemGroup>
     
 
@@ -20,4 +20,8 @@
         <PackageReference Include="Swashbuckle.AspNetCore" Version="6.6.2" />
     </ItemGroup>
 
+	<ItemGroup>
+        <ProjectReference Include="..\Foompany.Services.HelloWorld.Api\Foompany.Services.HelloWorld.API.csproj" />
+	</ItemGroup>
+	
 </Project>

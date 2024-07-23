@@ -2,6 +2,7 @@
 using Foompany.Services.SampleService1;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
+using Microsoft.EntityFrameworkCore.Metadata;
 using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 
@@ -10,22 +11,26 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace Foompany.Services.SampleService1.Migrations
 {
     [DbContext(typeof(dbSchemaContext))]
-    [Migration("20230914093519_v1")]
-    partial class v1
+    [Migration("20240717081943_v1_init")]
+    partial class v1_init
     {
         /// <inheritdoc />
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
-                .HasAnnotation("ProductVersion", "7.0.11")
+                .HasAnnotation("ProductVersion", "8.0.7")
                 .HasAnnotation("Relational:MaxIdentifierLength", 64);
+
+            MySqlModelBuilderExtensions.AutoIncrementColumns(modelBuilder);
 
             modelBuilder.Entity("Foompany.Services.SampleService1.Models.Blog", b =>
                 {
                     b.Property<long>("Id")
                         .ValueGeneratedOnAdd()
                         .HasColumnType("bigint");
+
+                    MySqlPropertyBuilderExtensions.UseMySqlIdentityColumn(b.Property<long>("Id"));
 
                     b.Property<string>("Name")
                         .HasColumnType("longtext");
@@ -40,6 +45,8 @@ namespace Foompany.Services.SampleService1.Migrations
                     b.Property<long>("Id")
                         .ValueGeneratedOnAdd()
                         .HasColumnType("bigint");
+
+                    MySqlPropertyBuilderExtensions.UseMySqlIdentityColumn(b.Property<long>("Id"));
 
                     b.Property<long>("BlogId")
                         .HasColumnType("bigint");

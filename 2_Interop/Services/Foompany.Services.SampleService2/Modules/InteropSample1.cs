@@ -20,10 +20,12 @@ namespace Foompany.Services.SampleService2.Modules
     [API<API.SampleService2.Modules.InteropSample1.Actions>, Profile]
     public class InteropSample1 : FireflyModule
     {
+        //----------------------------------------------------------------------------------------------------------------------------------------------
+
         [InteropBody]
         public void InteropAction(string input)
         {
-            logger.Information("called with input " + input);
+            logger.Information($"called with input={input}");
         }
 
         //----------------------------------------------------------------------------------------------------------------------------------------------
@@ -31,6 +33,7 @@ namespace Foompany.Services.SampleService2.Modules
         [InteropBody]
         public string InteropAction1(models.MyDataModel.Request req)
         {
+            logger.Information($"called with req.InputName= {req.InputName}");
             return $"Hi {req.InputName}";
         }
 
@@ -39,6 +42,7 @@ namespace Foompany.Services.SampleService2.Modules
         [InteropBody]
         public string InteropAction2(string firstname, string surname)
         {
+            logger.Information($"called with firstname={firstname} and surname={surname}");
             return $"Hi {firstname} {surname}";
         }
 

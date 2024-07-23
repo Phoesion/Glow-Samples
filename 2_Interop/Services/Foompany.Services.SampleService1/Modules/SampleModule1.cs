@@ -27,12 +27,23 @@ namespace Foompany.Services.SampleService1.Modules
         [ActionBody(Methods.GET)]
         public async Task<string> Action1()
         {
+            //prepare dto
             var req = new models.MyDataModel.Request()
             {
                 InputName = "George",
             };
+
+            //logging
+            logger.Information("Calling SampleService 2 with input name = George");
+
+            //call remote action
             var result = await Call(API.SampleService2.Modules.InteropSample1.Actions.InteropAction1, req)
-                                .WithCancellationToken(Context.CancellationToken); // chain cancellation request to remote service                                
+                                .WithCancellationToken(Context.CancellationToken); // chain cancellation request to remote service
+
+            //logging
+            logger.Information($"Got SampleService2 result : {result}");
+
+            //return result
             return $"Service 2 said '{result}'";
         }
 
