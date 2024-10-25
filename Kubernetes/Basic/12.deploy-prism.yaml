@@ -65,7 +65,9 @@ spec:
           envFrom:
             - secretRef:
                 name: prism-authkey
+
 ---
+	
 apiVersion: v1
 kind: Service
 metadata:

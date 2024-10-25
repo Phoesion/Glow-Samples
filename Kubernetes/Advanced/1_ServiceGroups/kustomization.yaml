@@ -4,8 +4,8 @@ resources:
 - ./01.setup-storage.yaml
 - ./02.setup-secrets.yaml
 - ./03.setup-roles.yaml
-- ./10.deploy-kaleidoscope.yml
-- ./11.deploy-lighthouse.yml
-- ./12.deploy-prism.yml
+- ./10.deploy-kaleidoscope.yaml
+- ./11.deploy-lighthouse.yaml
+- ./12.deploy-prism.yaml
 - ./13.deploy-firefly.k8s.operator.yaml
 - ./14.deploy-firefly.k8s.operator-MyGroup.yaml

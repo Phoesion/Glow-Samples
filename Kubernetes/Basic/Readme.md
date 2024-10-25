@@ -17,8 +17,8 @@ To setup Phoesion Glow in Kubernetes, you need the four entity types *(as Kubern
 
 
 ### How to run
-- Copy **02.setup-secrets___SAMPLE!!.yaml** to a new **02.deploy-secrets.yaml** file
-- Generate **Entity AuthKey** from **Blaze** tools for each entity and copy-paste them in to its respective entry in the new **02.deploy-secrets.yaml** file.
+- Copy **02.setup-secrets___SAMPLE!!.yaml** to a new **02.setup-secrets.yaml** file
+- Generate **Entity AuthKey** from **Blaze** tools for each entity and copy-paste them in to its respective entry in the new **02.setup-secrets.yaml** file.
 - Run the commands to apply deployments
  ``` sh
  kubectl apply -k .

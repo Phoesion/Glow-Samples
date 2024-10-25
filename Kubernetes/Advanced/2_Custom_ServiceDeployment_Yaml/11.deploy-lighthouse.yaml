@@ -36,15 +36,15 @@ spec:
             - name: LIGHTHOUSE_KaleidoscopeConnectionString
               value: "Host=kaleidoscope"
             - name: LIGHTHOUSE_DefaultUser__Username
-              value: "admin"
+              value: "admin"              
+            - name: LIGHTHOUSE_DefaultUser__Password
+              value: "123qweASD!" #TODO: Change password
             - name: LIGHTHOUSE_DefaultUser__Name
-              value: "Administrator"
+              value: "The Administrator"
             - name: LIGHTHOUSE_DefaultUser__Description
               value: "Default administrator account created from configs"
             - name: LIGHTHOUSE_DefaultUser__Email
-              value: "admin@myorganization.com" #CONFIG: Add email for default user
-            - name: LIGHTHOUSE_DefaultUser__Password
-              value: "123qweASD!" #CONFIG: Change password
+              value: "admin@myorganization.com"
             #- name: LIGHTHOUSE_DefaultUser__SshKey
             #  value: "" #CONFIG: Add public ssh key for default user
             #- name: LIGHTHOUSE_EntityAuthKey
@@ -68,7 +68,9 @@ spec:
 #           resources:
 #             requests:
 #               storage: 32Gi
+
 ---
+	
 apiVersion: v1
 kind: Service
 metadata:
