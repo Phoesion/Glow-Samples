@@ -60,7 +60,7 @@ namespace Foompany.Services.API.Sessions
                 //return result
                 return true;
             }
-            catch (Exception ex) { return false; }
+            catch { return false; }
         }
     }
 }

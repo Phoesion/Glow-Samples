@@ -52,7 +52,7 @@ namespace Foompany.Services.SampleService1.Modules
                                         .WithProgressReportCB((progress, state, status) => logger.Debug("progress report : progress={progress}, state={state}, status={status}", progress, state, status));
                     return $"Service 2 said '{result}'";
                 }
-                catch (OperationCanceledException)
+                catch (PhotonRemoteOperationCancelledException ex)
                 {
                     return $"Operation canceled!";
                 }

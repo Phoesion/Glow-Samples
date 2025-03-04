@@ -27,7 +27,6 @@
 
 @code {
 	[Inject] NavigationManager NavigationManager { get; set; }
-	[Inject] SignOutSessionStateManager SignOutManager { get; set; }
 
     private bool collapseNavMenu = true;
 
@@ -40,7 +39,6 @@
 	
 	private async Task BeginSignOut()
 	{
-		await SignOutManager.SetSignOutState();
-		NavigationManager.NavigateTo("authentication/logout");
+		NavigationManager.NavigateToLogout("authentication/logout");
 	}
 }

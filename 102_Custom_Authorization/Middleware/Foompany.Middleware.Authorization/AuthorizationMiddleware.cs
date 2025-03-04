@@ -19,7 +19,7 @@ namespace Foompany.Middleware.Authorization
             {
                 //get valid bearer value
                 StringValues auth;
-                if (!restReq.Headers.TryGetValue("Authorization", out auth) || auth.Count == 0 || string.IsNullOrWhiteSpace(auth[0]))
+                if (!restReq.TryGetHeaderOrDefault("Authorization", out auth) || auth.Count == 0 || string.IsNullOrWhiteSpace(auth[0]))
                     throw Phoesion.Glow.SDK.PhotonException.Forbidden.WithMessage("No Authorization found");
 
                 //get bearer

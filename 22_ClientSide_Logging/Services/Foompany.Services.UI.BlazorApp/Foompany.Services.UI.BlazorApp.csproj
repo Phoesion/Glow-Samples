@@ -1,15 +1,15 @@
 <Project Sdk="Microsoft.NET.Sdk.BlazorWebAssembly">
 
     <PropertyGroup>
-        <TargetFramework>net8.0</TargetFramework>
+        <TargetFramework>net9.0</TargetFramework>
         <ServiceWorkerAssetsManifest>service-worker-assets.js</ServiceWorkerAssetsManifest>
         <UseBlazorWebAssembly>true</UseBlazorWebAssembly>
     </PropertyGroup>
 
     <!-- Other packages -->
     <ItemGroup>
-        <PackageReference Include="Microsoft.AspNetCore.Components.WebAssembly" Version="8.0.7" />
-        <PackageReference Include="Microsoft.AspNetCore.Components.WebAssembly.DevServer" Version="8.0.7" PrivateAssets="all" />
+        <PackageReference Include="Microsoft.AspNetCore.Components.WebAssembly" Version="9.0.2" />
+        <PackageReference Include="Microsoft.AspNetCore.Components.WebAssembly.DevServer" Version="9.0.2" PrivateAssets="all" />
     </ItemGroup>
 
     <!-- Glow packages -->
@@ -17,8 +17,8 @@
 
     
     <ItemGroup>
-        <PackageReference Include="Phoesion.Glow.SDK.Blazor.WebAssembly" Version="2.0.6" />
-        <PackageReference Include="Phoesion.Glow.SDK.Client.REST" Version="2.0.6" />
+        <PackageReference Include="Phoesion.Glow.SDK.Blazor.WebAssembly" Version="2.1.0-preview4" />
+        <PackageReference Include="Phoesion.Glow.SDK.Client.REST" Version="2.1.0-preview4" />
     </ItemGroup>
     
 

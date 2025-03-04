@@ -8,9 +8,6 @@ namespace Foompany.Services.HelloWorld
     {
         protected override void Configure(IGlowApplicationBuilder app)
         {
-            // Use custom authentication middleware
-            //( this will run for statics files because of the [assembly: RunMiddlewareForStaticFiles] attribute in AssemblyInfo.cs )
-            app.UseMiddleware<Middleware.CustomAuthorizationMiddleware>();
         }
     }
 }

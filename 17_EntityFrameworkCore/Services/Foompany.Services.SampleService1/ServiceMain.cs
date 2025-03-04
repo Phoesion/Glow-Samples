@@ -22,7 +22,11 @@ namespace Foompany.Services.SampleService1
             // Add db context using MySql provider
             var connectionString = Configuration.GetConnectionString("DefaultConnection");
             var serverVersion = ServerVersion.AutoDetect(connectionString);
-            services.AddDbContext<dbSchemaContext>(options => options.UseMySql(connectionString, serverVersion));
+            services.AddDbContext<dbSchemaContext>(options =>
+            {
+                options.UseMySql(connectionString, serverVersion)
+                       .AddGlowMetrics();
+            });
         }
 
         //------------------------------------------------------------------------------------------------------------------------

@@ -79,8 +79,8 @@ namespace Foompany.Services.SampleService1.Modules
          *     the parameters will have the value customerId:3 and bookingId:123ABC
          */
         [ActionBody(Methods.GET)]
-        [ParamMap("/Customer/{customerId}/Booking/{bookingId}")]
-        public string Action4([FromParams] int customerId, [FromParams] string bookingId, [FromQuery] string order)
+        [RouteMap("/Customer/{customerId}/Booking/{bookingId}")]
+        public string Action4([FromRoute] int customerId, [FromRoute] string bookingId, [FromQuery] string order)
         {
             return $"Called Action4 with \r\n" +
                    $"uri params -> customerId:{customerId}, bookingId:{bookingId} \r\n" +

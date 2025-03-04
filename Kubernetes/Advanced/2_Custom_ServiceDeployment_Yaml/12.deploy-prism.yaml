@@ -18,6 +18,9 @@ spec:
       containers:
         - name: prism
           image: phoesion/phoesion.glow.prism
+          resources:
+            requests:
+              memory: "700Mi"
           ports:
             - containerPort: 80
               protocol: TCP
@@ -37,11 +40,6 @@ spec:
             - containerPort: 15002
               protocol: TCP
               name: lhwebui2rv  #Lighthouse WebUI https reverse tcp proxy
-          resources:
-            requests:
-              ephemeral-storage: "4Gi"
-            limits:
-              ephemeral-storage: "16Gi"
           env:
             - name: PRISM_KaleidoscopeConnectionString
               value: "Host=kaleidoscope"

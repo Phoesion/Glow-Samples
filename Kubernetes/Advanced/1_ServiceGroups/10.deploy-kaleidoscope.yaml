@@ -18,6 +18,9 @@ spec:
       containers:
         - name: kaleidoscope
           image: phoesion/phoesion.glow.kaleidoscope
+          resources:
+            requests:
+              memory: "400Mi"
           ports:
             - containerPort: 15010
               protocol: TCP
@@ -25,11 +28,6 @@ spec:
             - containerPort: 15011
               protocol: TCP
               name: ks-cluster
-          resources:
-            requests:
-              ephemeral-storage: "4Gi"
-            limits:
-              ephemeral-storage: "16Gi"
           env:
             - name: KALEIDOSCOPE_ClusterNodes__0
               value: "kaleidoscope"

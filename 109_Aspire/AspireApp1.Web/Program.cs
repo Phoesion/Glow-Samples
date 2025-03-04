@@ -5,9 +5,10 @@ using AspireApp1.Web.Components;
 // This will be the Default service, so it will receive/catch all requests not matched to another service
 [assembly: ServiceName("default")]
 
+// Create Glow web application builder
 var builder = GlowWebApplicationBuilder.CreateBuilder(args);
 
-// Add service defaults & Aspire components.
+// Add service defaults & Aspire client integrations.
 builder.AddServiceDefaults();
 
 // Add services to the container.
@@ -17,30 +18,24 @@ builder.Services.AddRazorComponents()
 builder.Services.AddOutputCache();
 
 builder.Services.AddHttpClient<WeatherApiClient>(client =>
-    {
-        // This URL uses "https+http://" to indicate HTTPS is preferred over HTTP.
-        // Learn more about service discovery scheme resolution at https://aka.ms/dotnet/sdschemes.
-        client.BaseAddress = new("https+http://localhost/");
-    });
+{
+    // This URL uses "https+http://" to indicate HTTPS is preferred over HTTP.
+    // Learn more about service discovery scheme resolution at https://aka.ms/dotnet/sdschemes.
+    client.BaseAddress = new("https+http://localhost");
+});
 
 var app = builder.Build();
 
-/*
- * Not needed in GLOW!
 if (!app.Environment.IsDevelopment())
 {
     app.UseExceptionHandler("/Error", createScopeForErrors: true);
-    // The default HSTS value is 30 days. You may want to change this for production scenarios, see https://aka.ms/aspnetcore-hsts.
-    app.UseHsts();
 }
 
-app.UseHttpsRedirection();
-*/
-
-app.UseStaticFiles();
 app.UseAntiforgery();
 
 app.UseOutputCache();
+
+app.MapStaticAssets();
 
 app.MapRazorComponents<App>()
     .AddInteractiveServerRenderMode();

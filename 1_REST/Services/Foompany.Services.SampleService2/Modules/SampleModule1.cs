@@ -177,7 +177,7 @@ namespace Foompany.Services.SampleService2.Modules
         /// </summary>
         [Action(Methods.GET)]
         public FileStreamResult FileDownloadSample()
-            => new FileStreamResult(Path.Combine("Content", "TextFile.txt"), "text/plain", "SampleTextFile.txt");
+            => new FileStreamResult(Path.Combine("wwwroot", "TextFile.txt"), "text/plain", "SampleTextFile.txt");
 
         //----------------------------------------------------------------------------------------------------------------------------------------------
 
@@ -188,7 +188,7 @@ namespace Foompany.Services.SampleService2.Modules
         public StreamWithMetadata FileDownloadSample2()
         {
             //var stream = new MemoryStream(Encoding.UTF8.GetBytes("Hello world"));
-            var stream = new FileStream(Path.Combine("Content", "TextFile.txt"), FileMode.Open, FileAccess.Read, FileShare.Read);
+            var stream = new FileStream(Path.Combine("wwwroot", "TextFile.txt"), FileMode.Open, FileAccess.Read, FileShare.Read);
             return new StreamWithMetadata(stream, "text/plain").AsAttachment(fileName: "SampleTextFile.txt");
         }
 

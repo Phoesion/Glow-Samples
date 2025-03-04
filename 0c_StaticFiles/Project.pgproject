@@ -1,27 +1,64 @@
 {
-    "ProjectReferences": [],
-    "Services": [
+  "ProjectReferences": [],
+  "Services": [
+    {
+      "IsEnabled": true,
+      "CSProjectFile": "Foompany.Services.HelloWorld\\Foompany.Services.HelloWorld.csproj",
+      "IgnoreDeploymentVersion": false,
+      "IsPrivateService": false,
+      "ServiceHost": "DotNet_Portable",
+      "Containerization": "None",
+      "ContainerOptions": {},
+      "DockerOptions": {},
+      "KubernetesOptions": {},
+      "ImageOptions": {
+        "Build": false,
+        "Push": false
+      },
+      "Builds": [
         {
-            "IsEnabled": true,
-            "CSProjectFile": "Foompany.Services.HelloWorld\\Foompany.Services.HelloWorld.csproj",
-            "ServiceHost": "DotNet",
-            "Builds": [
-                {
-                    "Build": "Win_x64",
-                    "AssemblyFilePath": "Foompany.Services.HelloWorld\\bin\\%BUILD%\\publish\\win-x64\\Foompany.Services.HelloWorld.dll",
-                    "BuildCommands": [
-                        "dotnet publish --framework net8.0 --configuration %BUILD% --runtime win-x64 --self-contained -p:GlowPublishing=true -o \"bin\\%BUILD%\\publish\\win-x64\""
-                    ]
-                },
-                {
-                    "Build": "Linux_x64",
-                    "AssemblyFilePath": "Foompany.Services.HelloWorld\\bin\\%BUILD%\\publish\\linux-x64\\Foompany.Services.HelloWorld.dll",
-                    "BuildCommands": [
-                        "dotnet publish --framework net8.0 --configuration %BUILD% --runtime linux-x64 --self-contained -p:GlowPublishing=true -o \"bin\\%BUILD%\\publish\\linux-x64\""
-                    ]
-                }
-            ]
+          "Build": "Win_x64",
+          "AssemblyFilePath": "Foompany.Services.HelloWorld\\bin\\%BUILD%\\publish\\win-x64\\Foompany.Services.HelloWorld.dll",
+          "BuildCommands": [
+            "dotnet publish --framework net9.0 --configuration %BUILD% --runtime win-x64 --self-contained -p:GlowPublishing=true -o \"bin\\%BUILD%\\publish\\win-x64\""
+          ]
+        },
+        {
+          "Build": "Linux_x64",
+          "AssemblyFilePath": "Foompany.Services.HelloWorld\\bin\\%BUILD%\\publish\\linux-x64\\Foompany.Services.HelloWorld.dll",
+          "BuildCommands": [
+            "dotnet publish --framework net9.0 --configuration %BUILD% --runtime linux-x64 --self-contained -p:GlowPublishing=true -o \"bin\\%BUILD%\\publish\\linux-x64\""
+          ]
         }
-    ],
-    "UrlRewriteRules": []
+      ],
+      "EnvironmentVariables": []
+    },
+    {
+      "IsEnabled": true,
+      "CSProjectFile": "Foompany.Services.StaticFileServiceSample\\Foompany.Services.StaticFileServiceSample.csproj",
+      "IgnoreDeploymentVersion": false,
+      "IsPrivateService": false,
+      "ServiceHost": "DotNet_Portable",
+      "Containerization": "None",
+      "ContainerOptions": {},
+      "DockerOptions": {},
+      "KubernetesOptions": {},
+      "ImageOptions": {
+        "Build": false,
+        "Push": false
+      },
+      "Builds": [
+        {
+          "Build": "AnyCpu",
+          "AssemblyFilePath": "Foompany.Services.StaticFileServiceSample\\bin\\%BUILD%\\publish\\net9.0\\any\\Foompany.Services.StaticFileServiceSample.dll",
+          "BuildCommands": [
+            "glow_delete_dir \"bin\\%BUILD%\\publish\\net9.0\\any\"",
+            "dotnet publish --configuration %BUILD% --framework net9.0 --no-self-contained -p:GlowPublishing=true -o \"bin\\%BUILD%\\publish\\net9.0\\any\" \"$ProjectFilePath$\""
+          ]
+        }
+      ],
+      "EnvironmentVariables": []
+    }
+  ],
+  "UrlRewriteRules": []
 }

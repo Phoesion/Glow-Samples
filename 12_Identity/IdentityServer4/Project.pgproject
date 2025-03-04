@@ -20,14 +20,14 @@
           "Build": "Win_x64",
           "AssemblyFilePath": "Services\\Foompany.Services.AspCoreMvc\\bin\\%BUILD%\\publish\\win-x64\\Foompany.Services.AspCoreMvc.dll",
           "BuildCommands": [
-            "dotnet publish --framework net8.0 --configuration %BUILD% --runtime win-x64 --self-contained -p:GlowPublishing=true -o \"bin\\%BUILD%\\publish\\win-x64\""
+            "dotnet publish --framework net9.0 --configuration %BUILD% --runtime win-x64 --self-contained -p:GlowPublishing=true -o \"bin\\%BUILD%\\publish\\win-x64\""
           ]
         },
         {
           "Build": "Linux_x64",
           "AssemblyFilePath": "Services\\Foompany.Services.AspCoreMvc\\bin\\%BUILD%\\publish\\linux-x64\\Foompany.Services.AspCoreMvc.dll",
           "BuildCommands": [
-            "dotnet publish --framework net8.0 --configuration %BUILD% --runtime linux-x64 --self-contained -p:GlowPublishing=true -o \"bin\\%BUILD%\\publish\\linux-x64\""
+            "dotnet publish --framework net9.0 --configuration %BUILD% --runtime linux-x64 --self-contained -p:GlowPublishing=true -o \"bin\\%BUILD%\\publish\\linux-x64\""
           ]
         }
       ]
@@ -51,14 +51,14 @@
           "Build": "Win_x64",
           "AssemblyFilePath": "Services\\Foompany.Services.FireflyMvc\\bin\\%BUILD%\\publish\\win-x64\\Foompany.Services.FireflyMvc.dll",
           "BuildCommands": [
-            "dotnet publish --framework net8.0 --configuration %BUILD% --runtime win-x64 --self-contained -p:GlowPublishing=true -o \"bin\\%BUILD%\\publish\\win-x64\""
+            "dotnet publish --framework net9.0 --configuration %BUILD% --runtime win-x64 --self-contained -p:GlowPublishing=true -o \"bin\\%BUILD%\\publish\\win-x64\""
           ]
         },
         {
           "Build": "Linux_x64",
           "AssemblyFilePath": "Services\\Foompany.Services.FireflyMvc\\bin\\%BUILD%\\publish\\linux-x64\\Foompany.Services.FireflyMvc.dll",
           "BuildCommands": [
-            "dotnet publish --framework net8.0 --configuration %BUILD% --runtime linux-x64 --self-contained -p:GlowPublishing=true -o \"bin\\%BUILD%\\publish\\linux-x64\""
+            "dotnet publish --framework net9.0 --configuration %BUILD% --runtime linux-x64 --self-contained -p:GlowPublishing=true -o \"bin\\%BUILD%\\publish\\linux-x64\""
           ]
         }
       ]
@@ -82,14 +82,14 @@
           "Build": "Win_x64",
           "AssemblyFilePath": "Services\\Foompany.Services.Identity\\bin\\%BUILD%\\publish\\win-x64\\Foompany.Services.Identity.dll",
           "BuildCommands": [
-            "dotnet publish --framework net8.0 --configuration %BUILD% --runtime win-x64 --self-contained -p:GlowPublishing=true -o \"bin\\%BUILD%\\publish\\win-x64\""
+            "dotnet publish --framework net9.0 --configuration %BUILD% --runtime win-x64 --self-contained -p:GlowPublishing=true -o \"bin\\%BUILD%\\publish\\win-x64\""
           ]
         },
         {
           "Build": "Linux_x64",
           "AssemblyFilePath": "Services\\Foompany.Services.Identity\\bin\\%BUILD%\\publish\\linux-x64\\Foompany.Services.Identity.dll",
           "BuildCommands": [
-            "dotnet publish --framework net8.0 --configuration %BUILD% --runtime linux-x64 --self-contained -p:GlowPublishing=true -o \"bin\\%BUILD%\\publish\\linux-x64\""
+            "dotnet publish --framework net9.0 --configuration %BUILD% --runtime linux-x64 --self-contained -p:GlowPublishing=true -o \"bin\\%BUILD%\\publish\\linux-x64\""
           ]
         }
       ]
@@ -113,14 +113,14 @@
           "Build": "Win_x64",
           "AssemblyFilePath": "Services\\Foompany.Services.JavaScriptClient\\bin\\%BUILD%\\publish\\win-x64\\Foompany.Services.JavaScriptClient.dll",
           "BuildCommands": [
-            "dotnet publish --framework net8.0 --configuration %BUILD% --runtime win-x64 --self-contained -p:GlowPublishing=true -o \"bin\\%BUILD%\\publish\\win-x64\""
+            "dotnet publish --framework net9.0 --configuration %BUILD% --runtime win-x64 --self-contained -p:GlowPublishing=true -o \"bin\\%BUILD%\\publish\\win-x64\""
           ]
         },
         {
           "Build": "Linux_x64",
           "AssemblyFilePath": "Services\\Foompany.Services.JavaScriptClient\\bin\\%BUILD%\\publish\\linux-x64\\Foompany.Services.JavaScriptClient.dll",
           "BuildCommands": [
-            "dotnet publish --framework net8.0 --configuration %BUILD% --runtime linux-x64 --self-contained -p:GlowPublishing=true -o \"bin\\%BUILD%\\publish\\linux-x64\""
+            "dotnet publish --framework net9.0 --configuration %BUILD% --runtime linux-x64 --self-contained -p:GlowPublishing=true -o \"bin\\%BUILD%\\publish\\linux-x64\""
           ]
         }
       ]
@@ -144,14 +144,14 @@
           "Build": "Win_x64",
           "AssemblyFilePath": "Services\\Foompany.Services.SampleService1\\bin\\%BUILD%\\publish\\win-x64\\Foompany.Services.SampleService1.dll",
           "BuildCommands": [
-            "dotnet publish --framework net8.0 --configuration %BUILD% --runtime win-x64 --self-contained -p:GlowPublishing=true -o \"bin\\%BUILD%\\publish\\win-x64\""
+            "dotnet publish --framework net9.0 --configuration %BUILD% --runtime win-x64 --self-contained -p:GlowPublishing=true -o \"bin\\%BUILD%\\publish\\win-x64\""
           ]
         },
         {
           "Build": "Linux_x64",
           "AssemblyFilePath": "Services\\Foompany.Services.SampleService1\\bin\\%BUILD%\\publish\\linux-x64\\Foompany.Services.SampleService1.dll",
           "BuildCommands": [
-            "dotnet publish --framework net8.0 --configuration %BUILD% --runtime linux-x64 --self-contained -p:GlowPublishing=true -o \"bin\\%BUILD%\\publish\\linux-x64\""
+            "dotnet publish --framework net9.0 --configuration %BUILD% --runtime linux-x64 --self-contained -p:GlowPublishing=true -o \"bin\\%BUILD%\\publish\\linux-x64\""
           ]
         }
       ]
@@ -173,12 +173,12 @@
       "Builds": [
         {
           "Build": "Browser_Wasm",
-          "AssemblyFilePath": "Services\\Foompany.Services.UI.BlazorApp\\bin\\%BUILD%\\publish\\net8.0\\browser-wasm\\Foompany.Services.UI.BlazorApp.dll",
+          "AssemblyFilePath": "Services\\Foompany.Services.UI.BlazorApp\\bin\\%BUILD%\\publish\\net9.0\\browser-wasm\\Foompany.Services.UI.BlazorApp.dll",
           "BuildCommands": [
-            "glow_delete_dir \"bin\\%BUILD%\\publish\\net8.0\\browser-wasm\"",
-            "dotnet publish --configuration %BUILD% --framework net8.0 --self-contained -p:GlowPublishing=true -o \"bin\\%BUILD%\\publish\\net8.0\\browser-wasm\" \"$ProjectFilePath$\"",
-            "glow_copy \"bin\\%BUILD%\\net8.0\\Foompany.Services.UI.BlazorApp.*\" \"bin\\%BUILD%\\publish\\net8.0\\browser-wasm\\\"",
-            "glow_fix_basehref \"bin\\%BUILD%\\publish\\net8.0\\browser-wasm\\wwwroot\\index.html\""
+            "glow_delete_dir \"bin\\%BUILD%\\publish\\net9.0\\browser-wasm\"",
+            "dotnet publish --configuration %BUILD% --framework net9.0 --self-contained -p:GlowPublishing=true -o \"bin\\%BUILD%\\publish\\net9.0\\browser-wasm\" \"$ProjectFilePath$\"",
+            "glow_copy \"bin\\%BUILD%\\net9.0\\Foompany.Services.UI.BlazorApp.*\" \"bin\\%BUILD%\\publish\\net9.0\\browser-wasm\\\"",
+            "glow_fix_basehref \"bin\\%BUILD%\\publish\\net9.0\\browser-wasm\\wwwroot\\index.html\""
           ]
         }
       ]

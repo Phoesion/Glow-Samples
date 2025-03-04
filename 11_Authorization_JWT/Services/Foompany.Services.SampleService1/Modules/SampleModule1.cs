@@ -7,7 +7,7 @@ using System.Linq;
 
 namespace Foompany.Services.SampleService1.Modules
 {
-    [AuthorizeJWT] // <--- Decorate with Authorize attribute
+    [Authorize] // <--- Decorate with Authorize attribute
     [API<API.SampleService1.Modules.SampleModule1.Actions>]
     public class SampleModule1 : FireflyModule
     {

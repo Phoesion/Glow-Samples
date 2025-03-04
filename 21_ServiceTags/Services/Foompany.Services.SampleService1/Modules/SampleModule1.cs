@@ -29,7 +29,7 @@ namespace Foompany.Services.SampleService1.Modules
                                     .WithServiceTag<ServerLocationTag>(region);
                 return $"MyGame service said '{result}'";
             }
-            catch (PhotonException ex)
+            catch
             {
                 throw PhotonException.BadGateway.WithMessage("No available MyGame service found for this region");
             }

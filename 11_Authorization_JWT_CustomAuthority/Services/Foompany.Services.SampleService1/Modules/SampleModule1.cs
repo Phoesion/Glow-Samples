@@ -15,7 +15,7 @@ namespace Foompany.Services.SampleService1.Modules
 
         //----------------------------------------------------------------------------------------------------------------------------------------------
 
-        [AuthorizeJWT] // <--- Decorate this action with Authorize attribute
+        [Authorize] // <--- Decorate this action with Authorize attribute
         [ActionBody(Methods.POST)]
         public string DoTheThing(string input)
         {

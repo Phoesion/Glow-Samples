@@ -20,8 +20,10 @@ spec:
       serviceAccountName: glow-operator
       containers:
         - name: firefly-operator-mygroup
-          image: firefly.k8s.operator:dev
-          imagePullPolicy: Never
+          image: phoesion/phoesion.glow.firefly.k8s.operator
+          resources:
+            requests:
+              memory: "300Mi"
           env:
             - name: POD_NAMESPACE
               valueFrom:
@@ -40,13 +42,6 @@ spec:
           ports:
             - containerPort: 14000
               name: p2p
-          resources:
-            limits:
-              cpu: 100m
-              memory: 256Mi
-            requests:
-              cpu: 100m
-              memory: 64Mi              
       terminationGracePeriodSeconds: 20
       automountServiceAccountToken: true 
 

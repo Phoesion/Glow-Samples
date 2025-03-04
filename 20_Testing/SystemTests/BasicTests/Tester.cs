@@ -41,14 +41,14 @@ namespace BasicTests
         {
             //stop Services
             Debug.WriteLine("Stopping services...");
-            await Task.WhenAll(Debugger_SampleService1.DisposeAsync(),
-                               Debugger_SampleService2.DisposeAsync());
+            await Task.WhenAll(Debugger_SampleService1.DisposeAsync().AsTask(),
+                               Debugger_SampleService2.DisposeAsync().AsTask());
             Debug.WriteLine("Services stopped!");
         }
 
         //helper method to build assembly file path
         static string buildFilePath(string asmName)
-            => Path.Combine("..", "..", "..", "..", "..", "Services", asmName, "bin", "Debug", "net8.0", $"{asmName}.dll");
-        //     plain-text path : "..\..\..\..\..\Services\{asmName}\bin\Debug\net8.0\{asmName}.dll"
+            => Path.Combine("..", "..", "..", "..", "..", "Services", asmName, "bin", "Debug", "net9.0", $"{asmName}.dll");
+        //     plain-text path : "..\..\..\..\..\Services\{asmName}\bin\Debug\net9.0\{asmName}.dll"
     }
 }

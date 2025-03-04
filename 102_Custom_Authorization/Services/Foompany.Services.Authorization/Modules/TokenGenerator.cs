@@ -26,7 +26,7 @@ namespace Foompany.Services.SampleService1.Modules
             //setup claims
             var claims = new List<Claim>()
             {
-                new Claim (JwtRegisteredClaimNames.Jti, Guid.NewGuid().ToString()),
+                new Claim (JwtRegisteredClaimNames.Jti, Guid.CreateVersion7().ToString()),
                 new Claim (JwtRegisteredClaimNames.Email, email),
                 new Claim (JwtRegisteredClaimNames.Sub, userid.ToString())
             };
