@@ -9,7 +9,7 @@
 
     <ItemGroup>
         <PackageReference Include="GraphQL" Version="8.4.1" />
-        <PackageReference Include="Microsoft.Extensions.DependencyInjection.Abstractions" Version="9.0.2" />
+        <PackageReference Include="Microsoft.Extensions.DependencyInjection.Abstractions" Version="9.0.3" />
     </ItemGroup>
 
 </Project>
