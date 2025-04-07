@@ -14,11 +14,11 @@
 
     
     <ItemGroup>
-        <PackageReference Include="Phoesion.Glow.SDK.Firefly" Version="2.1.4" />
-        <PackageReference Include="Phoesion.Glow.SDK.AspAdapter" Version="2.1.4" />
-        <PackageReference Include="Phoesion.Glow.SDK.Firefly.OData" Version="2.1.4" />
-        <PackageReference Include="Phoesion.Glow.SDK.Firefly.SrvHost.DotNet.AppHost" Version="2.1.4" />
-        <PackageReference Include="Phoesion.Glow.SDK.ReactorDebugger" Version="2.1.4" Condition="'$(GlowPublishing)'!='true'"/>
+        <PackageReference Include="Phoesion.Glow.SDK.Firefly" Version="2.1.5" />
+        <PackageReference Include="Phoesion.Glow.SDK.AspAdapter" Version="2.1.5" />
+        <PackageReference Include="Phoesion.Glow.SDK.Firefly.OData" Version="2.1.5" />
+        <PackageReference Include="Phoesion.Glow.SDK.Firefly.SrvHost.DotNet.AppHost" Version="2.1.5" />
+        <PackageReference Include="Phoesion.Glow.SDK.ReactorDebugger" Version="2.1.5" Condition="'$(GlowPublishing)'!='true'"/>
     </ItemGroup>
     
 
