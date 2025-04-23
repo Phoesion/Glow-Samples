@@ -8,16 +8,16 @@
 
     
     <ItemGroup>
-        <PackageReference Include="Phoesion.Glow.SDK.Firefly" Version="2.1.5" />
-        <PackageReference Include="Phoesion.Glow.SDK.Firefly.SrvHost.DotNet.AppHost" Version="2.1.5" />
-        <PackageReference Include="Phoesion.Glow.SDK.ReactorDebugger" Version="2.1.5" Condition="'$(GlowPublishing)'!='true'"/>
+        <PackageReference Include="Phoesion.Glow.SDK.Firefly" Version="2.1.6-preview1" />
+        <PackageReference Include="Phoesion.Glow.SDK.Firefly.SrvHost.DotNet.AppHost" Version="2.1.6-preview1" />
+        <PackageReference Include="Phoesion.Glow.SDK.ReactorDebugger" Version="2.1.6-preview1" Condition="'$(GlowPublishing)'!='true'"/>
     </ItemGroup>
     
 
     <!-- Entity Framework Core dependencies-->
     <ItemGroup>
         <PackageReference Include="Pomelo.EntityFrameworkCore.MySql" Version="9.0.0-preview.3.efcore.9.0.0" />
-        <PackageReference Include="Microsoft.EntityFrameworkCore.Tools" Version="9.0.3">
+        <PackageReference Include="Microsoft.EntityFrameworkCore.Tools" Version="9.0.4">
             <PrivateAssets>all</PrivateAssets>
             <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
         </PackageReference>
