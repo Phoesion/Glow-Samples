@@ -8,16 +8,16 @@
 
     
     <ItemGroup>
-        <PackageReference Include="Phoesion.Glow.SDK.Firefly.Logging.Serilog" Version="2.1.7" />
-        <PackageReference Include="Phoesion.Glow.SDK.AspAdapter" Version="2.1.7" />
-        <PackageReference Include="Phoesion.Glow.SDK.Firefly" Version="2.1.7" />
-        <PackageReference Include="Phoesion.Glow.SDK.Firefly.SrvHost.DotNet.AppHost" Version="2.1.7" />
-        <PackageReference Include="Phoesion.Glow.SDK.ReactorDebugger" Version="2.1.7" Condition="'$(GlowPublishing)'!='true'"/>
+        <PackageReference Include="Phoesion.Glow.SDK.Firefly.Logging.Serilog" Version="2.5" />
+        <PackageReference Include="Phoesion.Glow.SDK.AspAdapter" Version="2.5" />
+        <PackageReference Include="Phoesion.Glow.SDK.Firefly" Version="2.5" />
+        <PackageReference Include="Phoesion.Glow.SDK.Firefly.SrvHost.DotNet.AppHost" Version="2.5" />
+        <PackageReference Include="Phoesion.Glow.SDK.ReactorDebugger" Version="2.5" Condition="'$(GlowPublishing)'!='true'"/>
     </ItemGroup>
     
 
     <ItemGroup>
-        <PackageReference Include="Serilog" Version="4.2.0" />
+        <PackageReference Include="Serilog" Version="4.3.0" />
         <PackageReference Include="Serilog.Extensions.Logging" Version="9.0.1" />
         <PackageReference Include="Serilog.AspNetCore" Version="9.0.0" />
         <PackageReference Include="Serilog.Sinks.Console" Version="6.0.0" />

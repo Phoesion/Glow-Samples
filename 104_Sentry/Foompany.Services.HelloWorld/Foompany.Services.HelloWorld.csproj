@@ -8,15 +8,15 @@
 
     
     <ItemGroup>
-        <PackageReference Include="Phoesion.Glow.SDK.Firefly" Version="2.1.7" />
-        <PackageReference Include="Phoesion.Glow.SDK.AspAdapter" Version="2.1.7" />
-        <PackageReference Include="Phoesion.Glow.SDK.Firefly.SrvHost.DotNet.AppHost" Version="2.1.7" />
-        <PackageReference Include="Phoesion.Glow.SDK.ReactorDebugger" Version="2.1.7" Condition="'$(GlowPublishing)'!='true'"/>
+        <PackageReference Include="Phoesion.Glow.SDK.Firefly" Version="2.5" />
+        <PackageReference Include="Phoesion.Glow.SDK.AspAdapter" Version="2.5" />
+        <PackageReference Include="Phoesion.Glow.SDK.Firefly.SrvHost.DotNet.AppHost" Version="2.5" />
+        <PackageReference Include="Phoesion.Glow.SDK.ReactorDebugger" Version="2.5" Condition="'$(GlowPublishing)'!='true'"/>
     </ItemGroup>
     
 
     <ItemGroup>
-        <PackageReference Include="Sentry.AspNetCore" Version="5.6.0" />
+        <PackageReference Include="Sentry.AspNetCore" Version="5.8.0" />
     </ItemGroup>
 
 </Project>
