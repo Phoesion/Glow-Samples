@@ -20,7 +20,8 @@ spec:
           image: phoesion/phoesion.glow.prism
           resources:
             requests:
-              memory: "700Mi"
+              memory: "300Mi"
+              ephemeral-storage: "2Gi"
           ports:
             - containerPort: 80
               protocol: TCP
