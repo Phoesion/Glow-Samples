@@ -47,6 +47,7 @@ namespace DesktopAppClient
             openFileDialog1 = new System.Windows.Forms.OpenFileDialog();
             saveFileDialog1 = new System.Windows.Forms.SaveFileDialog();
             groupBox_Commands = new System.Windows.Forms.GroupBox();
+            button4 = new System.Windows.Forms.Button();
             btn_DownloadFile = new System.Windows.Forms.Button();
             btn_UploadFile = new System.Windows.Forms.Button();
             button1 = new System.Windows.Forms.Button();
@@ -174,7 +175,6 @@ namespace DesktopAppClient
             // 
             lst_Log.Anchor = System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right;
             lst_Log.FormattingEnabled = true;
-            lst_Log.ItemHeight = 25;
             lst_Log.Location = new System.Drawing.Point(15, 245);
             lst_Log.Margin = new System.Windows.Forms.Padding(5, 6, 5, 6);
             lst_Log.Name = "lst_Log";
@@ -239,7 +239,7 @@ namespace DesktopAppClient
             btn_TestComplexMsg.Location = new System.Drawing.Point(10, 42);
             btn_TestComplexMsg.Margin = new System.Windows.Forms.Padding(0);
             btn_TestComplexMsg.Name = "btn_TestComplexMsg";
-            btn_TestComplexMsg.Size = new System.Drawing.Size(516, 40);
+            btn_TestComplexMsg.Size = new System.Drawing.Size(368, 40);
             btn_TestComplexMsg.TabIndex = 13;
             btn_TestComplexMsg.Text = "Send Complex Message";
             btn_TestComplexMsg.UseVisualStyleBackColor = true;
@@ -253,6 +253,7 @@ namespace DesktopAppClient
             // 
             groupBox_Commands.Anchor = System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right;
             groupBox_Commands.BackColor = System.Drawing.SystemColors.ControlLight;
+            groupBox_Commands.Controls.Add(button4);
             groupBox_Commands.Controls.Add(btn_DownloadFile);
             groupBox_Commands.Controls.Add(btn_UploadFile);
             groupBox_Commands.Controls.Add(button1);
@@ -268,6 +269,18 @@ namespace DesktopAppClient
             groupBox_Commands.TabIndex = 15;
             groupBox_Commands.TabStop = false;
             groupBox_Commands.Text = "Sample/Test Commands";
+            // 
+            // button4
+            // 
+            button4.Anchor = System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right;
+            button4.Location = new System.Drawing.Point(378, 42);
+            button4.Margin = new System.Windows.Forms.Padding(0);
+            button4.Name = "button4";
+            button4.Size = new System.Drawing.Size(148, 40);
+            button4.TabIndex = 17;
+            button4.Text = "Flood Test";
+            button4.UseVisualStyleBackColor = true;
+            button4.Click += button4_Click;
             // 
             // btn_DownloadFile
             // 
@@ -373,5 +386,6 @@ namespace DesktopAppClient
         private System.Windows.Forms.Button btn_UploadFile;
         private System.Windows.Forms.GroupBox group_Commands;
         private System.Windows.Forms.GroupBox groupBox_Commands;
+        private System.Windows.Forms.Button button4;
     }
 }

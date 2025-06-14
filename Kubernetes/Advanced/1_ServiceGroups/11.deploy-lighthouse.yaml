@@ -22,6 +22,7 @@ spec:
           resources:
             requests:
               memory: "1Gi"
+              ephemeral-storage: "1Gi"
           ports:
             - containerPort: 15000
               protocol: TCP

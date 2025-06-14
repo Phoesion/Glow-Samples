@@ -20,7 +20,7 @@ spec:
           image: phoesion/phoesion.glow.kaleidoscope
           resources:
             requests:
-              memory: "400Mi"
+              memory: "300Mi"
           ports:
             - containerPort: 15010
               protocol: TCP

@@ -221,5 +221,44 @@ namespace DesktopAppClient
             }
             catch (Exception ex) { MessageBox.Show("EXCEPTION : " + ex.Message); }
         }
+
+        private async void button4_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                //send chat msg
+                var req = new msg.SampleComplexMsg.Request()
+                {
+                    Data = "test",
+                    MoreData = new System.Collections.Generic.List<msg.SampleComplexMsg.Request.c_MoreData>()
+                    {
+                         new msg.SampleComplexMsg.Request.c_MoreData()
+                         {
+                              Data1 = "moredata1",
+                              Data2 = 1,
+                         },
+                         new msg.SampleComplexMsg.Request.c_MoreData()
+                         {
+                              Data1 = "moredata2",
+                              Data2 = 2,
+                         }
+                    }
+                };
+                this.Invoke((MethodInvoker)(() => lst_Log.Items.Add("*** started flood test")));
+                int sent = 0, failed = 0;
+                for (int n = 0; n < 1_000_000; n++)
+                {
+                    var result = await Client.Call(api.ComplexMessageSample, req);
+                    if (result != null && result.IsSuccess)
+                        sent++;
+                    else
+                        failed++;
+                }
+                //show result
+                this.Invoke((MethodInvoker)(() => lst_Log.Items.Add($"*** completed flood test. Passed = {sent} , Failed= {failed}")));
+                MessageBox.Show($"Fold test completed. Passed = {sent} , Failed= {failed}");
+            }
+            catch (Exception ex) { MessageBox.Show("EXCEPTION : " + ex.Message); }
+        }
     }
 }

@@ -23,7 +23,7 @@ spec:
           image: phoesion/phoesion.glow.firefly.k8s.operator
           resources:
             requests:
-              memory: "300Mi"
+              memory: "200Mi"
           env:
             - name: POD_NAMESPACE
               valueFrom:
