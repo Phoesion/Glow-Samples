@@ -202,6 +202,7 @@ namespace DesktopAppClient
             catch (Exception ex) { MessageBox.Show("EXCEPTION : " + ex.Message); }
         }
 
+
         private async void btn_DownloadFile_Click(object sender, EventArgs e)
         {
             //show dialog
@@ -213,7 +214,7 @@ namespace DesktopAppClient
                 //get file stream
                 await using var fs = new FileStream(saveFileDialog1.FileName, FileMode.Create, FileAccess.Write);
                 //request stream
-                var dataStream = await Client.Call(api.DownloadFile);
+                await using var dataStream = await Client.Call(api.DownloadFile);
                 //write to file (download)
                 await dataStream.CopyToAsync(fs);
                 //inform

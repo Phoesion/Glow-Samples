@@ -179,8 +179,6 @@ namespace Foompany.Services.SampleService2.Modules
         public FileStreamResult FileDownloadSample()
             => new FileStreamResult(Path.Combine("wwwroot", "TextFile.txt"), "text/plain", "SampleTextFile.txt");
 
-        //----------------------------------------------------------------------------------------------------------------------------------------------
-
         /// <summary> 
         /// File streaming sample 2. Return a Stream with metadata indicating that this is a file
         /// </summary>
@@ -191,6 +189,14 @@ namespace Foompany.Services.SampleService2.Modules
             var stream = new FileStream(Path.Combine("wwwroot", "TextFile.txt"), FileMode.Open, FileAccess.Read, FileShare.Read);
             return new StreamWithMetadata(stream, "text/plain").AsAttachment(fileName: "SampleTextFile.txt");
         }
+
+        /// <summary> 
+        /// File streaming sample. (bigger mp4 file)
+        /// </summary>
+        [Action(Methods.GET)]
+        public FileStreamResult FileDownloadSampleBigMp4()
+            => new FileStreamResult(Path.Combine("wwwroot", "Free_Test_Data_7MB.mp4"), "video/mp4", "Free_Test_Data_7MB.mp4");
+
 
         //----------------------------------------------------------------------------------------------------------------------------------------------
 

@@ -229,7 +229,7 @@ namespace Foompany.Services.ChatService.Modules
         public async Task<Stream> DownloadFile()
         {
             //NOTE: Glow is responsible for disposing the stream
-            return new MemoryStream(FileData);
+            return new MemoryStream(FileData ?? []);
         }
         //----------------------------------------------------------------------------------------------------------------------------------------------
     }
